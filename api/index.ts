@@ -1,8 +1,5 @@
-import express from 'express';
-import serverless from 'serverless-http';
-
-const app = express();
-app.use(express.json());
+// Vercel原生Serverless Functions - 不使用Express
+// 核心API：health、tarot/cards、tarot/reading
 
 // 塔罗牌数据（内存存储）
 const cards = [
@@ -30,19 +27,68 @@ const cards = [
   { id: 'world', name: '世界', nameEn: 'The World', arcana: 'major', number: 21, meaning: '完成，圆满，成就' },
 ];
 
+// CORS响应头
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+// 主处理函数
+export default async function handler(req, res) {
+  // 处理CORS预检
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    return res.status(200).end();
+  }
+
+  // 设置CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  
+  const { url, method } = req;
+  const path = url.split('?')[0];
+
+  try {
+    // 路由分发
+    if (path === '/api/health' && method === 'GET') {
+      return handleHealth(req, res);
+    }
+    
+    if (path === '/api/tarot/cards' && method === 'GET') {
+      return handleCards(req, res);
+    }
+    
+    if (path === '/api/tarot/reading' && method === 'POST') {
+      return handleReading(req, res);
+    }
+    
+    // 404
+    return res.status(404).json({ error: 'Not found' });
+    
+  } catch (error) {
+    console.error('Handler error:', error);
+    return res.status(500).json({ error: 'Server error', message: error.message });
+  }
+}
+
 // 健康检查
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', time: new Date().toISOString() });
-});
+function handleHealth(req, res) {
+  return res.status(200).json({ 
+    status: 'ok', 
+    time: new Date().toISOString() 
+  });
+}
 
 // 获取所有塔罗牌
-app.get('/api/tarot/cards', (req, res) => {
-  res.json(cards);
-});
+function handleCards(req, res) {
+  return res.status(200).json(cards);
+}
 
-// AI解读（直接调用DeepSeek）
-app.post('/api/tarot/reading', async (req, res) => {
-  const { cards: selectedCards, spreadType, question } = req.body;
+// AI解读
+async function handleReading(req, res) {
+  const { cards: selectedCards, spreadType, question } = req.body || {};
   
   const apiKey = process.env.DEEPSEEK_API_KEY;
   
@@ -52,7 +98,7 @@ app.post('/api/tarot/reading', async (req, res) => {
   
   try {
     // 构建提示词
-    const cardInfo = selectedCards.map((c: any, i: number) => 
+    const cardInfo = (selectedCards || []).map((c, i) => 
       `第${i + 1}张：${c.name}（${c.nameEn}）- ${c.meaning}`
     ).join('\n');
     
@@ -85,28 +131,20 @@ ${cardInfo}
       throw new Error(`DeepSeek API error: ${response.status}`);
     }
     
-    const data = await response.json() as any;
+    const data = await response.json();
     const reading = data.choices?.[0]?.message?.content || '无法获取解读结果';
     
-    res.json({ 
+    return res.status(200).json({ 
       reading,
       cards: selectedCards,
       question,
       spreadType,
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Reading error:', error);
-    res.status(500).json({ 
+    return res.status(500).json({ 
       error: 'Failed to generate reading',
       message: error.message 
     });
   }
-});
-
-// 错误处理
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err);
-  res.status(500).json({ error: 'Server error' });
-});
-
-export default serverless(app);
+}

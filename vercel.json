@@ -1,5 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index" }
+  "version": 2,
+  "routes": [
+    { "src": "/api/health", "dest": "/api/index" },
+    { "src": "/api/tarot/cards", "dest": "/api/index" },
+    { "src": "/api/tarot/reading", "dest": "/api/index" },
+    { "src": "/api/(.*)", "dest": "/api/index" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/dist/$1" }
   ]
 }
