@@ -67,5 +67,8 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(500).json({ message: 'Internal server error' });
 });
 
-// Vercel Serverless handler
-export default app;
+// Vercel Serverless handler - must export a function
+export default async (req: any, res: any) => {
+  await connectDB();
+  return app(req, res);
+};
