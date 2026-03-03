@@ -5,9 +5,9 @@ import dotenv from 'dotenv';
 import serverless from 'serverless-http';
 
 // Import routes
-import authRoutes from './routes/auth';
-import readingRoutes from './routes/readings';
-import tarotRoutes from './routes/tarot';
+import authRoutes from './routes/auth.js';
+import readingRoutes from './routes/readings.js';
+import tarotRoutes from './routes/tarot.js';
 
 dotenv.config();
 

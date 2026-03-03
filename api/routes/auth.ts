@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import { User } from '../models/User';
-import { authMiddleware } from '../middleware/auth';
+import { User } from '../models/User.js';
+import { authMiddleware } from '../middleware/auth.js';
 
 const router = Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
