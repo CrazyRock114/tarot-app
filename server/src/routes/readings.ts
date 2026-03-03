@@ -1,70 +1,58 @@
 import { Router } from 'express';
-import jwt from 'jsonwebtoken';
+import { authMiddleware } from '../middleware/auth';
+import { Reading } from '../models/Reading';
 
 const router = Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
-// Mock readings database
-const readings: any[] = [];
-
-// Middleware to verify token
-const authenticate = (req: any, res: any, next: any) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    return res.status(401).json({ error: 'No token provided' });
-  }
-
-  const token = authHeader.split(' ')[1];
+// 获取用户的所有解读记录
+router.get('/', authMiddleware, async (req: any, res) => {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string };
-    req.userId = decoded.userId;
-    next();
-  } catch {
-    res.status(401).json({ error: 'Invalid token' });
+    const readings = await Reading.find({ userId: req.userId })
+      .sort({ createdAt: -1 })
+      .select('-interpretation'); // 不返回完整解读内容，列表页面不需要
+    res.json(readings);
+  } catch (error) {
+    console.error('获取历史记录错误:', error);
+    res.status(500).json({ message: '获取历史记录失败' });
   }
-};
-
-// Get user readings
-router.get('/', authenticate, (req: any, res) => {
-  const userReadings = readings.filter(r => r.userId === req.userId);
-  res.json(userReadings);
 });
 
-// Create reading
-router.post('/', authenticate, (req: any, res) => {
-  const { question, spreadId, cards, interpretation } = req.body;
+// 获取单个解读详情
+router.get('/:id', authMiddleware, async (req: any, res) => {
+  try {
+    const reading = await Reading.findOne({
+      _id: req.params.id,
+      userId: req.userId,
+    });
 
-  const reading = {
-    id: Date.now().toString(),
-    userId: req.userId,
-    question,
-    spreadId,
-    cards,
-    interpretation,
-    createdAt: new Date(),
-  };
+    if (!reading) {
+      return res.status(404).json({ message: '记录不存在' });
+    }
 
-  readings.push(reading);
-  res.status(201).json(reading);
+    res.json(reading);
+  } catch (error) {
+    console.error('获取解读详情错误:', error);
+    res.status(500).json({ message: '获取解读详情失败' });
+  }
 });
 
-// Get single reading
-router.get('/:id', authenticate, (req: any, res) => {
-  const reading = readings.find(r => r.id === req.params.id && r.userId === req.userId);
-  if (!reading) {
-    return res.status(404).json({ error: 'Reading not found' });
-  }
-  res.json(reading);
-});
+// 删除解读记录
+router.delete('/:id', authMiddleware, async (req: any, res) => {
+  try {
+    const result = await Reading.deleteOne({
+      _id: req.params.id,
+      userId: req.userId,
+    });
 
-// Delete reading
-router.delete('/:id', authenticate, (req: any, res) => {
-  const index = readings.findIndex(r => r.id === req.params.id && r.userId === req.userId);
-  if (index === -1) {
-    return res.status(404).json({ error: 'Reading not found' });
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: '记录不存在' });
+    }
+
+    res.json({ message: '删除成功' });
+  } catch (error) {
+    console.error('删除记录错误:', error);
+    res.status(500).json({ message: '删除失败' });
   }
-  readings.splice(index, 1);
-  res.json({ success: true });
 });
 
 export default router;

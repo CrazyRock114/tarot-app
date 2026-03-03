@@ -1,17 +1,27 @@
-import { Link, useLocation } from 'react-router-dom';
-import { Sparkles, BookOpen, Shuffle, User, Menu, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Sparkles, BookOpen, Shuffle, User, Menu, X, History, LogOut, LogIn } from 'lucide-react';
 import { useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { path: '/', name: '首页', icon: Sparkles },
   { path: '/draw', name: '抽牌', icon: Shuffle },
   { path: '/gallery', name: '图鉴', icon: BookOpen },
-  { path: '/profile', name: '我的', icon: User },
 ];
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+    setUserMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-950">
@@ -49,6 +59,64 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                   </Link>
                 );
               })}
+
+              {/* User Menu */}
+              {isAuthenticated ? (
+                <div className="relative ml-2">
+                  <button
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-sm font-medium">
+                      {user?.username?.[0]?.toUpperCase() || 'U'}
+                    </div>
+                    <span className="hidden lg:block">{user?.username}</span>
+                  </button>
+
+                  <AnimatePresence>
+                    {userMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded-xl shadow-xl overflow-hidden"
+                      >
+                        <Link
+                          to="/history"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
+                        >
+                          <History className="w-4 h-4" />
+                          历史记录
+                        </Link>
+                        <Link
+                          to="/profile"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
+                        >
+                          <User className="w-4 h-4" />
+                          个人中心
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-red-600/20 hover:text-red-400 transition-colors text-left"
+                        >
+                          <LogOut className="w-4 h-4" />
+                          退出登录
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="flex items-center gap-2 px-4 py-2 ml-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors"
+                >
+                  <LogIn className="w-4 h-4" />
+                  登录
+                </Link>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -84,6 +152,46 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                   </Link>
                 );
               })}
+              
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    to="/history"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                  >
+                    <History className="w-5 h-5" />
+                    <span>历史记录</span>
+                  </Link>
+                  <Link
+                    to="/profile"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                  >
+                    <User className="w-5 h-5" />
+                    <span>个人中心</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-400/10 transition-colors text-left"
+                  >
+                    <LogOut className="w-5 h-5" />
+                    <span>退出登录</span>
+                  </button>
+                </>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-indigo-600 text-white"
+                >
+                  <LogIn className="w-5 h-5" />
+                  <span>登录</span>
+                </Link>
+              )}
             </div>
           </div>
         )}

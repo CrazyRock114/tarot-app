@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shuffle, Dices, Hash, Sparkles, RotateCcw, ChevronRight } from 'lucide-react';
+import { Shuffle, Dices, Hash, Sparkles, RotateCcw, ChevronRight, MessageCircle } from 'lucide-react';
 import { spreads } from '../../data/tarotData';
 import { drawRandomCards, drawByNumber, drawYesNo } from '../../utils/tarotUtils';
 import type { DrawResult, Spread } from '../../types';
@@ -13,12 +14,14 @@ const drawModes = [
 ];
 
 export const CardDrawing: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedMode, setSelectedMode] = useState<string>('random');
   const [selectedSpread, setSelectedSpread] = useState<Spread>(spreads[0]);
   const [isShuffling, setIsShuffling] = useState(false);
   const [drawnCards, setDrawnCards] = useState<DrawResult[] | null>(null);
   const [luckyNumber, setLuckyNumber] = useState<string>('');
   const [yesNoResult, setYesNoResult] = useState<{ result: 'yes' | 'no' | 'maybe'; draw: DrawResult } | null>(null);
+  const [question, setQuestion] = useState('');
 
   const handleDraw = useCallback(async () => {
     setIsShuffling(true);
@@ -50,6 +53,20 @@ export const CardDrawing: React.FC = () => {
     setDrawnCards(null);
     setYesNoResult(null);
     setLuckyNumber('');
+    setQuestion('');
+  };
+
+  const handleAIInterpret = () => {
+    if (!drawnCards || !question.trim()) return;
+    
+    navigate('/interpretation', {
+      state: {
+        spreadType: selectedMode === 'yesno' ? 'single' : selectedSpread.id,
+        spreadName: selectedMode === 'yesno' ? 'Yes/No' : selectedSpread.name,
+        cards: drawnCards,
+        question: question.trim(),
+      },
+    });
   };
 
   const getYesNoDisplay = (result: 'yes' | 'no' | 'maybe') => {
@@ -104,6 +121,28 @@ export const CardDrawing: React.FC = () => {
                 );
               })}
             </div>
+
+            {/* Question Input */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 p-6 bg-gray-800/50 rounded-xl border border-gray-700"
+            >
+              <label className="block text-white font-medium mb-3 flex items-center gap-2">
+                <MessageCircle className="w-5 h-5 text-indigo-400" />
+                您想询问什么问题？
+              </label>
+              <textarea
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                placeholder="例如：我近期的感情发展会如何？我是否应该接受这份工作？"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+                rows={3}
+              />
+              <p className="text-gray-500 text-sm mt-2">
+                清晰的问题能帮助塔罗牌给出更准确的指引
+              </p>
+            </motion.div>
 
             {/* Spread Selection (for random mode) */}
             {selectedMode === 'random' && (
@@ -171,7 +210,7 @@ export const CardDrawing: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleDraw}
-              disabled={isShuffling || (selectedMode === 'number' && (!luckyNumber || parseInt(luckyNumber) < 1 || parseInt(luckyNumber) > 78))}
+              disabled={isShuffling || !question.trim() || (selectedMode === 'number' && (!luckyNumber || parseInt(luckyNumber) < 1 || parseInt(luckyNumber) > 78))}
               className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isShuffling ? (
@@ -200,6 +239,12 @@ export const CardDrawing: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
+            {/* Question Display */}
+            <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-xl p-4 text-center">
+              <p className="text-gray-400 text-sm mb-1">您的问题</p>
+              <p className="text-white text-lg">{question}</p>
+            </div>
+
             {/* Yes/No Result */}
             {yesNoResult && (
               <div className="text-center">
@@ -282,7 +327,8 @@ export const CardDrawing: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors"
+                onClick={handleAIInterpret}
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-500 hover:to-purple-500 transition-colors shadow-lg shadow-indigo-600/30"
               >
                 <Sparkles className="w-4 h-4" />
                 AI深度解读

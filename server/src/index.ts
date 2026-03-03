@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
 // Import routes
 import authRoutes from './routes/auth';
@@ -11,6 +12,13 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// MongoDB 连接
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/tarot';
+
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log('✅ MongoDB 连接成功'))
+  .catch((err) => console.error('❌ MongoDB 连接失败:', err));
 
 // Middleware
 app.use(cors());

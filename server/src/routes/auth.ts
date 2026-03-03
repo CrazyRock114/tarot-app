@@ -1,95 +1,105 @@
 import { Router } from 'express';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { User } from '../models/User';
+import { authMiddleware } from '../middleware/auth';
 
 const router = Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
 
-// Mock user database (replace with MongoDB in production)
-const users: any[] = [];
-
-// Register
+// 注册
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Check if user exists
-    if (users.find(u => u.email === email)) {
-      return res.status(400).json({ error: 'User already exists' });
+    // 验证输入
+    if (!username || !email || !password) {
+      return res.status(400).json({ message: '请提供所有必填字段' });
     }
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    if (password.length < 6) {
+      return res.status(400).json({ message: '密码至少6位字符' });
+    }
 
-    // Create user
-    const user = {
-      id: Date.now().toString(),
-      username,
-      email,
-      password: hashedPassword,
-      createdAt: new Date(),
-    };
+    // 检查用户是否已存在
+    const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+    if (existingUser) {
+      return res.status(400).json({ 
+        message: existingUser.email === email ? '该邮箱已注册' : '该用户名已被使用' 
+      });
+    }
 
-    users.push(user);
+    // 创建用户
+    const user = new User({ username, email, password });
+    await user.save();
 
-    // Generate token
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
+    // 生成 JWT
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
 
     res.status(201).json({
-      user: { id: user.id, username, email },
       token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        createdAt: user.createdAt,
+      },
     });
   } catch (error) {
-    res.status(500).json({ error: 'Registration failed' });
+    console.error('注册错误:', error);
+    res.status(500).json({ message: '注册失败，请重试' });
   }
 });
 
-// Login
+// 登录
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find user
-    const user = users.find(u => u.email === email);
+    if (!email || !password) {
+      return res.status(400).json({ message: '请提供邮箱和密码' });
+    }
+
+    // 查找用户
+    const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ error: 'Invalid credentials' });
+      return res.status(401).json({ message: '邮箱或密码错误' });
     }
 
-    // Check password
-    const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) {
-      return res.status(400).json({ error: 'Invalid credentials' });
+    // 验证密码
+    const isValidPassword = await user.comparePassword(password);
+    if (!isValidPassword) {
+      return res.status(401).json({ message: '邮箱或密码错误' });
     }
 
-    // Generate token
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
+    // 生成 JWT
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
 
     res.json({
-      user: { id: user.id, username: user.username, email },
       token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        createdAt: user.createdAt,
+      },
     });
   } catch (error) {
-    res.status(500).json({ error: 'Login failed' });
+    console.error('登录错误:', error);
+    res.status(500).json({ message: '登录失败，请重试' });
   }
 });
 
-// Get current user
-router.get('/me', (req, res) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    return res.status(401).json({ error: 'No token provided' });
-  }
-
-  const token = authHeader.split(' ')[1];
+// 获取当前用户信息
+router.get('/me', authMiddleware, async (req: any, res) => {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string };
-    const user = users.find(u => u.id === decoded.userId);
+    const user = await User.findById(req.userId).select('-password');
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).json({ message: '用户不存在' });
     }
-    res.json({ id: user.id, username: user.username, email: user.email });
-  } catch {
-    res.status(401).json({ error: 'Invalid token' });
+    res.json(user);
+  } catch (error) {
+    console.error('获取用户信息错误:', error);
+    res.status(500).json({ message: '获取用户信息失败' });
   }
 });
 
