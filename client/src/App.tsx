@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -7,7 +7,7 @@ import Draw from './pages/Draw';
 import Profile from './pages/Profile';
 import './index.css';
 
-function App() {
+const App: FC = () => {
   return (
     <Router>
       <Layout>

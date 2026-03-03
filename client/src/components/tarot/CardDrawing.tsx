@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { Shuffle, Dices, Hash, Sparkles, RotateCcw, ChevronRight } from 'lucide-react';
 import { spreads } from '../../data/tarotData';
 import { drawRandomCards, drawByNumber, drawYesNo } from '../../utils/tarotUtils';

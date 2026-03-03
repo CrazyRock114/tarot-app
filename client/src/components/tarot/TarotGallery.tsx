@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, X, Sparkles } from 'lucide-react';
+import { Search, X, Sparkles } from 'lucide-react';
 import { allCards, getSuitName } from '../../data/tarotData';
 import type { TarotCard, CardSuit } from '../../types';
 import TarotCardComponent from './TarotCard';

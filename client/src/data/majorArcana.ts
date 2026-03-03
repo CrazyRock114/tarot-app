@@ -1,4 +1,4 @@
-import type { TarotCard, Spread, TarotReader } from '../types';
+import type { TarotCard } from '../types';
 
 // 大阿尔克那 (22张)
 export const majorArcana: TarotCard[] = [
