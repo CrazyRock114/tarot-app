@@ -33,7 +33,9 @@ const Interpretation = () => {
 
     const fetchInterpretation = async () => {
       try {
-        const response = await tarotApi.getReading(
+        console.log('Fetching interpretation...', { spreadType: state.spreadType, cardsCount: state.cards.length });
+        
+        const data = await tarotApi.getReading(
           state.spreadType,
           state.cards.map(c => ({
             card: {
@@ -50,10 +52,11 @@ const Interpretation = () => {
           state.question
         );
 
-        const data = await response.json();
+        console.log('Interpretation received:', { readingLength: data.reading?.length });
         setInterpretation(data.reading || '暂无解读');
         setLoading(false);
       } catch (err: any) {
+        console.error('Fetch interpretation error:', err);
         setError(err.message || '解读失败，请重试');
         setLoading(false);
       }

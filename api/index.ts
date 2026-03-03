@@ -1,6 +1,12 @@
 // Vercel原生Serverless Functions - 不使用Express
 // 核心API：health、tarot/cards、tarot/reading
 
+// 更详细的日志
+const log = (message: string, data?: any) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] ${message}`, data ? JSON.stringify(data) : '');
+};
+
 // 塔罗牌数据（内存存储）
 const cards = [
   { id: 'fool', name: '愚人', nameEn: 'The Fool', arcana: 'major', number: 0, meaning: '新的开始，无限可能，自由奔放' },
@@ -27,25 +33,30 @@ const cards = [
   { id: 'world', name: '世界', nameEn: 'The World', arcana: 'major', number: 21, meaning: '完成，圆满，成就' },
 ];
 
-// CORS响应头
+// CORS响应头 - 支持移动端
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE, PATCH',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, Accept, Origin',
+  'Access-Control-Max-Age': '86400',
 };
 
 // 主处理函数
 export default async function handler(req, res) {
+  log(`Request: ${req.method} ${req.url}`, { headers: req.headers });
+
   // 处理CORS预检
   if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    Object.entries(corsHeaders).forEach(([key, value]) => {
+      res.setHeader(key, value);
+    });
     return res.status(200).end();
   }
 
   // 设置CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  Object.entries(corsHeaders).forEach(([key, value]) => {
+    res.setHeader(key, value);
+  });
   
   const { url, method } = req;
   const path = url.split('?')[0];
@@ -65,10 +76,11 @@ export default async function handler(req, res) {
     }
     
     // 404
-    return res.status(404).json({ error: 'Not found' });
+    log('404 Not Found', { path, method });
+    return res.status(404).json({ error: 'Not found', path, method });
     
   } catch (error) {
-    console.error('Handler error:', error);
+    log('Handler error:', { error: error.message, stack: error.stack });
     return res.status(500).json({ error: 'Server error', message: error.message });
   }
 }
@@ -88,18 +100,37 @@ function handleCards(req, res) {
 
 // AI解读
 async function handleReading(req, res) {
-  const { cards: selectedCards, spreadType, question } = req.body || {};
+  log('handleReading called');
+  
+  // 解析请求体
+  let body;
+  try {
+    body = req.body || {};
+    log('Request body received', { bodyKeys: Object.keys(body) });
+  } catch (parseError) {
+    log('Failed to parse request body', { error: parseError.message });
+    return res.status(400).json({ error: 'Invalid request body', message: parseError.message });
+  }
+  
+  const { cards: selectedCards, spreadType, question } = body;
+  
+  // 验证请求数据
+  if (!selectedCards || !Array.isArray(selectedCards) || selectedCards.length === 0) {
+    log('Invalid cards data', { selectedCards });
+    return res.status(400).json({ error: 'Invalid cards data', message: 'Cards must be a non-empty array' });
+  }
   
   const apiKey = process.env.DEEPSEEK_API_KEY;
   
   if (!apiKey) {
+    log('DeepSeek API key not configured');
     return res.status(500).json({ error: 'DeepSeek API key not configured' });
   }
   
   try {
     // 构建提示词
     const cardInfo = (selectedCards || []).map((c, i) => {
-      // 支持两种数据格式：嵌套结构 {card: {...}} 和平坦结构 {...}
+      // 支持多种数据格式：嵌套结构 {card: {...}} 和平坦结构 {...}
       const card = c.card || c;
       const name = card.name || '未知';
       const nameEn = card.nameEn || card.name_en || '';
@@ -115,38 +146,55 @@ ${cardInfo}
 
 请用温暖、专业、富有洞察力的中文进行解读。结合每张牌的位置和意义，给出整体分析和建议。语气要鼓励性，但也要诚实。`;
 
-    // 调用 DeepSeek API
-    const response = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [
-          { role: 'system', content: '你是专业的塔罗牌解读师，擅长给出温暖而富有洞察力的解读。' },
-          { role: 'user', content: prompt }
-        ],
-        stream: false,
-      }),
-    });
+    log('Calling DeepSeek API', { promptLength: prompt.length });
+
+    // 调用 DeepSeek API - 添加超时控制
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒超时
     
-    if (!response.ok) {
-      throw new Error(`DeepSeek API error: ${response.status}`);
+    try {
+      const response = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'deepseek-chat',
+          messages: [
+            { role: 'system', content: '你是专业的塔罗牌解读师，擅长给出温暖而富有洞察力的解读。' },
+            { role: 'user', content: prompt }
+          ],
+          stream: false,
+        }),
+        signal: controller.signal,
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        log('DeepSeek API error response', { status: response.status, error: errorText });
+        throw new Error(`DeepSeek API error: ${response.status} - ${errorText}`);
+      }
+      
+      const data = await response.json();
+      const reading = data.choices?.[0]?.message?.content || '无法获取解读结果';
+      
+      log('Reading generated successfully', { readingLength: reading.length });
+      
+      return res.status(200).json({ 
+        reading,
+        cards: selectedCards,
+        question,
+        spreadType,
+      });
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      throw fetchError;
     }
-    
-    const data = await response.json();
-    const reading = data.choices?.[0]?.message?.content || '无法获取解读结果';
-    
-    return res.status(200).json({ 
-      reading,
-      cards: selectedCards,
-      question,
-      spreadType,
-    });
   } catch (error) {
-    console.error('Reading error:', error);
+    log('Reading error', { error: error.message, stack: error.stack });
     return res.status(500).json({ 
       error: 'Failed to generate reading',
       message: error.message 
