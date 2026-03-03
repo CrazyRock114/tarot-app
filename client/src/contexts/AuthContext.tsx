@@ -1,5 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { User } from '../api/tarot';
+import React, { createContext, useContext, useState } from 'react';
+
+// 极简版用户类型
+interface User {
+  id: string;
+  username: string;
+}
 
 interface AuthContextType {
   user: User | null;
@@ -13,22 +18,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading] = useState(false); // 第一版不需要加载
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    const savedUser = localStorage.getItem('user');
-    if (token && savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (e) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-      }
-    }
-    setLoading(false);
-  }, []);
-
+  // 第一版：始终未登录状态，但功能可用
   const login = (token: string, userData: User) => {
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(userData));
@@ -47,7 +39,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         user,
         login,
         logout,
-        isAuthenticated: !!user,
+        isAuthenticated: false, // 第一版始终返回false
         loading,
       }}
     >

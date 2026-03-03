@@ -87,9 +87,8 @@ export const Profile: FC = () => {
             {user?.username?.[0]?.toUpperCase() || 'U'}
           </div>
           <h1 className="text-2xl font-bold text-white">{user?.username}</h1>
-          <p className="text-gray-400 mt-1">{user?.email}</p>
           <p className="text-gray-500 text-sm mt-2">
-            加入时间：{user?.createdAt ? new Date(user.createdAt).toLocaleDateString('zh-CN') : '未知'}
+            第一版暂不支持完整用户功能
           </p>
         </motion.div>
 
