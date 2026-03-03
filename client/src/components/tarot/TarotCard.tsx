@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import type { TarotCard, CardOrientation } from '../../types';
 import { getCardMeaning, getCardKeywords } from '../../utils/tarotUtils';

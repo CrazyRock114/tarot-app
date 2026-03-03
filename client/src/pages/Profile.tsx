@@ -1,7 +1,7 @@
-import React from 'react';
+import type { FC } from 'react';
 import { User, History, Settings, Heart, ChevronRight } from 'lucide-react';
 
-export const Profile: React.FC = () => {
+export const Profile: FC = () => {
   const menuItems = [
     { icon: History, label: '占卜历史', desc: '查看以往的占卜记录' },
     { icon: Heart, label: '收藏牌组', desc: '保存有意义的牌阵' },

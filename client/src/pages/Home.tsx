@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, BookOpen, Shuffle, Sun, Star, Heart } from 'lucide-react';
