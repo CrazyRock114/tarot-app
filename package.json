@@ -1,0 +1,16 @@
+{
+  "name": "tarot-app",
+  "version": "1.0.0",
+  "description": "AI 塔罗占卜平台 - Vercel 部署版",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "vercel-build": "npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
