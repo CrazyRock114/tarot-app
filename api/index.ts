@@ -98,9 +98,14 @@ async function handleReading(req, res) {
   
   try {
     // 构建提示词
-    const cardInfo = (selectedCards || []).map((c, i) => 
-      `第${i + 1}张：${c.name}（${c.nameEn}）- ${c.meaning}`
-    ).join('\n');
+    const cardInfo = (selectedCards || []).map((c, i) => {
+      // 支持两种数据格式：嵌套结构 {card: {...}} 和平坦结构 {...}
+      const card = c.card || c;
+      const name = card.name || '未知';
+      const nameEn = card.nameEn || card.name_en || '';
+      const meaning = card.meaning || card.meanings?.upright || '';
+      return `第${i + 1}张：${name}（${nameEn}）- ${meaning}`;
+    }).join('\n');
     
     const prompt = `你是一位专业的塔罗牌解读师。用户的问题是："${question || '无具体问题'}"
 
