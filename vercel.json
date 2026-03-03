@@ -3,9 +3,5 @@
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index.ts" },
     { "source": "/(.*)", "destination": "/client/dist/index.html" }
-  ],
-  "env": {
-    "JWT_SECRET": "@tarot_jwt_secret",
-    "OPENAI_API_KEY": "@tarot_openai_key"
-  }
+  ]
 }
