@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import serverless from 'serverless-http';
 
 dotenv.config();
 
@@ -27,7 +28,5 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Not found', path: req.path });
 });
 
-// Vercel Serverless handler
-export default async (req: any, res: any) => {
-  return app(req, res);
-};
+// Export wrapped handler for Vercel
+export default serverless(app);
