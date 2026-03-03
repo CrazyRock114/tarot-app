@@ -42,10 +42,10 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// Routes - NOTE: In Vercel, /api prefix is already handled by the function path
-app.use('/auth', authRoutes);
-app.use('/readings', readingRoutes);
-app.use('/tarot', tarotRoutes);
+// Routes - NOTE: In Vercel with rewrites, the full path includes /api prefix
+app.use('/api/auth', authRoutes);
+app.use('/api/readings', readingRoutes);
+app.use('/api/tarot', tarotRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
