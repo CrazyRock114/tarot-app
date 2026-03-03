@@ -1,72 +1,112 @@
 import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import serverless from 'serverless-http';
 
-// Import routes
-import authRoutes from './routes/auth.js';
-import readingRoutes from './routes/readings.js';
-import tarotRoutes from './routes/tarot.js';
-
-dotenv.config();
-
 const app = express();
-
-// Middleware
-app.use(cors());
 app.use(express.json());
 
-// MongoDB connection (with caching for serverless)
-let isConnected = false;
-const connectDB = async () => {
-  if (isConnected) return;
+// 塔罗牌数据（内存存储）
+const cards = [
+  { id: 'fool', name: '愚人', nameEn: 'The Fool', arcana: 'major', number: 0, meaning: '新的开始，无限可能，自由奔放' },
+  { id: 'magician', name: '魔术师', nameEn: 'The Magician', arcana: 'major', number: 1, meaning: '创造力，意志力，显化能力' },
+  { id: 'highpriestess', name: '女祭司', nameEn: 'The High Priestess', arcana: 'major', number: 2, meaning: '直觉，内在智慧，潜意识' },
+  { id: 'empress', name: '皇后', nameEn: 'The Empress', arcana: 'major', number: 3, meaning: '丰饶，创造力，母性关怀' },
+  { id: 'emperor', name: '皇帝', nameEn: 'The Emperor', arcana: 'major', number: 4, meaning: '权威，稳定，结构，控制' },
+  { id: 'hierophant', name: '教皇', nameEn: 'The Hierophant', arcana: 'major', number: 5, meaning: '传统，信仰，精神指引' },
+  { id: 'lovers', name: '恋人', nameEn: 'The Lovers', arcana: 'major', number: 6, meaning: '爱情，选择，和谐关系' },
+  { id: 'chariot', name: '战车', nameEn: 'The Chariot', arcana: 'major', number: 7, meaning: '意志力，胜利，决心前进' },
+  { id: 'strength', name: '力量', nameEn: 'Strength', arcana: 'major', number: 8, meaning: '内在力量，勇气，耐心' },
+  { id: 'hermit', name: '隐士', nameEn: 'The Hermit', arcana: 'major', number: 9, meaning: '内省，独处，寻求真理' },
+  { id: 'wheeloffortune', name: '命运之轮', nameEn: 'Wheel of Fortune', arcana: 'major', number: 10, meaning: '命运转折，变化周期，机遇' },
+  { id: 'justice', name: '正义', nameEn: 'Justice', arcana: 'major', number: 11, meaning: '公正，平衡，因果法则' },
+  { id: 'hangedman', name: '倒吊人', nameEn: 'The Hanged Man', arcana: 'major', number: 12, meaning: '牺牲，新视角，等待时机' },
+  { id: 'death', name: '死神', nameEn: 'Death', arcana: 'major', number: 13, meaning: '结束与转变，新生开始' },
+  { id: 'temperance', name: '节制', nameEn: 'Temperance', arcana: 'major', number: 14, meaning: '平衡，调和，耐心' },
+  { id: 'devil', name: '恶魔', nameEn: 'The Devil', arcana: 'major', number: 15, meaning: '物质束缚，欲望，阴影面' },
+  { id: 'tower', name: '高塔', nameEn: 'The Tower', arcana: 'major', number: 16, meaning: '突然改变，觉醒，打破幻象' },
+  { id: 'star', name: '星星', nameEn: 'The Star', arcana: 'major', number: 17, meaning: '希望，灵感，精神指引' },
+  { id: 'moon', name: '月亮', nameEn: 'The Moon', arcana: 'major', number: 18, meaning: '潜意识，幻觉，直觉' },
+  { id: 'sun', name: '太阳', nameEn: 'The Sun', arcana: 'major', number: 19, meaning: '成功，喜悦，活力' },
+  { id: 'judgement', name: '审判', nameEn: 'Judgement', arcana: 'major', number: 20, meaning: '觉醒，重生，内心呼唤' },
+  { id: 'world', name: '世界', nameEn: 'The World', arcana: 'major', number: 21, meaning: '完成，圆满，成就' },
+];
 
-  const MONGODB_URI = process.env.MONGODB_URI;
-  if (!MONGODB_URI) {
-    console.warn('⚠️  MONGODB_URI not set');
-    return;
-  }
-
-  try {
-    await mongoose.connect(MONGODB_URI);
-    isConnected = true;
-    console.log('✅ MongoDB connected');
-  } catch (err) {
-    console.error('❌ MongoDB connection failed:', err);
-  }
-};
-
-// Connect DB before all routes
-app.use(async (req, res, next) => {
-  await connectDB();
-  next();
-});
-
-// Routes - Vercel routing includes /api prefix
-app.use('/api/auth', authRoutes);
-app.use('/api/readings', readingRoutes);
-app.use('/api/tarot', tarotRoutes);
-
-// Health check
+// 健康检查
 app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-    dbConnected: isConnected,
-  });
+  res.json({ status: 'ok', time: new Date().toISOString() });
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ error: 'Not found', path: req.path });
+// 获取所有塔罗牌
+app.get('/api/tarot/cards', (req, res) => {
+  res.json(cards);
 });
 
-// Error handler
+// AI解读（直接调用DeepSeek）
+app.post('/api/tarot/reading', async (req, res) => {
+  const { cards: selectedCards, spreadType, question } = req.body;
+  
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  
+  if (!apiKey) {
+    return res.status(500).json({ error: 'DeepSeek API key not configured' });
+  }
+  
+  try {
+    // 构建提示词
+    const cardInfo = selectedCards.map((c: any, i: number) => 
+      `第${i + 1}张：${c.name}（${c.nameEn}）- ${c.meaning}`
+    ).join('\n');
+    
+    const prompt = `你是一位专业的塔罗牌解读师。用户的问题是："${question || '无具体问题'}"
+
+抽到的牌阵：${spreadType || '三张牌'}
+
+${cardInfo}
+
+请用温暖、专业、富有洞察力的中文进行解读。结合每张牌的位置和意义，给出整体分析和建议。语气要鼓励性，但也要诚实。`;
+
+    // 调用 DeepSeek API
+    const response = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [
+          { role: 'system', content: '你是专业的塔罗牌解读师，擅长给出温暖而富有洞察力的解读。' },
+          { role: 'user', content: prompt }
+        ],
+        stream: false,
+      }),
+    });
+    
+    if (!response.ok) {
+      throw new Error(`DeepSeek API error: ${response.status}`);
+    }
+    
+    const data = await response.json() as any;
+    const reading = data.choices?.[0]?.message?.content || '无法获取解读结果';
+    
+    res.json({ 
+      reading,
+      cards: selectedCards,
+      question,
+      spreadType,
+    });
+  } catch (error: any) {
+    console.error('Reading error:', error);
+    res.status(500).json({ 
+      error: 'Failed to generate reading',
+      message: error.message 
+    });
+  }
+});
+
+// 错误处理
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Internal server error' });
+  console.error(err);
+  res.status(500).json({ error: 'Server error' });
 });
 
-// Export wrapped handler for Vercel
 export default serverless(app);

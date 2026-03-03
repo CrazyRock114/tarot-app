@@ -7,101 +7,44 @@ const api: AxiosInstance = axios.create({
   },
 });
 
-// 请求拦截器 - 添加 token
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
-
-// 用户类型
-export interface User {
-  id: string;
-  username: string;
-  email: string;
-  createdAt: string;
-}
-
-export interface AuthResponse {
-  token: string;
-  user: User;
-}
-
 // 塔罗牌类型
+export interface TarotCard {
+  id: string;
+  name: string;
+  nameEn: string;
+  arcana: string;
+  number: number;
+  meaning: string;
+}
+
 export interface DrawnCard {
-  card: {
-    id: number;
-    name: string;
-    nameEn: string;
-    meanings: {
-      upright: string;
-      reversed: string;
-    };
-    image?: string;
-  };
+  card: TarotCard;
   position: number;
   orientation: 'upright' | 'reversed';
-  positionName?: string;
-  positionDescription?: string;
 }
 
 export interface ReadingResult {
-  id: string;
-  spreadType: string;
-  spreadName: string;
-  question: string;
-  cards: Array<{
-    cardId: number;
-    cardName: string;
-    position: number;
-    orientation: 'upright' | 'reversed';
-    positionName?: string;
-  }>;
-  interpretation?: string;
-  createdAt: string;
+  reading: string;
+  cards: DrawnCard[];
+  question?: string;
+  spreadType?: string;
 }
 
-// 用户 API
-export const authApi = {
-  register: (username: string, email: string, password: string) =>
-    api.post<AuthResponse>('/auth/register', { username, email, password }),
-  
-  login: (email: string, password: string) =>
-    api.post<AuthResponse>('/auth/login', { email, password }),
-  
-  getProfile: () => api.get<User>('/auth/me'),
-};
-
-// 塔罗牌 API
+// 塔罗牌 API（极简版）
 export const tarotApi = {
-  getSpreads: () => api.get('/tarot/spreads'),
+  // 获取所有塔罗牌
+  getCards: () => api.get<TarotCard[]>('/tarot/cards'),
   
-  interpret: (spreadType: string, cards: any[], question: string) => {
-    return fetch('/api/tarot/interpret', {
+  // AI解读 - 直接调用，不存储历史
+  getReading: (spreadType: string, cards: DrawnCard[], question: string): Promise<Response> => {
+    return fetch('/api/tarot/reading', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token') || ''}`,
       },
       body: JSON.stringify({ spreadType, cards, question }),
     });
   },
-  
-  saveReading: (data: {
-    spreadType: string;
-    spreadName: string;
-    cards: any[];
-    question: string;
-    interpretation: string;
-  }) => api.post('/tarot/readings', data),
-  
-  getReadings: () => api.get<ReadingResult[]>('/tarot/readings'),
-  
-  getReading: (id: string) => api.get<ReadingResult>(`/tarot/readings/${id}`),
-  
-  deleteReading: (id: string) => api.delete(`/readings/${id}`),
 };
 
 export default api;
