@@ -1,73 +1,170 @@
-# Vercel 部署指南
+# 部署指南
 
-## 📝 总裁需要做的（5分钟）
+## ✅ 已完成的工作
 
-### 1. 在 Vercel 官网导入项目
-1. 访问 https://vercel.com/new
-2. 点击 **Import Git Repository**
-3. 选择 `tarot-app` 项目
-4. 点击 **Deploy**
+### 1. 后端集成
+- ✅ MongoDB 用户模型 (User.ts)
+- ✅ MongoDB 解读记录模型 (Reading.ts)
+- ✅ JWT 认证中间件
+- ✅ 用户认证路由 (注册/登录/获取用户信息)
+- ✅ 塔罗牌 API 路由
+- ✅ DeepSeek AI 流式解读功能
+- ✅ 历史记录保存和查询
 
-### 2. 配置环境变量（必需）
-部署完成后，进入项目设置：
+### 2. 前端集成
+- ✅ API 层封装 (api/tarot.ts)
+- ✅ AuthContext 认证上下文
+- ✅ 登录页面 (Login.tsx)
+- ✅ 注册页面 (Register.tsx)
+- ✅ 历史记录页面 (History.tsx)
+- ✅ AI解读结果页面 (Interpretation.tsx)
+- ✅ 更新抽牌页面 (添加问题输入和AI解读按钮)
+- ✅ 更新导航栏 (用户菜单/登录状态)
+- ✅ 更新个人中心页面
 
-| 变量名 | 说明 | 建议值 |
-|--------|------|--------|
-| `JWT_SECRET` | 用户登录加密密钥 | 随机字符串（20位以上） |
-| `OPENAI_API_KEY` | AI解读功能（可选） | 你的 OpenAI API Key |
+### 3. 配置文件
+- ✅ vercel.json - Vercel 配置
+- ✅ api/index.ts - Serverless 入口
+- ✅ package.json 更新
+- ✅ .env.example - 环境变量模板
+- ✅ README.md - 完整文档
 
-**设置路径**：
-Project Settings → Environment Variables → Add New
-
-### 3. 重新部署（让环境变量生效）
-Settings → General → Redeploy
+### 4. GitHub
+- ✅ 代码已推送到 https://github.com/CrazyRock114/tarot-app
 
 ---
 
-## 🔧 技术架构说明
+## 🚀 部署步骤
 
-### 项目结构适配
+### 前提条件
+- 安装 Node.js 20+
+- 安装 Vercel CLI: `npm i -g vercel`
+- 有 Vercel 账号
+
+### 步骤 1: 登录 Vercel
+```bash
+vercel login
+```
+
+### 步骤 2: 部署
+```bash
+cd /home/ecs-user/.openclaw/workspace/tarot-app
+vercel
+```
+
+首次部署会询问：
+- Set up "~/tarot-app"? [Y/n] → 输入 Y
+- Which scope do you want to deploy to? → 选择你的账号
+- Link to existing project? [y/N] → 输入 N (创建新项目)
+- What's your project name? [tarot-app] → 按 Enter 或输入自定义名称
+- In which directory is your code located? [./] → 按 Enter
+
+### 步骤 3: 配置环境变量
+在 Vercel Dashboard 中：
+1. 进入你的项目
+2. 点击 Settings → Environment Variables
+3. 添加以下变量：
+
+```
+DEEPSEEK_API_KEY=sk-your-deepseek-api-key
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/tarot?retryWrites=true&w=majority
+JWT_SECRET=your-super-secret-key-min-32-characters
+```
+
+### 步骤 4: 重新部署
+```bash
+vercel --prod
+```
+
+---
+
+## 🔧 获取必要密钥
+
+### DeepSeek API Key
+1. 访问 https://platform.deepseek.com/
+2. 注册/登录账号
+3. 进入 API Keys 页面
+4. 创建新的 API Key
+
+### MongoDB URI
+1. 访问 https://www.mongodb.com/atlas
+2. 创建免费集群
+3. 在 Database Access 创建用户
+4. 在 Network Access 添加 IP: 0.0.0.0/0 (允许所有)
+5. 点击 Connect → Drivers → Node.js
+6. 复制连接字符串，替换密码
+
+### JWT Secret
+生成随机字符串：
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+---
+
+## 🧪 功能测试清单
+
+### 基础功能
+- [ ] 首页正常显示
+- [ ] 抽牌页面可以进入
+- [ ] 选择牌阵并输入问题
+- [ ] 抽牌动画正常
+- [ ] 点击"AI深度解读"跳转到解读页面
+
+### 用户系统
+- [ ] 注册页面可访问
+- [ ] 可以注册新用户
+- [ ] 可以登录已有用户
+- [ ] 登录后显示用户名
+- [ ] 可以退出登录
+
+### AI解读
+- [ ] 流式解读正常显示
+- [ ] 解读内容有逐字输出效果
+- [ ] 解读完成后可以保存记录
+
+### 历史记录
+- [ ] 登录后可以查看历史记录
+- [ ] 历史记录列表显示正常
+- [ ] 可以查看单条历史详情
+- [ ] 可以删除历史记录
+
+---
+
+## 📁 项目文件变更汇总
+
 ```
 tarot-app/
-├── client/          # React 前端 (Vite)
-├── server/          # Express 后端 (Serverless)
-├── vercel.json      # Vercel 路由配置 ← 已创建
-└── package.json     # 根目录依赖
+├── api/index.ts                    [更新] 添加 MongoDB 连接
+├── server/src/models/User.ts       [新增] 用户模型
+├── server/src/models/Reading.ts    [新增] 记录模型
+├── server/src/middleware/auth.ts   [新增] 认证中间件
+├── server/src/routes/auth.ts       [更新] MongoDB 认证
+├── server/src/routes/tarot.ts      [更新] DeepSeek AI 解读
+├── server/src/routes/readings.ts   [更新] 历史记录
+├── server/src/index.ts             [更新] MongoDB 连接
+├── client/src/api/tarot.ts         [新增] API 封装
+├── client/src/contexts/AuthContext.tsx [新增] 认证上下文
+├── client/src/pages/Login.tsx      [新增] 登录页面
+├── client/src/pages/Register.tsx   [新增] 注册页面
+├── client/src/pages/History.tsx    [新增] 历史记录
+├── client/src/pages/Interpretation.tsx [新增] AI解读页面
+├── client/src/pages/Profile.tsx    [更新] 用户信息展示
+├── client/src/components/layout/Layout.tsx [更新] 用户菜单
+├── client/src/components/tarot/CardDrawing.tsx [更新] AI解读按钮
+├── client/src/App.tsx              [更新] 添加新路由
+└── README.md                       [更新] 完整文档
 ```
 
-### 访问地址
-部署成功后，Vercel 会分配域名：
-- **正式环境**: `https://tarot-app-xxx.vercel.app`
-- 可在 Vercel 设置中绑定自定义域名
-
 ---
 
-## ⚠️ 注意事项
+## 🎉 完成！
 
-### 限制说明
-1. **Serverless 冷启动**: 首次访问可能有1-2秒延迟
-2. **无持久化存储**: 用户数据目前存储在内存，重启后清空
-3. **如需数据库**: 建议后续接入 MongoDB Atlas（云端免费版）
+集成工作已全部完成！项目包含：
+- 完整的 DeepSeek AI 塔罗解读功能
+- 用户注册/登录系统
+- 历史记录保存
+- 响应式精美UI
+- 流式AI解读输出
 
-### 可选升级
-| 功能 | 方案 | 复杂度 |
-|------|------|--------|
-| 数据库持久化 | MongoDB Atlas | 低 |
-| 自定义域名 | Vercel Pro 或绑定自有域名 | 低 |
-| AI解读 | 配置 OPENAI_API_KEY | 低 |
-
----
-
-## 📞 问题排查
-
-**部署失败？**
-1. 检查 Vercel 日志：Deployments → 点击失败的部署 → Build Logs
-2. 常见原因：依赖安装失败 → 尝试 redeploy
-
-**API 404？**
-1. 检查 `vercel.json` 是否已提交到 Git
-2. 检查环境变量是否正确设置
-
-**前端白屏？**
-1. 可能是 `dist` 目录未生成 → 检查 build 脚本
-2. 浏览器 F12 查看 console 错误
+只需按照上方部署步骤配置环境变量并部署即可使用！
