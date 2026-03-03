@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AI 塔罗占卜平台 - Vercel 部署版",
   "scripts": {
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build && cp -r dist ../dist"
   },
   "devDependencies": {},
   "engines": {
