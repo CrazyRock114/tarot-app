@@ -4,6 +4,8 @@
 
 **在线演示**: [https://tarot-app-demo.vercel.app](https://tarot-app-demo.vercel.app)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FCrazyRock114%2Ftarot-app&env=DEEPSEEK_API_KEY,MONGODB_URI,JWT_SECRET&envDescription=API%20Keys%20needed%20for%20the%20application&envLink=https%3A%2F%2Fgithub.com%2FCrazyRock114%2Ftarot-app%23environment-variables)
+
 ## 功能特性
 
 - 🔮 **多种抽牌模式**：随机抽牌、幸运数字、Yes/No
