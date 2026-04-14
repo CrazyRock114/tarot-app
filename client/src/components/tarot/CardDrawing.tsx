@@ -1,36 +1,53 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Shuffle, Dices, Hash, Sparkles, RotateCcw, ChevronRight, MessageCircle } from 'lucide-react';
 import { spreads } from '../../data/tarotData';
 import { drawRandomCards, drawByNumber, drawYesNo } from '../../utils/tarotUtils';
 import type { DrawResult, Spread } from '../../types';
 import TarotCardComponent from './TarotCard';
-
-const drawModes = [
-  { id: 'random', name: '随机抽牌', icon: Shuffle, desc: '模拟真实洗牌抽牌，带动态翻牌效果' },
-  { id: 'number', name: '幸运数字', icon: Hash, desc: '输入1-78数字，关联选牌' },
-  { id: 'yesno', name: 'Yes/No', icon: Dices, desc: '针对简单问题快速决策' },
-];
+import ShuffleAnimation from './ShuffleAnimation';
 
 export const CardDrawing: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const drawModes = [
+    { id: 'random', name: t('draw.randomDraw'), icon: Shuffle, desc: t('draw.randomDrawDesc') },
+    { id: 'number', name: t('draw.luckyNumber'), icon: Hash, desc: t('draw.luckyNumberDesc') },
+    { id: 'yesno', name: t('draw.yesNo'), icon: Dices, desc: t('draw.yesNoDrawDesc') },
+  ];
   const [selectedMode, setSelectedMode] = useState<string>('random');
   const [selectedSpread, setSelectedSpread] = useState<Spread>(spreads[0]);
   const [isShuffling, setIsShuffling] = useState(false);
+  
+  const [showAnimation, setShowAnimation] = useState(false);
   const [drawnCards, setDrawnCards] = useState<DrawResult[] | null>(null);
   const [luckyNumber, setLuckyNumber] = useState<string>('');
   const [yesNoResult, setYesNoResult] = useState<{ result: 'yes' | 'no' | 'maybe'; draw: DrawResult } | null>(null);
   const [question, setQuestion] = useState('');
+  const [readingQuota, setReadingQuota] = useState<{ freeLeft: number; cost: number; points: number } | null>(null);
+  const [selectedReader, setSelectedReader] = useState('mystic');
+  
+  const readerList = [
+    { id: 'mystic', name: '月影灵师', emoji: '🌙', desc: t('home.aiReadingDesc'), color: 'from-indigo-600 to-purple-600', avatar: '/readers/mystic.jpg' },
+    { id: 'rational', name: t('readers_data.rational.name'), _name: '苏格拉', emoji: '📊', desc: t('home.aiReadingDesc'), color: 'from-blue-600 to-cyan-600', avatar: '/readers/rational.jpg' },
+    { id: 'warm', name: t('readers_data.warm.name'), _name: '小鹿', emoji: '🌸', desc: t('home.aiReadingDesc'), color: 'from-pink-500 to-rose-500', avatar: '/readers/warm.jpg' },
+    { id: 'punk', name: t('readers_data.punk.name'), _name: 'Rex', emoji: '🔥', desc: t('home.aiReadingDesc'), color: 'from-orange-500 to-red-600', avatar: '/readers/punk.jpg' },
+  ];
 
-  const handleDraw = useCallback(async () => {
-    setIsShuffling(true);
-    setDrawnCards(null);
-    setYesNoResult(null);
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const headers: Record<string, string> = {};
+    if (token) headers['Authorization'] = 'Bearer ' + token;
+    fetch('/api/tarot/reading/check', { headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (data) setReadingQuota(data); })
+      .catch(() => {});
+  }, []);
 
-    // 模拟洗牌动画
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
+  const doActualDraw = useCallback(() => {
     if (selectedMode === 'random') {
       const cards = drawRandomCards(selectedSpread.cardCount);
       setDrawnCards(cards);
@@ -45,9 +62,18 @@ export const CardDrawing: React.FC = () => {
       setYesNoResult(result);
       setDrawnCards([result.draw]);
     }
-
+    setShowAnimation(false);
     setIsShuffling(false);
   }, [selectedMode, selectedSpread, luckyNumber]);
+
+  const handleDraw = useCallback(async () => {
+    setIsShuffling(true);
+    setDrawnCards(null);
+    setYesNoResult(null);
+    
+    // Show full-screen shuffle animation
+    setShowAnimation(true);
+  }, []);
 
   const reset = () => {
     setDrawnCards(null);
@@ -58,6 +84,14 @@ export const CardDrawing: React.FC = () => {
 
   const handleAIInterpret = () => {
     if (!drawnCards || !question.trim()) return;
+    // Refresh quota after interpret
+    const token = localStorage.getItem('token');
+    if (token) {
+      fetch('/api/tarot/reading/check', { headers: { 'Authorization': 'Bearer ' + token } })
+        .then(r => r.ok ? r.json() : null)
+        .then(data => { if (data) setReadingQuota(data); })
+        .catch(() => {});
+    }
     
     navigate('/interpretation', {
       state: {
@@ -65,29 +99,43 @@ export const CardDrawing: React.FC = () => {
         spreadName: selectedMode === 'yesno' ? 'Yes/No' : selectedSpread.name,
         cards: drawnCards,
         question: question.trim(),
+        yesNoResult: yesNoResult?.result || null,
+        readerStyle: selectedReader,
+        readerName: t('readers_data.' + (selectedReader || 'mystic') + '.name'),
       },
     });
   };
 
   const getYesNoDisplay = (result: 'yes' | 'no' | 'maybe') => {
     const displays = {
-      yes: { text: '是 / YES', color: 'text-green-400', bg: 'bg-green-900/30', icon: '✓' },
-      no: { text: '否 / NO', color: 'text-red-400', bg: 'bg-red-900/30', icon: '✗' },
-      maybe: { text: '可能 / MAYBE', color: 'text-yellow-400', bg: 'bg-yellow-900/30', icon: '?' },
+      yes: { text: t('interpretation.yes'), color: 'text-green-400', bg: 'bg-green-900/30', icon: '✓' },
+      no: { text: t('interpretation.no'), color: 'text-red-400', bg: 'bg-red-900/30', icon: '✗' },
+      maybe: { text: t('interpretation.maybe'), color: 'text-yellow-400', bg: 'bg-yellow-900/30', icon: '?' },
     };
     return displays[result];
   };
 
+  const animCardCount = selectedMode === 'random' ? selectedSpread.cardCount : 1;
+
   return (
+    <>
+      <AnimatePresence>
+        {showAnimation && (
+          <ShuffleAnimation
+            cardCount={animCardCount}
+            onComplete={doActualDraw}
+          />
+        )}
+      </AnimatePresence>
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-white mb-2 flex items-center justify-center gap-3">
             <Sparkles className="w-8 h-8 text-yellow-400" />
-            塔罗抽牌
+            {t('draw.title')}
           </h1>
-          <p className="text-gray-400">选择抽牌方式，探索命运的指引</p>
+          <p className="text-gray-400">{t('draw.selectSpread')}</p>
         </div>
 
         {!drawnCards ? (
@@ -130,17 +178,17 @@ export const CardDrawing: React.FC = () => {
             >
               <label className="block text-white font-medium mb-3 flex items-center gap-2">
                 <MessageCircle className="w-5 h-5 text-indigo-400" />
-                您想询问什么问题？
+                {t('draw.enterQuestion')}
               </label>
               <textarea
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
-                placeholder="例如：我近期的感情发展会如何？我是否应该接受这份工作？"
+  placeholder={t('draw.questionPlaceholder')}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
                 rows={3}
               />
               <p className="text-gray-500 text-sm mt-2">
-                清晰的问题能帮助塔罗牌给出更准确的指引
+                {t('draw.questionHint', 'Focus on your question, the cards will guide you')}
               </p>
             </motion.div>
 
@@ -148,8 +196,8 @@ export const CardDrawing: React.FC = () => {
             {selectedMode === 'random' && (
               <div className="mb-8">
                 <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-                  选择牌阵
-                  <span className="text-sm font-normal text-gray-400">共 {spreads.length} 种</span>
+                  {t('draw.selectSpread')}
+                  <span className="text-sm font-normal text-gray-400">{t('draw.totalSpreads', { count: spreads.length })}</span>
                 </h3>
                 <div className="grid md:grid-cols-2 gap-3">
                   {spreads.map((spread) => (
@@ -164,15 +212,15 @@ export const CardDrawing: React.FC = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="text-white font-medium">{spread.name}</div>
-                          <div className="text-gray-400 text-sm">{spread.description}</div>
+                          <div className="text-white font-medium">{t('spreads.' + spread.id + '.name', spread.name)}</div>
+                          <div className="text-gray-400 text-sm">{t('spreads.' + spread.id + '.description', spread.description)}</div>
                         </div>
                         <span className="px-2 py-1 text-xs bg-gray-700 text-gray-300 rounded">
-                          {spread.cardCount}张
+                          {spread.cardCount}{t('draw.cards')}
                         </span>
                       </div>
                       <div className="flex gap-1 mt-2">
-                        {spread.suitableFor.slice(0, 3).map((tag, i) => (
+                        {((t('spreads.' + spread.id + '.suitableFor', { returnObjects: true }) as string[]) || spread.suitableFor).slice(0, 3).map((tag: string, i: number) => (
                           <span key={i} className="text-xs text-gray-500">#{tag}</span>
                         ))}
                       </div>
@@ -189,18 +237,18 @@ export const CardDrawing: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8 p-6 bg-gray-800/50 rounded-xl border border-gray-700"
               >
-                <label className="block text-white font-medium mb-3">输入你的幸运数字 (1-78)</label>
+                <label className="block text-white font-medium mb-3">{t('draw.enterQuestion')}</label>
                 <input
                   type="number"
                   min={1}
                   max={78}
                   value={luckyNumber}
                   onChange={(e) => setLuckyNumber(e.target.value)}
-                  placeholder="例如：7, 22, 56..."
+                  placeholder={t('draw.luckyNumberPlaceholder')}
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white text-lg text-center placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <p className="text-gray-500 text-sm mt-2 text-center">
-                  塔罗牌共78张，大阿尔克那1-22，小阿尔克那23-78
+                  {t('draw.cards')} 1-78
                 </p>
               </motion.div>
             )}
@@ -217,17 +265,17 @@ export const CardDrawing: React.FC = () => {
                 <>
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   >
-                    <Shuffle className="w-5 h-5" />
+                    <Sparkles className="w-5 h-5" />
                   </motion.div>
-                  正在洗牌...
+                  {t('draw.drawing')}
                 </>
               ) : (
                 <>
                   <Sparkles className="w-5 h-5" />
-                  {selectedMode === 'random' ? `开始抽牌 (${selectedSpread.name})` : 
-                   selectedMode === 'number' ? '抽取对应牌' : '寻求答案'}
+                  {selectedMode === 'random' ? `${t('draw.startDraw')} (${t('spreads.' + selectedSpread.id + '.name', selectedSpread.name)})` : 
+                   selectedMode === 'number' ? t('draw.startDraw') : t('draw.yesNo')}
                 </>
               )}
             </motion.button>
@@ -241,7 +289,7 @@ export const CardDrawing: React.FC = () => {
           >
             {/* Question Display */}
             <div className="bg-indigo-900/20 border border-indigo-500/30 rounded-xl p-4 text-center">
-              <p className="text-gray-400 text-sm mb-1">您的问题</p>
+              <p className="text-gray-400 text-sm mb-1">{t('interpretation.yourQuestion')}</p>
               <p className="text-white text-lg">{question}</p>
             </div>
 
@@ -265,11 +313,11 @@ export const CardDrawing: React.FC = () => {
             {/* Spread Positions */}
             {selectedMode === 'random' && selectedSpread.positions.length > 1 && (
               <div className="bg-gray-800/30 rounded-xl p-4">
-                <h3 className="text-white font-semibold mb-4">{selectedSpread.name} 牌阵</h3>
+                <h3 className="text-white font-semibold mb-4">{t('spreads.' + selectedSpread.id + '.name', selectedSpread.name)}</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-sm">
                   {selectedSpread.positions.map((pos) => (
                     <div key={pos.index} className="p-2 bg-gray-800/50 rounded text-center">
-                      <div className="text-indigo-400 font-medium">位置 {pos.index + 1}</div>
+                      <div className="text-indigo-400 font-medium">{t('share.spread')} {pos.index + 1}</div>
                       <div className="text-gray-400 text-xs">{pos.name}</div>
                     </div>
                   ))}
@@ -313,6 +361,39 @@ export const CardDrawing: React.FC = () => {
               ))}
             </div>
 
+            {/* Reader Selection */}
+            <div className="mt-8 mb-4">
+              <h3 className="text-center text-gray-400 text-sm mb-4">{t('draw.selectReader')}</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {readerList.map((reader) => (
+                  <motion.button
+                    key={reader.id}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => setSelectedReader(reader.id)}
+                    className={`relative p-3 rounded-xl border-2 transition-all ${
+                      selectedReader === reader.id
+                        ? 'border-purple-500 bg-purple-900/20 shadow-lg shadow-purple-500/10'
+                        : 'border-gray-700/50 bg-gray-800/30 hover:border-gray-600'
+                    }`}
+                  >
+                    <div className="w-12 h-12 rounded-full overflow-hidden mx-auto mb-2 border-2 border-gray-600">
+                      <img src={reader.avatar} alt={reader.name} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gray-700 text-2xl">' + reader.emoji + '</div>'; }} />
+                    </div>
+                    <div className="text-white text-sm font-medium">{reader.name}</div>
+                    <div className="text-gray-500 text-xs mt-1">{reader.desc}</div>
+                    <a href={`/readers/${reader.id}`} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-xs text-purple-400 mt-1 hover:underline inline-block">{t('readers.viewDetail')} →</a>
+                    {selectedReader === reader.id && (
+                      <motion.div
+                        layoutId="readerCheck"
+                        className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs"
+                      >✓</motion.div>
+                    )}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
             {/* Actions */}
             <div className="flex gap-4 justify-center pt-6">
               <motion.button
@@ -322,7 +403,7 @@ export const CardDrawing: React.FC = () => {
                 className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <RotateCcw className="w-4 h-4" />
-                重新抽牌
+                {t('draw.startDraw')}
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -331,14 +412,29 @@ export const CardDrawing: React.FC = () => {
                 className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-500 hover:to-purple-500 transition-colors shadow-lg shadow-indigo-600/30"
               >
                 <Sparkles className="w-4 h-4" />
-                AI深度解读
+                {t('interpretation.aiInterpretation')}
+                {readingQuota && readingQuota.freeLeft <= 0 && <span className="text-xs opacity-75">(-{readingQuota.cost}{t('membership.pointsUnit')})</span>}
                 <ChevronRight className="w-4 h-4" />
               </motion.button>
             </div>
+            {readingQuota && (
+              <div className="text-center mt-2">
+                <span className="text-gray-500 text-xs">
+                  {(readingQuota as any).anonymous
+                    ? (readingQuota.freeLeft > 0 
+                        ? t('draw.freeLeft', { count: readingQuota.freeLeft }) 
+                        : t('draw.loginForMore'))
+                    : (readingQuota.freeLeft > 0 
+                        ? t('draw.freeLeft', { count: readingQuota.freeLeft }) 
+                        : t('draw.costPoints', { cost: readingQuota.cost }))}
+                </span>
+              </div>
+            )}
           </motion.div>
         )}
       </div>
     </div>
+    </>
   );
 };
 

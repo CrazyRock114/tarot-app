@@ -77,6 +77,48 @@ export const spreads: Spread[] = [
     cardCount: 4,
     suitableFor: ['职业选择', '搬家决定', '重大决策'],
   },
+  {
+    id: 'problem-solving',
+    name: '问题解决',
+    nameEn: 'Problem Solving',
+    description: '分析问题的起因、现状和解决方法',
+    positions: [
+      { index: 0, name: '问题起因', meaning: '导致当前问题的根本原因' },
+      { index: 1, name: '当前状态', meaning: '问题现在的发展阶段' },
+      { index: 2, name: '解决方法', meaning: '建议的应对策略和行动方向' },
+    ],
+    cardCount: 3,
+    suitableFor: ['困境分析', '寻找方法', '突破瓶颈'],
+  },
+  {
+    id: 'career',
+    name: '事业牌阵',
+    nameEn: 'Career Spread',
+    description: '专注探索事业发展、职场挑战和机遇',
+    positions: [
+      { index: 0, name: '当前职业状态', meaning: '你目前的事业处境和能量' },
+      { index: 1, name: '阻碍因素', meaning: '阻碍事业发展的因素' },
+      { index: 2, name: '隐藏机遇', meaning: '你可能忽略的机会' },
+      { index: 3, name: '行动建议', meaning: '推动事业发展的具体行动' },
+      { index: 4, name: '未来展望', meaning: '事业发展的趋势和潜力' },
+    ],
+    cardCount: 5,
+    suitableFor: ['职业发展', '跳槽决策', '创业方向'],
+  },
+  {
+    id: 'diamond',
+    name: '钻石牌阵',
+    nameEn: 'Diamond Spread',
+    description: '万能型事件分析，全面解读起因、现状与未来',
+    positions: [
+      { index: 0, name: '事情起因', meaning: '事件发生的根源和背景' },
+      { index: 1, name: '当前状况', meaning: '事件目前的发展状态' },
+      { index: 2, name: '隐藏影响', meaning: '看不见但影响结果的因素' },
+      { index: 3, name: '最终结果', meaning: '事件的发展方向和结局' },
+    ],
+    cardCount: 4,
+    suitableFor: ['单一事件', '预测未来', '全面分析'],
+  },
 ];
 
 // AI塔罗师
@@ -120,26 +162,28 @@ export const tarotReaders: TarotReader[] = [
 ];
 
 // 获取牌组名称
-export function getSuitName(suit: string): string {
-  const names: Record<string, string> = {
-    major: '大阿尔克那',
-    wands: '权杖',
-    cups: '圣杯',
-    swords: '宝剑',
-    coins: '星币',
+export function getSuitName(suit: string, lang?: string): string {
+  const zhNames: Record<string, string> = {
+    major: '大阿尔克那', wands: '权杖', cups: '圣杯', swords: '宝剑', coins: '星币',
   };
-  return names[suit] || suit;
+  const enNames: Record<string, string> = {
+    major: 'Major Arcana', wands: 'Wands', cups: 'Cups', swords: 'Swords', coins: 'Pentacles',
+  };
+  if (lang && !lang.startsWith('zh')) return enNames[suit] || suit;
+  return zhNames[suit] || suit;
 }
 
 // 获取元素名称
-export function getElementName(element?: string): string {
-  const names: Record<string, string> = {
-    '火': '🔥 火元素',
-    '水': '💧 水元素',
-    '风': '💨 风元素',
-    '土': '🌍 土元素',
+export function getElementName(element?: string, lang?: string): string {
+  const zhNames: Record<string, string> = {
+    '火': '🔥 火元素', '水': '💧 水元素', '风': '💨 风元素', '土': '🌍 土元素', '空气': '🌬️ 空气元素',
   };
-  return element ? (names[element] || element) : '';
+  const enNames: Record<string, string> = {
+    '火': '🔥 Fire', '水': '💧 Water', '风': '🌬️ Air', '土': '🌍 Earth', '空气': '🌬️ Air',
+  };
+  if (!element) return '';
+  if (lang && !lang.startsWith('zh')) return enNames[element] || element;
+  return zhNames[element] || element;
 }
 
 // 搜索牌

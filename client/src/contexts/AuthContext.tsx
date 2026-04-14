@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 interface User {
   id: string;
   username: string;
+  birthday?: string;
 }
 
 interface AuthContextType {

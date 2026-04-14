@@ -1,130 +1,95 @@
-
+import React from 'react';
 import { motion } from 'framer-motion';
-import type { TarotCard, CardOrientation } from '../../types';
-import { getCardMeaning, getCardKeywords } from '../../utils/tarotUtils';
-import { getSuitName, getElementName } from '../../data/tarotData';
+import { useTranslation } from 'react-i18next';
+import type { TarotCard as TarotCardType } from '../../types';
 
 interface TarotCardProps {
-  card: TarotCard;
-  orientation?: CardOrientation;
-  isFlipped?: boolean;
-  isBack?: boolean;
+  card?: TarotCardType;
+  isReversed?: boolean;
+  orientation?: 'upright' | 'reversed';
   onClick?: () => void;
-  size?: 'sm' | 'md' | 'lg';
-  showDetails?: boolean;
   className?: string;
+  showDetails?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-const sizeClasses = {
-  sm: 'w-16 h-28',
-  md: 'w-24 h-40',
-  lg: 'w-48 h-80',
-};
-
-export const TarotCardComponent: React.FC<TarotCardProps> = ({
-  card,
-  orientation = 'upright',
-  isFlipped = false,
-  isBack = false,
-  onClick,
-  size = 'md',
-  showDetails = false,
-  className = '',
+const TarotCard: React.FC<TarotCardProps> = ({ 
+  card, 
+  isReversed = false,
+  orientation,
+  onClick, 
+  className = "", 
+  showDetails = true,
+  size = 'md'
 }) => {
-  const isReversed = orientation === 'reversed';
+  const { t } = useTranslation();
+  
+  // Use orientation prop if provided, otherwise fallback to isReversed
+  const reversed = orientation ? orientation === 'reversed' : isReversed;
 
-  if (isBack) {
+  const sizeClasses = {
+    sm: 'w-24 aspect-[512/917]',
+    md: 'w-32 sm:w-40 aspect-[512/917]',
+    lg: 'w-48 sm:w-56 aspect-[512/917]'
+  };
+
+  if (!card) {
     return (
-      <motion.div
-        className={`${sizeClasses[size]} relative cursor-pointer ${className}`}
+      <div 
+        className={`${sizeClasses[size]} bg-indigo-900/20 border-2 border-indigo-500/30 rounded-xl flex items-center justify-center ${className}`}
         onClick={onClick}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
       >
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 border-2 border-yellow-600/50 shadow-lg flex items-center justify-center">
-          <div className="w-3/4 h-3/4 border border-yellow-600/30 rounded-lg flex items-center justify-center">
-            <div className="text-yellow-600/50 text-4xl">✦</div>
-          </div>
-        </div>
-      </motion.div>
+        <div className="text-indigo-500/50 text-4xl">✦</div>
+      </div>
     );
   }
 
   return (
-    <div className={`${className}`}>
-      <motion.div
-        className={`${sizeClasses[size]} relative cursor-pointer`}
-        onClick={onClick}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
-        style={{ transformStyle: 'preserve-3d' }}
-      >
-        {/* Card Front */}
-        <div
-          className={`absolute inset-0 rounded-xl overflow-hidden shadow-xl bg-gray-900 ${
-            isReversed ? 'rotate-180' : ''
-          }`}
-          style={{ backfaceVisibility: 'hidden' }}
-        >
-          {/* Card Image Placeholder */}
-          <div className="w-full h-3/4 bg-gradient-to-b from-indigo-800 to-purple-900 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-6xl mb-2">
-                {card.suit === 'major' ? '🔮' :
-                 card.suit === 'wands' ? '🔥' :
-                 card.suit === 'cups' ? '💧' :
-                 card.suit === 'swords' ? '⚔️' : '💰'}
-              </div>
-              <div className="text-white/60 text-xs">{card.nameEn}</div>
-            </div>
-          </div>
-          
-          {/* Card Info */}
-          <div className="h-1/4 bg-gray-900 p-2 flex flex-col justify-center">
-            <div className="text-white text-sm font-medium truncate">{card.name}</div>
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-gray-400">{getSuitName(card.suit)}</span>
-              {isReversed && <span className="text-xs text-amber-400">逆位</span>}
-            </div>
-          </div>
+    <motion.div
+      whileHover={onClick ? { scale: 1.05, y: -5 } : {}}
+      whileTap={onClick ? { scale: 0.95 } : {}}
+      onClick={onClick}
+      className={`relative cursor-pointer group ${sizeClasses[size]} ${className}`}
+    >
+      <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+      <div className="relative h-full w-full bg-gray-900 rounded-xl overflow-hidden border-2 border-gray-800 group-hover:border-indigo-500/50 transition-colors duration-300 shadow-2xl">
+        <div className={`w-full h-full ${reversed ? 'rotate-180' : ''}`}>
+          <img
+            src={card.image}
+            alt={card.name}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
-      </motion.div>
-
-      {/* Details */}
-      {showDetails && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-4 p-4 bg-gray-800/50 rounded-lg"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-lg font-semibold text-white">{card.name}</h3>
-            {isReversed && (
-              <span className="px-2 py-0.5 text-xs bg-amber-600/30 text-amber-300 rounded">逆位</span>
-            )}
-          </div>
-          
-          <div className="flex gap-2 mb-3 text-xs">
-            <span className="text-gray-400">{getSuitName(card.suit)}</span>
-            {card.element && <span className="text-gray-500">•</span>}
-            {card.element && <span className="text-purple-400">{getElementName(card.element)}</span>}
-          </div>
-
-          <div className="flex flex-wrap gap-1 mb-3">
-            {getCardKeywords(card, orientation).map((keyword, i) => (
-              <span key={i} className="px-2 py-1 text-xs bg-indigo-600/30 text-indigo-300 rounded">
-                {keyword}
+        {showDetails && (
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+            <div className="text-white font-bold text-sm truncate">{card.name}</div>
+            <div className="text-gray-400 text-xs truncate mb-1">{card.nameEn}</div>
+            <div className="flex items-center gap-1">
+              <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase font-bold ${
+                card.suit === 'major' ? 'bg-purple-600/50 text-purple-200' :
+                card.suit === 'wands' ? 'bg-orange-600/50 text-orange-200' :
+                card.suit === 'cups' ? 'bg-blue-600/50 text-blue-200' :
+                card.suit === 'swords' ? 'bg-cyan-600/50 text-cyan-200' :
+                'bg-yellow-600/50 text-yellow-200'
+              }`}>
+                {card.suit}
               </span>
-            ))}
+              {reversed && (
+                <span className="text-[10px] text-amber-400 font-bold uppercase">{t('draw.reversed')}</span>
+              )}
+            </div>
           </div>
-
-          <p className="text-gray-300 text-sm leading-relaxed">
-            {getCardMeaning(card, orientation)}
-          </p>
-        </motion.div>
-      )}
-    </div>
+        )}
+        {showDetails && reversed && (
+          <div className="absolute top-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-md rounded border border-amber-500/30 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider">{t('draw.reversed')}</span>
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 };
 
-export default TarotCardComponent;
+export default TarotCard;

@@ -14,9 +14,17 @@ export interface TarotCard {
     upright: string[];           // 正位关键词
     reversed: string[];          // 逆位关键词
   };
+  keywordsEn?: {
+    upright: string[];
+    reversed: string[];
+  };
   meanings: {
     upright: string;             // 正位含义
     reversed: string;            // 逆位含义
+  };
+  meaningsEn?: {
+    upright: string;
+    reversed: string;
   };
   description: string;           // 牌面描述
   element?: string;              // 元素

@@ -1,12 +1,14 @@
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, History, Settings, Heart, ChevronRight, LogOut, Sparkles, BookOpen } from 'lucide-react';
+import { User, History, Settings, Heart, ChevronRight, LogOut, Sparkles, BookOpen, Coins , Crown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
 
 export const Profile: FC = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     logout();
@@ -14,9 +16,11 @@ export const Profile: FC = () => {
   };
 
   const menuItems = [
-    { icon: History, label: '占卜历史', desc: '查看以往的占卜记录', path: '/history' },
-    { icon: Heart, label: '收藏牌组', desc: '保存有意义的牌阵', path: '#' },
-    { icon: Settings, label: '设置', desc: '个性化你的体验', path: '#' },
+    { icon: Crown, label: t('profile.membership'), desc: t('profile.membershipDesc'), path: '/membership', vip: true },
+    { icon: Coins, label: t('profile.points'), desc: t('profile.pointsDesc'), path: '/points' },
+    { icon: History, label: t('profile.history'), desc: t('profile.historyDesc'), path: '/history' },
+    { icon: Heart, label: t('profile.favorites'), desc: t('profile.favoritesDesc'), path: '#' },
+    { icon: Settings, label: t('profile.settings'), desc: t('profile.settingsDesc'), path: '#' },
   ];
 
   if (!isAuthenticated) {
@@ -30,9 +34,9 @@ export const Profile: FC = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-indigo-600/20 mb-6">
               <Sparkles className="w-10 h-10 text-indigo-400" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-4">欢迎来到 AI塔罗</h1>
+            <h1 className="text-3xl font-bold text-white mb-4">{t('profile.title')}</h1>
             <p className="text-gray-400 mb-8 max-w-md mx-auto">
-              登录后可以保存您的占卜历史，随时回顾AI解读结果，追踪您的塔罗之旅
+              {t('profile.loginPrompt')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -41,31 +45,31 @@ export const Profile: FC = () => {
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-500 hover:to-purple-500 transition-colors shadow-lg shadow-indigo-600/30"
               >
                 <User className="w-5 h-5" />
-                登录
+                {t('nav.login')}
               </Link>
               <Link
                 to="/register"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors border border-gray-700"
               >
-                创建账号
+                {t('nav.register')}
               </Link>
             </div>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
                 <BookOpen className="w-8 h-8 text-indigo-400 mx-auto mb-3" />
-                <h3 className="text-white font-medium mb-1">78张塔罗牌</h3>
-                <p className="text-gray-500 text-sm">完整的韦特塔罗牌体系</p>
+                <h3 className="text-white font-medium mb-1">{t('gallery.subtitle')}</h3>
+                <p className="text-gray-500 text-sm">{t('gallery.title')}</p>
               </div>
               <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
                 <Sparkles className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <h3 className="text-white font-medium mb-1">AI深度解读</h3>
-                <p className="text-gray-500 text-sm">基于DeepSeek的智能分析</p>
+                <h3 className="text-white font-medium mb-1">{t('home.aiReading')}</h3>
+                <p className="text-gray-500 text-sm">{t('home.aiReadingDesc')}</p>
               </div>
               <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
                 <History className="w-8 h-8 text-pink-400 mx-auto mb-3" />
-                <h3 className="text-white font-medium mb-1">历史记录</h3>
-                <p className="text-gray-500 text-sm">保存并追踪您的占卜历程</p>
+                <h3 className="text-white font-medium mb-1">{t('profile.history')}</h3>
+                <p className="text-gray-500 text-sm">{t('profile.historyDesc')}</p>
               </div>
             </div>
           </motion.div>
@@ -88,7 +92,7 @@ export const Profile: FC = () => {
           </div>
           <h1 className="text-2xl font-bold text-white">{user?.username}</h1>
           <p className="text-gray-500 text-sm mt-2">
-            第一版暂不支持完整用户功能
+            {t('profile.title')}
           </p>
         </motion.div>
 
@@ -100,9 +104,9 @@ export const Profile: FC = () => {
           className="grid grid-cols-3 gap-4 mb-8"
         >
           {[
-            { label: '占卜次数', value: '-' },
-            { label: '收藏牌组', value: '-' },
-            { label: '连续天数', value: '1' },
+            { label: t('history.title'), value: '-' },
+            { label: t('profile.favorites'), value: '-' },
+            { label: t('points.streak'), value: '1' },
           ].map((stat) => (
             <div key={stat.label} className="p-4 bg-gray-800/50 rounded-xl text-center border border-gray-700/50">
               <div className="text-2xl font-bold text-white">{stat.value}</div>
@@ -148,7 +152,7 @@ export const Profile: FC = () => {
           className="w-full flex items-center justify-center gap-2 p-4 bg-red-600/10 text-red-400 rounded-xl hover:bg-red-600/20 transition-colors border border-red-600/20"
         >
           <LogOut className="w-5 h-5" />
-          退出登录
+          {t('nav.logout')}
         </motion.button>
       </div>
     </div>

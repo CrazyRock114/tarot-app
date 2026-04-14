@@ -28,74 +28,207 @@ export interface ReadingResult {
   cards: DrawnCard[];
   question?: string;
   spreadType?: string;
+  readingId?: string;
 }
 
-// 塔罗牌 API（极简版）
+// 塔罗牌 API
 export const tarotApi = {
   // 获取所有塔罗牌
   getCards: () => api.get<TarotCard[]>('/tarot/cards'),
   
-  // AI解读 - 改进错误处理和超时控制
-  getReading: async (spreadType: string, cards: DrawnCard[], question: string): Promise<ReadingResult> => {
+  // AI解读 - SSE流式
+  getReadingStream: async (
+    spreadType: string, 
+    cards: DrawnCard[], 
+    question: string, 
+    save: boolean = true, 
+    userId?: string,
+    onChunk?: (text: string) => void,
+    yesNoResult?: string | null,
+    readerStyle?: string,
+  ): Promise<ReadingResult> => {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 35000); // 35秒超时
+    const timeoutId = setTimeout(() => controller.abort(), 120000); // 120秒超时（流式不会卡住）
     
     try {
+      const token = localStorage.getItem('token');
       const response = await fetch('/api/tarot/reading', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
         },
-        body: JSON.stringify({ spreadType, cards, question }),
+        body: JSON.stringify({ spreadType, cards, question, save, userId, yesNoResult, readerStyle }),
         signal: controller.signal,
       });
       
+      if (!response.ok) {
+        clearTimeout(timeoutId);
+        try {
+          const errData = await response.json();
+          throw new Error(errData.message || errData.error || `HTTP error! status: ${response.status}`);
+        } catch (e) {
+          if ((e as Error).message && !(e as Error).message.includes('JSON')) throw e;
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      }
+
+      const reader = response.body?.getReader();
+      if (!reader) {
+        clearTimeout(timeoutId);
+        throw new Error('No response body');
+      }
+
+      const decoder = new TextDecoder();
+      let fullText = '';
+      let readingId: string | undefined;
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+        
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const dataStr = line.slice(6).trim();
+          if (!dataStr) continue;
+          
+          try {
+            const data = JSON.parse(dataStr);
+            
+            if (data.error) {
+              throw new Error(data.error);
+            }
+            
+            if (data.content) {
+              fullText += data.content;
+              onChunk?.(fullText);
+            }
+            
+            if (data.done && data.readingId) {
+              readingId = data.readingId;
+            }
+          } catch (e) {
+            if ((e as Error).message && !(e as Error).message.includes('JSON')) {
+              throw e;
+            }
+          }
+        }
+      }
+
       clearTimeout(timeoutId);
       
-      // 检查响应状态
-      if (!response.ok) {
-        let errorMessage = `HTTP error! status: ${response.status}`;
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.message || errorData.error || errorMessage;
-        } catch {
-          // 如果不是JSON响应，使用文本
-          const errorText = await response.text();
-          if (errorText) errorMessage = errorText;
-        }
-        throw new Error(errorMessage);
-      }
-      
-      // 解析响应
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Invalid response format: expected JSON');
-      }
-      
-      const data = await response.json();
-      
-      if (!data.reading) {
-        throw new Error('Invalid response: missing reading field');
-      }
-      
-      return data as ReadingResult;
+      return {
+        reading: fullText || '暂无解读',
+        cards,
+        question,
+        spreadType,
+        readingId,
+      };
     } catch (error) {
       clearTimeout(timeoutId);
-      
       const err = error as Error;
       if (err.name === 'AbortError') {
         throw new Error('请求超时，请检查网络连接后重试');
       }
-      
-      // 网络错误处理
       if (err.message === 'Failed to fetch') {
         throw new Error('网络连接失败，请检查网络后重试');
       }
-      
       throw error;
     }
+  },
+
+  // 兼容旧接口（非流式）
+  getReading: async (spreadType: string, cards: DrawnCard[], question: string, save: boolean = true, userId?: string): Promise<ReadingResult> => {
+    return tarotApi.getReadingStream(spreadType, cards, question, save, userId);
   },
 };
 
 export default api;
+
+// Follow-up question API (SSE streaming)
+export const followUpStream = async (
+  readingId: string,
+  question: string,
+  onChunk?: (text: string) => void,
+): Promise<{ answer: string; points?: number }> => {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 60000);
+  
+  try {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`/api/tarot/followup/${readingId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
+      },
+      body: JSON.stringify({ question }),
+      signal: controller.signal,
+    });
+    
+    if (!response.ok) {
+      clearTimeout(timeoutId);
+      try {
+        const errData = await response.json();
+        throw new Error(errData.message || errData.error || `HTTP error! status: ${response.status}`);
+      } catch (e) {
+        if ((e as Error).message && !(e as Error).message.includes('JSON')) throw e;
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    }
+
+    const reader = response.body?.getReader();
+    if (!reader) {
+      clearTimeout(timeoutId);
+      throw new Error('No response body');
+    }
+
+    const decoder = new TextDecoder();
+    let fullText = '';
+    let points: number | undefined;
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
+      
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const dataStr = line.slice(6).trim();
+        if (!dataStr) continue;
+        
+        try {
+          const data = JSON.parse(dataStr);
+          if (data.error) throw new Error(data.error);
+          if (data.content) {
+            fullText += data.content;
+            onChunk?.(fullText);
+          }
+          if (data.done && data.points !== undefined) {
+            points = data.points;
+          }
+        } catch (e) {
+          if ((e as Error).message && !(e as Error).message.includes('JSON')) throw e;
+        }
+      }
+    }
+
+    clearTimeout(timeoutId);
+    return { answer: fullText, points };
+  } catch (error) {
+    clearTimeout(timeoutId);
+    const err = error as Error;
+    if (err.name === 'AbortError') throw new Error('请求超时，请检查网络连接后重试');
+    if (err.message === 'Failed to fetch') throw new Error('网络连接失败，请检查网络后重试');
+    throw error;
+  }
+};

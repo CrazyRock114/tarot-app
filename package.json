@@ -10,7 +10,9 @@
     "dev:server": "cd server && npm run dev",
     "install:all": "npm install && cd client && npm install && cd ../server && npm install"
   },
-  "dependencies": {},
+  "dependencies": {
+    "msedge-tts": "^2.0.4"
+  },
   "devDependencies": {
     "@vercel/node": "^3.2.24",
     "concurrently": "^8.2.2",

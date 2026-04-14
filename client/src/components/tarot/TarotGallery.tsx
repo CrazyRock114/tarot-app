@@ -1,22 +1,28 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Search, X, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { allCards, getSuitName } from '../../data/tarotData';
 import type { TarotCard, CardSuit } from '../../types';
 import TarotCardComponent from './TarotCard';
 
-const suits: { id: CardSuit | 'all'; name: string; icon: string }[] = [
-  { id: 'all', name: '全部', icon: '✨' },
-  { id: 'major', name: '大阿尔克那', icon: '🔮' },
-  { id: 'wands', name: '权杖', icon: '🔥' },
-  { id: 'cups', name: '圣杯', icon: '💧' },
-  { id: 'swords', name: '宝剑', icon: '⚔️' },
-  { id: 'coins', name: '星币', icon: '💰' },
+const getSuits = (t: any): { id: CardSuit | 'all'; name: string; icon: string }[] => [
+  { id: 'all', name: t('gallery.all'), icon: '✨' },
+  { id: 'major', name: t('gallery.majorArcana'), icon: '🔮' },
+  { id: 'wands', name: t('gallery.wands'), icon: '🔥' },
+  { id: 'cups', name: t('gallery.cups'), icon: '💧' },
+  { id: 'swords', name: t('gallery.swords'), icon: '⚔️' },
+  { id: 'coins', name: t('gallery.pentacles'), icon: '💰' },
 ];
 
 export const TarotGallery: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const isZh = i18n.language.startsWith('zh');
+  const suits = getSuits(t);
   const [selectedSuit, setSelectedSuit] = useState<CardSuit | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
   const [selectedCard, setSelectedCard] = useState<TarotCard | null>(null);
 
   const filteredCards = useMemo(() => {
@@ -40,9 +46,9 @@ export const TarotGallery: React.FC = () => {
             <div>
               <h1 className="text-2xl font-bold text-white flex items-center gap-2">
                 <Sparkles className="w-6 h-6 text-yellow-400" />
-                塔罗图鉴
+                {t('gallery.title')}
               </h1>
-              <p className="text-gray-400 text-sm mt-1">探索78张塔罗牌的奥秘</p>
+              <p className="text-gray-400 text-sm mt-1">{t('gallery.subtitle')}</p>
             </div>
 
             {/* Search */}
@@ -50,7 +56,7 @@ export const TarotGallery: React.FC = () => {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input
                 type="text"
-                placeholder="搜索牌名或关键词..."
+                placeholder={t('gallery.search')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full md:w-64 pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -81,7 +87,7 @@ export const TarotGallery: React.FC = () => {
       {/* Cards Grid */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="text-gray-400 text-sm mb-4">
-          共 {filteredCards.length} 张牌
+          {t('gallery.cardCount', { count: filteredCards.length })}
         </div>
         
         <motion.div 
@@ -96,13 +102,13 @@ export const TarotGallery: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                onClick={() => setSelectedCard(card)}
+                onClick={() => navigate(`/gallery/${card.id}`)}
                 className="cursor-pointer"
               >
                 <TarotCardComponent card={card} size="md" />
                 <div className="mt-2 text-center">
-                  <div className="text-white text-sm font-medium truncate">{card.name}</div>
-                  <div className="text-gray-500 text-xs">{getSuitName(card.suit)}</div>
+                  <div className="text-white text-sm font-medium truncate">{isZh ? card.name : (card.nameEn || card.name)}</div>
+                  <div className="text-gray-500 text-xs">{getSuitName(card.suit, i18n.language)}</div>
                 </div>
               </motion.div>
             ))}
@@ -112,7 +118,7 @@ export const TarotGallery: React.FC = () => {
         {filteredCards.length === 0 && (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🔍</div>
-            <p className="text-gray-400">没有找到匹配的牌</p>
+            <p className="text-gray-400">{t('gallery.noResults')}</p>
           </div>
         )}
       </div>
@@ -136,7 +142,7 @@ export const TarotGallery: React.FC = () => {
             >
               {/* Modal Header */}
               <div className="sticky top-0 bg-gray-900 border-b border-gray-800 p-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-white">{selectedCard.name}</h2>
+                <h2 className="text-xl font-bold text-white">{isZh ? selectedCard.name : (selectedCard.nameEn || selectedCard.name)}</h2>
                 <button
                   onClick={() => setSelectedCard(null)}
                   className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
@@ -157,10 +163,10 @@ export const TarotGallery: React.FC = () => {
                   <div className="flex-1">
                     {/* Basic Info */}
                     <div className="mb-4">
-                      <div className="text-gray-400 text-sm mb-1">{selectedCard.nameEn}</div>
+                      <div className="text-gray-400 text-sm mb-1">{isZh ? selectedCard.nameEn : selectedCard.name}</div>
                       <div className="flex gap-2 text-sm">
                         <span className="px-2 py-1 bg-indigo-600/30 text-indigo-300 rounded">
-                          {getSuitName(selectedCard.suit)}
+                          {getSuitName(selectedCard.suit, i18n.language)}
                         </span>
                         {selectedCard.element && (
                           <span className="px-2 py-1 bg-purple-600/30 text-purple-300 rounded">
@@ -172,7 +178,7 @@ export const TarotGallery: React.FC = () => {
 
                     {/* Description */}
                     <div className="mb-6">
-                      <h3 className="text-white font-semibold mb-2">牌面描述</h3>
+                      <h3 className="text-white font-semibold mb-2">{t('gallery.faceDesc')}</h3>
                       <p className="text-gray-400 text-sm leading-relaxed">
                         {selectedCard.description}
                       </p>
@@ -181,7 +187,7 @@ export const TarotGallery: React.FC = () => {
                     {/* Upright Meaning */}
                     <div className="mb-4 p-4 bg-green-900/20 border border-green-800/50 rounded-lg">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-green-400 font-semibold">正位</span>
+                        <span className="text-green-400 font-semibold">{t('draw.upright')}</span>
                         <div className="flex gap-1">
                           {selectedCard.keywords.upright.map((k, i) => (
                             <span key={i} className="text-xs px-2 py-0.5 bg-green-800/50 text-green-300 rounded">
@@ -196,7 +202,7 @@ export const TarotGallery: React.FC = () => {
                     {/* Reversed Meaning */}
                     <div className="p-4 bg-red-900/20 border border-red-800/50 rounded-lg">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-red-400 font-semibold">逆位</span>
+                        <span className="text-red-400 font-semibold">{t('draw.reversed')}</span>
                         <div className="flex gap-1">
                           {selectedCard.keywords.reversed.map((k, i) => (
                             <span key={i} className="text-xs px-2 py-0.5 bg-red-800/50 text-red-300 rounded">

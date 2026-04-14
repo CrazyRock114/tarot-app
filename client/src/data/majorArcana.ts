@@ -13,9 +13,17 @@ export const majorArcana: TarotCard[] = [
       upright: ['新的开始', '冒险', '自由', '潜力'],
       reversed: ['鲁莽', '冒险', '天真', '缺乏计划'],
     },
+    keywordsEn: {
+      upright: ['New Beginnings', 'Adventure', 'Freedom', 'Potential'],
+      reversed: ['Recklessness', 'Risk-taking', 'Naivety', 'Lack of Planning'],
+    },
     meanings: {
       upright: '代表新的开始、冒险精神和无限潜力。愚者正准备踏上未知的旅程，充满乐观和信任。这是追随直觉、拥抱变化的时刻。',
       reversed: '警告不要过于鲁莽或天真。可能暗示缺乏计划、盲目的冒险，或需要更加脚踏实地。提醒你在行动前多思考。',
+    },
+    meaningsEn: {
+      upright: 'Represents new beginnings, a spirit of adventure, and infinite potential. The Fool is about to embark on an unknown journey, full of optimism and trust. It is a time to follow your intuition and embrace change.',
+      reversed: 'Warns against being too reckless or naive. It may suggest a lack of planning, blind risk-taking, or a need to be more grounded. Reminds you to think before you act.',
     },
     description: '一位旅行者站在悬崖边缘，背着小包，准备跃入未知。身旁的小狗陪伴着他，象征本能和忠诚。',
     element: '空气',
@@ -32,9 +40,17 @@ export const majorArcana: TarotCard[] = [
       upright: ['创造力', '意志力', '显化', '能力'],
       reversed: ['欺骗', '操纵', '缺乏信心', '浪费才能'],
     },
+    keywordsEn: {
+      upright: ['Creativity', 'Willpower', 'Manifestation', 'Ability'],
+      reversed: ['Deception', 'Manipulation', 'Lack of Confidence', 'Wasted Talent'],
+    },
     meanings: {
       upright: '你拥有实现目标所需的所有资源和能力。现在是采取行动、将想法显化为现实的时刻。相信自己的力量。',
       reversed: '可能暗示自我怀疑或未能充分利用自己的才能。警惕欺骗或操纵行为，无论是来自他人还是自己。',
+    },
+    meaningsEn: {
+      upright: 'You possess all the resources and abilities needed to achieve your goals. Now is the moment to take action and manifest your ideas into reality. Believe in your own power.',
+      reversed: 'May suggest self-doubt or a failure to fully utilize your talents. Be wary of deception or manipulative behavior, whether from others or yourself.',
     },
     description: '魔术师站在祭坛前，高举权杖指向天空，另一只手指向地面。桌上摆放着代表四种元素的工具。',
     element: '空气',
@@ -51,9 +67,17 @@ export const majorArcana: TarotCard[] = [
       upright: ['直觉', '潜意识', '神秘', '内在智慧'],
       reversed: ['秘密', '被压抑的直觉', '表面化', '困惑'],
     },
+    keywordsEn: {
+      upright: ['Intuition', 'Subconscious', 'Mystery', 'Inner Wisdom'],
+      reversed: ['Secrets', 'Suppressed Intuition', 'Superficiality', 'Confusion'],
+    },
     meanings: {
       upright: '倾听你内在的声音和直觉。女祭司邀请你深入潜意识，探索隐藏的真理。信任你的第六感。',
       reversed: '可能忽视了直觉的指引，过于依赖逻辑。或暗示隐藏的动机和秘密需要被揭露。',
+    },
+    meaningsEn: {
+      upright: 'Listen to your inner voice and intuition. The High Priestess invites you to delve deep into the subconscious to explore hidden truths. Trust your sixth sense.',
+      reversed: 'You may be ignoring the guidance of your intuition and relying too much on logic. Alternatively, it suggests hidden motives and secrets that need to be revealed.',
     },
     description: '女祭司端坐于两柱之间，手持卷轴，脚边是弯月。她连接着意识与潜意识的世界。',
     element: '水',
@@ -70,9 +94,17 @@ export const majorArcana: TarotCard[] = [
       upright: ['丰饶', '母性', '创造力', '自然'],
       reversed: ['依赖', '不孕', '创造力受阻', '忽视自我'],
     },
+    keywordsEn: {
+      upright: ['Abundance', 'Motherhood', 'Creativity', 'Nature'],
+      reversed: ['Dependency', 'Infertility', 'Creative Block', 'Self-neglect'],
+    },
     meanings: {
       upright: '象征丰盛、滋养和创造力的流动。关注你的感官享受，与大自然连接，允许自己接受美好。',
       reversed: '可能过度依赖他人或忽视自己的需求。创造力受阻，需要重新连接内在的女性能量。',
+    },
+    meaningsEn: {
+      upright: 'Symbolizes abundance, nourishment, and the flow of creativity. Focus on your sensory pleasures, connect with nature, and allow yourself to receive goodness.',
+      reversed: 'May indicate over-dependence on others or neglecting your own needs. Creativity is blocked, and there is a need to reconnect with your inner feminine energy.',
     },
     description: '皇后安坐在丰收的麦田中，周围环绕着自然的美景。她代表着母性的滋养和丰饶。',
     element: '土',
@@ -89,11 +121,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['权威', '结构', '控制', '父性'],
       reversed: ['专制', '僵化', '缺乏纪律', '滥用权力'],
     },
+    keywordsEn: {
+      upright: ['Authority', 'Structure', 'Control', 'Fatherhood'],
+      reversed: ['Tyranny', 'Rigidity', 'Lack of Discipline', 'Abuse of Power'],
+    },
     meanings: {
       upright: '建立秩序和结构，发挥领导力。皇帝代表稳定、纪律和实际的智慧。制定计划并坚定执行。',
       reversed: '警惕过度控制或僵化。可能暗示权威问题，或需要打破旧有的限制模式。',
     },
-    description: '皇帝端坐于石座之上，手持权杖和球体，身后是雄伟的山脉。他象征着世俗权力和稳定。',
+    meaningsEn: {
+      upright: 'Establish order and structure, and exert leadership. The Emperor represents stability, discipline, and practical wisdom. Create a plan and execute it firmly.',
+      reversed: 'Beware of over-control or rigidity. It may suggest issues with authority or a need to break out of old, restrictive patterns.',
+    },
+    description: '皇帝端坐于石座之上，手持权杖 and 球体，身后是雄伟的山脉。他象征着世俗权力和稳定。',
     element: '火',
     planet: '火星',
     zodiac: '白羊座',
@@ -109,9 +149,17 @@ export const majorArcana: TarotCard[] = [
       upright: ['传统', '信仰', '教育', '指导'],
       reversed: ['反叛', '非传统', '个人信念', '打破规则'],
     },
+    keywordsEn: {
+      upright: ['Tradition', 'Belief', 'Education', 'Guidance'],
+      reversed: ['Rebellion', 'Unconventional', 'Personal Beliefs', 'Breaking Rules'],
+    },
     meanings: {
       upright: '寻求传统智慧和精神指导。可能暗示需要遵循既定的规则或向导师学习。尊重传统价值。',
       reversed: '质疑传统，寻找属于自己的道路。可能暗示打破规则或发展个人独特的信仰体系。',
+    },
+    meaningsEn: {
+      upright: 'Seek traditional wisdom and spiritual guidance. May suggest a need to follow established rules or learn from a mentor. Respect traditional values.',
+      reversed: 'Question tradition and find your own path. May imply breaking the rules or developing a personal, unique belief system.',
     },
     description: '教皇坐于两根柱子间，手持权杖，前方跪着两位信徒。他代表着传统和精神权威。',
     element: '土',
@@ -128,11 +176,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['爱情', '选择', '和谐', '价值观'],
       reversed: ['不和谐', '困难选择', '价值观冲突', '分离'],
     },
+    keywordsEn: {
+      upright: ['Love', 'Choice', 'Harmony', 'Values'],
+      reversed: ['Disharmony', 'Difficult Choice', 'Conflict of Values', 'Separation'],
+    },
     meanings: {
       upright: '关于爱情、关系和重要选择。恋人牌暗示需要做出符合内心价值观的决定，追求和谐与平衡。',
       reversed: '关系中的不和谐或价值观冲突。可能面临艰难的选择，需要重新审视什么对你真正重要。',
     },
-    description: '亚当和夏娃在天使祝福下站立于伊甸园。象征着爱情、结合和神圣的选择。',
+    meaningsEn: {
+      upright: 'About love, relationships, and important choices. The Lovers card suggests the need to make decisions aligned with your inner values, seeking harmony and balance.',
+      reversed: 'Disharmony in a relationship or a conflict of values. You may face a difficult choice and need to re-examine what truly matters to you.',
+    },
+    description: '亚当和夏娃在天使祝福下站立于伊甸园。象征着爱情、结合 and 神圣的选择。',
     element: '空气',
     zodiac: '双子座',
   },
@@ -147,9 +203,17 @@ export const majorArcana: TarotCard[] = [
       upright: ['意志力', '胜利', '决心', '控制'],
       reversed: ['失控', '挫折', '缺乏方向', '意志力薄弱'],
     },
+    keywordsEn: {
+      upright: ['Willpower', 'Victory', 'Determination', 'Control'],
+      reversed: ['Loss of Control', 'Setbacks', 'Lack of Direction', 'Weak Willpower'],
+    },
     meanings: {
       upright: '通过坚定的意志力和决心取得胜利。控制对立的力量，朝着目标前进。相信你能克服任何障碍。',
       reversed: '可能感到失控或缺乏方向。挫折提醒你重新评估策略，加强内在的决心。',
+    },
+    meaningsEn: {
+      upright: 'Achieve victory through firm willpower and determination. Control opposing forces and move toward your goals. Trust that you can overcome any obstacle.',
+      reversed: 'You may feel out of control or lack direction. Setbacks remind you to re-evaluate your strategy and strengthen your inner resolve.',
     },
     description: '战士驾驭着由两只对立狮鹫拉的战车，没有缰绳却意志坚定。象征着意志力的胜利。',
     element: '水',
@@ -166,11 +230,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['内在力量', '勇气', '耐心', '同情心'],
       reversed: ['软弱', '自我怀疑', '不耐烦', '压抑'],
     },
+    keywordsEn: {
+      upright: ['Inner Strength', 'Courage', 'Patience', 'Compassion'],
+      reversed: ['Weakness', 'Self-doubt', 'Impatience', 'Repression'],
+    },
     meanings: {
       upright: '真正的力量来自内心的勇气和耐心，而非武力。以温柔和同情面对挑战，驯服你内在的野兽。',
       reversed: '可能感到内在力量的缺乏或自我怀疑。需要学会管理情绪，避免压抑或爆发。',
     },
-    description: '女子温柔地合上狮子的嘴，用耐心和爱心驯服了野兽。象征着内在的力量和勇气。',
+    meaningsEn: {
+      upright: 'True strength comes from inner courage and patience, not brute force. Face challenges with gentleness and compassion, taming the beast within you.',
+      reversed: 'You may feel a lack of inner strength or self-doubt. You need to learn how to manage your emotions and avoid repression or outbursts.',
+    },
+    description: '女子温柔地合上狮子的嘴，用耐心和爱心驯服了野兽。象征着内在的力量 and 勇气。',
     element: '火',
     zodiac: '狮子座',
   },
@@ -185,11 +257,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['内省', '独处', '指导', '寻求真理'],
       reversed: ['孤独', '迷失', '隔离', '拒绝建议'],
     },
+    keywordsEn: {
+      upright: ['Introspection', 'Solitude', 'Guidance', 'Seeking Truth'],
+      reversed: ['Loneliness', 'Lost', 'Isolation', 'Rejecting Advice'],
+    },
     meanings: {
       upright: '需要独处和反思的时间。隐者引导你向内寻找答案，远离外界的喧嚣。智慧来自内在。',
       reversed: '可能过度孤独或拒绝他人的帮助。也可能暗示逃避面对真相，需要走出孤立。',
     },
-    description: '隐者手持明灯，独自站在山顶。象征着内省、寻求真理和精神的指引。',
+    meaningsEn: {
+      upright: 'A time for solitude and reflection is needed. The Hermit guides you to look inward for answers, away from the noise of the outside world. Wisdom comes from within.',
+      reversed: 'May indicate excessive loneliness or a refusal to seek help from others. It could also suggest avoiding the truth, necessitating a move out of isolation.',
+    },
+    description: '隐者手持明灯，独自站在山顶。象征着内省、寻求真理 and 精神的指引。',
     element: '土',
     zodiac: '处女座',
   },
@@ -204,11 +284,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['变化', '周期', '命运', '转折点'],
       reversed: ['不幸', '抗拒变化', '坏运气', '停滞'],
     },
+    keywordsEn: {
+      upright: ['Change', 'Cycles', 'Fate', 'Turning Point'],
+      reversed: ['Bad Luck', 'Resisting Change', 'Misfortune', 'Stagnation'],
+    },
     meanings: {
       upright: '生命周期的变化和转折。命运之轮转动，带来好运和新的机会。顺应变化，把握时机。',
       reversed: '可能遭遇不顺或抗拒不可避免的变化。提醒你在逆境中保持希望，一切都会过去。',
     },
-    description: '巨大的轮盘转动，四角有神话生物。象征着命运的循环和生命的不断变化。',
+    meaningsEn: {
+      upright: 'Changes and turning points in the cycles of life. The Wheel of Fortune turns, bringing good luck and new opportunities. Adapt to change and seize the moment.',
+      reversed: 'You may encounter bad luck or resist inevitable changes. Reminds you to maintain hope in adversity; this too shall pass.',
+    },
+    description: '巨大的轮盘转动，四角有神话生物。象征着命运的循环 and 生命的不断变化。',
     element: '火',
     planet: '木星',
   },
@@ -223,11 +311,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['公正', '真理', '因果', '法律'],
       reversed: ['不公', '不诚实', '逃避责任', '偏见'],
     },
+    keywordsEn: {
+      upright: ['Justice', 'Truth', 'Cause and Effect', 'Law'],
+      reversed: ['Injustice', 'Dishonesty', 'Avoiding Responsibility', 'Bias'],
+    },
     meanings: {
       upright: '公正和平衡的时刻。面对真相，承担行为的后果。诚实和正直将带来公正的裁决。',
       reversed: '可能面临不公正的待遇或需要面对不诚实的行为。重新评估什么是真正公平的。',
     },
-    description: '正义女神手持天平和宝剑，蒙着眼睛。象征着公正、真理和因果法则。',
+    meaningsEn: {
+      upright: 'A moment of fairness and balance. Face the truth and bear the consequences of your actions. Honesty and integrity will bring a just verdict.',
+      reversed: 'You may face unfair treatment or need to confront dishonest behavior. Re-evaluate what is truly fair.',
+    },
+    description: '正义女神手持天平和宝剑，蒙着眼睛。象征着公正、真理 and 因果法则。',
     element: '空气',
     zodiac: '天秤座',
   },
@@ -242,11 +338,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['牺牲', '暂停', '新视角', '放手'],
       reversed: ['抵抗', '拖延', '无意义的牺牲', '停滞'],
     },
+    keywordsEn: {
+      upright: ['Sacrifice', 'Pause', 'New Perspective', 'Letting Go'],
+      reversed: ['Resistance', 'Stalling', 'Needless Sacrifice', 'Stagnation'],
+    },
     meanings: {
       upright: '暂停和反思的时刻。通过不同的视角看待情况，可能需要暂时的牺牲来获得更大的领悟。',
       reversed: '可能抗拒必要的改变或执着于无意义的牺牲。学会在适当的时候放手。',
     },
-    description: '人倒吊在树上，姿态平静。象征着牺牲、新视角和自愿的暂停。',
+    meaningsEn: {
+      upright: 'A moment for pause and reflection. Look at situations from a different perspective; a temporary sacrifice might be needed to gain greater insight.',
+      reversed: 'You may be resisting necessary change or clinging to a needless sacrifice. Learn to let go at the appropriate time.',
+    },
+    description: '人倒吊在树上，姿态平静。象征着牺牲、新视角 and 自愿的暂停。',
     element: '水',
     planet: '海王星',
   },
@@ -261,11 +365,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['转变', '结束', '新的开始', '释放'],
       reversed: ['抗拒结束', '停滞', '恐惧改变', '无法放手'],
     },
+    keywordsEn: {
+      upright: ['Transformation', 'Ending', 'New Beginnings', 'Release'],
+      reversed: ['Resisting Change', 'Stagnation', 'Fear of Change', 'Unable to Let Go'],
+    },
     meanings: {
       upright: '重大的转变和结束，为新开始腾出空间。放下旧有的模式，拥抱必要的改变。死亡带来重生。',
       reversed: '抗拒不可避免的结束，导致停滞。恐惧改变只会延长痛苦，学会接受和放手。',
     },
-    description: '骷髅骑士骑着白马，人们在他面前跪拜。象征着转变、结束和不可避免的改变。',
+    meaningsEn: {
+      upright: 'Significant transformation and endings, making room for new beginnings. Let go of old patterns and embrace necessary change. Death brings rebirth.',
+      reversed: 'Resisting an inevitable ending leads to stagnation. Fear of change only prolongs suffering; learn to accept and let go.',
+    },
+    description: '骷髅骑士骑着白马，人们在他面前跪拜。象征着转变、结束 and 不可避免的改变。',
     element: '水',
     zodiac: '天蝎座',
   },
@@ -280,11 +392,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['平衡', '调和', '耐心', '中庸'],
       reversed: ['极端', '失衡', '过度', '不耐烦'],
     },
+    keywordsEn: {
+      upright: ['Balance', 'Moderation', 'Patience', 'Harmony'],
+      reversed: ['Extremes', 'Imbalance', 'Excess', 'Impatience'],
+    },
     meanings: {
       upright: '寻求平衡和调和。节制提醒你在极端之间找到中间道路，耐心调和不同的元素。',
-      reversed: '可能处于失衡状态或走向极端。需要重新找到生活的平衡点和中心。',
+      reversed: '可能处于失衡状态或走向极端。需要重新找到生活的平衡点 and 中心。',
     },
-    description: '天使站在水边，将两个杯子之间的液体混合。象征着平衡、调和和炼金术。',
+    meaningsEn: {
+      upright: 'Seeking balance and moderation. Temperance reminds you to find the middle path between extremes and to patiently harmonize different elements.',
+      reversed: 'You may be in a state of imbalance or heading toward extremes. You need to find your life\'s equilibrium and center again.',
+    },
+    description: '天使站在水边，将两个杯子之间的液体混合。象征着平衡、调和 and 炼金术。',
     element: '火',
     zodiac: '射手座',
   },
@@ -299,11 +419,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['束缚', '物质主义', '诱惑', '阴影面'],
       reversed: ['释放', '突破限制', '重获自由', '觉醒'],
     },
+    keywordsEn: {
+      upright: ['Bondage', 'Materialism', 'Temptation', 'Shadow Self'],
+      reversed: ['Release', 'Breaking Limits', 'Regaining Freedom', 'Awakening'],
+    },
     meanings: {
       upright: '面对你的阴影面和束缚。恶魔代表物质欲望和成瘾，提醒你不要成为欲望的奴隶。',
       reversed: '打破束缚，重获自由。意识到限制往往是自己加诸的，你有力量解放自己。',
     },
-    description: '恶魔俯视着被锁链束缚的男女，但锁链是松的。象征着束缚、诱惑和物质欲望。',
+    meaningsEn: {
+      upright: 'Face your shadow side and bondages. The Devil represents material desires and addictions, reminding you not to become a slave to your cravings.',
+      reversed: 'Break the chains and regain your freedom. Realize that limitations are often self-imposed, and you have the power to liberate yourself.',
+    },
+    description: '恶魔俯视着被锁链束缚的男女，但锁链是松的。象征着束缚、诱惑 and 物质欲望。',
     element: '土',
     zodiac: '摩羯座',
   },
@@ -318,11 +446,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['突然改变', '觉醒', '崩塌', '启示'],
       reversed: ['避免灾难', '延迟改变', '个人转变', '内爆'],
     },
+    keywordsEn: {
+      upright: ['Sudden Change', 'Awakening', 'Upheaval', 'Revelation'],
+      reversed: ['Avoiding Disaster', 'Delayed Change', 'Personal Transformation', 'Internal Collapse'],
+    },
     meanings: {
       upright: '突然和剧烈的改变，旧有结构的崩塌。虽然痛苦，但这是必要的觉醒，为真理腾出空间。',
       reversed: '可能试图避免不可避免的改变，或在内部经历个人转变而非外在崩塌。',
     },
-    description: '高塔被闪电击中，人们从塔中坠落。象征着突然的改变、启示和旧有结构的崩塌。',
+    meaningsEn: {
+      upright: 'Sudden and drastic change, the collapse of old structures. Although painful, it is a necessary awakening to make room for the truth.',
+      reversed: 'You may be trying to avoid an inevitable change, or experiencing a personal transformation internally rather than an external collapse.',
+    },
+    description: '高塔被闪电击中，人们从塔中坠落。象征着突然的改变、启示 and 旧有结构的崩塌。',
     element: '火',
     planet: '火星',
   },
@@ -337,11 +473,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['希望', '灵感', '宁静', '灵性连接'],
       reversed: ['绝望', '失去信心', '幻灭', '缺乏灵感'],
     },
+    keywordsEn: {
+      upright: ['Hope', 'Inspiration', 'Serenity', 'Spiritual Connection'],
+      reversed: ['Despair', 'Loss of Faith', 'Disillusionment', 'Lack of Inspiration'],
+    },
     meanings: {
       upright: '希望和灵感的灯塔。星星带来宁静和信心，相信宇宙在指引你。灵性连接和治愈的时刻。',
-      reversed: '可能感到绝望或失去信心。暂时的幻灭提醒你重新连接内在的光芒和信任。',
+      reversed: '可能感到绝望或失去信心。暂时的幻灭提醒你重新连接内在的光芒 and 信任。',
     },
-    description: '女子在星空下将水倒入池塘和大地。象征着希望、灵感和宇宙的联系。',
+    meaningsEn: {
+      upright: 'A beacon of hope and inspiration. The Star brings serenity and faith, trust that the universe is guiding you. A time for spiritual connection and healing.',
+      reversed: 'You may feel despair or a loss of faith. Temporary disillusionment reminds you to reconnect with your inner light and trust.',
+    },
+    description: '女子在星空下将水倒入池塘和大地。象征着希望、灵感 and 宇宙的联系。',
     element: '空气',
     zodiac: '水瓶座',
   },
@@ -356,11 +500,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['幻觉', '恐惧', '潜意识', '直觉'],
       reversed: ['混乱消散', '面对恐惧', '秘密揭露', '清晰度'],
     },
+    keywordsEn: {
+      upright: ['Illusion', 'Fear', 'Subconscious', 'Intuition'],
+      reversed: ['Confusion Dissipating', 'Facing Fear', 'Secrets Revealed', 'Clarity'],
+    },
     meanings: {
       upright: '潜意识的世界和隐藏的真相。月亮揭示恐惧和幻觉，但也带来深刻的直觉。信任你的感觉。',
       reversed: '秘密被揭露，幻觉消散。面对恐惧将带来清晰的认识。',
     },
-    description: '满月高挂，下方有狗和狼在嚎叫，小龙虾从水中爬出。象征着潜意识、幻觉和直觉。',
+    meaningsEn: {
+      upright: 'The world of the subconscious and hidden truths. The Moon reveals fears and illusions but also brings profound intuition. Trust your feelings.',
+      reversed: 'Secrets are revealed and illusions dissipate. Facing your fears will lead to a clear understanding.',
+    },
+    description: '满月高挂，下方有狗和狼在嚎叫，小龙虾从水中爬出。象征着潜意识、幻觉 and 直觉。',
     element: '水',
     zodiac: '双鱼座',
   },
@@ -372,14 +524,22 @@ export const majorArcana: TarotCard[] = [
     arcana: 'major',
     image: '/cards/19-sun.jpg',
     keywords: {
-      upright: ['喜悦', '成功', '活力', ' unconscious意识'],
+      upright: ['喜悦', '成功', '活力', '意识'],
       reversed: ['暂时的抑郁', '自负', '延迟的成功', '缺乏清晰度'],
+    },
+    keywordsEn: {
+      upright: ['Joy', 'Success', 'Vitality', 'Consciousness'],
+      reversed: ['Temporary Depression', 'Conceit', 'Delayed Success', 'Lack of Clarity'],
     },
     meanings: {
       upright: '光明、喜悦和成功的时刻。太阳带来活力和积极的能量，一切清晰明朗。享受生命的礼物。',
       reversed: '可能经历暂时的阴霾或自负导致的盲点。成功只是延迟，保持信心。',
     },
-    description: '快乐的孩童骑在白马上，太阳高挂天空。象征着喜悦、成功和生命的活力。',
+    meaningsEn: {
+      upright: 'A time of light, joy, and success. The Sun brings vitality and positive energy; everything is clear and bright. Enjoy the gifts of life.',
+      reversed: 'You may experience temporary gloom or blind spots caused by conceit. Success is merely delayed; maintain your faith.',
+    },
+    description: '快乐的孩童骑在白马上，太阳高挂天空。象征着喜悦、成功 and 生命的活力。',
     element: '火',
     planet: '太阳',
   },
@@ -394,11 +554,19 @@ export const majorArcana: TarotCard[] = [
       upright: ['觉醒', '重生', '内在呼唤', '宽恕'],
       reversed: ['自我怀疑', '拒绝呼唤', '缺乏自我检视', '无法宽恕'],
     },
+    keywordsEn: {
+      upright: ['Awakening', 'Rebirth', 'Inner Calling', 'Forgiveness'],
+      reversed: ['Self-doubt', 'Refusing the Call', 'Lack of Self-reflection', 'Unable to Forgive'],
+    },
     meanings: {
       upright: '内在的觉醒和重生的时刻。回应灵魂的呼唤，宽恕自己和他人，迎接新的开始。',
       reversed: '可能抗拒内在的呼唤或深陷自我怀疑。需要自我检视和宽恕才能前进。',
     },
-    description: '天使吹奏号角，人们从坟墓中升起。象征着审判、觉醒和重生。',
+    meaningsEn: {
+      upright: 'A moment of inner awakening and rebirth. Respond to your soul\'s calling, forgive yourself and others, and welcome new beginnings.',
+      reversed: 'You may be resisting your inner calling or deep in self-doubt. Self-reflection and forgiveness are needed to move forward.',
+    },
+    description: '天使吹奏号角，人们从坟墓中升起。象征着审判、觉醒 and 重生。',
     element: '火',
     planet: '冥王星',
   },
@@ -413,14 +581,20 @@ export const majorArcana: TarotCard[] = [
       upright: ['完成', '整合', '成就', '整体性'],
       reversed: ['未完成的业务', '缺乏结束', '空虚', '延迟的成就'],
     },
+    keywordsEn: {
+      upright: ['Completion', 'Integration', 'Accomplishment', 'Wholeness'],
+      reversed: ['Unfinished Business', 'Lack of Closure', 'Emptiness', 'Delayed Success'],
+    },
     meanings: {
       upright: '一个周期的完成和成就。世界象征整合和整体性，你已达到一个重要的里程碑。庆祝你的成就。',
       reversed: '可能还有未完成的业务或难以放手。需要找到真正的结束才能开始新的周期。',
     },
-    description: '舞者在花环中，四角有神话生物。象征着完成、成就和宇宙的统一。',
+    meaningsEn: {
+      upright: 'Completion and accomplishment of a cycle. The World symbolizes integration and wholeness; you have reached a significant milestone. Celebrate your achievement.',
+      reversed: 'There may be unfinished business or a difficulty in letting go. You need to find true closure before starting a new cycle.',
+    },
+    description: '舞者在花环中，四角有神话生物。象征着完成、成就 and 宇宙的统一。',
     element: '土',
     planet: '土星',
   },
 ];
-
-// 大阿尔克那已在文件开头导出

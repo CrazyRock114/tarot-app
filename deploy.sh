@@ -1,31 +1,27 @@
 #!/bin/bash
-# Vercel 部署脚本
+# Vercel 部署脚本 - 使用 Token
 # 使用方法: ./deploy.sh
+
+set -e
 
 echo "🚀 开始部署 tarot-app 到 Vercel..."
 
-# 检查 vercel CLI
-if ! command -v vercel &> /dev/null; then
-    echo "❌ Vercel CLI 未安装，正在安装..."
-    npm install -g vercel
-fi
+# Token
+TOKEN="$VERCEL_TOKEN"
 
-# 检查是否已登录
-if ! vercel whoami &> /dev/null; then
-    echo "🔑 请先登录 Vercel:"
-    echo "   vercel login"
-    exit 1
-fi
+# 构建前端
+echo "📦 构建前端..."
+cd client
+npm run build
+cd ..
 
-# 部署
-echo "📦 正在部署..."
-vercel --prod
+# 复制构建文件到 dist
+echo "📂 复制构建文件..."
+rm -rf dist
+cp -r client/dist dist
+
+# 部署到 Vercel
+echo "🚀 部署到 Vercel..."
+npx vercel@latest --token=$TOKEN --prod --yes
 
 echo "✅ 部署完成！"
-echo ""
-echo "⚠️  重要：请在 Vercel Dashboard 中配置以下环境变量："
-echo "   - DEEPSEEK_API_KEY"
-echo "   - MONGODB_URI"
-echo "   - JWT_SECRET"
-echo ""
-echo "📖 详细部署指南请查看 DEPLOY.md"

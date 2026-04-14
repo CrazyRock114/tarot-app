@@ -1,49 +1,59 @@
-
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Sparkles, BookOpen, Shuffle, Sun, Star, Heart } from 'lucide-react';
-
-const features = [
-  {
-    icon: Sparkles,
-    title: 'AI塔罗占卜',
-    desc: '输入你的问题，AI为你深度解读',
-    path: '/draw',
-    color: 'from-purple-500 to-indigo-600',
-  },
-  {
-    icon: Shuffle,
-    title: '传统抽牌',
-    desc: '模拟真实洗牌，动态翻牌效果',
-    path: '/draw',
-    color: 'from-blue-500 to-cyan-600',
-  },
-  {
-    icon: Sun,
-    title: '每日运势',
-    desc: '24小时更新个人运势指引',
-    path: '/daily',
-    color: 'from-amber-500 to-orange-600',
-  },
-  {
-    icon: BookOpen,
-    title: '塔罗图鉴',
-    desc: '78张塔罗牌完整图鉴',
-    path: '/gallery',
-    color: 'from-emerald-500 to-teal-600',
-  },
-];
-
-const tarotReaders = [
-  { name: '星月', style: '直觉系', desc: '相信直觉，解读诗意' },
-  { name: '墨尘', style: '逻辑系', desc: '理性分析，清晰建议' },
-  { name: '暖阳', style: '治愈系', desc: '温柔关怀，疗愈内心' },
-  { name: '夜羽', style: '神秘系', desc: '揭示深层灵性含义' },
-];
+import { useTranslation } from 'react-i18next';
+import { Sparkles, BookOpen, Shuffle, Sun, Heart , Crown, Check } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export const Home: React.FC = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: Sparkles,
+      title: t('home.aiReading'),
+      desc: t('home.aiReadingDesc'),
+      path: '/draw',
+      color: 'from-purple-500 to-indigo-600',
+    },
+    {
+      icon: Shuffle,
+      title: t('home.multiSpread'),
+      desc: t('home.multiSpreadDesc'),
+      path: '/draw',
+      color: 'from-blue-500 to-cyan-600',
+    },
+    {
+      icon: Sun,
+      title: t('home.dailyFortune'),
+      desc: t('home.dailyFortuneDesc'),
+      path: '/daily',
+      color: 'from-amber-500 to-orange-600',
+    },
+    {
+      icon: BookOpen,
+      title: t('nav.gallery'),
+      desc: t('gallery.subtitle'),
+      path: '/gallery',
+      color: 'from-emerald-500 to-teal-600',
+    },
+  ];
+
+  const tarotReaders = [
+    { id: 'mystic', name: t('readers_data.mystic.name'), style: t('readers_data.mystic.title'), desc: t('readers_data.mystic.desc'), avatar: '/readers/mystic.jpg', emoji: '🌙' },
+    { id: 'rational', name: t('readers_data.rational.name'), style: t('readers_data.rational.title'), desc: t('readers_data.rational.desc'), avatar: '/readers/rational.jpg', emoji: '📊' },
+    { id: 'warm', name: t('readers_data.warm.name'), style: t('readers_data.warm.title'), desc: t('readers_data.warm.desc'), avatar: '/readers/warm.jpg', emoji: '🌸' },
+    { id: 'punk', name: t('readers_data.punk.name'), style: t('readers_data.punk.title'), desc: t('readers_data.punk.desc'), avatar: '/readers/punk.jpg', emoji: '🔥' },
+  ];
+
+  const vipPlans = [
+    { plan: t('home.weekPlan'), price: '6.9' + t('membership.pointsUnit'), period: t('home.perWeek'), color: 'from-blue-600 to-cyan-600', features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup')] },
+    { plan: t('home.monthPlan'), price: '19.9' + t('membership.pointsUnit'), period: t('home.perMonth'), color: 'from-purple-600 to-indigo-600', popular: true, features: [t('home.unlimitedReading'), t('home.voiceReading'), t('home.exclusiveBack'), t('home.unlimitedFollowup')] },
+    { plan: t('home.yearPlan'), price: '168' + t('membership.pointsUnit'), period: t('home.perYear'), color: 'from-yellow-500 to-orange-500', features: [t('home.allBenefits'), t('home.annualReport'), t('home.earlyAccess')] },
+  ];
+
   return (
     <div className="min-h-screen">
+      <SEO title={t('seo.homeTitle')} description={t('seo.homeDesc')} />
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 px-4 overflow-hidden">
         {/* Background Effects */}
@@ -60,16 +70,15 @@ export const Home: React.FC = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600/20 rounded-full text-indigo-300 text-sm mb-6">
               <Sparkles className="w-4 h-4" />
-              <span>AI驱动的塔罗占卜体验</span>
+              <span>{t('home.badge')}</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              探索<span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">命运</span>的指引
+              {t('home.title')}<span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">{t('home.titleHighlight')}</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              结合古老智慧与人工智能，为你提供深刻的塔罗解读。
-              无论爱情、事业还是人生方向，让塔罗为你照亮前路。
+              {t('home.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -78,14 +87,14 @@ export const Home: React.FC = () => {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/30 hover:shadow-xl hover:shadow-indigo-600/40 transition-all"
               >
                 <Sparkles className="w-5 h-5" />
-                开始占卜
+                {t('home.startReading')}
               </Link>
               <Link
                 to="/gallery"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 text-white font-semibold rounded-xl hover:bg-gray-700 transition-colors"
               >
                 <BookOpen className="w-5 h-5" />
-                浏览图鉴
+                {t('nav.gallery')}
               </Link>
             </div>
           </motion.div>
@@ -96,8 +105,8 @@ export const Home: React.FC = () => {
       <section className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">核心功能</h2>
-            <p className="text-gray-400">多种占卜方式，满足你的不同需求</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('home.features')}</h2>
+            <p className="text-gray-400">{t('home.multiSpreadDesc')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -131,27 +140,90 @@ export const Home: React.FC = () => {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">选择你的AI塔罗师</h2>
-            <p className="text-gray-400">不同风格，为你提供独特的解读体验</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('home.selectReader')}</h2>
+            <p className="text-gray-400">{t('home.selectReaderDesc')}</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {tarotReaders.map((reader, index) => (
               <motion.div
-                key={reader.name}
+                key={reader.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="p-4 bg-gray-800/30 rounded-xl border border-gray-800 text-center hover:border-indigo-500/30 transition-colors"
+                onClick={() => window.location.href = '/readers/' + reader.id}
+                className="p-4 bg-gray-800/30 rounded-xl border border-gray-800 text-center hover:border-indigo-500/30 transition-colors cursor-pointer group"
               >
-                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full flex items-center justify-center">
-                  <Star className="w-8 h-8 text-indigo-400" />
+                <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-purple-500 transition-colors">
+                  <img src={reader.avatar} alt={reader.name} className="w-full h-full object-cover" />
                 </div>
-                <div className="text-white font-medium">{reader.name}</div>
+                <div className="text-white font-medium">{reader.emoji} {reader.name}</div>
                 <div className="text-indigo-400 text-sm mb-1">{reader.style}</div>
                 <div className="text-gray-500 text-xs">{reader.desc}</div>
+                <div className="text-purple-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">{t('readers.viewDetail')} →</div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* VIP Membership Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-gray-900 to-purple-950/30">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-400 text-sm mb-4">
+              <Crown className="w-4 h-4" />
+              {t('home.vipSection')}
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{t('home.vipTitle')}</h2>
+            <p className="text-gray-400">{t('home.vipSubtitle')}</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 mb-8">
+            {vipPlans.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`relative rounded-2xl border p-6 ${item.popular ? 'border-purple-500 bg-purple-900/20' : 'border-gray-700/50 bg-gray-800/20'}`}
+              >
+                {item.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs rounded-full">
+                    {t('home.popular')}
+                  </div>
+                )}
+                <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} mb-4`}>
+                  <Crown className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-white font-semibold mb-1">{item.plan}</h3>
+                <div className="mb-4">
+                  <span className="text-2xl font-bold text-white">{item.price}</span>
+                  <span className="text-gray-400 text-sm">{item.period}</span>
+                </div>
+                <ul className="space-y-2 mb-5">
+                  {item.features.map((f, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-gray-300">
+                      <Check className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/membership"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-xl hover:from-yellow-400 hover:to-orange-400 transition-all shadow-lg shadow-orange-500/20"
+            >
+              <Crown className="w-5 h-5" />
+              {t('home.vipButton')}
+            </Link>
+            <p className="text-gray-500 text-sm mt-3">{t('home.vipNote')}</p>
           </div>
         </div>
       </section>
@@ -167,17 +239,17 @@ export const Home: React.FC = () => {
           >
             <Heart className="w-12 h-12 text-pink-400 mx-auto mb-4" />
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              准备好探索你的命运了吗？
+              {t('home.ctaTitle')}
             </h2>
             <p className="text-gray-300 mb-8">
-              每一次抽牌都是与内心的对话，让塔罗为你揭示隐藏的真相
+              {t('home.ctaSubtitle')}
             </p>
             <Link
               to="/draw"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
             >
               <Sparkles className="w-5 h-5" />
-              立即开始
+              {t('home.ctaButton')}
             </Link>
           </motion.div>
         </div>
