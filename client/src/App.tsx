@@ -21,6 +21,7 @@ import Readers from './pages/Readers';
 import ReaderDetail from './pages/ReaderDetail';
 import ScrollToTop from './components/ScrollToTop';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import './index.css';
 
 const App: FC = () => {
@@ -53,6 +54,7 @@ const App: FC = () => {
         </Layout>
       </Router>
     </AuthProvider>
+    <Analytics />
     </HelmetProvider>
   );
 }
