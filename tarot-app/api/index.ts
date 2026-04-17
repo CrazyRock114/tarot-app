@@ -172,6 +172,16 @@ const PointsLogSchema = new mongoose.Schema({
 
 const PointsLog = mongoose.models.PointsLog || mongoose.model('PointsLog', PointsLogSchema);
 
+// PasswordResetToken Schema
+const PasswordResetTokenSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
+  token: { type: String, required: true, unique: true },
+  expiresAt: { type: Date, required: true },
+  used: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now },
+});
+const PasswordResetToken = mongoose.models.PasswordResetToken || mongoose.model('PasswordResetToken', PasswordResetTokenSchema);
+
 // Auth Middleware
 const authMiddleware = async (req: any, res: any, silent = false) => {
   try {
@@ -280,6 +290,10 @@ const MSG = {
     provideEmailPassword: '请提供邮箱和密码',
     wrongCredentials: '邮箱或密码错误',
     forgotInDev: '密码重置链接已发送到您的邮箱（功能开发中）',
+    resetTokenSent: '重置密码链接已发送到您的邮箱，请在30分钟内完成重置',
+    resetTokenInvalid: '重置链接无效或已过期，请重新申请',
+    resetSuccess: '密码重置成功，请使用新密码登录',
+    resetPasswordTooShort: '新密码至少6位字符',
     provideEmail: '请提供邮箱地址',
     emailNotFound: '该邮箱未注册',
     invalidPlan: '无效的订阅计划',
@@ -345,6 +359,10 @@ const MSG = {
     provideEmailPassword: '請提供郵箱和密碼',
     wrongCredentials: '郵箱或密碼錯誤',
     forgotInDev: '密碼重設連結已發送到您的郵箱（功能開發中）',
+    resetTokenSent: '重設密碼連結已發送到您的郵箱，請在30分鐘內完成重設',
+    resetTokenInvalid: '重設連結無效或已過期，請重新申請',
+    resetSuccess: '密碼重設成功，請使用新密碼登入',
+    resetPasswordTooShort: '新密碼至少6位字符',
     provideEmail: '請提供郵箱地址',
     emailNotFound: '該郵箱未註冊',
     invalidPlan: '無效的訂閱計劃',
@@ -410,6 +428,10 @@ const MSG = {
     provideEmailPassword: 'Please provide email and password',
     wrongCredentials: 'Incorrect email or password',
     forgotInDev: 'Password reset link sent to your email (feature in development)',
+    resetTokenSent: 'A password reset link has been sent to your email. Please reset within 30 minutes.',
+    resetTokenInvalid: 'Reset link is invalid or expired. Please request again.',
+    resetSuccess: 'Password reset successful. Please log in with your new password.',
+    resetPasswordTooShort: 'New password must be at least 6 characters',
     provideEmail: 'Please provide an email address',
     emailNotFound: 'This email is not registered',
     invalidPlan: 'Invalid subscription plan',
@@ -475,6 +497,10 @@ const MSG = {
     provideEmailPassword: 'メールアドレスとパスワードを入力してください',
     wrongCredentials: 'メールアドレスまたはパスワードが正しくありません',
     forgotInDev: 'パスワードリセットリンクをメールに送信しました（機能開発中）',
+    resetTokenSent: 'パスワードリセットリンクをメールに送信しました。30分以内にリセットしてください。',
+    resetTokenInvalid: 'リセットリンクが無効または期限切れです。再度申請してください。',
+    resetSuccess: 'パスワードのリセットが完了しました。新しいパスワードでログインしてください。',
+    resetPasswordTooShort: '新しいパスワードは6文字以上である必要があります',
     provideEmail: 'メールアドレスを入力してください',
     emailNotFound: 'このメールは登録されていません',
     invalidPlan: '無効なサブスクリプションプラン',
@@ -540,6 +566,10 @@ const MSG = {
     provideEmailPassword: '이메일과 비밀번호를 입력해 주세요',
     wrongCredentials: '이메일 또는 비밀번호가 올바르지 않습니다',
     forgotInDev: '비밀번호 재설정 링크를 이메일로 보냈습니다 (기능 개발 중)',
+    resetTokenSent: '비밀번호 재설정 링크가 이메일로 전송되었습니다. 30분 이내에 재설정해 주세요.',
+    resetTokenInvalid: '재설정 링크가 유효하지 않거나 만료되었습니다. 다시 요청해 주세요.',
+    resetSuccess: '비밀번호가 성공적으로 재설정되었습니다. 새 비밀번호로 로그인하세요.',
+    resetPasswordTooShort: '새 비밀번호는 6자 이상이어야 합니다',
     provideEmail: '이메일 주소를 입력해 주세요',
     emailNotFound: '이 이메일은 등록되어 있지 않습니다',
     invalidPlan: '유효하지 않은 구독 플랜',
@@ -786,6 +816,7 @@ export default async function handler(req, res) {
     if (path === '/api/auth/login' && method === 'POST') return handleLogin(req, res);
     if (path === '/api/auth/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/auth/forgot-password' && method === 'POST') return handleForgotPassword(req, res);
+    if (path === '/api/auth/reset-password' && method === 'POST') return handleResetPassword(req, res);
     if (path === '/api/user' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/readings' && method === 'GET') return handleGetReadings(req, res);
@@ -1541,7 +1572,84 @@ async function handleForgotPassword(req, res) {
   const user = await User.findOne({ email });
   if (!user) return res.status(404).json({ message: t(req, 'emailNotFound') });
 
-  return res.status(200).json({ message: t(req, 'forgotInDev') });
+  // Generate reset token
+  const crypto = await import('crypto');
+  const token = crypto.randomBytes(32).toString('hex');
+  const expiresAt = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
+
+  // Delete existing tokens for this user
+  await PasswordResetToken.deleteMany({ userId: user._id });
+
+  // Save new token
+  await PasswordResetToken.create({ userId: user._id, token, expiresAt });
+
+  // Send email via Resend
+  const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+  const resetUrl = `${BASE_URL}/reset-password?token=${token}`;
+  const lang = detectLang(req);
+
+  const emailSubject = lang === 'zh-TW' ? '重設您的密碼' :
+    lang === 'en' ? 'Reset Your Password' :
+    lang === 'ja' ? 'パスワードのリセット' :
+    lang === 'ko' ? '비밀번호 재설정' : '重置您的密码';
+
+  const emailBody = lang === 'en' ?
+    `<p>You requested a password reset.</p><p>Click the link below to reset your password (valid for 30 minutes):</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>If you did not request this, please ignore this email.</p>` :
+    lang === 'zh-TW' ?
+    `<p>您申請了密碼重設。</p><p>請點擊以下連結重設您的密碼（30分鐘內有效）：</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>如果您沒有申請此操作，請忽略此郵件。</p>` :
+    `<p>您申请了密码重置。</p><p>请点击以下链接重置您的密码（30分钟内有效）：</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>如果您没有申请此操作，请忽略此邮件。</p>`;
+
+  try {
+    const emailRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Tarot App <onboarding@resend.dev>',
+        to: [email],
+        subject: emailSubject,
+        html: emailBody,
+      }),
+    });
+    const emailResult = await emailRes.json() as any;
+    if (!emailRes.ok) {
+      console.error('Resend error:', emailResult);
+      return res.status(500).json({ message: 'Failed to send email', detail: emailResult });
+    }
+  } catch (err) {
+    console.error('Email send error:', err);
+    return res.status(500).json({ message: 'Failed to send email' });
+  }
+
+  return res.status(200).json({ message: t(req, 'resetTokenSent') });
+}
+
+async function handleResetPassword(req, res) {
+  await connectDB();
+  const { token, password } = req.body || {};
+  if (!token || !password) return res.status(400).json({ message: t(req, 'missingParams') });
+  if (password.length < 6) return res.status(400).json({ message: t(req, 'resetPasswordTooShort') });
+
+  const resetToken = await PasswordResetToken.findOne({ token, used: false });
+  if (!resetToken || new Date() > resetToken.expiresAt) {
+    return res.status(400).json({ message: t(req, 'resetTokenInvalid') });
+  }
+
+  const bcryptLib = await import('bcryptjs');
+  const salt = await bcryptLib.genSalt(10);
+  const hashed = await bcryptLib.hash(password, salt);
+
+  await mongoose.connection.db.collection('users').updateOne(
+    { _id: resetToken.userId },
+    { $set: { password: hashed } }
+  );
+
+  resetToken.used = true;
+  await resetToken.save();
+
+  return res.status(200).json({ message: t(req, 'resetSuccess') });
 }
 
 async function handleGetReadings(req, res) {
