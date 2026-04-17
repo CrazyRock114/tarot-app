@@ -1,7 +1,7 @@
 import type { Spread, TarotReader, TarotCard } from '../types';
 import type { TFunction } from 'i18next';
-import { majorArcana, reloadMajorArcana } from './majorArcana';
-import { minorArcana, reloadMinorArcana } from './minorArcana';
+import { reloadMajorArcana } from './majorArcana';
+import { reloadMinorArcana } from './minorArcana';
 
 // 导出所有塔罗牌（动态生成以支持语言切换）
 export function getAllCards(): TarotCard[] {

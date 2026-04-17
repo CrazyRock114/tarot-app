@@ -72,7 +72,7 @@ function generateMinorArcana(): TarotCard[] {
   const t = i18next.getResourceBundle(getCurrentLang(), 'translation');
   const cards = t?.cards?.minor || {};
 
-  suitsBase.forEach(({ suit, nameEn, element, elementEn, keywordsEn }) => {
+  suitsBase.forEach(({ suit, nameEn: _nameEn, element, elementEn, keywordsEn }) => {
     // 生成数字牌 (1-10)
     for (let num = 1; num <= 10; num++) {
       const key = `${suit}_${num}`;
