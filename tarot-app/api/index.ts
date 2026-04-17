@@ -1637,9 +1637,8 @@ async function handleResetPassword(req, res) {
     return res.status(400).json({ message: t(req, 'resetTokenInvalid') });
   }
 
-  const bcryptLib = await import('bcryptjs');
-  const salt = await bcryptLib.genSalt(10);
-  const hashed = await bcryptLib.hash(password, salt);
+  const salt = await bcrypt.genSalt(10);
+  const hashed = await bcrypt.hash(password, salt);
 
   await mongoose.connection.db.collection('users').updateOne(
     { _id: resetToken.userId },
