@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd client && npm install && npm run build",
+  "buildCommand": "cd client && npm install --include=dev && npm run build",
   "outputDirectory": "client/dist",
   "framework": "vite",
   "routes": [
@@ -9,6 +9,6 @@
     { "src": "/api/tarot/reading", "dest": "/api/index" },
     { "src": "/api/(.*)", "dest": "/api/index" },
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/dist/index.html" }
+    { "src": "/(.*)", "dest": "/client/dist/index.html" }
   ]
 }
