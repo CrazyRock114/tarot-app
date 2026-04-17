@@ -9,6 +9,6 @@
     { "src": "/api/tarot/reading", "dest": "/api/index" },
     { "src": "/api/(.*)", "dest": "/api/index" },
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/dist/index.html" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
