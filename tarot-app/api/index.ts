@@ -1262,7 +1262,6 @@ async function handleReading(req, res) {
     const upright = t(req, 'upright');
     const reversed = t(req, 'reversed');
 
-    const lang = getLang(req);
     const cardInfo = selectedCards.map((c, i) => {
       const card = c.card || c;
       const orient = c.orientation === 'reversed' ? reversed : upright;
