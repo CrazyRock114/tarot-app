@@ -1607,7 +1607,7 @@ async function handleForgotPassword(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Tarot App <onboarding@resend.dev>',
+        from: '塔罗占卜 <noreply@2or.com>',
         to: [email],
         subject: emailSubject,
         html: emailBody,
