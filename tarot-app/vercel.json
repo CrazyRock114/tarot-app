@@ -4,6 +4,7 @@
   "outputDirectory": "dist",
   "framework": null,
   "routes": [
+    { "src": "/api/debug", "dest": "/api/debug" },
     { "src": "/api/health", "dest": "/api/index" },
     { "src": "/api/tarot/cards", "dest": "/api/index" },
     { "src": "/api/tarot/reading", "dest": "/api/index" },
