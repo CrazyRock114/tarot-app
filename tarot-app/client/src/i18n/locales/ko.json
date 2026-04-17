@@ -1,0 +1,814 @@
+{
+  "nav": {
+    "home": "홈",
+    "draw": "카드 뽑기",
+    "fortune": "운세",
+    "gallery": "카드 도감",
+    "readers": "타로 리더",
+    "membership": "멤버십",
+    "profile": "마이페이지",
+    "login": "로그인",
+    "register": "회원가입",
+    "logout": "로그아웃",
+    "history": "점술 기록",
+    "menu": "메뉴"
+  },
+  "home": {
+    "badge": "✨ AI 타로 점술",
+    "title": "운명의 문을 여는",
+    "titleHighlight": "타로의 신비",
+    "subtitle": "고대 타로의 지혜와 AI 기술이 만났습니다. 스프레드를 선택하고 카드를 뽑아보세요.",
+    "startReading": "점술 시작",
+    "features": "주요 기능",
+    "aiReading": "AI 해석",
+    "aiReadingDesc": "딥러닝 기반 타로 카드 해석",
+    "multiSpread": "다양한 스프레드",
+    "multiSpreadDesc": "1장, 3장, 켈틱 십자 등",
+    "dailyFortune": "오늘의 운세",
+    "dailyFortuneDesc": "생일 기반 맞춤 운세",
+    "selectReader": "AI 타로 리더 선택",
+    "selectReaderDesc": "각 리더만의 독특한 해석 스타일",
+    "vipSection": "멤버 전용",
+    "vipTitle": "완전한 타로 경험 해금",
+    "vipSubtitle": "무료 사용자 하루 3회, 멤버는 무제한",
+    "vipButton": "멤버십 플랜 보기",
+    "vipNote": "포인트 교환 가능 · 결제 기능 출시 예정",
+    "ctaTitle": "타로 여정을 시작하세요",
+    "ctaSubtitle": "고대의 카드가 당신의 길을 인도합니다",
+    "ctaButton": "무료로 시작하기",
+    "popular": "가장 인기",
+    "weekPlan": "주간 이용권",
+    "monthPlan": "월정액",
+    "yearPlan": "연간 멤버십",
+    "perWeek": "/주",
+    "perMonth": "/월",
+    "perYear": "/년",
+    "unlimitedReading": "무제한 점술",
+    "allReaders": "모든 리더",
+    "unlimitedFollowup": "추가 질문 무제한",
+    "voiceReading": "음성 해석",
+    "exclusiveBack": "전용 카드 뒷면",
+    "allBenefits": "모든 혜택 포함",
+    "annualReport": "연간 운세 리포트",
+    "earlyAccess": "신기능 우선 체험"
+  },
+  "draw": {
+    "title": "타로 점술",
+    "selectSpread": "스프레드 선택",
+    "enterQuestion": "질문 입력 (선택)",
+    "questionPlaceholder": "예: 내 커리어 방향은 어디로 가야 할까요?",
+    "startDraw": "카드 뽑기",
+    "drawing": "뽑는 중...",
+    "yesNo": "Yes/No 점",
+    "yesNoDesc": "한 장으로 명확한 예/아니오",
+    "single": "1장 뽑기",
+    "singleDesc": "한 장으로 핵심 메시지 공개",
+    "threeCard": "3장 스프레드",
+    "threeCardDesc": "과거·현재·미래",
+    "cross": "켈틱 십자",
+    "crossDesc": "심층 종합 분석",
+    "problem": "문제 해결",
+    "problemDesc": "문제·원인·조언",
+    "career": "커리어 스프레드",
+    "careerDesc": "현황·도전·방향",
+    "diamond": "다이아몬드",
+    "diamondDesc": "4차원 심층 분석",
+    "selectReader": "리더 선택",
+    "cards": "장",
+    "freeLeft": "오늘 무료 {{count}}회 남음",
+    "costPoints": "{{cost}}포인트/회",
+    "vipUnlimited": "VIP 무제한",
+    "loginForMore": "로그인하면 더 많이",
+    "upright": "정방향",
+    "reversed": "역방향",
+    "totalSpreads": "총 {{count}} 가지",
+    "randomDraw": "랜덤 뽑기",
+    "randomDrawDesc": "실제 셔플 애니메이션으로 카드 뽑기",
+    "luckyNumber": "행운의 숫자",
+    "luckyNumberDesc": "1-78 숫자를 입력하여 카드 선택",
+    "yesNoDrawDesc": "간단한 질문에 예/아니오로 답변",
+    "luckyNumberPlaceholder": "예: 7, 22, 56...",
+    "questionHint": "질문에 집중하세요, 카드가 안내해 줄 것입니다"
+  },
+  "interpretation": {
+    "title": "타로 해석",
+    "loading": "해석 중...",
+    "readingBy": "리더: {{reader}}",
+    "scrollDown": "스크롤하여 전체 보기",
+    "share": "결과 공유",
+    "shareSuccess": "링크 복사 완료!",
+    "followUp": "추가 질문",
+    "followUpPlaceholder": "이번 점술 결과를 바탕으로 더 알고 싶은 것은?",
+    "followUpSend": "전송",
+    "followUpCost": "추가 질문 1포인트",
+    "followUpLogin": "로그인 후 추가 질문 가능",
+    "yourQuestion": "내 질문",
+    "yourCards": "뽑은 카드",
+    "aiInterpretation": "AI 해석",
+    "yes": "✓ 예",
+    "no": "✗ 아니오",
+    "maybe": "? 아마도",
+    "noInterpretation": "해석 없음",
+    "copySuccess": "클립보드에 복사되었습니다",
+    "copyFailed": "복사 실패, 수동으로 복사해 주세요"
+  },
+  "fortune": {
+    "title": "오늘의 운세",
+    "subtitle": "AI가 생일을 기반으로 오늘의 운세를 해석합니다",
+    "setBirthday": "생일 설정",
+    "birthdayLabel": "생일",
+    "save": "저장",
+    "generating": "오늘의 운세 생성 중...",
+    "getToday": "오늘의 운세 받기",
+    "history": "운세 기록",
+    "noHistory": "기록 없음",
+    "overallFortune": "종합 운세",
+    "love": "연애",
+    "career": "직업",
+    "wealth": "재물",
+    "health": "건강",
+    "luckyColor": "행운의 색",
+    "luckyNumber": "행운의 숫자",
+    "advice": "오늘의 조언",
+    "zodiac": {
+      "aries": "양자리",
+      "taurus": "황소자리",
+      "gemini": "쌍둥이자리",
+      "cancer": "게자리",
+      "leo": "사자자리",
+      "virgo": "처녀자리",
+      "libra": "천칭자리",
+      "scorpio": "전갈자리",
+      "sagittarius": "궁수자리",
+      "capricorn": "염소자리",
+      "aquarius": "물병자리",
+      "pisces": "물고기자리"
+    },
+    "seoDesc": "생일을 입력하면 AI가 별자리와 타로를 결합하여 오늘의 운세를 해석해 드립니다. 연애, 직업, 재물, 건강 가이드.",
+    "generatingHint": "별을 읽고 있습니다..."
+  },
+  "gallery": {
+    "title": "타로 도감",
+    "seoTitle": "78장 타로 카드 도감",
+    "subtitle": "78장 타로 카드의 비밀 탐구",
+    "majorArcana": "메이저 아르카나",
+    "minorArcana": "마이너 아르카나",
+    "all": "전체",
+    "wands": "완드",
+    "cups": "컵",
+    "swords": "소드",
+    "pentacles": "펜타클",
+    "search": "타로 카드 검색...",
+    "viewDetail": "상세 보기",
+    "majorDesc": "인생의 주요 테마와 영혼의 과제를 나타냅니다",
+    "wandsDesc": "행동, 창의성, 열정, 의지력을 나타냅니다",
+    "cupsDesc": "감정, 관계, 직관, 정신을 나타냅니다",
+    "swordsDesc": "사고, 소통, 갈등, 진실을 나타냅니다",
+    "pentaclesDesc": "물질, 부, 건강, 실무적인 일을 나타냅니다",
+    "seoDesc": "22장의 메이저 아르카나와 56장의 마이너 아르카나를 포함한 78장 타로 카드 도감.",
+    "noResults": "일치하는 카드가 없습니다",
+    "cardCount": "총 {{count}} 장",
+    "faceDesc": "카드 설명"
+  },
+  "cardDetail": {
+    "upright": "정방향 의미",
+    "reversed": "역방향 의미",
+    "keywords": "키워드",
+    "element": "원소",
+    "planet": "행성",
+    "back": "뒤로",
+    "seoTitle": "{{name}} - {{nameEn}} 타로 의미",
+    "seoDesc": "{{name}} ({{nameEn}}) 정방향 의미: {{upright}}. 역방향 의미: {{reversed}}."
+  },
+  "readers": {
+    "title": "AI 타로 리더",
+    "subtitle": "나에게 맞는 해석 스타일 선택",
+    "viewDetail": "자세히 보기",
+    "selectReader": "선택",
+    "specialties": "전문 분야",
+    "style": "해석 스타일",
+    "startReading": "점술 시작",
+    "seoDesc": "개성 넘치는 4명의 AI 타로 리더 중 나만의 가이드를 선택하세요.",
+    "readerNotFound": "리더를 찾을 수 없습니다",
+    "backToDraw": "점술로 돌아가기",
+    "readingsCount": "누적 해석 수",
+    "rating": "별점",
+    "about": "{{name}}에 대하여",
+    "personality": "성격 및 특징",
+    "consultWith": "{{name}}에게 해석 받기",
+    "intuitive": {
+      "name": "성월",
+      "styleName": "직관형",
+      "description": "직관과 첫인상을 믿으며, 영감과 시에 찬 리딩"
+    },
+    "logical": {
+      "name": "묵진",
+      "styleName": "논리형",
+      "description": "카드 관계를 논리적으로 분석, 명확한 행동 조언 제공"
+    },
+    "healing": {
+      "name": "난양",
+      "styleName": "치유형",
+      "description": "부드럽고 따뜻하게 마음을 치유하고 평화를 찾도록 도와줌"
+    },
+    "mystical": {
+      "name": "야우",
+      "styleName": "신비형",
+      "description": "신비주의 전통을 깊이 탐구하며 숨겨진 깊은 의미를 밝혀냄"
+    },
+    "mystic": {
+      "name": "성월",
+      "styleName": "직관형",
+      "description": "직관과 첫인상을 믿으며, 영감과 시에 찬 리딩"
+    },
+    "rational": {
+      "name": "묵진",
+      "styleName": "논리형",
+      "description": "카드 관계를 논리적으로 분석, 명확한 행동 조언 제공"
+    },
+    "warm": {
+      "name": "난양",
+      "styleName": "치유형",
+      "description": "부드럽고 따뜻하게 마음을 치유하고 평화를 찾도록 도와줌"
+    },
+    "punk": {
+      "name": "야우",
+      "styleName": "신비형",
+      "description": "신비주의 전통을 깊이 탐구하며 숨겨진 깊은 의미를 밝혀냄"
+    }
+  },
+  "membership": {
+    "title": "멤버십",
+    "subtitle": "완전한 타로 경험 해금",
+    "current": "현재 상태",
+    "free": "무료 사용자",
+    "active": "활성 멤버",
+    "daysLeft": "{{days}}일 남음",
+    "expired": "만료됨",
+    "points": "포인트: {{points}}",
+    "subscribe": "포인트로 교환",
+    "subscribing": "구독 중...",
+    "freeVsMember": "무료 vs 멤버",
+    "feature": "기능",
+    "freeUser": "무료",
+    "memberUser": "멤버",
+    "dailyLimit": "일일 점술",
+    "dailyFreeLimit": "3회/일",
+    "dailyMemberLimit": "무제한",
+    "followupAccess": "추가 질문",
+    "followupFree": "1포인트/회",
+    "followupMember": "무제한",
+    "readersAccess": "리더",
+    "readersFree": "기본 1명",
+    "readersMember": "전체 4명",
+    "weekly": "주간",
+    "monthly": "월간",
+    "yearly": "연간",
+    "popular": "가장 인기",
+    "bestValue": "최고 가성비",
+    "pointsUnit": "pt",
+    "seoDesc": "멤버십을 구독하여 무제한 점술, 모든 리더 이용, 음성 해석 등을 해금하세요.",
+    "voiceReading": "음성 해석",
+    "history": "기록 저장",
+    "exclusiveBack": "전용 카드 뒷면",
+    "annualReport": "연간 운세 리포트",
+    "earlyAccess": "신기능 우선 체험",
+    "annualOnly": "(연간)",
+    "weeklyPrice": "₩1,300/주",
+    "monthlyPrice": "₩4,000/월",
+    "yearlyPrice": "₩33,000/년",
+    "seoTitle": "멤버십"
+  },
+  "points": {
+    "title": "내 포인트",
+    "current": "현재 포인트",
+    "streak": "연속 출석",
+    "totalCheckins": "누적 출석",
+    "days": "일",
+    "checkin": "매일 출석",
+    "checkinReward": "+10~50",
+    "checkinDesc": "연속 출석으로 보너스 포인트",
+    "checkinNow": "출석 체크",
+    "checkedIn": "출석 완료 ✓",
+    "luckyDraw": "행운의 룰렛",
+    "luckyDrawCost": "-20",
+    "luckyDrawDesc": "20포인트로 더 많이 얻자!",
+    "startDraw": "🎰 돌리기",
+    "shareDraw": "점술 공유",
+    "shareReward": "+5",
+    "shareDesc": "공유 시 5포인트 획득",
+    "goReading": "점술하러 가기",
+    "inviteFriend": "친구 초대",
+    "inviteReward": "+50",
+    "inviteCode": "초대 코드",
+    "copyLink": "링크 복사",
+    "copied": "복사됨",
+    "inviteDesc": "친구가 코드로 가입하면 나 50pt, 친구 20pt 획득",
+    "achievements": "업적",
+    "achievementUnlocked": "{{count}} / {{total}} 달성",
+    "log": "포인트 기록",
+    "noLog": "기록 없음",
+    "vipBanner": "멤버십으로 무제한 점술",
+    "vipBannerSub": "포인트 교환 가능",
+    "viewMembership": "플랜 보기",
+    "streakHint": "{{days}}일 연속 출석",
+    "streakUnlock": "{{days}}일 더하면 연속 보상 🎁",
+    "keepGoing": "계속 하세요!",
+    "seoDesc": "출석 체크로 포인트를 쌓고 업적을 달성하며 행운을 시험해 보세요.",
+    "achievementUnlockedMsg": "🎉 업적 달성: {{names}}!",
+    "checkinSuccess": "출석 완료! +{{amount}}포인트",
+    "checkinFailed": "출석 실패",
+    "seoTitle": "내 포인트"
+  },
+  "profile": {
+    "title": "마이페이지",
+    "notLoggedIn": "로그인 안 됨",
+    "loginPrompt": "로그인하면 더 많은 기능",
+    "membership": "멤버십",
+    "membershipDesc": "무제한 점술 · 전용 혜택",
+    "points": "내 포인트",
+    "pointsDesc": "출석·공유·초대로 적립",
+    "history": "점술 기록",
+    "historyDesc": "지난 점술 확인",
+    "favorites": "즐겨찾기",
+    "favoritesDesc": "저장한 점술과 카드",
+    "settings": "설정",
+    "settingsDesc": "경험 개인화",
+    "logout": "로그아웃",
+    "loginButton": "로그인 / 회원가입"
+  },
+  "login": {
+    "title": "로그인",
+    "email": "이메일",
+    "password": "비밀번호",
+    "submit": "로그인",
+    "submitting": "로그인 중...",
+    "noAccount": "계정이 없으신가요?",
+    "register": "회원가입",
+    "forgotPassword": "비밀번호를 잊으셨나요?"
+  },
+  "register": {
+    "title": "회원가입",
+    "username": "사용자명",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "inviteCode": "초대 코드 (선택)",
+    "inviteCodePlaceholder": "코드 입력 시 20포인트 보너스",
+    "submit": "가입",
+    "submitting": "가입 중...",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "login": "로그인",
+    "passwordMismatch": "비밀번호가 일치하지 않습니다",
+    "success": "가입 완료!"
+  },
+  "history": {
+    "title": "점술 기록",
+    "empty": "기록 없음",
+    "emptyHint": "지금 첫 점술을 해보세요!",
+    "goReading": "점술 시작",
+    "spread": "스프레드",
+    "question": "질문",
+    "noQuestion": "질문 없음",
+    "detail": "점술 상세",
+    "interpretation": "AI 해석",
+    "cards": "카드",
+    "date": "날짜",
+    "recordNotFound": "기록이 없거나 삭제되었습니다"
+  },
+  "share": {
+    "title": "타로 점술 결과",
+    "sharedBy": "2or.com에서 공유",
+    "tryIt": "나도 점술하기",
+    "cards": "카드",
+    "interpretation": "해석",
+    "question": "질문",
+    "spread": "스프레드"
+  },
+  "wheel": {
+    "title": "🎰 행운의 룰렛",
+    "subtitle": "{{cost}}pt 소비 · 더 많이 얻기",
+    "spin": "돌리기 ({{cost}}pt · {{points}}pt 남음)",
+    "spinning": "돌아가는 중...",
+    "netWin": "순이익 +{{amount}}pt",
+    "netLoss": "{{amount}}pt 소비",
+    "netZero": "변동 없음",
+    "remaining": "{{points}}pt 남음",
+    "close": "닫기",
+    "pts5": "5pt",
+    "pts10": "10pt",
+    "pts20": "20pt",
+    "pts50": "50pt",
+    "pts100": "100pt",
+    "thanks": "감사합니다",
+    "freeTicket": "무료권",
+    "tryAgain": "다시 도전"
+  },
+  "shuffle": {
+    "gatherHint": "질문에 집중하세요...",
+    "shuffleHint": "카드를 섞는 중...",
+    "selectHint": "직감으로 {{count}}장 선택",
+    "skip": "건너뛰기",
+    "selected": "{{current}}/{{total}}장 선택됨"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류 발생",
+    "retry": "재시도",
+    "confirm": "확인",
+    "cancel": "취소",
+    "save": "저장",
+    "back": "뒤로",
+    "close": "닫기",
+    "copy": "복사",
+    "share": "공유",
+    "more": "더 보기",
+    "noData": "데이터 없음",
+    "networkError": "네트워크 오류",
+    "loginRequired": "먼저 로그인해 주세요",
+    "languageSwitch": "언어",
+    "justNow": "방금",
+    "pageNotFound": "페이지를 찾을 수 없습니다... 수정 구슬도 찾지 못했어요"
+  },
+  "achievement": {
+    "week_streak": "주간 연속",
+    "week_streakDesc": "7일 연속 출석",
+    "month_streak": "월간 연속",
+    "month_streakDesc": "30일 연속 출석",
+    "centurion": "백일 달성",
+    "centurionDesc": "누적 100회 출석",
+    "first_share": "공유 달인",
+    "first_shareDesc": "첫 점술 결과 공유",
+    "invite_5": "리크루터",
+    "invite_5Desc": "친구 5명 초대",
+    "reader_all": "탐험가",
+    "reader_allDesc": "모든 리더 체험"
+  },
+  "seo": {
+    "homeTitle": "2or 타로 - AI 타로 점술 온라인",
+    "homeDesc": "전문 AI 타로 점술. 연애·직업·재물 무료 해석."
+  },
+  "readers_data": {
+    "mystic": {
+      "name": "미스틱 문",
+      "title": "영적 리더 · 달의 전령",
+      "tagline": "달빛이 비치는 곳에서 진실은 자연스럽게 드러납니다",
+      "desc": "시적이고 영적인, 달빛 같은 깊이",
+      "description": "미스틱 문은 현실과 영적 세계의 경계를 걷는 신비로운 리더입니다. 어린 시절부터 달의 에너지를 느껴왔으며, 타로를 접한 후 비범한 직관력을 보여왔습니다. 그녀의 해석은 달빛처럼 부드러우면서도 날카롭게 핵심을 꿰뚫습니다. 시적인 언어로 깊은 통찰을 전달하는 데 탁월합니다.",
+      "personality": [
+        "신비로운",
+        "시적인",
+        "직관적인",
+        "부드러운 힘"
+      ],
+      "specialties": [
+        "연애의 흐름",
+        "영적 성장",
+        "무의식 탐색",
+        "전생"
+      ],
+      "style": "영적 시학",
+      "readingStyle": "미스틱 문의 리딩은 꿈결 같은 대화입니다. 풍부한 상징과 비유를 사용하여 당신의 내면 깊은 곳으로 인도합니다. 그녀의 언어는 영적인 시와 고대 신비주의의 지혜로 가득 차 있습니다.",
+      "quote": "✨ 어둠을 두려워하지 마세요. 달은 가장 깊은 밤에 피어납니다."
+    },
+    "rational": {
+      "name": "소크라테스",
+      "title": "이성적 분석가 · 논리의 눈",
+      "tagline": "데이터는 거짓말을 하지 않으며, 상징에는 논리가 있습니다",
+      "desc": "엄격한 논리, 정확하고 실행 가능한 조언",
+      "description": "소크라테스는 타로계에서 보기 드문 '이성주의자'입니다. 심리학과 데이터 분석 배경을 가진 그는 타로의 가치가 미래 예지가 아니라 자신의 심리 패턴을 이해하는 거울을 제공하는 데 있다고 믿습니다. 신비주의적인 전문 용어 대신 정확한 상황 분석과 실행 가능한 조언을 제공합니다.",
+      "personality": [
+        "이성적인",
+        "논리적인",
+        "진리 탐구",
+        "날카로운"
+      ],
+      "specialties": [
+        "커리어 발전",
+        "의사결정 분석",
+        "관계 패턴 인식",
+        "목표 계획"
+      ],
+      "style": "논리적 분석",
+      "readingStyle": "소크라테스의 리딩은 전문적인 컨설팅 보고서와 같습니다. 카드 상징을 당신의 현실에 정확하게 매핑하고 구조화된 프레임워크로 분석합니다. 이야기보다는 사실과 실행 가능한 통찰을 제공합니다.",
+      "quote": "📊 타로는 수정구슬이 아닙니다. 자신을 비추는 거울입니다."
+    },
+    "warm": {
+      "name": "디어",
+      "title": "치유의 리더 · 자애의 목소리",
+      "tagline": "모든 카드는 당신이 사랑받을 가치가 있다고 말합니다",
+      "desc": "다정한 언니 같은 느낌, 따뜻한 공감",
+      "description": "디어는 타고난 치유자입니다. 그녀의 리딩은 차가운 분석이 아니라 따뜻한 마음의 대화입니다. 뛰어난 공감 능력으로 당신의 감정 상태를 정확히 감지하고 적절한 온도로 반응합니다. 친한 친구와 이야기하는 것처럼 이해와 지지를 받으면서도 직면해야 할 과제를 부드럽게 짚어줍니다.",
+      "personality": [
+        "따뜻한",
+        "공감하는",
+        "낙관적인",
+        "치유계"
+      ],
+      "specialties": [
+        "연애 고민",
+        "자아 인식",
+        "인간관계",
+        "정서적 케어"
+      ],
+      "style": "따뜻한 치유",
+      "readingStyle": "디어의 리딩은 따뜻한 밀크티 한 잔과 같습니다. 먼저 당신의 감정에 공감한 후, 다정한 말로 긍정적인 측면을 볼 수 있도록 안내합니다. 어려움 속에서 희망의 씨앗을 찾는 데 능숙합니다.",
+      "quote": "🌸 친애하는 당신, 어떤 카드가 나오든 당신은 생각보다 강한 사람이에요."
+    },
+    "punk": {
+      "name": "렉스",
+      "title": "펑크 타로티스트 · 진실 사냥꾼",
+      "tagline": "가식은 집어치우고, 진실을 말해주지",
+      "desc": "직설적이고 날카로운 핵심 돌파",
+      "description": "렉스는 타로계의 폭풍 같은 존재입니다. 허례허식이나 모호한 헛소리는 사절입니다. 진정한 배려는 나쁜 소식을 사탕발림하는 것이 아니라 진실을 눈앞에 던져주는 것이라고 믿습니다. 그의 리딩은 심박수를 높이지만, 당신이 듣고 싶은 말이 아니라 들어야 할 말을 해줍니다.",
+      "personality": [
+        "거침없는",
+        "단호한",
+        "츤데레",
+        "반항적인"
+      ],
+      "specialties": [
+        "병목 현상 돌파",
+        "진실 폭로",
+        "실행력 자극",
+        "환상 타파"
+      ],
+      "style": "샤프 다이렉트",
+      "readingStyle": "렉스의 리딩은 더블 에스프레소 샷과 같습니다. 돌려 말하지 않고 핵심을 찌릅니다. 카드가 좋지 않으면 '이건 별로야'라고 확실히 말하고 그 이유를 분석합니다. 거칠어 보이지만 누구보다 진지하게 고민을 분석해 줍니다.",
+      "quote": "🔥 진실은 뼈아플 수 있지만, 달콤한 거짓말보다 당신을 더 잘 구해줄 거야."
+    }
+  },
+  "errors": {
+    "getFortuneFailed": "운세를 가져오지 못했습니다",
+    "getDetailFailed": "상세 정보를 가져오지 못했습니다",
+    "deleteFailed": "삭제 실패",
+    "shareFailed": "공유가 존재하지 않거나 만료되었습니다",
+    "followUpFailed": "추가 질문 실패",
+    "interpretationFailed": "해석 실패, 다시 시도해 주세요",
+    "getHistoryFailed": "기록을 불러오지 못했습니다",
+    "deleteHistoryFailed": "기록 삭제에 실패했습니다"
+  },
+  "spreads": {
+    "single": {
+      "name": "싱글 카드",
+      "description": "가장 간단하고 직접적인 리딩, 빠른 안내에 적합",
+      "positions": {
+        "position0": {
+          "Name": "핵심 메시지",
+          "meaning": "현재 상황에 대한 핵심 안내 또는 답변"
+        }
+      },
+      "suitableFor": [
+        "빠른 안내",
+        "일상 조언",
+        "간단한 질문"
+      ]
+    },
+    "three-card": {
+      "name": "삼카드 리딩",
+      "description": "과거, 현재, 미래를 탐색하는 클래식 스프레드",
+      "positions": {
+        "position0": {
+          "Name": "과거",
+          "meaning": "현재 상황에 영향을 미치는 과거 요소"
+        },
+        "position1": {
+          "Name": "현재",
+          "meaning": "현재 상황과 도전"
+        },
+        "position2": {
+          "Name": "미래",
+          "meaning": "가능한 미래 발전"
+        }
+      },
+      "suitableFor": [
+        "타임라인",
+        "관계 발전",
+        "프로젝트 진행"
+      ]
+    },
+    "celtic-cross": {
+      "name": "켈틱 크로스",
+      "description": "가장 포괄적인 클래식 스프레드, 질문의 모든 측면을 깊이 탐색",
+      "positions": {
+        "position0": {
+          "Name": "현재 상황",
+          "meaning": "현재 당신의 상황"
+        },
+        "position1": {
+          "Name": "도전",
+          "meaning": "당신을 저해하거나 지원하는 힘"
+        },
+        "position2": {
+          "Name": "기초",
+          "meaning": "문제의 기초와 근원"
+        },
+        "position3": {
+          "Name": "과거",
+          "meaning": "消散 중인 과거의 영향"
+        },
+        "position4": {
+          "Name": "미래",
+          "meaning": "다가오는 영향"
+        },
+        "position5": {
+          "Name": "자기",
+          "meaning": "당신의 태도와 감정"
+        },
+        "position6": {
+          "Name": "환경",
+          "meaning": "외부 영향과 다른 사람들의 태도"
+        },
+        "position7": {
+          "Name": "희망/공포",
+          "meaning": "당신의 희망 또는 공포"
+        },
+        "position8": {
+          "Name": "결과",
+          "meaning": "최종 결과 또는 조언"
+        }
+      },
+      "suitableFor": [
+        "복잡한 문제",
+        "깊은 탐색",
+        "인생 방향"
+      ]
+    },
+    "relationship": {
+      "name": "관계 스프레드",
+      "description": "두 사람 사이의 관계 역학과 발전을 탐색",
+      "positions": {
+        "position0": {
+          "Name": "당신의 입장",
+          "meaning": "관계에서 당신의 상태와 감정"
+        },
+        "position1": {
+          "Name": "상대방의 입장",
+          "meaning": "관계에서 상대방의 상태와 감정"
+        },
+        "position2": {
+          "Name": "관계 역학",
+          "meaning": "둘 사이의 에너지 흐름"
+        },
+        "position3": {
+          "Name": "도전",
+          "meaning": "관계의 어려움 또는 장애"
+        },
+        "position4": {
+          "Name": "잠재력",
+          "meaning": "관계의 가능한 발전 방향"
+        }
+      },
+      "suitableFor": [
+        "연애 관계",
+        "우정",
+        "협력 관계"
+      ]
+    },
+    "decision": {
+      "name": "의사결정 스프레드",
+      "description": "중요한 결정에 도움을 주는 스프레드",
+      "positions": {
+        "position0": {
+          "Name": "현재 상황",
+          "meaning": "현재 상황에 대한 전체 그림"
+        },
+        "position1": {
+          "Name": "선택 A",
+          "meaning": "첫 번째 길의 결과"
+        },
+        "position2": {
+          "Name": "선택 B",
+          "meaning": "두 번째 길의 결과"
+        },
+        "position3": {
+          "Name": "조언",
+          "meaning": "결정을 돕는 안내"
+        }
+      },
+      "suitableFor": [
+        "커리어 선택",
+        "이사 결정",
+        "중요한 결정"
+      ]
+    },
+    "problem-solving": {
+      "name": "문제 해결",
+      "description": "문제의 원인, 현재 상태, 해결 방법을 분석",
+      "positions": {
+        "position0": {
+          "Name": "문제 원인",
+          "meaning": "현재 문제의 근본 원인"
+        },
+        "position1": {
+          "Name": "현재 상태",
+          "meaning": "문제의 현재 발전 단계"
+        },
+        "position2": {
+          "Name": "해결 방법",
+          "meaning": "권장 전략과 행동 방향"
+        }
+      },
+      "suitableFor": [
+        "고난 분석",
+        "방법 찾기",
+        "벽돌파기"
+      ]
+    },
+    "career": {
+      "name": "커리어 스프레드",
+      "description": "커리어 개발, 직장 도전, 기회를 탐색",
+      "positions": {
+        "position0": {
+          "Name": "현재 커리어 상태",
+          "meaning": "현재 커리어 상황과 에너지"
+        },
+        "position1": {
+          "Name": "장애 요소",
+          "meaning": "커리어 발달을 저해하는 요소"
+        },
+        "position2": {
+          "Name": "숨겨진 기회",
+          "meaning": "見칠 수 있는 기회"
+        },
+        "position3": {
+          "Name": "행동 제안",
+          "meaning": "커리어 발달을 추진하는 구체적 행동"
+        },
+        "position4": {
+          "Name": "미래 전망",
+          "meaning": "커리어 트렌드와 잠재력"
+        }
+      },
+      "suitableFor": [
+        "커리어 개발",
+        "이직",
+        "창업"
+      ]
+    },
+    "diamond": {
+      "name": "다이아몬드 스프레드",
+      "description": "万能型 이벤트 분석, 원인, 현재, 미래를 종합적으로 해석",
+      "positions": {
+        "position0": {
+          "Name": "사건의 원인",
+          "meaning": "사건의 기원과 배경"
+        },
+        "position1": {
+          "Name": "현재 상황",
+          "meaning": "사건의 현재 발전 상태"
+        },
+        "position2": {
+          "Name": "숨겨진 영향",
+          "meaning": "결과에 영향을 미치는 보이지 않는 요소"
+        },
+        "position3": {
+          "Name": "최종 결과",
+          "meaning": "사건의发展方向과 결말"
+        }
+      },
+      "suitableFor": [
+        "단일 이벤트",
+        "미래 예측",
+        "종합 분석"
+      ]
+    }
+  },
+  "apiErrors": {
+    "requestTimeout": "요청 시간 초과. 네트워크 연결을 확인하고 다시 시도하세요.",
+    "networkError": "네트워크 연결 실패. 네트워크를 확인하세요.",
+    "noReading": "해석이 없습니다"
+  },
+  "voiceReader": {
+    "generating": "음성 생성 중...",
+    "pause": "일시정지",
+    "resume": "재개",
+    "voiceReading": "음성 해석",
+    "generatingTip": "해석 생성 중, 잠시만 기다려주세요..."
+  },
+  "shareImage": {
+    "aiReading": "AI 타로 占術",
+    "tarotReader": "타로 리더: ",
+    "reversed": "역위",
+    "upright": "정위",
+    "aiSummary": "✨ AI 해석 요약",
+    "scanQR": "QR을 스캔하여 전체 해석 보기",
+    "tryFortune": "나도 운세 테스트해보자~",
+    "brandLine": "2or.com · AI 타로",
+    "longPressSave": "길게 눌러 저장, 위챗으로 공유",
+    "saveImage": "이미지 저장",
+    "generationFailed": "이미지 생성 실패",
+    "close": "닫기",
+    "generating": "공유 이미지 생성 중..."
+  },
+  "time": {
+    "minutesAgo": "{{count}}분 전",
+    "hoursAgo": "{{count}}시간 전",
+    "daysAgo": "{{count}}일 전"
+  },
+  "errorBoundary": {
+    "title": "문제가 발생했습니다",
+    "message": "죄송합니다. 앱에 예기치 않은 오류가 발생했습니다. 페이지를 새로고침해 보세요.",
+    "reload": "페이지 새로고침"
+  }
+}

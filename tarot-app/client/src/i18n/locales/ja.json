@@ -1,0 +1,814 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "draw": "カードを引く",
+    "fortune": "運勢",
+    "gallery": "カード図鑑",
+    "readers": "タロット師",
+    "membership": "会員",
+    "profile": "マイページ",
+    "login": "ログイン",
+    "register": "登録",
+    "logout": "ログアウト",
+    "history": "占い履歴",
+    "menu": "メニュー"
+  },
+  "home": {
+    "badge": "✨ AIタロット占い",
+    "title": "運命の扉を開く",
+    "titleHighlight": "タロットの神秘",
+    "subtitle": "古代のタロットの知恵とAI技術が融合。あなたの運命を導く — スプレッドを選んでカードを引きましょう。",
+    "startReading": "占いを始める",
+    "features": "主な機能",
+    "aiReading": "AI解釈",
+    "aiReadingDesc": "深層学習によるタロット占い",
+    "multiSpread": "多彩なスプレッド",
+    "multiSpreadDesc": "1枚引き、3枚、ケルト十字など",
+    "dailyFortune": "今日の運勢",
+    "dailyFortuneDesc": "誕生日に基づく個性化された運勢",
+    "selectReader": "AIタロット師を選ぶ",
+    "selectReaderDesc": "それぞれ独自の解釈スタイルを持つ",
+    "vipSection": "会員限定",
+    "vipTitle": "タロット体験をフル解放",
+    "vipSubtitle": "無料ユーザーは1日3回、会員は無制限",
+    "vipButton": "プランを確認",
+    "vipNote": "ポイント交換可能 · 決済機能近日公開",
+    "ctaTitle": "タロットの旅を始めよう",
+    "ctaSubtitle": "古代のカードがあなたの道を照らす",
+    "ctaButton": "無料で占いを始める",
+    "popular": "人気No.1",
+    "weekPlan": "週間パス",
+    "monthPlan": "月額会員",
+    "yearPlan": "年間会員",
+    "perWeek": "/週",
+    "perMonth": "/月",
+    "perYear": "/年",
+    "unlimitedReading": "占い無制限",
+    "allReaders": "全タロット師",
+    "unlimitedFollowup": "追加質問無制限",
+    "voiceReading": "音声解釈",
+    "exclusiveBack": "専用カード裏面",
+    "allBenefits": "全特典込み",
+    "annualReport": "年間運勢レポート",
+    "earlyAccess": "新機能先行体験"
+  },
+  "draw": {
+    "title": "タロット占い",
+    "selectSpread": "スプレッドを選ぶ",
+    "enterQuestion": "質問を入力（任意）",
+    "questionPlaceholder": "例：私のキャリアはどの方向に進むべきか？",
+    "startDraw": "カードを引く",
+    "drawing": "引いています...",
+    "yesNo": "Yes/No 占い",
+    "yesNoDesc": "1枚で明確なYes/No",
+    "single": "1枚引き",
+    "singleDesc": "1枚で核心を明かす",
+    "threeCard": "3枚スプレッド",
+    "threeCardDesc": "過去・現在・未来",
+    "cross": "ケルト十字",
+    "crossDesc": "深い総合分析",
+    "problem": "問題解決",
+    "problemDesc": "問題・原因・アドバイス",
+    "career": "キャリアスプレッド",
+    "careerDesc": "現状・課題・方向",
+    "diamond": "ダイヤモンド",
+    "diamondDesc": "4次元深層分析",
+    "selectReader": "タロット師を選ぶ",
+    "cards": "枚",
+    "freeLeft": "本日あと{{count}}回無料",
+    "costPoints": "{{cost}}ポイント/回",
+    "vipUnlimited": "VIP無制限",
+    "loginForMore": "ログインでもっと占える",
+    "upright": "正位置",
+    "reversed": "逆位置",
+    "totalSpreads": "全 {{count}} 種類",
+    "randomDraw": "ランダム",
+    "randomDrawDesc": "リアルなシャッフルとフリップアニメーション",
+    "luckyNumber": "ラッキーナンバー",
+    "luckyNumberDesc": "1-78の数字でカードを選ぶ",
+    "yesNoDrawDesc": "簡単な質問にYes/Noで回答",
+    "luckyNumberPlaceholder": "例: 7, 22, 56...",
+    "questionHint": "質問に集中してください、カードが導いてくれます"
+  },
+  "interpretation": {
+    "title": "タロット解釈",
+    "loading": "読み取り中...",
+    "readingBy": "担当：{{reader}}",
+    "scrollDown": "スクロールして全文を読む",
+    "share": "結果をシェア",
+    "shareSuccess": "リンクをコピーしました！",
+    "followUp": "追加質問",
+    "followUpPlaceholder": "この占いの結果を踏まえて、さらに知りたいことは？",
+    "followUpSend": "送信",
+    "followUpCost": "追加質問1ポイント",
+    "followUpLogin": "ログインして追加質問",
+    "yourQuestion": "あなたの質問",
+    "yourCards": "引いたカード",
+    "aiInterpretation": "AI解釈",
+    "yes": "✓ はい",
+    "no": "✗ いいえ",
+    "maybe": "? たぶん",
+    "noInterpretation": "解釈がありません",
+    "copySuccess": "クリップボードにコピーしました",
+    "copyFailed": "コピーに失敗しました。手動でコピーしてください"
+  },
+  "fortune": {
+    "title": "今日の運勢",
+    "subtitle": "誕生日に基づきAIが今日の運勢を解読",
+    "setBirthday": "誕生日を設定",
+    "birthdayLabel": "誕生日",
+    "save": "保存",
+    "generating": "今日の運勢を生成中...",
+    "getToday": "今日の運勢を取得",
+    "history": "運勢履歴",
+    "noHistory": "履歴なし",
+    "overallFortune": "総合運",
+    "love": "恋愛",
+    "career": "仕事",
+    "wealth": "財運",
+    "health": "健康",
+    "luckyColor": "ラッキーカラー",
+    "luckyNumber": "ラッキーナンバー",
+    "advice": "今日のアドバイス",
+    "zodiac": {
+      "aries": "牡羊座",
+      "taurus": "牡牛座",
+      "gemini": "双子座",
+      "cancer": "蟹座",
+      "leo": "獅子座",
+      "virgo": "乙女座",
+      "libra": "天秤座",
+      "scorpio": "蠍座",
+      "sagittarius": "射手座",
+      "capricorn": "山羊座",
+      "aquarius": "水瓶座",
+      "pisces": "魚座"
+    },
+    "seoDesc": "誕生日を入力すると、AIが星座とタロットを組み合わせて今日の運勢を解読します。恋愛、仕事、金運、健康のガイド。",
+    "generatingHint": "星を読んでいます..."
+  },
+  "gallery": {
+    "title": "タロット図鑑",
+    "seoTitle": "78枚のタロットカード図鑑",
+    "subtitle": "78枚のタロットカードの謎を探る",
+    "majorArcana": "大アルカナ",
+    "minorArcana": "小アルカナ",
+    "all": "すべて",
+    "wands": "ワンド",
+    "cups": "カップ",
+    "swords": "ソード",
+    "pentacles": "ペンタクル",
+    "search": "タロットカードを検索...",
+    "viewDetail": "詳細を見る",
+    "majorDesc": "人生の主要なテーマと魂の課題を表します",
+    "wandsDesc": "行動、創造性、情熱、意志力を表します",
+    "cupsDesc": "感情、関係、直感、精神を表します",
+    "swordsDesc": "思考、コミュニケーション、対立、真実を表します",
+    "pentaclesDesc": "物質、富、健康、実務的な事柄を表します",
+    "seoDesc": "22枚の大アルカナと56枚の小アルカナを含む、完全な78枚のタロットカード図鑑。",
+    "noResults": "一致するカードが見つかりません",
+    "cardCount": "全 {{count}} 枚",
+    "faceDesc": "カードの説明"
+  },
+  "cardDetail": {
+    "upright": "正位置の意味",
+    "reversed": "逆位置の意味",
+    "keywords": "キーワード",
+    "element": "エレメント",
+    "planet": "惑星",
+    "back": "戻る",
+    "seoTitle": "{{name}} - {{nameEn}} タロットカードの意味",
+    "seoDesc": "{{name}}（{{nameEn}}）正位置の意味：{{upright}}。逆位置の意味：{{reversed}}。"
+  },
+  "readers": {
+    "title": "AIタロット師",
+    "subtitle": "あなたに合った解釈スタイルを選ぶ",
+    "viewDetail": "詳しく見る",
+    "selectReader": "選ぶ",
+    "specialties": "得意分野",
+    "style": "解釈スタイル",
+    "startReading": "占いを始める",
+    "seoDesc": "4人の個性豊かなAIタロット師から、あなただけのガイドを選んでください。",
+    "readerNotFound": "タロット師が見つかりません",
+    "backToDraw": "占いに戻る",
+    "readingsCount": "累計解読数",
+    "rating": "評価",
+    "about": "{{name}}について",
+    "personality": "性格・特徴",
+    "consultWith": "{{name}}に占ってもらう",
+    "intuitive": {
+      "name": "星月（ほしづき）",
+      "styleName": "直感系",
+      "description": "直感と第一印象を信じ、靈感と詩に満ちたリーディング"
+    },
+    "logical": {
+      "name": "墨塵（ぼくじん）",
+      "styleName": "論理系",
+      "description": "牌の関係性を論理的に分析、明確な行動提案を提供"
+    },
+    "healing": {
+      "name": "暖陽（だんよう）",
+      "styleName": "癒し系",
+      "description": "優しく親しみ、心を癒し、穏やかな心を見つける手助け"
+    },
+    "mystical": {
+      "name": "夜羽（よは）",
+      "styleName": "神秘系",
+      "description": "神秘学伝統を深く探り、隠れた深い意味を明らかにする"
+    },
+    "mystic": {
+      "name": "星月（ほしづき）",
+      "styleName": "直感系",
+      "description": "直感と第一印象を信じ、靈感と詩に満ちたリーディング"
+    },
+    "rational": {
+      "name": "墨塵（ぼくじん）",
+      "styleName": "論理系",
+      "description": "牌の関係性を論理的に分析、明確な行動提案を提供"
+    },
+    "warm": {
+      "name": "暖陽（だんよう）",
+      "styleName": "癒し系",
+      "description": "優しく親しみ、心を癒し、穏やかな心を見つける手助け"
+    },
+    "punk": {
+      "name": "夜羽（よは）",
+      "styleName": "神秘系",
+      "description": "神秘学伝統を深く探り、隠れた深い意味を明らかにする"
+    }
+  },
+  "membership": {
+    "title": "会員プラン",
+    "subtitle": "タロット体験をフル解放",
+    "current": "現在のステータス",
+    "free": "無料ユーザー",
+    "active": "有効会員",
+    "daysLeft": "残り{{days}}日",
+    "expired": "期限切れ",
+    "points": "現在のポイント：{{points}}",
+    "subscribe": "ポイントで交換",
+    "subscribing": "登録中...",
+    "freeVsMember": "無料 vs 会員",
+    "feature": "機能",
+    "freeUser": "無料",
+    "memberUser": "会員",
+    "dailyLimit": "1日の占い回数",
+    "dailyFreeLimit": "3回/日",
+    "dailyMemberLimit": "無制限",
+    "followupAccess": "追加質問",
+    "followupFree": "1ポイント/回",
+    "followupMember": "無制限",
+    "readersAccess": "タロット師",
+    "readersFree": "デフォルト1名",
+    "readersMember": "全4名",
+    "weekly": "週間",
+    "monthly": "月額",
+    "yearly": "年間",
+    "popular": "人気No.1",
+    "bestValue": "お得",
+    "pointsUnit": "pt",
+    "seoDesc": "会員登録して、無制限の占い、全タロット師の利用、音声解釈などを解放しましょう。",
+    "voiceReading": "音声解釈",
+    "history": "履歴保存",
+    "exclusiveBack": "専用カード裏面",
+    "annualReport": "年間運勢レポート",
+    "earlyAccess": "新機能先行体験",
+    "annualOnly": "（年間）",
+    "weeklyPrice": "¥110/週",
+    "monthlyPrice": "¥400/月",
+    "yearlyPrice": "¥3,300/年",
+    "seoTitle": "メンバーシップ"
+  },
+  "points": {
+    "title": "マイポイント",
+    "current": "現在のポイント",
+    "streak": "連続チェックイン",
+    "totalCheckins": "累計チェックイン",
+    "days": "日",
+    "checkin": "毎日チェックイン",
+    "checkinReward": "+10〜50",
+    "checkinDesc": "連続チェックインでボーナスポイント",
+    "checkinNow": "チェックイン",
+    "checkedIn": "チェック済み ✓",
+    "luckyDraw": "ラッキーホイール",
+    "luckyDrawCost": "-20",
+    "luckyDrawDesc": "20ポイントで回して勝利！",
+    "startDraw": "🎰 回す",
+    "shareDraw": "占いをシェア",
+    "shareReward": "+5",
+    "shareDesc": "シェアごとに5ポイント",
+    "goReading": "占いへ",
+    "inviteFriend": "友達を招待",
+    "inviteReward": "+50",
+    "inviteCode": "招待コード",
+    "copyLink": "リンクをコピー",
+    "copied": "コピー済み",
+    "inviteDesc": "招待コードで友達が登録すると、あなた50pt・友達20pt獲得",
+    "achievements": "実績",
+    "achievementUnlocked": "{{count}} / {{total}} 解放済み",
+    "log": "ポイント履歴",
+    "noLog": "履歴なし",
+    "vipBanner": "会員で占い無制限",
+    "vipBannerSub": "ポイント交換可能",
+    "viewMembership": "プランを見る",
+    "streakHint": "{{days}}日連続チェックイン",
+    "streakUnlock": "あと{{days}}日で連続ボーナス 🎁",
+    "keepGoing": "続けましょう！",
+    "seoDesc": "チェックインでポイントを貯め、実績を解除し、運試しをしましょう。",
+    "achievementUnlockedMsg": "🎉 実績解除：{{names}}！",
+    "checkinSuccess": "チェックイン成功！+{{amount}}ポイント",
+    "checkinFailed": "チェックイン失敗",
+    "seoTitle": "マイポイント"
+  },
+  "profile": {
+    "title": "マイページ",
+    "notLoggedIn": "未ログイン",
+    "loginPrompt": "ログインでもっと便利に",
+    "membership": "会員プラン",
+    "membershipDesc": "無制限占い · 特典多数",
+    "points": "マイポイント",
+    "pointsDesc": "チェックイン・シェア・招待で獲得",
+    "history": "占い履歴",
+    "historyDesc": "過去の占いを確認",
+    "favorites": "お気に入り",
+    "favoritesDesc": "保存した占いとカード",
+    "settings": "設定",
+    "settingsDesc": "体験をカスタマイズ",
+    "logout": "ログアウト",
+    "loginButton": "ログイン / 登録"
+  },
+  "login": {
+    "title": "ログイン",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "submit": "ログイン",
+    "submitting": "ログイン中...",
+    "noAccount": "アカウントをお持ちでない方は",
+    "register": "新規登録",
+    "forgotPassword": "パスワードを忘れた方"
+  },
+  "register": {
+    "title": "新規登録",
+    "username": "ユーザー名",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "inviteCode": "招待コード（任意）",
+    "inviteCodePlaceholder": "コードがある方は20ptボーナス",
+    "submit": "登録",
+    "submitting": "登録中...",
+    "hasAccount": "すでにアカウントをお持ちの方は",
+    "login": "ログイン",
+    "passwordMismatch": "パスワードが一致しません",
+    "success": "登録完了！"
+  },
+  "history": {
+    "title": "占い履歴",
+    "empty": "履歴なし",
+    "emptyHint": "さっそく占ってみましょう！",
+    "goReading": "占いを始める",
+    "spread": "スプレッド",
+    "question": "質問",
+    "noQuestion": "質問なし",
+    "detail": "占い詳細",
+    "interpretation": "AI解釈",
+    "cards": "カード",
+    "date": "日付",
+    "recordNotFound": "履歴が見つからないか削除されました"
+  },
+  "share": {
+    "title": "タロット占い結果",
+    "sharedBy": "2or.comでシェア",
+    "tryIt": "私も占う",
+    "cards": "カード",
+    "interpretation": "解釈",
+    "question": "質問",
+    "spread": "スプレッド"
+  },
+  "wheel": {
+    "title": "🎰 ラッキーホイール",
+    "subtitle": "{{cost}}pt消費 · 当てて増やす",
+    "spin": "回す（{{cost}}pt · 残{{points}}pt）",
+    "spinning": "回転中...",
+    "netWin": "純利益 +{{amount}}pt",
+    "netLoss": "{{amount}}pt消費",
+    "netZero": "変動なし",
+    "remaining": "残{{points}}pt",
+    "close": "閉じる",
+    "pts5": "5pt",
+    "pts10": "10pt",
+    "pts20": "20pt",
+    "pts50": "50pt",
+    "pts100": "100pt",
+    "thanks": "ありがとう",
+    "freeTicket": "無料券",
+    "tryAgain": "もう一度"
+  },
+  "shuffle": {
+    "gatherHint": "質問に集中して...",
+    "shuffleHint": "カードをシャッフル中...",
+    "selectHint": "直感で{{count}}枚選んでください",
+    "skip": "スキップ",
+    "selected": "{{current}}/{{total}}枚選択済み"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "retry": "再試行",
+    "confirm": "確認",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "back": "戻る",
+    "close": "閉じる",
+    "copy": "コピー",
+    "share": "シェア",
+    "more": "もっと見る",
+    "noData": "データなし",
+    "networkError": "ネットワークエラー",
+    "loginRequired": "先にログインしてください",
+    "languageSwitch": "言語",
+    "justNow": "たった今",
+    "pageNotFound": "ページが見つかりません...水晶玉でも見つけられません"
+  },
+  "achievement": {
+    "week_streak": "週間連続",
+    "week_streakDesc": "7日連続チェックイン",
+    "month_streak": "月間連続",
+    "month_streakDesc": "30日連続チェックイン",
+    "centurion": "百日継続",
+    "centurionDesc": "累計100回チェックイン",
+    "first_share": "シェア達人",
+    "first_shareDesc": "初めて占い結果をシェア",
+    "invite_5": "リクルーター",
+    "invite_5Desc": "5人の友達を招待",
+    "reader_all": "探検家",
+    "reader_allDesc": "全4名のタロット師を体験"
+  },
+  "seo": {
+    "homeTitle": "2orタロット - AI タロット占いオンライン",
+    "homeDesc": "プロのAIタロット占い。恋愛・仕事・財運を無料で鑑定。"
+  },
+  "readers_data": {
+    "mystic": {
+      "name": "月影霊師",
+      "title": "スピリチュアル・リーダー · 月の使者",
+      "tagline": "月光が照らす場所には、自然と真実が浮かび上がる",
+      "desc": "詩的で神秘的、月光のような深み",
+      "description": "月影霊師は、現実と精神世界の境界を歩く神秘的なタロット師です。幼少期から月のエネルギーを感じ取り、タロットに出会ってからは類まれな直感力を発揮してきました。彼女の解釈は、月光のように優しく、かつ鋭く核心を突きます。詩的な言葉で深い洞察を伝えることを得意としています。",
+      "personality": [
+        "神秘的",
+        "詩的",
+        "直感的",
+        "穏やかな力"
+      ],
+      "specialties": [
+        "恋愛の行方",
+        "魂の成長",
+        "潜在意識",
+        "前世"
+      ],
+      "style": "スピリチュアル・ポエティック",
+      "readingStyle": "月影霊師の鑑定は、夢のような対話です。豊かな比喩と象徴を使い、あなたの内面の深淵へと導きます。彼女の言葉は精神的な詩情に溢れ、古代の神秘的な知恵を感じさせます。",
+      "quote": "✨ 暗闇を恐れないで。月は最も深い夜にこそ輝くのです。"
+    },
+    "rational": {
+      "name": "ソクラテス",
+      "title": "理性的アナリスト · 論理の眼",
+      "tagline": "データは嘘をつかない、象徴には論理がある",
+      "desc": "厳格な論理性、正確で実行可能な助言",
+      "description": "ソクラテスはタロット界では珍しい「理性派」です。心理学とデータ分析の背景を持ち、タロットの価値は未来予知ではなく、自身の心理パターンを理解するための鏡であると信じています。神秘的な用語を排除し、正確な状況分析と実行可能な行動アドバイスを提供します。",
+      "personality": [
+        "理性的",
+        "論理的",
+        "真理追及",
+        "鋭い"
+      ],
+      "specialties": [
+        "キャリア形成",
+        "意思決定分析",
+        "人間関係のパターン",
+        "目標設定"
+      ],
+      "style": "論理的分析",
+      "readingStyle": "ソクラテスの鑑定は、プロフェッショナルなコンサルティング報告書のようです。カードの象徴をあなたの現実に正確にマッピングし、構造化された枠組みで分析します。物語ではなく、事実と論理に基づいた干貨を提供します。",
+      "quote": "📊 タロットは水晶玉ではありません。自分を見つめるための鏡です。"
+    },
+    "warm": {
+      "name": "小鹿（こじか）",
+      "title": "癒しのリーダー · 慈愛の声",
+      "tagline": "どのカードも、あなたが愛される価値があると言っています",
+      "desc": "親しみやすいお姉さん、温かい共感",
+      "description": "小鹿は天性のヒーラーです。彼女の鑑定は冷徹な分析ではなく、温かい心の対話です。強い共感力を持ち、あなたの感情の状態を正確に察知し、最適な温かさで応えます。親しい友人と話しているような感覚で、理解と支持を得ながら、向き合うべき課題を優しく示してくれます。",
+      "personality": [
+        "温かい",
+        "共感的",
+        "楽観的",
+        "癒やし系"
+      ],
+      "specialties": [
+        "恋愛の悩み",
+        "自己認識",
+        "対人関係",
+        "感情のケア"
+      ],
+      "style": "温かい癒やし",
+      "readingStyle": "小鹿の鑑定は温かいミルクティーのようです。まずあなたの感情に共感し、優しい言葉で物事のポジティブな側面を見せてくれます。困難の中に希望の種を見つけるのが得意です。",
+      "quote": "🌸 あなたは、自分で思っているよりもずっと強いのですよ。"
+    },
+    "punk": {
+      "name": "レックス",
+      "title": "パンク・タロット師 · 真実のハンター",
+      "tagline": "飾るのはやめろ、真実を教えてやる",
+      "desc": "直接的で鋭い、核心を一突き",
+      "description": "レックスはタロット界の嵐のような存在です。気取った儀式や曖昧な戯言は一切なし。真の優しさとは、甘い言葉で包むことではなく、真実を目の前に突きつけることだと信じています。彼の鑑定は心拍数を上げますが、それはあなたが聞きたいことではなく、聞くべきことなのです。",
+      "personality": [
+        "率直",
+        "断定的",
+        "タフな愛",
+        "反逆的"
+      ],
+      "specialties": [
+        "ボトルネックの打破",
+        "真実の暴露",
+        "行動力の喚起",
+        "幻想の打破"
+      ],
+      "style": "シャープ・ダイレクト",
+      "readingStyle": "レックスの鑑定はダブルのエスプレッソのようです。遠回しな言い方はせず、核心を突きます。カードが悪ければ「これじゃダメだ」とはっきり言い、その理由を分析します。無骨に見えますが、誰よりも真剣に悩みと向き合ってくれます。",
+      "quote": "🔥 真実は耳に痛いかもしれないが、甘い言葉よりお前を救ってくれる。"
+    }
+  },
+  "errors": {
+    "getFortuneFailed": "運勢の取得に失敗しました",
+    "getDetailFailed": "詳細の取得に失敗しました",
+    "deleteFailed": "削除に失敗しました",
+    "shareFailed": "シェアが存在しないか期限切れです",
+    "followUpFailed": "追加質問に失敗しました",
+    "interpretationFailed": "解釈に失敗しました。もう一度お試しください",
+    "getHistoryFailed": "履歴の取得に失敗しました",
+    "deleteHistoryFailed": "記録の削除に失敗しました"
+  },
+  "spreads": {
+    "single": {
+      "name": "シングルカード",
+      "description": "最もシンプルで直接的なリーディング、迅速なガイダンスに最適",
+      "positions": {
+        "position0": {
+          "Name": "コアメッセージ",
+          "meaning": "現在の状況への核となるガイダンス"
+        }
+      },
+      "suitableFor": [
+        "素早い案内",
+        "日常のアドバイス",
+        "シンプルな質問"
+      ]
+    },
+    "three-card": {
+      "name": "三枚カード",
+      "description": "過去、現在、未来を探る古典的なスプレッド",
+      "positions": {
+        "position0": {
+          "Name": "過去",
+          "meaning": "現在の状況に影響を与える過去の要素"
+        },
+        "position1": {
+          "Name": "現在",
+          "meaning": "現在の状況と課題"
+        },
+        "position2": {
+          "Name": "未来",
+          "meaning": "可能な未来の発展"
+        }
+      },
+      "suitableFor": [
+        "タイムライン",
+        "関係発展",
+        "プロジェクト進行"
+      ]
+    },
+    "celtic-cross": {
+      "name": "ケルト十字",
+      "description": "最も包括的な古典的スプレッド、質問のあらゆる側面を深く探る",
+      "positions": {
+        "position0": {
+          "Name": "現在の状況",
+          "meaning": "現在のあなたの状況"
+        },
+        "position1": {
+          "Name": "チャレンジ",
+          "meaning": "あなたを妨げるまたは支援する力"
+        },
+        "position2": {
+          "Name": "基盤",
+          "meaning": "問題の根本原因"
+        },
+        "position3": {
+          "Name": "過去",
+          "meaning": "消散してゆく過去の影響"
+        },
+        "position4": {
+          "Name": "未来",
+          "meaning": "近づいてくる影響"
+        },
+        "position5": {
+          "Name": "自己",
+          "meaning": "あなたの姿勢と感情"
+        },
+        "position6": {
+          "Name": "環境",
+          "meaning": "外部の影響と他人の態度"
+        },
+        "position7": {
+          "Name": "希望/恐れ",
+          "meaning": "あなたの希望または恐れ"
+        },
+        "position8": {
+          "Name": "結果",
+          "meaning": "最終的な結果またはアドバイス"
+        }
+      },
+      "suitableFor": [
+        "複雑な問題",
+        "深い探索",
+        "人生の方向性"
+      ]
+    },
+    "relationship": {
+      "name": "関係スプレッド",
+      "description": "二人の関係ダイナミクスと発展を探る",
+      "positions": {
+        "position0": {
+          "Name": "あなたの立場",
+          "meaning": "あなた関係におけるあなたの状態と感情"
+        },
+        "position1": {
+          "Name": "相手の立場",
+          "meaning": "相手関係における相手の状態と感情"
+        },
+        "position2": {
+          "Name": "関係ダイナミクス",
+          "meaning": "二人の間のエネルギーの流れ"
+        },
+        "position3": {
+          "Name": "チャレンジ",
+          "meaning": "関係の困難または障害"
+        },
+        "position4": {
+          "Name": "可能性",
+          "meaning": "関係の可能性ある发展方向"
+        }
+      },
+      "suitableFor": [
+        "恋愛関係",
+        "友情",
+        "協力関係"
+      ]
+    },
+    "decision": {
+      "name": "意思決定",
+      "description": "重要な決定を手伝うスプレッド",
+      "positions": {
+        "position0": {
+          "Name": "現在の状況",
+          "meaning": "現在の状況の全容"
+        },
+        "position1": {
+          "Name": "選択A",
+          "meaning": "最初のパスの結果"
+        },
+        "position2": {
+          "Name": "選択B",
+          "meaning": "第二のパスの結果"
+        },
+        "position3": {
+          "Name": "アドバイス",
+          "meaning": "決定を助けるガイダンス"
+        }
+      },
+      "suitableFor": [
+        "キャリア選択",
+        "引越決定",
+        "大きな決断"
+      ]
+    },
+    "problem-solving": {
+      "name": "問題解決",
+      "description": "問題の起因、現状、解決方法を分析",
+      "positions": {
+        "position0": {
+          "Name": "問題起因",
+          "meaning": "現在の問題の根本原因"
+        },
+        "position1": {
+          "Name": "現在の状態",
+          "meaning": "問題の現在の発展段階"
+        },
+        "position2": {
+          "Name": "解決方法",
+          "meaning": "推奨される戦略と行動方針"
+        }
+      },
+      "suitableFor": [
+        "苦境分析",
+        "方法を探す",
+        "ボトルネック突破"
+      ]
+    },
+    "career": {
+      "name": "キャリアスプレッド",
+      "description": "キャリア開発、、職場の課題、機会を探る",
+      "positions": {
+        "position0": {
+          "Name": "現在のキャリア状態",
+          "meaning": "現在のあなたのキャリア状況"
+        },
+        "position1": {
+          "Name": "障害要素",
+          "meaning": "キャリア発達を妨げる要素"
+        },
+        "position2": {
+          "Name": "隠れた機会",
+          "meaning": "見落としている可能性のある機会"
+        },
+        "position3": {
+          "Name": "行動提案",
+          "meaning": "キャリア発達を前進させる具体的な行動"
+        },
+        "position4": {
+          "Name": "未来展望",
+          "meaning": "キャリアトレンドと可能性"
+        }
+      },
+      "suitableFor": [
+        "キャリア発達",
+        "転職",
+        "起業家精神"
+      ]
+    },
+    "diamond": {
+      "name": "ダイヤモンドスプレッド",
+      "description": "万能型イベント分析、起因、現状、未来を総合的に解釈",
+      "positions": {
+        "position0": {
+          "Name": "出来事の起因",
+          "meaning": "出来事の起源と背景"
+        },
+        "position1": {
+          "Name": "現在の状況",
+          "meaning": "出来事の現状"
+        },
+        "position2": {
+          "Name": "隠れた影響",
+          "meaning": "結果に影響を与える見えない要素"
+        },
+        "position3": {
+          "Name": "最終結果",
+          "meaning": "出来事の方向性と結末"
+        }
+      },
+      "suitableFor": [
+        "单一イベント",
+        "未来予測",
+        "総合分析"
+      ]
+    }
+  },
+  "apiErrors": {
+    "requestTimeout": "リクエストがタイムアウトしました。ネットワーク接続を確認して再試行してください。",
+    "networkError": "ネットワーク接続に失敗しました。ネットワークを確認してください。",
+    "noReading": "解釈がありません"
+  },
+  "voiceReader": {
+    "generating": "音声生成中...",
+    "pause": "一時停止",
+    "resume": "再開",
+    "voiceReading": "音声解説",
+    "generatingTip": "解釈を生成中、お待ちください..."
+  },
+  "shareImage": {
+    "aiReading": "AIタロット占い",
+    "tarotReader": "タロット師：",
+    "reversed": "逆位置",
+    "upright": "正位置",
+    "aiSummary": "✨ AI解説サマリー",
+    "scanQR": "QRをスキャンして完全版を見る",
+    "tryFortune": "あなたも運勢を試해보세요~",
+    "brandLine": "2or.com · AIタロット",
+    "longPressSave": "長押しして保存、シェアは微信で",
+    "saveImage": "画像を保存",
+    "generationFailed": "画像生成に失敗しました",
+    "close": "閉じる",
+    "generating": "シェア画像を生成中..."
+  },
+  "time": {
+    "minutesAgo": "{{count}}分前",
+    "hoursAgo": "{{count}}時間前",
+    "daysAgo": "{{count}}日前"
+  },
+  "errorBoundary": {
+    "title": "エラーが発生しました",
+    "message": "申し訳ありませんが、アプリに問題が発生しました。ページを更新してみてください。",
+    "reload": "ページを更新"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "framework": "vite",
+  "routes": [
+    { "src": "/api/health", "dest": "/api/index" },
+    { "src": "/api/tarot/cards", "dest": "/api/index" },
+    { "src": "/api/tarot/reading", "dest": "/api/index" },
+    { "src": "/api/(.*)", "dest": "/api/index" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/dist/index.html" }
+  ]
+}

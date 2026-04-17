@@ -1,0 +1,1176 @@
+{
+  "cards": {
+    "major": {
+      "fool": {
+        "name": "愚者",
+        "nameEn": "The Fool",
+        "keywords": {
+          "upright": ["新しい始まり", "冒険", "自由", "可能性"],
+          "reversed": ["軽率", "リスク", "幼稚", "計画性の欠如"]
+        },
+        "keywordsEn": {
+          "upright": ["New Beginnings", "Adventure", "Freedom", "Potential"],
+          "reversed": ["Recklessness", "Risk-taking", "Naivety", "Lack of Planning"]
+        },
+        "meanings": {
+          "upright": "新しい始まりと無限の可能性を表します。愚者は未知の旅に出ようとしています。楽観的で、直感に従い、変化を受け入れる時です。",
+          "reversed": "軽率さや無謀さを警告します。計画性の欠如や盲目的なリスクを避け、より地に足をつける必要があることを示唆しています。"
+        },
+        "meaningsEn": {
+          "upright": "Represents new beginnings, a spirit of adventure, and infinite potential. The Fool is about to embark on an unknown journey, full of optimism and trust.",
+          "reversed": "Warns against being too reckless or naive. It may suggest a lack of planning, blind risk-taking, or a need to be more grounded."
+        },
+        "description": "断崖の端に立つ旅人が小さな袋を持って、未知の世界へ飛び込もうとしています。小さな犬が本能と忠誠を象徴して伴っています。",
+        "element": "風",
+        "elementEn": "Air",
+        "planet": "天王星",
+        "planetEn": "Uranus"
+      },
+      "magician": {
+        "name": "魔術師",
+        "nameEn": "The Magician",
+        "keywords": {
+          "upright": ["創造性", "意志力", "実現", "能力"],
+          "reversed": ["欺瞞", "操作", "自信の欠如", "才能の無駄遣い"]
+        },
+        "keywordsEn": {
+          "upright": ["Creativity", "Willpower", "Manifestation", "Ability"],
+          "reversed": ["Deception", "Manipulation", "Lack of Confidence", "Wasted Talent"]
+        },
+        "meanings": {
+          "upright": "目標を達成するために必要なすべてのリソースと能力を持っています。今がアイデアを現実に変える瞬間です。自分の力を信じましょう。",
+          "reversed": "自信の欠如や才能を十分に活かせていないことを示唆するかもしれません。欺瞞や操作的な行動に注意してください。"
+        },
+        "meaningsEn": {
+          "upright": "You possess all the resources and abilities needed to achieve your goals. Now is the moment to take action and manifest your ideas into reality.",
+          "reversed": "May suggest self-doubt or a failure to fully utilize your talents. Be wary of deception or manipulative behavior."
+        },
+        "description": "魔術師は祭壇の前に立ち、一方の手で杖を天に向け、もう一方の手で地を指しています。四元素を象徴する道具がテーブルの上に置かれています。",
+        "element": "風",
+        "elementEn": "Air",
+        "planet": "水星",
+        "planetEn": "Mercury"
+      },
+      "highPriestess": {
+        "name": "女教皇",
+        "nameEn": "The High Priestess",
+        "keywords": {
+          "upright": ["直感", "潜在意識", "神秘", "内なる知恵"],
+          "reversed": ["秘密", "抑圧された直感", "表面的", "混乱"]
+        },
+        "keywordsEn": {
+          "upright": ["Intuition", "Subconscious", "Mystery", "Inner Wisdom"],
+          "reversed": ["Secrets", "Suppressed Intuition", "Superficiality", "Confusion"]
+        },
+        "meanings": {
+          "upright": "内なる声と直感に耳を傾けましょう。女教皇は、隠された真実を探るために潜在意識の深みに潜るよう招いています。",
+          "reversed": "直感の導きを無視して論理に頼りすぎているかもしれません。隠された動機や明らかにすべき秘密を示唆しています。"
+        },
+        "meaningsEn": {
+          "upright": "Listen to your inner voice and intuition. The High Priestess invites you to delve deep into the subconscious to explore hidden truths.",
+          "reversed": "You may be ignoring the guidance of your intuition and relying too much on logic. Alternatively, it suggests hidden motives and secrets."
+        },
+        "description": "女教皇は二つの柱の間に座り、巻物を持ち、足元に三日月があります。意識と潜在意識の世界をつなぎます。",
+        "element": "水",
+        "elementEn": "Water",
+        "planet": "月",
+        "planetEn": "Moon"
+      },
+      "empress": {
+        "name": "女帝",
+        "nameEn": "The Empress",
+        "keywords": {
+          "upright": ["豊かさ", "母性", "創造性", "自然"],
+          "reversed": ["依存", "不妊", "創造的ブロック", "自己否定"]
+        },
+        "keywordsEn": {
+          "upright": ["Abundance", "Motherhood", "Creativity", "Nature"],
+          "reversed": ["Dependency", "Infertility", "Creative Block", "Self-neglect"]
+        },
+        "meanings": {
+          "upright": "豊かさ、育み、創造性の流れを象徴します。感覚的な喜びに集中し、自然とつながり、良さを受け入れましょう。",
+          "reversed": "他人への過度な依存や自分のニーズを無視していることを示すかもしれません。創造性がブロックされています。"
+        },
+        "meaningsEn": {
+          "upright": "Symbolizes abundance, nourishment, and the flow of creativity. Focus on your sensory pleasures, connect with nature, and allow yourself to receive goodness.",
+          "reversed": "May indicate over-dependence on others or neglecting your own needs. Creativity is blocked, and there is a need to reconnect with your inner feminine energy."
+        },
+        "description": "女帝は豊かな麦畑の中に座り、自然の美に囲まれています。母性的な育みと豊かさを表します。",
+        "element": "土",
+        "elementEn": "Earth",
+        "planet": "金星",
+        "planetEn": "Venus"
+      },
+      "emperor": {
+        "name": "皇帝",
+        "nameEn": "The Emperor",
+        "keywords": {
+          "upright": ["権威", "構造", "統制", "父性"],
+          "reversed": ["専制", "硬直性", "規律の欠如", "権力の濫用"]
+        },
+        "keywordsEn": {
+          "upright": ["Authority", "Structure", "Control", "Fatherhood"],
+          "reversed": ["Tyranny", "Rigidity", "Lack of Discipline", "Abuse of Power"]
+        },
+        "meanings": {
+          "upright": "秩序と構造を確立し、リーダーシップを発揮しましょう。皇帝は安定性、規律、実践的な知恵を表します。",
+          "reversed": "過度な統制や硬直性に注意してください。権威に関する問題や、古い制限的なパターンから脱する必要があることを示唆しています。"
+        },
+        "meaningsEn": {
+          "upright": "Establish order and structure, and exert leadership. The Emperor represents stability, discipline, and practical wisdom.",
+          "reversed": "Beware of over-control or rigidity. It may suggest issues with authority or a need to break out of old, restrictive patterns."
+        },
+        "description": "皇帝は石の玉座に座り、王笏と宝球を持ち、背後に雄大な山々があります。現世的な権力と安定性を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "planet": "火星",
+        "planetEn": "Mars",
+        "zodiac": "牡羊座",
+        "zodiacEn": "Aries"
+      },
+      "hierophant": {
+        "name": "教皇",
+        "nameEn": "The Hierophant",
+        "keywords": {
+          "upright": ["伝統", "信仰", "教育", "指導"],
+          "reversed": ["反逆", "型破り", "個人の信念", "ルール破り"]
+        },
+        "keywordsEn": {
+          "upright": ["Tradition", "Belief", "Education", "Guidance"],
+          "reversed": ["Rebellion", "Unconventional", "Personal Beliefs", "Breaking Rules"]
+        },
+        "meanings": {
+          "upright": "伝統的な知恵と精神的な導きを求めましょう。確立されたルールに従うか、メンターから学ぶ必要があることを示唆しています。",
+          "reversed": "伝統に疑問を持ち、独自の道を見つけましょう。ルールを破るか、個人的な信念体系を発展させることを示唆しています。"
+        },
+        "meaningsEn": {
+          "upright": "Seek traditional wisdom and spiritual guidance. May suggest a need to follow established rules or learn from a mentor.",
+          "reversed": "Question tradition and find your own path. May imply breaking the rules or developing a personal, unique belief system."
+        },
+        "description": "教皇は二つの柱の間に座り、王笏を持ち、二人の信者が跪いています。伝統と精神的権威を表します。",
+        "element": "土",
+        "elementEn": "Earth",
+        "zodiac": "牡牛座",
+        "zodiacEn": "Taurus"
+      },
+      "lovers": {
+        "name": "恋人",
+        "nameEn": "The Lovers",
+        "keywords": {
+          "upright": ["愛", "選択", "調和", "価値観"],
+          "reversed": ["不和", "困難な選択", "価値観の衝突", "別れ"]
+        },
+        "keywordsEn": {
+          "upright": ["Love", "Choice", "Harmony", "Values"],
+          "reversed": ["Disharmony", "Difficult Choice", "Conflict of Values", "Separation"]
+        },
+        "meanings": {
+          "upright": "愛、関係性、そして重要な選択についてです。内なる価値観に沿った決断をする必要があり、調和とバランスを求めます。",
+          "reversed": "関係性の不和や価値観の衝突です。困難な選択に直面し、本当に大切なものを再考する必要があります。"
+        },
+        "meaningsEn": {
+          "upright": "About love, relationships, and important choices. The Lovers card suggests the need to make decisions aligned with your inner values.",
+          "reversed": "Disharmony in a relationship or a conflict of values. You may face a difficult choice and need to re-examine what truly matters."
+        },
+        "description": "アダムとエバが天使の祝福の下、エデンの園に立っています。愛、結合、神聖な選択を象徴します。",
+        "element": "風",
+        "elementEn": "Air",
+        "zodiac": "双子座",
+        "zodiacEn": "Gemini"
+      },
+      "chariot": {
+        "name": "戦車",
+        "nameEn": "The Chariot",
+        "keywords": {
+          "upright": ["意志力", "勝利", "決意", "統制"],
+          "reversed": ["統制の喪失", "挫折", "方向性の欠如", "弱い意志力"]
+        },
+        "keywordsEn": {
+          "upright": ["Willpower", "Victory", "Determination", "Control"],
+          "reversed": ["Loss of Control", "Setbacks", "Lack of Direction", "Weak Willpower"]
+        },
+        "meanings": {
+          "upright": "固い意志力と決意を通じて勝利を達成しましょう。対立する力を統制し、目標に向かって進みます。",
+          "reversed": "統制を失ったり、方向性を欠いているように感じるかもしれません。挫折は戦略を再評価し、内なる決意を強化するよう促します。"
+        },
+        "meaningsEn": {
+          "upright": "Achieve victory through firm willpower and determination. Control opposing forces and move toward your goals.",
+          "reversed": "You may feel out of control or lack direction. Setbacks remind you to re-evaluate your strategy and strengthen your inner resolve."
+        },
+        "description": "戦士は二匹の対立するスフィンクスに引かれた戦車を駆り、綱なしで確固としています。意志力の勝利を象徴します。",
+        "element": "水",
+        "elementEn": "Water",
+        "zodiac": "蟹座",
+        "zodiacEn": "Cancer"
+      },
+      "strength": {
+        "name": "力",
+        "nameEn": "Strength",
+        "keywords": {
+          "upright": ["内なる力", "勇気", "忍耐", "思いやり"],
+          "reversed": ["弱さ", "自信の欠如", "焦燥", "抑圧"]
+        },
+        "keywordsEn": {
+          "upright": ["Inner Strength", "Courage", "Patience", "Compassion"],
+          "reversed": ["Weakness", "Self-doubt", "Impatience", "Repression"]
+        },
+        "meanings": {
+          "upright": "真の力は、武力ではなく内なる勇気と忍耐から生まれます。優しさと思いやりを持って挑戦に直面し、内なる獣を飼いならします。",
+          "reversed": "内なる力や自信の欠如を感じているかもしれません。感情を管理する方法を学び、抑圧や爆発を避ける必要があります。"
+        },
+        "meaningsEn": {
+          "upright": "True strength comes from inner courage and patience, not brute force. Face challenges with gentleness and compassion.",
+          "reversed": "You may feel a lack of inner strength or self-doubt. You need to learn how to manage your emotions and avoid repression or outbursts."
+        },
+        "description": "女性が優しくライオンの口を閉じ、忍耐と愛で獣を飼いならしています。内なる力と勇気を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "zodiac": "獅子座",
+        "zodiacEn": "Leo"
+      },
+      "hermit": {
+        "name": "隠者",
+        "nameEn": "The Hermit",
+        "keywords": {
+          "upright": ["内省", "孤独", "導き", "真実の探求"],
+          "reversed": ["孤独感", "迷い", "孤立", "助言の拒否"]
+        },
+        "keywordsEn": {
+          "upright": ["Introspection", "Solitude", "Guidance", "Seeking Truth"],
+          "reversed": ["Loneliness", "Lost", "Isolation", "Rejecting Advice"]
+        },
+        "meanings": {
+          "upright": "孤独と反省の時間が必要です。隠者は、外の世界の喧騒から離れ、内なる答えを探すよう導きます。",
+          "reversed": "過度の孤独や、他人の助けを求めることを拒否していることを示すかもしれません。真実から目を背けている可能性があります。"
+        },
+        "meaningsEn": {
+          "upright": "A time for solitude and reflection is needed. The Hermit guides you to look inward for answers, away from the noise of the outside world.",
+          "reversed": "May indicate excessive loneliness or a refusal to seek help from others. It could also suggest avoiding the truth."
+        },
+        "description": "隠者はランタンを持ち、山の頂上に独りで立っています。内省、真実の探求、精神的導きを象徴します。",
+        "element": "土",
+        "elementEn": "Earth",
+        "zodiac": "乙女座",
+        "zodiacEn": "Virgo"
+      },
+      "wheelOfFortune": {
+        "name": "運命の輪",
+        "nameEn": "Wheel of Fortune",
+        "keywords": {
+          "upright": ["変化", "サイクル", "運命", "転換点"],
+          "reversed": ["不運", "変化への抵抗", "災難", "停滞"]
+        },
+        "keywordsEn": {
+          "upright": ["Change", "Cycles", "Fate", "Turning Point"],
+          "reversed": ["Bad Luck", "Resisting Change", "Misfortune", "Stagnation"]
+        },
+        "meanings": {
+          "upright": "人生のサイクルにおける変化と転換点です。運命の輪が回り、幸運と新しい機会をもたらします。",
+          "reversed": "不運に遭遇したり、避けられない変化に抵抗しているかもしれません。逆境でも希望を持ち続けることを思い出させます。"
+        },
+        "meaningsEn": {
+          "upright": "Changes and turning points in the cycles of life. The Wheel of Fortune turns, bringing good luck and new opportunities.",
+          "reversed": "You may encounter bad luck or resist inevitable changes. Reminds you to maintain hope in adversity."
+        },
+        "description": "巨大な輪が回り、四隅に神話の生き物がいます。運命のサイクルと人生の絶え間ない変化を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "planet": "木星",
+        "planetEn": "Jupiter"
+      },
+      "justice": {
+        "name": "正義",
+        "nameEn": "Justice",
+        "keywords": {
+          "upright": ["正義", "真実", "因果応報", "法"],
+          "reversed": ["不正", "不誠実", "責任回避", "偏見"]
+        },
+        "keywordsEn": {
+          "upright": ["Justice", "Truth", "Cause and Effect", "Law"],
+          "reversed": ["Injustice", "Dishonesty", "Avoiding Responsibility", "Bias"]
+        },
+        "meanings": {
+          "upright": "公正とバランスの瞬間です。真実に直面し、行動の結果を受け入れましょう。誠実さと誠意が公正な判決をもたらします。",
+          "reversed": "不公平な扱いを受けたり、不誠実な行為に立ち向かう必要があるかもしれません。真に公正なものを再評価してください。"
+        },
+        "meaningsEn": {
+          "upright": "A moment of fairness and balance. Face the truth and bear the consequences of your actions. Honesty and integrity will bring a just verdict.",
+          "reversed": "You may face unfair treatment or need to confront dishonest behavior. Re-evaluate what is truly fair."
+        },
+        "description": "正義の女神は目隠しをし、天秤と剣を持っています。正義、真実、因果応報の法則を象徴します。",
+        "element": "風",
+        "elementEn": "Air",
+        "zodiac": "天秤座",
+        "zodiacEn": "Libra"
+      },
+      "hangedMan": {
+        "name": "吊るされた男",
+        "nameEn": "The Hanged Man",
+        "keywords": {
+          "upright": ["犠牲", "一時停止", "新しい視点", "手放し"],
+          "reversed": ["抵抗", "停滞", "無意味な犠牲", "行き詰まり"]
+        },
+        "keywordsEn": {
+          "upright": ["Sacrifice", "Pause", "New Perspective", "Letting Go"],
+          "reversed": ["Resistance", "Stalling", "Needless Sacrifice", "Stagnation"]
+        },
+        "meanings": {
+          "upright": "一時停止と反省の瞬間です。状況を異なる視点から見ると、より大きな洞察を得るために一時的な犠牲が必要かもしれません。",
+          "reversed": "必要な変化に抵抗したり、無意味な犠牲にしがみついているかもしれません。適切な時に手放すことを学びましょう。"
+        },
+        "meaningsEn": {
+          "upright": "A moment for pause and reflection. Look at situations from a different perspective; a temporary sacrifice might be needed to gain greater insight.",
+          "reversed": "You may be resisting necessary change or clinging to a needless sacrifice. Learn to let go at the appropriate time."
+        },
+        "description": "男性が木から逆さまに吊るされ、平和な姿勢をとっています。犠牲、新しい視点、自発的な一時停止を象徴します。",
+        "element": "水",
+        "elementEn": "Water",
+        "planet": "海王星",
+        "planetEn": "Neptune"
+      },
+      "death": {
+        "name": "死神",
+        "nameEn": "Death",
+        "keywords": {
+          "upright": ["変容", "終わり", "新しい始まり", "解放"],
+          "reversed": ["変化への抵抗", "停滞", "変化への恐怖", "手放せない"]
+        },
+        "keywordsEn": {
+          "upright": ["Transformation", "Ending", "New Beginnings", "Release"],
+          "reversed": ["Resisting Change", "Stagnation", "Fear of Change", "Unable to Let Go"]
+        },
+        "meanings": {
+          "upright": "新しい始まりのための余地を作る重要な変容と終わり。古いパターンを手放し、必要な変化を受け入れましょう。",
+          "reversed": "避けられない終わりに抵抗すると停滞につながります。変化への恐怖は苦しみを長引かせるだけです。"
+        },
+        "meaningsEn": {
+          "upright": "Significant transformation and endings, making room for new beginnings. Let go of old patterns and embrace necessary change.",
+          "reversed": "Resisting an inevitable ending leads to stagnation. Fear of change only prolongs suffering."
+        },
+        "description": "骸骨の騎士が白馬に乗り、人々が彼の前に跪いています。変容、終わり、避けられない変化を象徴します。",
+        "element": "水",
+        "elementEn": "Water",
+        "zodiac": "蠍座",
+        "zodiacEn": "Scorpio"
+      },
+      "temperance": {
+        "name": "節制",
+        "nameEn": "Temperance",
+        "keywords": {
+          "upright": ["バランス", "節度", "忍耐", "調和"],
+          "reversed": ["極端", "不均衡", "過度", "焦燥"]
+        },
+        "keywordsEn": {
+          "upright": ["Balance", "Moderation", "Patience", "Harmony"],
+          "reversed": ["Extremes", "Imbalance", "Excess", "Impatience"]
+        },
+        "meanings": {
+          "upright": "バランスと節度を求めましょう。節制は、極端の間の中道を見つけ、異なる要素を忍耐強く調和させることを思い出させます。",
+          "reversed": "不均衡の状態や、極端に向かっているかもしれません。人生の均衡と中心を再び見つける必要があります。"
+        },
+        "meaningsEn": {
+          "upright": "Seeking balance and moderation. Temperance reminds you to find the middle path between extremes and to patiently harmonize different elements.",
+          "reversed": "You may be in a state of imbalance or heading toward extremes. You need to find your life's equilibrium and center again."
+        },
+        "description": "天使が水のそばに立ち、二つのカップの間で液体を混ぜています。バランス、節度、錬金術を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "zodiac": "射手座",
+        "zodiacEn": "Sagittarius"
+      },
+      "devil": {
+        "name": "悪魔",
+        "nameEn": "The Devil",
+        "keywords": {
+          "upright": ["束縛", "物質主義", "誘惑", "影の自己"],
+          "reversed": ["解放", "限界の打破", "自由の回復", "目覚め"]
+        },
+        "keywordsEn": {
+          "upright": ["Bondage", "Materialism", "Temptation", "Shadow Self"],
+          "reversed": ["Release", "Breaking Limits", "Regaining Freedom", "Awakening"]
+        },
+        "meanings": {
+          "upright": "影の側面と束縛に直面しましょう。悪魔は物質的な欲望と依存症を表し、欲望の奴隷にならないよう思い出させます。",
+          "reversed": "鎖を断ち切り、自由を取り戻しましょう。制限はしばしば自己暗示であり、自分自身を解放する力があります。"
+        },
+        "meaningsEn": {
+          "upright": "Face your shadow side and bondages. The Devil represents material desires and addictions, reminding you not to become a slave to your cravings.",
+          "reversed": "Break the chains and regain your freedom. Realize that limitations are often self-imposed, and you have the power to liberate yourself."
+        },
+        "description": "悪魔が鎖で繋がれた男女を見下ろしていますが、鎖は緩んでいます。束縛、誘惑、物質的欲望を象徴します。",
+        "element": "土",
+        "elementEn": "Earth",
+        "zodiac": "山羊座",
+        "zodiacEn": "Capricorn"
+      },
+      "tower": {
+        "name": "塔",
+        "nameEn": "The Tower",
+        "keywords": {
+          "upright": ["突然の変化", "目覚め", "激動", "啓示"],
+          "reversed": ["災難の回避", "遅れた変化", "個人的変容", "内なる崩壊"]
+        },
+        "keywordsEn": {
+          "upright": ["Sudden Change", "Awakening", "Upheaval", "Revelation"],
+          "reversed": ["Avoiding Disaster", "Delayed Change", "Personal Transformation", "Internal Collapse"]
+        },
+        "meanings": {
+          "upright": "突然かつ劇的な変化、古い構造の崩壊。痛みは伴いますが、真実のための余地を作る必要な目覚めです。",
+          "reversed": "避けられない変化を避けようとしているか、外的な崩壊ではなく内的な変容を経験しているかもしれません。"
+        },
+        "meaningsEn": {
+          "upright": "Sudden and drastic change, the collapse of old structures. Although painful, it is a necessary awakening to make room for the truth.",
+          "reversed": "You may be trying to avoid an inevitable change, or experiencing a personal transformation internally rather than an external collapse."
+        },
+        "description": "高い塔が稲妻に打たれ、人々がそこから落下しています。突然の変化、啓示、古い構造の崩壊を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "planet": "火星",
+        "planetEn": "Mars"
+      },
+      "star": {
+        "name": "星",
+        "nameEn": "The Star",
+        "keywords": {
+          "upright": ["希望", "インスピレーション", "静けさ", "精神的つながり"],
+          "reversed": ["絶望", "信仰の喪失", "幻滅", "インスピレーションの欠如"]
+        },
+        "keywordsEn": {
+          "upright": ["Hope", "Inspiration", "Serenity", "Spiritual Connection"],
+          "reversed": ["Despair", "Loss of Faith", "Disillusionment", "Lack of Inspiration"]
+        },
+        "meanings": {
+          "upright": "希望とインスピレーションの灯台です。星は静けさと信仰をもたらし、宇宙が導いていることを信じます。",
+          "reversed": "絶望や信仰の喪失を感じているかもしれません。一時的な幻滅は、内なる光と信頼と再びつながることを思い出させます。"
+        },
+        "meaningsEn": {
+          "upright": "A beacon of hope and inspiration. The Star brings serenity and faith, trust that the universe is guiding you.",
+          "reversed": "You may feel despair or a loss of faith. Temporary disillusionment reminds you to reconnect with your inner light and trust."
+        },
+        "description": "女性が星明かりの空の下で池と大地に水を注いでいます。希望、インスピレーション、宇宙的つながりを象徴します。",
+        "element": "風",
+        "elementEn": "Air",
+        "zodiac": "水瓶座",
+        "zodiacEn": "Aquarius"
+      },
+      "moon": {
+        "name": "月",
+        "nameEn": "The Moon",
+        "keywords": {
+          "upright": ["幻想", "恐怖", "潜在意識", "直感"],
+          "reversed": ["混乱の消散", "恐怖との対峙", "秘密の暴露", "明確さ"]
+        },
+        "keywordsEn": {
+          "upright": ["Illusion", "Fear", "Subconscious", "Intuition"],
+          "reversed": ["Confusion Dissipating", "Facing Fear", "Secrets Revealed", "Clarity"]
+        },
+        "meanings": {
+          "upright": "潜在意識と隠された真実の世界です。月は恐怖と幻想を明らかにしますが、深い直感ももたらします。",
+          "reversed": "秘密が暴露され、幻想が消散します。恐怖に立ち向かうことで、明確な理解につながります。"
+        },
+        "meaningsEn": {
+          "upright": "The world of the subconscious and hidden truths. The Moon reveals fears and illusions but also brings profound intuition.",
+          "reversed": "Secrets are revealed and illusions dissipate. Facing your fears will lead to a clear understanding."
+        },
+        "description": "満月が高く輝き、犬と狼が下で遠吠えし、ザリガニが水から這い出しています。潜在意識、幻想、直感を象徴します。",
+        "element": "水",
+        "elementEn": "Water",
+        "zodiac": "魚座",
+        "zodiacEn": "Pisces"
+      },
+      "sun": {
+        "name": "太陽",
+        "nameEn": "The Sun",
+        "keywords": {
+          "upright": ["喜び", "成功", "生命力", "意識"],
+          "reversed": ["一時的な憂鬱", "うぬぼれ", "遅れた成功", "明確さの欠如"]
+        },
+        "keywordsEn": {
+          "upright": ["Joy", "Success", "Vitality", "Consciousness"],
+          "reversed": ["Temporary Depression", "Conceit", "Delayed Success", "Lack of Clarity"]
+        },
+        "meanings": {
+          "upright": "光と喜びと成功の時です。太陽は生命力とポジティブなエネルギーをもたらし、すべてが明確で明るくなります。",
+          "reversed": "一時的な憂鬱やうぬぼれによる盲点を経験するかもしれません。成功は単に遅れているだけです。"
+        },
+        "meaningsEn": {
+          "upright": "A time of light, joy, and success. The Sun brings vitality and positive energy; everything is clear and bright.",
+          "reversed": "You may experience temporary gloom or blind spots caused by conceit. Success is merely delayed."
+        },
+        "description": "喜ぶ子供が白馬に乗り、太陽が高く輝いています。喜び、成功、生命力を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "planet": "太陽",
+        "planetEn": "Sun"
+      },
+      "judgement": {
+        "name": "審判",
+        "nameEn": "Judgement",
+        "keywords": {
+          "upright": ["目覚め", "再生", "内なる呼び声", "許し"],
+          "reversed": ["自信の欠如", "呼び声の拒否", "自己反省の欠如", "許せない"]
+        },
+        "keywordsEn": {
+          "upright": ["Awakening", "Rebirth", "Inner Calling", "Forgiveness"],
+          "reversed": ["Self-doubt", "Refusing the Call", "Lack of Self-reflection", "Unable to Forgive"]
+        },
+        "meanings": {
+          "upright": "内なる目覚めと再生の瞬間です。魂の呼び声に応え、自分自身と他者を許し、新しい始まりを歓迎しましょう。",
+          "reversed": "内なる呼び声に抵抗したり、深い自信の欠如に陥っているかもしれません。前に進むには自己反省と許しが必要です。"
+        },
+        "meaningsEn": {
+          "upright": "A moment of inner awakening and rebirth. Respond to your soul's calling, forgive yourself and others, and welcome new beginnings.",
+          "reversed": "You may be resisting your inner calling or deep in self-doubt. Self-reflection and forgiveness are needed to move forward."
+        },
+        "description": "天使がラッパを吹き、人々が墓から立ち上がっています。審判、目覚め、再生を象徴します。",
+        "element": "火",
+        "elementEn": "Fire",
+        "planet": "冥王星",
+        "planetEn": "Pluto"
+      },
+      "world": {
+        "name": "世界",
+        "nameEn": "The World",
+        "keywords": {
+          "upright": ["完了", "統合", "達成", "完全性"],
+          "reversed": ["未完了", "閉鎖の欠如", "空虚感", "遅れた成功"]
+        },
+        "keywordsEn": {
+          "upright": ["Completion", "Integration", "Accomplishment", "Wholeness"],
+          "reversed": ["Unfinished Business", "Lack of Closure", "Emptiness", "Delayed Success"]
+        },
+        "meanings": {
+          "upright": "サイクルの完了と達成です。世界は統合と完全性を象徴し、重要な節目に到達したことを示します。",
+          "reversed": "未完了の仕事や手放すのに困難があるかもしれません。新しいサイクルを始める前に真の閉鎖を見つける必要があります。"
+        },
+        "meaningsEn": {
+          "upright": "Completion and accomplishment of a cycle. The World symbolizes integration and wholeness; you have reached a significant milestone.",
+          "reversed": "There may be unfinished business or a difficulty in letting go. You need to find true closure before starting a new cycle."
+        },
+        "description": "踊り子が花輪の中にいます。四隅に神話の生き物がいます。完了、達成、宇宙的統一を象徴します。",
+        "element": "土",
+        "elementEn": "Earth",
+        "planet": "土星",
+        "planetEn": "Saturn"
+      }
+    },
+    "minor": {
+      "wands_1": {
+        "name": "ワンドのエース",
+        "nameEn": "Ace of Wands",
+        "keywords": { "upright": ["インスピレーション", "創造", "新しい始まり", "可能性"], "reversed": ["遅延", "やる気の欠如", "可能性の無駄遣い", "躊躇"] },
+        "keywordsEn": { "upright": ["Inspiration", "Creation", "New Beginning", "Potential"], "reversed": ["Delays", "Lack of Motivation", "Wasted Potential", "Hesitation"] },
+        "meanings": { "upright": "ワンドのエースはインスピレーションの火花と創造的エネルギーの誕生を表します。熱意と可能性に満ちた新しい始まりの時を告げます。", "reversed": "逆位置のワンドのエースは遅延ややる気の欠如を示唆します。新しいプロジェクトを始めるのに躊躇したり、創造的な可能性が無駄にされていることを恐れているかもしれません。" },
+        "meaningsEn": { "upright": "The Ace of Wands represents a spark of inspiration and the birth of creative energy. It signals a time of new beginnings filled with enthusiasm and potential.", "reversed": "The reversed Ace of Wands suggests delays or a lack of motivation. You may feel hesitant to start new projects or fear that your creative potential is being wasted." },
+        "description": "雲から現れた手が芽生える杖を差し出し、創造的インスピレーションと新しい機会を象徴しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_2": {
+        "name": "ワンドの2",
+        "nameEn": "Two of Wands",
+        "keywords": { "upright": ["計画", "未来", "進歩", "決断"], "reversed": ["未知への恐怖", "計画の甘さ", "回避", "先延ばし"] },
+        "keywordsEn": { "upright": ["Planning", "Future", "Progress", "Decisions"], "reversed": ["Fear of Unknown", "Poor Planning", "Avoidance", "Procrastination"] },
+        "meanings": { "upright": "ワンドの2は未来の計画と目標への進歩を示します。十字路に立ち、自信を持って次の行動を熟考しています。", "reversed": "逆位置のワンドの2は未知への恐怖や計画の甘さを示唆します。決断を避けたり、行動をすべき時に先延ばしにしているかもしれません。" },
+        "meaningsEn": { "upright": "The Two of Wands indicates planning for the future and making progress toward your goals. You stand at a crossroads, contemplating your next move with confidence.", "reversed": "The reversed Two of Wands suggests fear of the unknown or poor planning. You may be avoiding decisions or procrastinating when you should be taking action." },
+        "description": "人物が城壁の上に立ち、地球儀と杖を持って遠い地平線を見つめています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_3": {
+        "name": "ワンドの3",
+        "nameEn": "Three of Wands",
+        "keywords": { "upright": ["拡大", "先見性", "リーダーシップ", "探求"], "reversed": ["障害", "遅延", "制限", "準備不足"] },
+        "keywordsEn": { "upright": ["Expansion", "Foresight", "Leadership", "Exploration"], "reversed": ["Obstacles", "Delays", "Limitations", "Unpreparedness"] },
+        "meanings": { "upright": "ワンドの3は拡大と探求を表します。計画が形になり、自信と先見性を持って新しい領域に踏み出す準備ができています。", "reversed": "逆位置のワンドの3は計画の障害や遅延を示します。状況に制限を感じたり、先の課題に対して準備ができていないかもしれません。" },
+        "meaningsEn": { "upright": "The Three of Wands represents expansion and exploration. Your plans are taking shape, and you're ready to venture into new territory with confidence and foresight.", "reversed": "The reversed Three of Wands indicates obstacles or delays in your plans. You may feel limited by circumstances or unprepared for the challenges ahead." },
+        "description": "人物が崖の上に立ち、海を渡る船を見ています。視野の拡大を表しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_4": {
+        "name": "ワンドの4",
+        "nameEn": "Four of Wands",
+        "keywords": { "upright": ["祝賀", "調和", "節目", "喜び"], "reversed": ["移行", "不安定性", "支援の欠如", "延期"] },
+        "keywordsEn": { "upright": ["Celebration", "Harmony", "Milestone", "Joy"], "reversed": ["Transition", "Instability", "Lack of Support", "Postponement"] },
+        "meanings": { "upright": "ワンドの4は重要な節目と達成の喜びを祝います。調和と安定性、共有された成功から来る幸せを表します。", "reversed": "逆位置のワンドの4は移行期や不安定性を示唆します。他人からの支援が欠けていたり、より安定した時まで祝賀を延期する必要があるかもしれません。" },
+        "meaningsEn": { "upright": "The Four of Wands celebrates a significant milestone and the joy of achievement. It represents harmony, stability, and the happiness that comes from shared success.", "reversed": "The reversed Four of Wands suggests a period of transition or instability. You may lack support from others or need to postpone celebrations until a more stable time." },
+        "description": "4本の杖の花の天蓋の下で喜びの祝賀が行われ、調和と幸せな再会を表しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_5": {
+        "name": "ワンドの5",
+        "nameEn": "Five of Wands",
+        "keywords": { "upright": ["対立", "競争", "緊張", "多様性"], "reversed": ["対立回避", "解決", "協力", "合意"] },
+        "keywordsEn": { "upright": ["Conflict", "Competition", "Tension", "Diversity"], "reversed": ["Avoiding Conflict", "Resolution", "Cooperation", "Agreement"] },
+        "meanings": { "upright": "ワンドの5は対立、競争、緊張を表します。複数の力が作用し、混沌としたが潜在的にエネルギッシュな環境を作り出しています。", "reversed": "逆位置のワンドの5は対立を避けたり解決を見つけることを示唆します。競争を続けるよりも協力と合意を求める時です。" },
+        "meaningsEn": { "upright": "The Five of Wands represents conflict, competition, and tension. Multiple forces are at play, creating a chaotic but potentially energizing environment.", "reversed": "The reversed Five of Wands suggests avoiding conflict or finding resolution. It's time to seek cooperation and agreement rather than continuing to compete." },
+        "description": "5人の人物が模擬戦で杖をぶつけ合い、競争と異なる意見の闘争を表しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_6": {
+        "name": "ワンドの6",
+        "nameEn": "Six of Wands",
+        "keywords": { "upright": ["勝利", "認識", "成功", "自信"], "reversed": ["名声の凋落", "エゴ", "認識の欠如", "遅延"] },
+        "keywordsEn": { "upright": ["Victory", "Recognition", "Success", "Confidence"], "reversed": ["Fall from Grace", "Ego", "Lack of Recognition", "Delay"] },
+        "meanings": { "upright": "ワンドの6は勝利とあなたの業績に対する公の認識を告げます。成功は自信と他者の賞賛をもたらします。", "reversed": "逆位置のワンドの6は傲慢さや名声の凋落を警告します。期待していた認識を受けられないか、成功が遅れるかもしれません。" },
+        "meaningsEn": { "upright": "The Six of Wands heralds victory and public recognition for your achievements. Success brings confidence and the admiration of others.", "reversed": "The reversed Six of Wands warns against arrogance or a fall from grace. You may not receive the recognition you expect, or success may be delayed." },
+        "description": "凱旋の騎手が馬に乗り、群衆に祝われ、勝利の花輪をかぶっています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_7": {
+        "name": "ワンドの7",
+        "nameEn": "Seven of Wands",
+        "keywords": { "upright": ["防御", "忍耐", "保護", "回復力"], "reversed": ["圧倒", "疲労", "諦め", "脆弱性"] },
+        "keywordsEn": { "upright": ["Defense", "Perseverance", "Protection", "Resilience"], "reversed": ["Overwhelm", "Exhaustion", "Giving Up", "Vulnerability"] },
+        "meanings": { "upright": "ワンドの7は自分の立場を守り、防御することを表します。四方からの挑戦にもかかわらず、回復力と忍耐があなたを乗り越えさせます。", "reversed": "逆位置のワンドの7は圧倒されたり疲労している感覚を示唆します。諦めたくなったり、競争相手からの攻撃に対して脆弱に感じるかもしれません。" },
+        "meaningsEn": { "upright": "The Seven of Wands represents standing your ground and defending your position. Despite challenges from all sides, your resilience and perseverance will see you through.", "reversed": "The reversed Seven of Wands suggests feeling overwhelmed or exhausted. You may be tempted to give up or feel vulnerable to attacks from competitors." },
+        "description": "人物が高い場所に立ち、下から突き上げられる6本の杖に対して防御しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_8": {
+        "name": "ワンドの8",
+        "nameEn": "Eight of Wands",
+        "keywords": { "upright": ["速度", "行動", "動き", "進歩"], "reversed": ["遅延", "抵抗", "混乱", "欲求不満"] },
+        "keywordsEn": { "upright": ["Speed", "Action", "Movement", "Progress"], "reversed": ["Delays", "Resistance", "Confusion", "Frustration"] },
+        "meanings": { "upright": "ワンドの8は迅速な行動と急速な進歩をもたらします。物事が急速に動き、勢いがあなたの味方です。瞬間をつかみましょう。", "reversed": "逆位置のワンドの8は遅延や抵抗を示します。混乱や欲求不満で進捗が遅れる可能性があり、忍耐が必要です。" },
+        "meaningsEn": { "upright": "The Eight of Wands brings swift action and rapid progress. Things are moving quickly, and momentum is on your side. Seize the moment.", "reversed": "The reversed Eight of Wands indicates delays or resistance. Progress may be slowed by confusion or frustration, requiring patience." },
+        "description": "8本の杖が空を高速で飛び、急速な動きと迅速なコミュニケーションを象徴しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_9": {
+        "name": "ワンドの9",
+        "nameEn": "Nine of Wands",
+        "keywords": { "upright": ["回復力", "勇気", "忍耐", "最後の抵抗"], "reversed": ["疲労", "防御性", "被害妄想", "燃え尽き"] },
+        "keywordsEn": { "upright": ["Resilience", "Courage", "Persistence", "Last Stand"], "reversed": ["Exhaustion", "Defensiveness", "Paranoia", "Burnout"] },
+        "meanings": { "upright": "ワンドの9は疲労にもかかわらず続ける回復力と勇気を表します。戦いを経験しましたが、最後の挑戦への準備はできています。", "reversed": "逆位置のワンドの9は疲労や被害妄想を警告します。あまりにも防御的になったり、長期の闘争から燃え尽きに近づいているかもしれません。" },
+        "meaningsEn": { "upright": "The Nine of Wands represents resilience and the courage to keep going despite weariness. You've been through battles but remain ready for the final challenge.", "reversed": "The reversed Nine of Wands warns of exhaustion or paranoia. You may be too defensive or approaching burnout from prolonged struggle." },
+        "description": "疲れながらも決意を持った人物が、包帯を巻いた頭で警備に立ち、後ろに8本の杖が立っています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_10": {
+        "name": "ワンドの10",
+        "nameEn": "Ten of Wands",
+        "keywords": { "upright": ["重荷", "責任", "努力", "完了"], "reversed": ["解放", "委任", "圧倒", "崩壊"] },
+        "keywordsEn": { "upright": ["Burden", "Responsibility", "Hard Work", "Completion"], "reversed": ["Release", "Delegation", "Overwhelm", "Collapse"] },
+        "meanings": { "upright": "ワンドの10は責任と努力の重荷を表します。重い荷物を運んでいますが、仕事の完了に近づいています。", "reversed": "逆位置のワンドの10は重荷を手放す時が来たことを示唆します。仕事を委任したり、圧倒している責任を手放すことを検討しましょう。" },
+        "meaningsEn": { "upright": "The Ten of Wands represents the burden of responsibility and hard work. You're carrying a heavy load but are near completion of your task.", "reversed": "The reversed Ten of Wands suggests it's time to release your burden. Delegate tasks or let go of responsibilities that are overwhelming you." },
+        "description": "人物が10本の重い杖を遠い村へ運ぼうと奮闘し、責任の重みを表しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_page": {
+        "name": "ワンドのペイジ",
+        "nameEn": "Page of Wands",
+        "keywords": { "upright": ["探求", "発見", "熱意", "自由"], "reversed": ["方向性の欠如", "先延ばし", "悪い知らせ", "未熟"] },
+        "keywordsEn": { "upright": ["Exploration", "Discovery", "Enthusiasm", "Freedom"], "reversed": ["Lack of Direction", "Procrastination", "Bad News", "Immaturity"] },
+        "meanings": { "upright": "ワンドのペイジは探求と発見への熱意をもたらします。創造的な可能性と学びへの渇望に満ちた自由な精神です。", "reversed": "逆位置のワンドのペイジは方向性の欠如や未熟を示唆します。先延ばしにしているか、創造的なプロジェクトについて残念な知らせを受け取るかもしれません。" },
+        "meaningsEn": { "upright": "The Page of Wands brings enthusiasm for exploration and discovery. A free spirit full of creative potential and eagerness to learn.", "reversed": "The reversed Page of Wands suggests lack of direction or immaturity. You may be procrastinating or receiving disappointing news about a creative project." },
+        "description": "若い人物が芽生える杖を持ち、好奇心と冒険への情熱を持って上を見上げています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_knight": {
+        "name": "ワンドのナイト",
+        "nameEn": "Knight of Wands",
+        "keywords": { "upright": ["行動", "冒険", "情熱", "衝動性"], "reversed": ["無謀", "急ぎ", "怒り", "遅延"] },
+        "keywordsEn": { "upright": ["Action", "Adventure", "Passion", "Impulsiveness"], "reversed": ["Recklessness", "Haste", "Anger", "Delay"] },
+        "meanings": { "upright": "ワンドのナイトは情熱と大胆さで前進します。すぐに行動し、新しい挑戦を受け入れる冒険的な精神です。", "reversed": "逆位置のワンドのナイトは無謀と急ぎを警告します。怒りや衝動性が悪い決定や不必要な遅延につながるかもしれません。" },
+        "meaningsEn": { "upright": "The Knight of Wands charges forward with passion and daring. An adventurous spirit who takes action quickly and embraces new challenges.", "reversed": "The reversed Knight of Wands warns against recklessness and haste. Your anger or impulsiveness may lead to poor decisions or unnecessary delays." },
+        "description": "鎧を着た騎士が後ろ足で立つ馬に乗り、激しい決意と火のエネルギーで杖を振っています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_queen": {
+        "name": "ワンドのクイーン",
+        "nameEn": "Queen of Wands",
+        "keywords": { "upright": ["自信", "決意", "カリスマ", "楽観主義"], "reversed": ["自信の欠如", "嫉妬", "不安", "専制"] },
+        "keywordsEn": { "upright": ["Confidence", "Determination", "Charisma", "Optimism"], "reversed": ["Self-doubt", "Jealousy", "Insecurity", "Tyranny"] },
+        "meanings": { "upright": "ワンドのクイーンは自信と磁性的なカリスマを放ちます。楽観主義と決意を持って人生にアプローチし、彼女の温かさで他者を鼓舞します。", "reversed": "逆位置のワンドのクイーンは自信の欠如や嫉妬を示唆します。不安を感じたり、目標の追求において専制的になっているかもしれません。" },
+        "meaningsEn": { "upright": "The Queen of Wands radiates confidence and magnetic charisma. She approaches life with optimism and determination, inspiring others with her warmth.", "reversed": "The reversed Queen of Wands suggests self-doubt or jealousy. You may be feeling insecure or becoming tyrannical in your pursuit of goals." },
+        "description": "堂々としたクイーンが杖を持って玉座に座り、足元には神秘と直感を象徴する黒猫がいます。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "wands_king": {
+        "name": "ワンドのキング",
+        "nameEn": "King of Wands",
+        "keywords": { "upright": ["リーダーシップ", "ビジョン", "起業家精神", "名誉"], "reversed": ["衝動性", "冷酷", "専制", "一貫性の欠如"] },
+        "keywordsEn": { "upright": ["Leadership", "Vision", "Entrepreneurship", "Honor"], "reversed": ["Impulsiveness", "Ruthlessness", "Tyranny", "Inconsistency"] },
+        "meanings": { "upright": "ワンドのキングは自然なリーダーシップと起業家のビジョンを表します。名誉を持ってリードし、他者を彼の大胆なビジョンに従わせます。", "reversed": "逆位置のワンドのキングは冷酷なリーダーシップや衝動性を警告します。専制的な振る舞いや一貫性の欠如が追随者を遠ざけるかもしれません。" },
+        "meaningsEn": { "upright": "The King of Wands represents natural leadership and entrepreneurial vision. He leads with honor and inspires others to follow his bold vision.", "reversed": "The reversed King of Wands warns against ruthless leadership or impulsiveness. Your tyrannical behavior or inconsistency may alienate your followers." },
+        "description": "威厳のあるキングが玉座に座り、花の咲く杖を持ち、火のエネルギーのマスタリーを体現しています。",
+        "element": "火",
+        "elementEn": "Fire"
+      },
+      "cups_1": {
+        "name": "カップのエース",
+        "nameEn": "Ace of Cups",
+        "keywords": { "upright": ["愛", "新しい感情", "感情的充実", "創造性"], "reversed": ["閉ざされた感情", "空虚", "抑圧された愛", "不安定性"] },
+        "keywordsEn": { "upright": ["Love", "New Feelings", "Emotional Fulfillment", "Creativity"], "reversed": ["Blocked Emotions", "Emptiness", "Repressed Love", "Instability"] },
+        "meanings": { "upright": "カップのエースは愛と感情的充実にあふれています。新しい関係や創造的なインスピレーションが喜びと精神的豊かさをもたらします。", "reversed": "逆位置のカップのエースは閉ざされた感情や空虚を示唆します。感情を抑圧しているか、感情的な不安定性を経験しているかもしれません。" },
+        "meaningsEn": { "upright": "The Ace of Cups overflows with love and emotional fulfillment. A new relationship or creative inspiration brings joy and spiritual abundance.", "reversed": "The reversed Ace of Cups suggests blocked emotions or emptiness. You may be repressing your feelings or experiencing emotional instability." },
+        "description": "神聖な手が水であふれるカップを差し出し、感情と精神的な愛の豊かさを表しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_2": {
+        "name": "カップの2",
+        "nameEn": "Two of Cups",
+        "keywords": { "upright": ["パートナーシップ", "調和", "相互の魅力", "結合"], "reversed": ["不均衡", "破れた関係", "断絶", "対立"] },
+        "keywordsEn": { "upright": ["Partnership", "Harmony", "Mutual Attraction", "Union"], "reversed": ["Imbalance", "Broken Relationship", "Disconnection", "Conflict"] },
+        "meanings": { "upright": "カップの2は相互の魅力と尊敬に基づく調和のとれたパートナーシップを祝います。心と心の意味のある結合です。", "reversed": "逆位置のカップの2は関係の不均衡や断絶を示します。パートナーシップが破れているか、対立を経験しているかもしれません。" },
+        "meaningsEn": { "upright": "The Two of Cups celebrates a harmonious partnership based on mutual attraction and respect. A meaningful union of hearts and minds.", "reversed": "The reversed Two of Cups indicates imbalance or disconnection in a relationship. A partnership may be broken or experiencing conflict." },
+        "description": "二人の人物が愛情深いジェスチャーでカップを交換し、間には癒しのカドゥケウスがあります。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_3": {
+        "name": "カップの3",
+        "nameEn": "Three of Cups",
+        "keywords": { "upright": ["祝賀", "友情", "喜び", "共同体"], "reversed": ["過度", "ゴシップ", "孤立", "ドラマ"] },
+        "keywordsEn": { "upright": ["Celebration", "Friendship", "Joy", "Community"], "reversed": ["Overindulgence", "Gossip", "Isolation", "Drama"] },
+        "meanings": { "upright": "カップの3は友情の喜びと祝賀をもたらします。共同体の支援と共有された幸福があなたの精神を高めます。", "reversed": "逆位置のカップの3は過度やゴシップを警告します。共同体から孤立しているか、社会的なドラマに巻き込まれているかもしれません。" },
+        "meaningsEn": { "upright": "The Three of Cups brings celebration and the joy of friendship. Community support and shared happiness lift your spirits.", "reversed": "The reversed Three of Cups warns against overindulgence or gossip. You may feel isolated from your community or caught in social drama." },
+        "description": "三人の女性が友情と喜びの輪の中でカップを掲げて踊っています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_4": {
+        "name": "カップの4",
+        "nameEn": "Four of Cups",
+        "keywords": { "upright": ["熟考", "無関心", "再評価", "瞑想"], "reversed": ["新しい認識", "受け入れ", "決断力", "退屈"] },
+        "keywordsEn": { "upright": ["Contemplation", "Apathy", "Reevaluation", "Meditation"], "reversed": ["New Awareness", "Acceptance", "Decisiveness", "Boredom"] },
+        "meanings": { "upright": "カップの4は熟考と無関心を表します。欠けているものに集中しすぎて、提供されている機会を見逃しているかもしれません。", "reversed": "逆位置のカップの4は決断を下す明確さをもたらします。無関心から目覚め、目の前の可能性を受け入れる時です。" },
+        "meaningsEn": { "upright": "The Four of Cups represents contemplation and apathy. You may be so focused on what you lack that you miss the opportunities being offered to you.", "reversed": "The reversed Four of Cups brings new awareness and acceptance. It's time to wake up from apathy and embrace the possibilities before you." },
+        "description": "座った人物が3つのカップを熟考し、雲から神聖な手が4つ目を提供していますが、気づいていません。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_5": {
+        "name": "カップの5",
+        "nameEn": "Five of Cups",
+        "keywords": { "upright": ["喪失", "悲嘆", "悲しみ", "痛み"], "reversed": ["受け入れ", "前進", "許し", "回復"] },
+        "keywordsEn": { "upright": ["Loss", "Grief", "Sorrow", "Pain"], "reversed": ["Acceptance", "Moving On", "Forgiveness", "Recovery"] },
+        "meanings": { "upright": "カップの5は喪失と悲嘆を表します。過去の失望とこぼれた3つのカップに集中し、後ろに残っている2つのカップに気づいていません。", "reversed": "逆位置のカップの5は受け入れと回復の始まりを告げます。過去の心breakからの痛みを手放し、前進しましょう。" },
+        "meaningsEn": { "upright": "The Five of Cups represents loss and grief. You're focused on past disappointments and the three spilled cups, missing the two that remain standing.", "reversed": "The reversed Five of Cups signals acceptance and the beginning of recovery. It's time to forgive, let go of regret, and move forward with hope." },
+        "description": "マントを被った人物がこぼれた3つのカップを嘆き、後ろに残っている2つの正面向きのカップに気づいていません。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_6": {
+        "name": "カップの6",
+        "nameEn": "Six of Cups",
+        "keywords": { "upright": ["郷愁", "子供時代", "思い出", "無邪気さ"], "reversed": ["過去に生きる", "囚われ", "幼稚", "未解決の問題"] },
+        "keywordsEn": { "upright": ["Nostalgia", "Childhood", "Memories", "Innocence"], "reversed": ["Living in Past", "Stuck", "Naivety", "Unresolved Issues"] },
+        "meanings": { "upright": "カップの6は子供時代の甘い思い出と郷愁をもたらします。無邪気さ、遊び心、そして慣れ親しんだ関係の快適さです。", "reversed": "逆位置のカップの6は過去に生きたり古いパターンに囚われていることを警告します。子供時代からの未解決の問題に注意が必要かもしれません。" },
+        "meaningsEn": { "upright": "The Six of Cups brings nostalgia and sweet memories of childhood. Innocence, playfulness, and the comfort of familiar relationships.", "reversed": "The reversed Six of Cups warns against living in the past or remaining stuck in old patterns. Unresolved issues from childhood may need attention." },
+        "description": "子供たちが庭で花とカップを交換し、無邪気さ、郷愁、幸せな思い出を表しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_7": {
+        "name": "カップの7",
+        "nameEn": "Seven of Cups",
+        "keywords": { "upright": ["選択肢", "幻想", "希望的観測", "想像力"], "reversed": ["明確さ", "決断", "現実チェック", "圧倒"] },
+        "keywordsEn": { "upright": ["Choices", "Fantasy", "Wishful Thinking", "Imagination"], "reversed": ["Clarity", "Decision", "Reality Check", "Overwhelm"] },
+        "meanings": { "upright": "カップの7は多くの選択肢と可能性を提示しますが、希望的観測と幻想に注意してください。輝くものすべてが金ではありません。", "reversed": "逆位置のカップの7は明確さと決断を下す能力をもたらします。現実チェックと一つの道へのコミットメントの時です。" },
+        "meaningsEn": { "upright": "The Seven of Cups presents many choices and possibilities, but beware of wishful thinking and fantasy. Not all that glitters is gold.", "reversed": "The reversed Seven of Cups brings clarity and the ability to make a decision. Time for a reality check and commitment to one path." },
+        "description": "雲の中に浮かぶ7つのカップ、それぞれに異なるビジョンと誘惑があり、選択と幻想を表しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_8": {
+        "name": "カップの8",
+        "nameEn": "Eight of Cups",
+        "keywords": { "upright": ["立ち去る", "真実を求める", "幻想破滅", "旅"], "reversed": ["停滞", "変化への恐怖", "回避", "回帰"] },
+        "keywordsEn": { "upright": ["Walking Away", "Seeking Truth", "Disillusionment", "Journey"], "reversed": ["Stagnation", "Fear of Change", "Avoidance", "Return"] },
+        "meanings": { "upright": "カップの8はもはや満足させてくれないものから立ち去ることを表します。より深い意味と真実を求める勇気ある旅です。", "reversed": "逆位置のカップの8は停滞や変化への恐怖を示唆します。必要な旅を回避しているか、過去に戻ることを考えているかもしれません。" },
+        "meaningsEn": { "upright": "The Eight of Cups represents walking away from something that no longer fulfills you. A courageous journey to seek deeper meaning and truth.", "reversed": "The reversed Eight of Cups suggests stagnation or fear of change. You may be avoiding the necessary journey or considering returning to the past." },
+        "description": "人物が8つ積まれたカップから山へ向かって歩いていき、より深い意味と精神的充実を求めています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_9": {
+        "name": "カップの9",
+        "nameEn": "Nine of Cups",
+        "keywords": { "upright": ["願いの実現", "満足", "充足感", "感謝"], "reversed": ["不満", "貪欲", "快楽主義", "内なる空虚"] },
+        "keywordsEn": { "upright": ["Wishes Fulfilled", "Contentment", "Satisfaction", "Gratitude"], "reversed": ["Dissatisfaction", "Greed", "Hedonism", "Inner Emptiness"] },
+        "meanings": { "upright": "カップの9は願いのカードで、満足と感情的充足を表します。あなたの願いが叶いつつあります。感謝の気持ちを持ちましょう。", "reversed": "逆位置のカップの9は不満や内なる空虚を明らかにします。外的な快楽は真の感情的充足の欠如を覆い隠しているかもしれません。" },
+        "meaningsEn": { "upright": "The Nine of Cups is the wish card, representing contentment and emotional satisfaction. Your wishes are coming true; take time to feel grateful.", "reversed": "The reversed Nine of Cups reveals dissatisfaction or inner emptiness. External pleasures may mask a lack of true emotional fulfillment." },
+        "description": "微笑む人物が9つ整列されたカップの前に座り、感情的充足と叶った願いを表しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_10": {
+        "name": "カップの10",
+        "nameEn": "Ten of Cups",
+        "keywords": { "upright": ["喜び", "家族の調和", "永続的な幸福", "充実"], "reversed": ["崩壊した家庭", "不調和", "不一致", "感情的痛み"] },
+        "keywordsEn": { "upright": ["Joy", "Family Harmony", "Lasting Happiness", "Fulfillment"], "reversed": ["Broken Home", "Discord", "Misalignment", "Emotional Pain"] },
+        "meanings": { "upright": "カップの10は喜びと家族の調和を放ちます。永続的な幸福と感情的充実があなたの人生に祝福の虹を作り出します。", "reversed": "逆位置のカップの10は家族の不調和や感情的痛みを示唆します。家族間に不一致があるか、崩壊した家庭の感覚があるかもしれません。" },
+        "meaningsEn": { "upright": "The Ten of Cups radiates joy and family harmony. Lasting happiness and emotional fulfillment create a rainbow of blessings in your life.", "reversed": "The reversed Ten of Cups suggests family discord or emotional pain. There may be misalignment between family members or a sense of broken home." },
+        "description": "愛情深い家族が10のカップの虹の下で祝い、感情的充実と家庭的至福を表しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_page": {
+        "name": "カップのペイジ",
+        "nameEn": "Page of Cups",
+        "keywords": { "upright": ["創造性", "直感", "新しい愛", "感受性"], "reversed": ["感情的未熟", "不安", "幻想", "過敏"] },
+        "keywordsEn": { "upright": ["Creativity", "Intuition", "New Love", "Sensitivity"], "reversed": ["Emotional Immaturity", "Insecurity", "Fantasy", "Over-sensitivity"] },
+        "meanings": { "upright": "カップのペイジは創造的インスピレーションと直感的洞察をもたらします。新しい愛や芸術的表現の使者が近づいています。", "reversed": "逆位置のカップのペイジは感情的未熟や不安を示唆します。幻想に迷い込んだり、過敏さに苦労しているかもしれません。" },
+        "meaningsEn": { "upright": "The Page of Cups brings creative inspiration and intuitive insights. A messenger of new love or artistic expression approaches.", "reversed": "The reversed Page of Cups suggests emotional immaturity or insecurity. You may be lost in fantasy or struggling with over-sensitivity." },
+        "description": "若い人物がカップを持ち、中から魚が顔を出し、創造性と直感の出現を象徴しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_knight": {
+        "name": "カップのナイト",
+        "nameEn": "Knight of Cups",
+        "keywords": { "upright": ["ロマンス", "魅力", "理想主義", "想像力"], "reversed": ["非現実的", "気分屋", "失望", "逃避"] },
+        "keywordsEn": { "upright": ["Romance", "Charm", "Idealism", "Imagination"], "reversed": ["Unrealistic", "Moodiness", "Disappointment", "Escapism"] },
+        "meanings": { "upright": "カップのナイトはロマンチックな理想主義と魅力を乗せて進みます。愛と創造的機会のメッセージをもたらします。", "reversed": "逆位置のカップのナイトは非現実的な期待や逃避に対して警告します。理想主義的な幻想に気分屋さと失望が続くかもしれません。" },
+        "meaningsEn": { "upright": "The Knight of Cups rides forth with romantic idealism and charm. He brings messages of love and creative opportunities.", "reversed": "The reversed Knight of Cups warns against unrealistic expectations or escapism. Moodiness and disappointment may follow idealistic fantasies." },
+        "description": "白馬に乗った騎士がカップを持ち、ロマンスと理想主義的な夢の追求を表しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_queen": {
+        "name": "カップのクイーン",
+        "nameEn": "Queen of Cups",
+        "keywords": { "upright": ["思いやり", "直感", "感情の安定", "育み"], "reversed": ["感情的操作", "気分屋", "過保護", "不安"] },
+        "keywordsEn": { "upright": ["Compassion", "Intuition", "Emotional Stability", "Nurturing"], "reversed": ["Emotional Manipulation", "Moodiness", "Smothering", "Insecurity"] },
+        "meanings": { "upright": "カップのクイーンは深い思いやりと感情的直感を体現します。無条件の愛と理解で他者を育みます。", "reversed": "逆位置のカップのクイーンは感情的操作や気分屋を示唆します。過保護になったり、不安に苦労しているかもしれません。" },
+        "meaningsEn": { "upright": "The Queen of Cups embodies deep compassion and emotional intuition. She nurtures others with unconditional love and understanding.", "reversed": "The reversed Queen of Cups suggests emotional manipulation or moodiness. You may be smothering others or struggling with insecurity." },
+        "description": "落ち着いたクイーンが水辺に座り、装飾的なカップを持ち、感情的深さと直観的知恵を体現しています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "cups_king": {
+        "name": "カップのキング",
+        "nameEn": "King of Cups",
+        "keywords": { "upright": ["感情のバランス", "外交", "成熟", "カウンセリング"], "reversed": ["感情の抑圧", "操作", "気分屋", "変動性"] },
+        "keywordsEn": { "upright": ["Emotional Balance", "Diplomacy", "Maturity", "Counseling"], "reversed": ["Emotional Suppression", "Manipulation", "Moodiness", "Volatility"] },
+        "meanings": { "upright": "カップのキングは感情のバランスと外交的知恵をマスターしています。落ち着きを保ちながら成熟した助言を提供します。", "reversed": "逆位置のカップのキングは感情の抑圧や操作に対して警告します。落ち着いた表面の下に変動性と気分屋さが隠れているかもしれません。" },
+        "meaningsEn": { "upright": "The King of Cups masters emotional balance and diplomatic wisdom. He offers mature counsel while maintaining composure.", "reversed": "The reversed King of Cups warns against emotional suppression or manipulation. Underneath the calm surface may lie volatility and moodiness." },
+        "description": "沈着なキングが玉座に座り、カップと王笏を持ち、感情の荒波をマスターしています。",
+        "element": "水",
+        "elementEn": "Water"
+      },
+      "swords_1": {
+        "name": "ソードのエース",
+        "nameEn": "Ace of Swords",
+        "keywords": { "upright": ["明確さ", "突破", "新しいアイデア", "精神力"], "reversed": ["混乱", "混沌", "明確さの欠如", "誤解"] },
+        "keywordsEn": { "upright": ["Clarity", "Breakthrough", "New Idea", "Mental Force"], "reversed": ["Confusion", "Chaos", "Lack of Clarity", "Miscommunication"] },
+        "meanings": { "upright": "ソードのエースは明確さと突破的思考をもたらします。強力な新しいアイデアや精神的明確さが混乱を切り裂きます。", "reversed": "逆位置のソードのエースは混乱と混沌を示します。重要な事柄で明確さを欠いたり、誤解を経験しているかもしれません。" },
+        "meaningsEn": { "upright": "The Ace of Swords brings clarity and breakthrough thinking. A powerful new idea or mental clarity cuts through confusion.", "reversed": "The reversed Ace of Swords indicates confusion and chaos. You may lack clarity or experience miscommunication in important matters." },
+        "description": "神聖な手が花輪で冠された直立した剣を差し出し、精神的明確さと突破を象徴しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_2": {
+        "name": "ソードの2",
+        "nameEn": "Two of Swords",
+        "keywords": { "upright": ["優柔不断", "困難な選択", "膠着状態", "回避"], "reversed": ["決断", "明確さ", "情報", "解放された優柔不断"] },
+        "keywordsEn": { "upright": ["Indecision", "Difficult Choices", "Stalemate", "Avoidance"], "reversed": ["Decision", "Clarity", "Information", "Indecision Released"] },
+        "meanings": { "upright": "ソードの2はあなたが避けている困難な決断を表します。目隠しをしてバランスを取り、二つの困難な選択肢の間で選ばなければなりません。", "reversed": "逆位置のソードの2は決断を下す明確さをもたらします。膠着状態を解くのに役立つ情報が利用可能になります。" },
+        "meaningsEn": { "upright": "The Two of Swords represents a difficult decision that you're avoiding. Blindfolded and balanced, you must choose between two challenging options.", "reversed": "The reversed Two of Swords brings the clarity to make a decision. Information becomes available that helps release the stalemate." },
+        "description": "目隠しをした人物が座り、二つの交差した剣を持ち、困難な選択をする必要があることを表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_3": {
+        "name": "ソードの3",
+        "nameEn": "Three of Swords",
+        "keywords": { "upright": ["心break", "悲嘆", "悲しみ", "痛み"], "reversed": ["回復", "許し", "前進", "痛みの解放"] },
+        "keywordsEn": { "upright": ["Heartbreak", "Grief", "Sorrow", "Pain"], "reversed": ["Recovery", "Forgiveness", "Moving On", "Releasing Pain"] },
+        "meanings": { "upright": "ソードの3は心を突き刺す悲嘆と悲しみを表します。痛みを伴うが必要な心breakや喪失の経験です。", "reversed": "逆位置のソードの3は回復と許しの合図を送ります。過去の心breakからの痛みを手放し、前進しましょう。" },
+        "meaningsEn": { "upright": "The Three of Swords pierces the heart with grief and sorrow. A painful but necessary experience of heartbreak or loss.", "reversed": "The reversed Three of Swords signals recovery and forgiveness. You're moving on and releasing the pain of past heartbreak." },
+        "description": "三つの剣が心を突き刺し、心break、悲嘆、感情的悲しみを表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_4": {
+        "name": "ソードの4",
+        "nameEn": "Four of Swords",
+        "keywords": { "upright": ["休息", "回復", "熟考", "療養"], "reversed": ["落ち着きのなさ", "燃え尽き", "ストレス", "進捗の欠如"] },
+        "keywordsEn": { "upright": ["Rest", "Recovery", "Contemplation", "Recuperation"], "reversed": ["Restlessness", "Burnout", "Stress", "Lack of Progress"] },
+        "meanings": { "upright": "ソードの4は休息と回復を求めています。行動に戻る前に療養と熟考の時間を取りましょう。", "reversed": "逆位置のソードの4は落ち着きのなさや燃え尽きを警告します。適切な休息の欠如によるストレスが進捗を妨げています。" },
+        "meaningsEn": { "upright": "The Four of Swords calls for rest and recovery. Take time to recuperate and contemplate before returning to action.", "reversed": "The reversed Four of Swords warns of restlessness or burnout. Stress from lack of proper rest is hindering your progress." },
+        "description": "騎士が教会で横たわり、上に三つの剣、下に一つの剣があり、休息と療養を表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_5": {
+        "name": "ソードの5",
+        "nameEn": "Five of Swords",
+        "keywords": { "upright": ["対立", "敗北", "代償を伴う勝利", "裏切り"], "reversed": ["和解", "償い", "解決", "受け入れ"] },
+        "keywordsEn": { "upright": ["Conflict", "Defeat", "Winning at Costs", "Betrayal"], "reversed": ["Reconciliation", "Making Amends", "Resolution", "Acceptance"] },
+        "meanings": { "upright": "ソードの5は対立と空虚な勝利を表します。どんな代償を払ってでも勝つことは孤立と信頼の裏切りにつながるかもしれません。", "reversed": "逆位置のソードの5は和解と償いの機会をもたらします。対立の解決が今なら可能です。" },
+        "meaningsEn": { "upright": "The Five of Swords represents conflict and hollow victory. Winning at any cost may lead to isolation and betrayal of trust.", "reversed": "The reversed Five of Swords brings opportunities for reconciliation and making amends. Resolution of conflicts is possible now." },
+        "description": "人物が三つの剣を集め、敗北した二人の敵が去っていき、対立とその余波を表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_6": {
+        "name": "ソードの6",
+        "nameEn": "Six of Swords",
+        "keywords": { "upright": ["移行", "変化", "前進", "旅"], "reversed": ["変化への抵抗", "停滞", "未完了", "荷物"] },
+        "keywordsEn": { "upright": ["Transition", "Change", "Moving On", "Journey"], "reversed": ["Resistance to Change", "Stagnation", "Unfinished Business", "Baggage"] },
+        "meanings": { "upright": "ソードの6は困難な水域からの移行と前進を表します。より穏やかな時と癒しへの旅です。", "reversed": "逆位置のソードの6は変化への抵抗や過多の荷物を示唆します。停滞した水域に囚われているかもしれません。" },
+        "meaningsEn": { "upright": "The Six of Swords represents transition and moving on from troubled waters. A journey toward calmer times and healing.", "reversed": "The reversed Six of Swords suggests resistance to change or carrying too much baggage. You may be stuck in stagnant waters." },
+        "description": "船頭が乗客を穏やかな水面へ渡し、困難な時を後にしてより良い未来へ向かいます。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_7": {
+        "name": "ソードの7",
+        "nameEn": "Seven of Swords",
+        "keywords": { "upright": ["欺瞞", "戦略", "こそこそ", "逃げ切る"], "reversed": ["告白", "良心", "自首", "捕まる"] },
+        "keywordsEn": { "upright": ["Deception", "Strategy", "Sneakiness", "Getting Away With"], "reversed": ["Confession", "Conscience", "Turning Yourself In", "Caught"] },
+        "meanings": { "upright": "ソードの7は欺瞞や戦略的な狡猾さを示唆します。何かから逃げ切っているか、賢い戦略が必要かもしれません。", "reversed": "逆位置のソードの7は罪悪感や捕まることを示します。告白し、結果に立ち向かう時かもしれません。" },
+        "meaningsEn": { "upright": "The Seven of Swords suggests deception or strategic cunning. You may be getting away with something or need a clever strategy.", "reversed": "The reversed Seven of Swords indicates a guilty conscience or being caught. It may be time to confess and face the consequences." },
+        "description": "人物が五つの剣をこそこそと持ち去り、二つを残しており、欺瞞と戦略を表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_8": {
+        "name": "ソードの8",
+        "nameEn": "Eight of Swords",
+        "keywords": { "upright": ["制限", "監禁", "自己犠牲", "限界"], "reversed": ["自由", "解放", "支配を取り戻す", "新しい視点"] },
+        "keywordsEn": { "upright": ["Restriction", "Imprisonment", "Self-victimization", "Limitation"], "reversed": ["Freedom", "Release", "Taking Control", "New Perspective"] },
+        "meanings": { "upright": "ソードの8は自己暗示的な制限と閉じ込められた感覚を表します。あなたの限界は実際よりも精神的なものかもしれません。", "reversed": "逆位置のソードの8は自由と解放をもたらします。支配を取り戻し、あなたを解放する新しい視点を見ています。" },
+        "meaningsEn": { "upright": "The Eight of Swords represents self-imposed restriction and feeling trapped. Your limitations may be more mental than real.", "reversed": "The reversed Eight of Swords brings freedom and release. You're taking control and seeing new perspectives that liberate you." },
+        "description": "縛られ目隠しされた人物が八つの剣の間に立ち、制限と閉じ込められた感覚を表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_9": {
+        "name": "ソードの9",
+        "nameEn": "Nine of Swords",
+        "keywords": { "upright": ["不安", "心配", "恐怖", "悪夢"], "reversed": ["希望", "手を伸ばす", "絶望の終わり", "回復"] },
+        "keywordsEn": { "upright": ["Anxiety", "Worry", "Fear", "Nightmares"], "reversed": ["Hope", "Reaching Out", "Despair Ending", "Recovery"] },
+        "meanings": { "upright": "ソードの9はあなたを夜眠れなくする不安と心配を表します。精神的苦痛と恐怖があなたを圧倒しています。", "reversed": "逆位置のソードの9は希望と絶望の終わりをもたらします。不安からの回復が可能なので、助けを求めましょう。" },
+        "meaningsEn": { "upright": "The Nine of Swords represents anxiety and worry that keeps you awake at night. Mental anguish and fear are overwhelming you.", "reversed": "The reversed Nine of Swords brings hope and the end of despair. Reach out for help as recovery from anxiety is possible." },
+        "description": "人物が苦しそうに目覚め、頭を抱え、壁に九つの剣があり、不安と悪夢を表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_10": {
+        "name": "ソードの10",
+        "nameEn": "Ten of Swords",
+        "keywords": { "upright": ["痛ましい終わり", "深い傷", "裏切り", "喪失"], "reversed": ["回復", "再生", "終わりへの抵抗", "新しい始まり"] },
+        "keywordsEn": { "upright": ["Painful Ending", "Deep Wounds", "Betrayal", "Loss"], "reversed": ["Recovery", "Regeneration", "Resisting End", "New Beginning"] },
+        "meanings": { "upright": "ソードの10は痛ましい終わりや深い裏切りを表します。どん底に達しましたが、最悪の時はもう後ろにあります。", "reversed": "逆位置のソードの10は回復と再生を告げます。痛ましい終わりの灰から新しい始まりが生まれます。" },
+        "meaningsEn": { "upright": "The Ten of Swords represents a painful ending or deep betrayal. Rock bottom has been reached, but the worst is now behind you.", "reversed": "The reversed Ten of Swords signals recovery and regeneration. A new beginning emerges from the ashes of a painful ending." },
+        "description": "人物が背中に十の剣を刺されて横たわり、痛ましい終わりと裏切りを表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_page": {
+        "name": "ソードのペイジ",
+        "nameEn": "Page of Swords",
+        "keywords": { "upright": ["好奇心", "新しいアイデア", "コミュニケーション", "警戒"], "reversed": ["欺瞞", "操作", "悪い知らせ", "ゴシップ"] },
+        "keywordsEn": { "upright": ["Curiosity", "New Ideas", "Communication", "Vigilance"], "reversed": ["Deception", "Manipulation", "Bad News", "Gossip"] },
+        "meanings": { "upright": "ソードのペイジは好奇心と新しいアイデアをもたらします。コミュニケーションと精神的警戒の使者が近づいています。", "reversed": "逆位置のソードのペイジは欺瞞や操作を警告します。悪い知らせやゴシップが流れているかもしれません。" },
+        "meaningsEn": { "upright": "The Page of Swords brings curiosity and new ideas. A messenger of communication and mental alertness approaches.", "reversed": "The reversed Page of Swords warns of deception or manipulation. Bad news or gossip may be circulating that requires vigilance." },
+        "description": "若い人物が剣を持って警戒しながら立ち、鋭い好奇心を持って守りと観察の準備ができています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_knight": {
+        "name": "ソードのナイト",
+        "nameEn": "Knight of Swords",
+        "keywords": { "upright": ["行動", "野心", "主張", "速度"], "reversed": ["衝動", "攻撃性", "急ぎ", "冷酷"] },
+        "keywordsEn": { "upright": ["Action", "Ambition", "Assertiveness", "Speed"], "reversed": ["Impulsiveness", "Aggression", "Haste", "Ruthlessness"] },
+        "meanings": { "upright": "ソードのナイトは野心と決意で突進します。迅速な行動と主張があなたを目標へと駆り立てます。", "reversed": "逆位置のソードのナイトは衝動的な攻撃性を警告します。急ぎと冷酷さが不必要な対立につながるかもしれません。" },
+        "meaningsEn": { "upright": "The Knight of Swords charges forward with ambition and determination. Swift action and assertiveness drive you toward your goals.", "reversed": "The reversed Knight of Swords warns against impulsive aggression. Haste and ruthlessness may lead to unnecessary conflicts." },
+        "description": "騎士が馬に乗って突進し、剣を高く掲げ、決意と迅速な行動を表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_queen": {
+        "name": "ソードのクイーン",
+        "nameEn": "Queen of Swords",
+        "keywords": { "upright": ["独立", "公平な判断", "明確な境界", "直接的なコミュニケーション"], "reversed": ["冷酷", "残酷", "苦い", "過度に感情的"] },
+        "keywordsEn": { "upright": ["Independent", "Unbiased Judgment", "Clear Boundaries", "Direct Communication"], "reversed": ["Cold-hearted", "Cruel", "Bitter", "Overly Emotional"] },
+        "meanings": { "upright": "ソードのクイーンは知性と独立を組み合わせます。公平な判断を提供し、明確さと直接性を持ってコミュニケーションを取ります。", "reversed": "逆位置のソードのクイーンは冷酷さや苦々しさを示唆します。過度に感情的になったり、コミュニケーションで残酷になっているかもしれません。" },
+        "meaningsEn": { "upright": "The Queen of Swords combines intellect with independence. She offers unbiased judgment and communicates with clarity and directness.", "reversed": "The reversed Queen of Swords suggests coldness or bitterness. You may be overly emotional or cruel in your communication." },
+        "description": "厳格なクイーンが曇った空の下で玉座に座り、剣を持ち、知的明確さを表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "swords_king": {
+        "name": "ソードのキング",
+        "nameEn": "King of Swords",
+        "keywords": { "upright": ["精神的明確さ", "知的力", "権威", "真実"], "reversed": ["静かな力", "残酷", "冷酷", "専制"] },
+        "keywordsEn": { "upright": ["Mental Clarity", "Intellectual Power", "Authority", "Truth"], "reversed": ["Quiet Power", "Cruelty", "Coldness", "Tyranny"] },
+        "meanings": { "upright": "ソードのキングは知的権威と精神的明確さを体現します。真実と論理的分析に基づいて決断を下します。", "reversed": "逆位置のソードのキングは権威を装った専制を警告します。冷酷さと残酷さが知的優越性を装うかもしれません。" },
+        "meaningsEn": { "upright": "The King of Swords embodies intellectual authority and mental clarity. He makes decisions based on truth and logical analysis.", "reversed": "The reversed King of Swords warns of tyranny disguised as authority. Coldness and cruelty may masquerade as intellectual superiority." },
+        "description": "立派なキングが審判の席に座り、剣を掲げ、知的権威と公正なリーダーシップを表しています。",
+        "element": "風",
+        "elementEn": "Air"
+      },
+      "coins_1": {
+        "name": "ペンタクルのエース",
+        "nameEn": "Ace of Pentacles",
+        "keywords": { "upright": ["新しい経済的機会", "繁栄", "具現化", "豊かさ"], "reversed": ["失われた機会", "計画の欠如", "稀少", "貪欲"] },
+        "keywordsEn": { "upright": ["New Financial Opportunity", "Prosperity", "Manifestation", "Abundance"], "reversed": ["Lost Opportunity", "Lack of Planning", "Scarcity", "Greed"] },
+        "meanings": { "upright": "ペンタクルのエースは新しい経済的機会と繁栄の約束をもたらします。豊かさの種が具現化する準備ができています。", "reversed": "逆位置のペンタクルのエースは失われた機会や計画の欠如を警告します。稀少や貪欲が物質的成功を妨げるかもしれません。" },
+        "meaningsEn": { "upright": "The Ace of Pentacles brings a new financial opportunity and the promise of prosperity. A seed of abundance is ready to manifest.", "reversed": "The reversed Ace of Pentacles warns of a lost opportunity or lack of planning. Scarcity or greed may block your material success." },
+        "description": "神聖な手が庭の道の上にペンタクルを差し出し、新しい物質的機会と繁栄を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_2": {
+        "name": "ペンタクルの2",
+        "nameEn": "Two of Pentacles",
+        "keywords": { "upright": ["バランス", "適応性", "優先順位付け", "柔軟性"], "reversed": ["圧倒", "無秩序", "経済的ストレス", "優先順位の再設定"] },
+        "keywordsEn": { "upright": ["Balance", "Adaptability", "Prioritization", "Flexibility"], "reversed": ["Overwhelm", "Disorganization", "Financial Stress", "Reprioritization"] },
+        "meanings": { "upright": "ペンタクルの2は複数の優先事項のバランスを表します。責任を juggling しながら柔軟で適応的であり続けましょう。", "reversed": "逆位置のペンタクルの2は圧倒と無秩序を示唆します。経済的ストレスがコミットメントの優先順位を再設定する必要があります。" },
+        "meaningsEn": { "upright": "The Two of Pentacles represents the balance of multiple priorities. Stay flexible and adaptable as you juggle responsibilities.", "reversed": "The reversed Two of Pentacles suggests overwhelm and disorganization. Financial stress requires you to reprioritize your commitments." },
+        "description": "人物が無限ループで二つのペンタクルを juggling し、競合する優先事項のバランスを表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_3": {
+        "name": "ペンタクルの3",
+        "nameEn": "Three of Pentacles",
+        "keywords": { "upright": ["チームワーク", "協力", "学習", "実装"], "reversed": ["チームワークの欠如", "スキルの無視", "低品質", "対立"] },
+        "keywordsEn": { "upright": ["Teamwork", "Collaboration", "Learning", "Implementation"], "reversed": ["Lack of Teamwork", "Disregard for Skills", "Poor Quality", "Conflict"] },
+        "meanings": { "upright": "ペンタクルの3は熟練した協力を通じたチームワークを祝います。学習と実装が共同の努力を通じて一緒に来ます。", "reversed": "逆位置のペンタクルの3はチームワークの欠如やスキルの無視を示します。未解決の対立から低品質の仕事が生じるかもしれません。" },
+        "meaningsEn": { "upright": "The Three of Pentacles celebrates teamwork and skilled collaboration. Learning and implementation come together through collective effort.", "reversed": "The reversed Three of Pentacles indicates lack of teamwork or disregard for skills. Poor quality work may result from unresolved conflict." },
+        "description": "職人が大聖堂で働き、他の人々が観察し、熟練した仕事と共同の努力を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_4": {
+        "name": "ペンタクルの4",
+        "nameEn": "Four of Pentacles",
+        "keywords": { "upright": ["安全", "保存", "倹約", "統制"], "reversed": ["貪欲", "物質主義", "自己保護", "寛大さ"] },
+        "keywordsEn": { "upright": ["Security", "Conservation", "Frugality", "Control"], "reversed": ["Greed", "Materialism", "Self-protection", "Generosity"] },
+        "meanings": { "upright": "ペンタクルの4は安全と経済的統制への欲求を表します。倹約と保存がリソースを保護するのに役立ちます。", "reversed": "逆位置のペンタクルの4は貪欲と物質主義を警告します。リソースを蓄えるのではなく、もっと寛大になることを検討してください。" },
+        "meaningsEn": { "upright": "The Four of Pentacles represents a desire for security and financial control. Conservation and frugality help protect your resources.", "reversed": "The reversed Four of Pentacles warns against greed and materialism. Consider being more generous rather than hoarding resources." },
+        "description": "人物が四つのペンタクルをきつく握り、リソースへの統制と安全への欲求を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_5": {
+        "name": "ペンタクルの5",
+        "nameEn": "Five of Pentacles",
+        "keywords": { "upright": ["経済的損失", "貧困", "欠如", "孤立"], "reversed": ["回復", "機知", "慈善", "改善"] },
+        "keywordsEn": { "upright": ["Financial Loss", "Poverty", "Lack", "Isolation"], "reversed": ["Recovery", "Resourcefulness", "Charity", "Improvement"] },
+        "meanings": { "upright": "ペンタクルの5は経済的困難と欠如の感覚を表します。困難な時期に孤立しているように感じるかもしれません。", "reversed": "逆位置のペンタクルの5は回復と機知を告げます。慈善や自分自身の工夫を通じて助けが利用可能です。" },
+        "meaningsEn": { "upright": "The Five of Pentacles represents financial hardship and feelings of lack. You may feel isolated during a difficult period.", "reversed": "The reversed Five of Pentacles signals recovery and resourcefulness. Help is available through charity or your own ingenuity." },
+        "description": "二人の人物が雪の中を歩き、灯された教会の窓を過ぎて行き、困難と精神的孤立を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_6": {
+        "name": "ペンタクルの6",
+        "nameEn": "Six of Pentacles",
+        "keywords": { "upright": ["寛大さ", "慈善", "与える", "繁栄"], "reversed": ["借金", "利己主義", "一方的な慈善", "不公平"] },
+        "keywordsEn": { "upright": ["Generosity", "Charity", "Giving", "Prosperity"], "reversed": ["Debt", "Selfishness", "One-sided Charity", "Unfairness"] },
+        "meanings": { "upright": "ペンタクルの6は寛大さと慈善的な与えを表します。繁栄を分かち合うことはバランスと好意を生み出します。", "reversed": "逆位置のペンタクルの6は利己主義や不公平な交換を警告します。借金に苦しんでいるか、一方的な慈善を扱っているかもしれません。" },
+        "meaningsEn": { "upright": "The Six of Pentacles represents generosity and charitable giving. Sharing your prosperity creates balance and goodwill.", "reversed": "The reversed Six of Pentacles warns of selfishness or unfair exchange. You may be in debt or dealing with one-sided charity." },
+        "description": "裕福な人物が乞食にコインを与え、バランスの取れた秤を持ち、寛大さと公平を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_7": {
+        "name": "ペンタクルの7",
+        "nameEn": "Seven of Pentacles",
+        "keywords": { "upright": ["長期的な視点", "持続可能な結果", "忍耐", "投資"], "reversed": ["成長の欠如", "焦燥", "悪い投資", "無駄な努力"] },
+        "keywordsEn": { "upright": ["Long-term View", "Sustainable Results", "Perseverance", "Investment"], "reversed": ["Lack of Growth", "Impatience", "Bad Investment", "Wasted Effort"] },
+        "meanings": { "upright": "ペンタクルの7は長期的な投資の忍耐を表します。継続的な努力が結果を示し始めています。", "reversed": "逆位置のペンタクルの7は焦燥や成長の欠如を示唆します。悪い投資や無駄な努力が再評価を必要とするかもしれません。" },
+        "meaningsEn": { "upright": "The Seven of Pentacles represents the patience of long-term investment. Your sustained efforts are beginning to show results.", "reversed": "The reversed Seven of Pentacles suggests impatience or lack of growth. A bad investment or wasted effort may require reassessment." },
+        "description": "人物が育つ植物とペンタクルを熟考し、長期的な進歩の評価を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_8": {
+        "name": "ペンタクルの8",
+        "nameEn": "Eight of Pentacles",
+        "keywords": { "upright": ["徒弟制度", "反復", "熟達", "献身"], "reversed": ["自己発展", "完璧主義", "集中の欠如", "誤った努力"] },
+        "keywordsEn": { "upright": ["Apprenticeship", "Repetition", "Mastery", "Dedication"], "reversed": ["Self-development", "Perfectionism", "Lack of Focus", "Misdirected Effort"] },
+        "meanings": { "upright": "ペンタクルの8は自分の技術を熟達させることへの献身を表します。反復と徒弟制度を通じて、真のスキルを開発します。", "reversed": "逆位置のペンタクルの8は完璧主義や集中の欠如を警告します。あなたの努力は真の発展から誤った方向に向かっているかもしれません。" },
+        "meaningsEn": { "upright": "The Eight of Pentacles represents dedication to mastering your craft. Through repetition and apprenticeship, you develop true skill.", "reversed": "The reversed Eight of Pentacles warns of perfectionism or lack of focus. Your efforts may be misdirected away from true development." },
+        "description": "職人が勤勉に八つのペンタクルに取り組み、技能開発と職人技への献身を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_9": {
+        "name": "ペンタクルの9",
+        "nameEn": "Nine of Pentacles",
+        "keywords": { "upright": ["豊かさ", "贅沢", "自給自足", "経済的独立"], "reversed": ["自己価値の問題", "豊かさの欠如", "依存", "見せびらかし"] },
+        "keywordsEn": { "upright": ["Abundance", "Luxury", "Self-sufficiency", "Financial Independence"], "reversed": ["Self-worth Issues", "Lack of Abundance", "Dependence", "Showing Off"] },
+        "meanings": { "upright": "ペンタクルの9は経済的独立と豊かさの享受を表します。あなたの努力を通じて自給自足を達成しました。", "reversed": "逆位置のペンタクルの9は自己価値の問題や見せびらかしを示唆します。他人に依存しているか、真の豊かさを感じていないかもしれません。" },
+        "meaningsEn": { "upright": "The Nine of Pentacles represents financial independence and the enjoyment of abundance. You've achieved self-sufficiency through your efforts.", "reversed": "The reversed Nine of Pentacles suggests self-worth issues or showing off. You may feel dependent on others or lack true abundance." },
+        "description": "優雅な人物が豊かさの庭を楽しみ、手に鷹を乗せ、洗練された成功を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_10": {
+        "name": "ペンタクルの10",
+        "nameEn": "Ten of Pentacles",
+        "keywords": { "upright": ["富", "家族", "長期的な成功", "遺産"], "reversed": ["経済的失敗", "孤独", "家族の対立", "喪失"] },
+        "keywordsEn": { "upright": ["Wealth", "Family", "Long-term Success", "Inheritance"], "reversed": ["Financial Failure", "Loneliness", "Family Conflict", "Loss"] },
+        "meanings": { "upright": "ペンタクルの10は長続きする富と家族の遺産を表します。長期的な成功が世代を超えた安全を作り出します。", "reversed": "逆位置のペンタクルの10は経済的失敗や家族の対立を警告します。安全の基盤が喪失の脅威にさらされているかもしれません。" },
+        "meaningsEn": { "upright": "The Ten of Pentacles represents lasting wealth and family legacy. Long-term success creates security for generations to come.", "reversed": "The reversed Ten of Pentacles warns of financial failure or family conflict. The foundation of security may be threatened by loss." },
+        "description": "家族が十のペンタクルの下の中庭に集まり、世代を超えた富と家族の遺産を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_page": {
+        "name": "ペンタクルのペイジ",
+        "nameEn": "Page of Pentacles",
+        "keywords": { "upright": ["具現化", "経済的機会", "技能開発", "野心"], "reversed": ["進歩の欠如", "先延ばし", "短期的な集中", "悪い知らせ"] },
+        "keywordsEn": { "upright": ["Manifestation", "Financial Opportunity", "Skill Development", "Ambition"], "reversed": ["Lack of Progress", "Procrastination", "Short-term Focus", "Bad News"] },
+        "meanings": { "upright": "ペンタクルのペイジは経済的機会の知らせと新しいスキルを開発する機会をもたらします。野心があなたを具現化へと駆り立てます。", "reversed": "逆位置のペンタクルのペイジは先延ばしや進歩の欠如を示唆します。短期的な思考があなたの野心を妨げるかもしれません。" },
+        "meaningsEn": { "upright": "The Page of Pentacles brings news of financial opportunity and the chance to develop new skills. Ambition drives you toward manifestation.", "reversed": "The reversed Page of Pentacles suggests procrastination or lack of progress. Short-term thinking may derail your ambitions." },
+        "description": "若い人物が集中してペンタクルを研究し、物質的機会と実践的スキルの学習を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_knight": {
+        "name": "ペンタクルのナイト",
+        "nameEn": "Knight of Pentacles",
+        "keywords": { "upright": ["効率", "努力", "責任", "勤勉"], "reversed": ["怠惰", "細部への執着", "停滞", "不注意"] },
+        "keywordsEn": { "upright": ["Efficiency", "Hard Work", "Responsibility", "Diligence"], "reversed": ["Laziness", "Obsession with Details", "Stagnation", "Carelessness"] },
+        "meanings": { "upright": "ペンタクルのナイトは勤勉と責任を持って仕事に取り組みます。努力と効率が着実な進歩につながります。", "reversed": "逆位置のペンタクルのナイトは怠惰や細部への執着を警告します。停滞に囚われたり、責任を不注意に扱っているかもしれません。" },
+        "meaningsEn": { "upright": "The Knight of Pentacles approaches work with diligence and responsibility. Hard work and efficiency lead to steady progress.", "reversed": "The reversed Knight of Pentacles warns of laziness or obsession with details. You may be stuck in stagnation or careless with responsibilities." },
+        "description": "堅実な騎士が馬に乗ってペンタクルを持ち、方法的な進歩と着実な決意を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_queen": {
+        "name": "ペンタクルのクイーン",
+        "nameEn": "Queen of Pentacles",
+        "keywords": { "upright": ["育み", "実用的", "経済的安全", "寛大さ"], "reversed": ["経済的独立", "自己ケア", "仕事と家庭の対立", "過保護"] },
+        "keywordsEn": { "upright": ["Nurturing", "Practical", "Financial Security", "Generosity"], "reversed": ["Financial Independence", "Self-care", "Work-home Conflict", "Smothering"] },
+        "meanings": { "upright": "ペンタクルのクイーンは実践的なケアと経済的安全を通じて他者を育みます。豊かさを生み出し、寛大に分かち合います。", "reversed": "逆位置のペンタクルのクイーンは仕事と家庭の対立や過保護を示唆します。自己ケアと経済的独立に焦点を当てる必要があるかもしれません。" },
+        "meaningsEn": { "upright": "The Queen of Pentacles nurtures others through practical care and financial security. She creates abundance and generously shares it.", "reversed": "The reversed Queen of Pentacles suggests work-home conflict or smothering care. You may need to focus on self-care and financial independence." },
+        "description": "育みのクイーンが豊かな自然の中に座り、ペンタクルを持ち、実践的な育みと繁栄を表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      },
+      "coins_king": {
+        "name": "ペンタクルのキング",
+        "nameEn": "King of Pentacles",
+        "keywords": { "upright": ["豊かさ", "繁栄", "安全", "規律"], "reversed": ["物質主義", "貪欲", "経済的無能", "頑固さ"] },
+        "keywordsEn": { "upright": ["Abundance", "Prosperity", "Security", "Discipline"], "reversed": ["Materialism", "Greed", "Financial Incompetence", "Stubbornness"] },
+        "meanings": { "upright": "ペンタクルのキングは豊かさと経済的マスタリーを体現します。規律と知恵を通じて、長続きする繁栄と安全を作り出します。", "reversed": "逆位置のペンタクルのキングは物質主義や貪欲を警告します。経済的無能や頑固さがあなたの安全を脅かすかもしれません。" },
+        "meaningsEn": { "upright": "The King of Pentacles embodies abundance and financial mastery. Through discipline and wisdom, he creates lasting prosperity and security.", "reversed": "The reversed King of Pentacles warns of materialism or greed. Financial incompetence or stubbornness may threaten your security." },
+        "description": "繁栄のキングが富に囲まれて玉座に座り、ペンタクルと王笏を持ち、物質的マスタリーを表しています。",
+        "element": "土",
+        "elementEn": "Earth"
+      }
+    }
+  }
+}

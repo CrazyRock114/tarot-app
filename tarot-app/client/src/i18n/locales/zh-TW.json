@@ -1,0 +1,813 @@
+{
+  "nav": {
+    "home": "首頁",
+    "draw": "抽牌",
+    "fortune": "運勢",
+    "gallery": "圖鑑",
+    "readers": "塔羅師",
+    "membership": "會員",
+    "profile": "我的",
+    "login": "登入",
+    "register": "註冊",
+    "logout": "登出",
+    "history": "占卜歷史",
+    "menu": "選單"
+  },
+  "home": {
+    "badge": "✨ AI智慧塔羅占卜",
+    "title": "探索命運的",
+    "titleHighlight": "塔羅密語",
+    "subtitle": "融合古老塔羅智慧與AI技術，為你揭示命運的指引。選擇牌陣，抽取你的塔羅牌。",
+    "startReading": "開始占卜",
+    "features": "核心功能",
+    "aiReading": "AI智慧解讀",
+    "aiReadingDesc": "基於深度學習的塔羅牌解讀",
+    "multiSpread": "多種牌陣",
+    "multiSpreadDesc": "單牌、三牌、凱爾特十字等",
+    "dailyFortune": "每日運勢",
+    "dailyFortuneDesc": "基於生日的個性化運勢",
+    "selectReader": "選擇你的AI塔羅師",
+    "selectReaderDesc": "每位塔羅師有獨特的解讀風格和視角",
+    "vipSection": "會員專屬",
+    "vipTitle": "解鎖完整塔羅體驗",
+    "vipSubtitle": "免費用戶每天3次，開通會員享受無限占卜",
+    "vipButton": "查看會員方案",
+    "vipNote": "目前支援積分兌換 · 微信/支付寶支付即將上線",
+    "ctaTitle": "開始你的塔羅之旅",
+    "ctaSubtitle": "讓古老的塔羅牌為你指引方向",
+    "ctaButton": "免費開始占卜",
+    "popular": "最受歡迎",
+    "weekPlan": "週體驗卡",
+    "monthPlan": "月度會員",
+    "yearPlan": "年度會員",
+    "perWeek": "/週",
+    "perMonth": "/月",
+    "perYear": "/年",
+    "unlimitedReading": "無限次占卜",
+    "allReaders": "全部塔羅師",
+    "unlimitedFollowup": "無限追問",
+    "voiceReading": "語音解讀",
+    "exclusiveBack": "專屬卡背",
+    "allBenefits": "包含所有權益",
+    "annualReport": "年度運勢報告",
+    "earlyAccess": "優先體驗新功能"
+  },
+  "draw": {
+    "title": "塔羅占卜",
+    "selectSpread": "選擇牌陣",
+    "enterQuestion": "輸入你的問題（可選）",
+    "questionPlaceholder": "例如：我的事業發展方向是什麼？",
+    "startDraw": "開始抽牌",
+    "drawing": "抽牌中...",
+    "yesNo": "Yes/No 決策",
+    "yesNoDesc": "一張牌給你明確的是或否",
+    "single": "單牌占卜",
+    "singleDesc": "一張牌揭示核心資訊",
+    "threeCard": "三牌陣",
+    "threeCardDesc": "過去、現在、未來",
+    "cross": "凱爾特十字",
+    "crossDesc": "全面深度解析",
+    "problem": "問題解決牌陣",
+    "problemDesc": "問題、原因、建議",
+    "career": "事業牌陣",
+    "careerDesc": "現況、挑戰、方向",
+    "diamond": "鑽石牌陣",
+    "diamondDesc": "四維度深入分析",
+    "selectReader": "選擇塔羅師",
+    "cards": "張牌",
+    "freeLeft": "今日免費剩餘 {{count}} 次",
+    "costPoints": "消耗 {{cost}} 積分/次",
+    "vipUnlimited": "VIP無限次",
+    "loginForMore": "登入享更多次數",
+    "upright": "正位",
+    "reversed": "逆位",
+    "totalSpreads": "共 {{count}} 種",
+    "randomDraw": "隨機抽牌",
+    "randomDrawDesc": "模擬真實洗牌抽牌，帶動態翻牌效果",
+    "luckyNumber": "幸運數字",
+    "luckyNumberDesc": "輸入1-78數字，關聯選牌",
+    "yesNoDrawDesc": "針對簡單問題快速決策",
+    "luckyNumberPlaceholder": "例如：7, 22, 56...",
+    "questionHint": "集中精神想你的問題，牌會給你指引"
+  },
+  "interpretation": {
+    "title": "塔羅解讀",
+    "loading": "正在為你解讀...",
+    "readingBy": "解讀者：{{reader}}",
+    "scrollDown": "下滑查看完整解讀",
+    "share": "分享結果",
+    "shareSuccess": "分享連結已複製！",
+    "followUp": "追問",
+    "followUpPlaceholder": "基於這次占卜結果，你還想了解什麼？",
+    "followUpSend": "發送",
+    "followUpCost": "追問消耗1積分",
+    "followUpLogin": "登入後可追問",
+    "yourQuestion": "你的問題",
+    "yourCards": "你抽到的牌",
+    "aiInterpretation": "AI解讀",
+    "yes": "✓ 是",
+    "no": "✗ 否",
+    "maybe": "? 可能",
+    "noInterpretation": "暫無解讀",
+    "copySuccess": "已複製到剪貼板",
+    "copyFailed": "複製失敗，請手動複製"
+  },
+  "fortune": {
+    "title": "每日運勢",
+    "subtitle": "基於你的生日，AI為你解讀今日運勢",
+    "setBirthday": "設定生日",
+    "birthdayLabel": "你的生日",
+    "save": "儲存",
+    "generating": "正在生成今日運勢...",
+    "getToday": "取得今日運勢",
+    "history": "歷史運勢",
+    "noHistory": "暫無歷史運勢",
+    "overallFortune": "綜合運勢",
+    "love": "愛情",
+    "career": "事業",
+    "wealth": "財運",
+    "health": "健康",
+    "luckyColor": "幸運顏色",
+    "luckyNumber": "幸運數字",
+    "advice": "今日建議",
+    "zodiac": {
+      "aries": "牡羊座",
+      "taurus": "金牛座",
+      "gemini": "雙子座",
+      "cancer": "巨蟹座",
+      "leo": "獅子座",
+      "virgo": "處女座",
+      "libra": "天秤座",
+      "scorpio": "天蠍座",
+      "sagittarius": "射手座",
+      "capricorn": "摩羯座",
+      "aquarius": "水瓶座",
+      "pisces": "雙魚座"
+    },
+    "seoDesc": "輸入生日，AI結合星座與塔羅為你解讀今日運勢。愛情、事業、財運、健康全方位指引。",
+    "generatingHint": "正在為你解讀星象..."
+  },
+  "gallery": {
+    "title": "塔羅圖鑑",
+    "subtitle": "探索78張塔羅牌的奧秘",
+    "majorArcana": "大阿爾克那",
+    "minorArcana": "小阿爾克那",
+    "all": "全部",
+    "wands": "權杖",
+    "cups": "聖杯",
+    "swords": "寶劍",
+    "pentacles": "星幣",
+    "search": "搜尋塔羅牌...",
+    "viewDetail": "查看詳情",
+    "majorDesc": "代表人生重大主題和靈魂課題",
+    "wandsDesc": "代表行動、創造力、熱情與意志力",
+    "cupsDesc": "代表情感、關係、直覺與心靈",
+    "swordsDesc": "代表思想、溝通、衝突與真相",
+    "pentaclesDesc": "代表物質、財富、健康與實際事務",
+    "seoDesc": "瀏覽78張塔羅牌圖鑑，了解每張牌的正位與逆位含義",
+    "noResults": "沒有找到匹配的牌",
+    "cardCount": "共 {{count}} 張牌",
+    "faceDesc": "牌面描述"
+  },
+  "cardDetail": {
+    "upright": "正位含義",
+    "reversed": "逆位含義",
+    "keywords": "關鍵詞",
+    "element": "元素",
+    "planet": "星體",
+    "back": "返回",
+    "seoTitle": "{{name}} - {{nameEn}} 塔羅牌含義",
+    "seoDesc": "{{name}}（{{nameEn}}）塔羅牌正位含義：{{upright}}。逆位含義：{{reversed}}。"
+  },
+  "readers": {
+    "title": "AI塔羅師",
+    "subtitle": "選擇最適合你的解讀風格",
+    "viewDetail": "了解詳情",
+    "selectReader": "選擇TA",
+    "specialties": "擅長領域",
+    "style": "解讀風格",
+    "startReading": "開始占卜",
+    "seoDesc": "4位風格迥異的AI塔羅師，總有一位懂你。神秘靈性、理性分析、溫暖治癒、犀利直接，選擇你的專屬解讀師。",
+    "readerNotFound": "找不到這位塔羅師",
+    "backToDraw": "返回抽牌",
+    "readingsCount": "累計解讀",
+    "rating": "好評率",
+    "about": "關於{{name}}",
+    "personality": "性格特質",
+    "consultWith": "讓{{name}}為你解讀",
+    "intuitive": {
+      "name": "星月",
+      "styleName": "直覺系",
+      "description": "相信直覺和第一印象，解讀充滿靈感和詩意"
+    },
+    "logical": {
+      "name": "墨塵",
+      "styleName": "邏輯系",
+      "description": "理性分析牌面關係，提供清晰的行動建議"
+    },
+    "healing": {
+      "name": "暖陽",
+      "styleName": "治愈系",
+      "description": "溫柔關懷，幫助你療癒內心，找到平和"
+    },
+    "mystical": {
+      "name": "夜羽",
+      "styleName": "神秘系",
+      "description": "深入神秘學傳統，揭示隱藏的深層含義"
+    },
+    "mystic": {
+      "name": "星月",
+      "styleName": "直覺系",
+      "description": "相信直覺和第一印象，解讀充滿靈感和詩意"
+    },
+    "rational": {
+      "name": "墨塵",
+      "styleName": "邏輯系",
+      "description": "理性分析牌面關係，提供清晰的行動建議"
+    },
+    "warm": {
+      "name": "暖陽",
+      "styleName": "治愈系",
+      "description": "溫柔關懷，幫助你療癒內心，找到平和"
+    },
+    "punk": {
+      "name": "夜羽",
+      "styleName": "神秘系",
+      "description": "深入神秘學傳統，揭示隱藏的深層含義"
+    }
+  },
+  "membership": {
+    "title": "會員訂閱",
+    "subtitle": "解鎖完整塔羅體驗",
+    "current": "目前狀態",
+    "free": "免費用戶",
+    "active": "有效會員",
+    "daysLeft": "剩餘 {{days}} 天",
+    "expired": "已過期",
+    "points": "目前積分：{{points}}",
+    "subscribe": "積分兌換",
+    "subscribing": "訂閱中...",
+    "freeVsMember": "免費 vs 會員",
+    "feature": "功能",
+    "freeUser": "免費用戶",
+    "memberUser": "會員",
+    "dailyLimit": "每日占卜",
+    "dailyFreeLimit": "3次/天",
+    "dailyMemberLimit": "無限",
+    "followupAccess": "追問功能",
+    "followupFree": "1積分/次",
+    "followupMember": "無限免費",
+    "readersAccess": "塔羅師",
+    "readersFree": "預設1位",
+    "readersMember": "全部4位",
+    "weekly": "週體驗卡",
+    "monthly": "月度會員",
+    "yearly": "年度會員",
+    "popular": "最受歡迎",
+    "bestValue": "最划算",
+    "pointsUnit": "積分",
+    "seoDesc": "訂閱會員，解鎖無限占卜、全部塔羅師、語音解讀等專屬權益",
+    "voiceReading": "語音解讀",
+    "history": "歷史記錄",
+    "exclusiveBack": "專屬卡背",
+    "annualReport": "年度運勢報告",
+    "earlyAccess": "優先體驗新功能",
+    "annualOnly": "（年度）",
+    "weeklyPrice": "¥6.9/週",
+    "monthlyPrice": "¥19.9/月",
+    "yearlyPrice": "¥168/年",
+    "seoTitle": "會員訂閱"
+  },
+  "points": {
+    "title": "我的積分",
+    "current": "目前積分",
+    "streak": "連續簽到",
+    "totalCheckins": "累計簽到",
+    "days": "天",
+    "checkin": "每日簽到",
+    "checkinReward": "+10~50",
+    "checkinDesc": "連續簽到可獲額外獎勵",
+    "checkinNow": "立即簽到",
+    "checkedIn": "已簽到 ✓",
+    "luckyDraw": "幸運轉盤",
+    "luckyDrawCost": "-20",
+    "luckyDrawDesc": "消耗20積分，贏取更多積分",
+    "startDraw": "🎰 開始抽獎",
+    "shareDraw": "分享占卜",
+    "shareReward": "+5",
+    "shareDesc": "每次分享結果獲得5積分",
+    "goReading": "去占卜",
+    "inviteFriend": "邀請好友",
+    "inviteReward": "+50",
+    "inviteCode": "邀請碼",
+    "copyLink": "複製連結",
+    "copied": "已複製",
+    "inviteDesc": "好友註冊時輸入你的邀請碼，你獲得50積分，好友獲得20積分",
+    "achievements": "成就系統",
+    "achievementUnlocked": "已解鎖 {{count}} / {{total}} 個成就",
+    "log": "積分記錄",
+    "noLog": "暫無積分記錄",
+    "vipBanner": "開通會員享無限占卜",
+    "vipBannerSub": "積分兌換 · 支付即將上線",
+    "viewMembership": "查看會員",
+    "streakHint": "已連續簽到 {{days}} 天",
+    "streakUnlock": "再簽 {{days}} 天解鎖連簽獎勵 🎁",
+    "keepGoing": "繼續保持！",
+    "seoDesc": "簽到賺積分，解鎖成就，幸運抽獎。",
+    "achievementUnlockedMsg": "🎉 成就解鎖：{{names}}！",
+    "checkinSuccess": "簽到成功！+{{amount}}積分",
+    "checkinFailed": "簽到失敗",
+    "seoTitle": "我的積分"
+  },
+  "profile": {
+    "title": "個人中心",
+    "notLoggedIn": "未登入",
+    "loginPrompt": "登入後享受更多功能",
+    "membership": "會員訂閱",
+    "membershipDesc": "無限占卜 · 專屬權益 · 積分兌換",
+    "points": "我的積分",
+    "pointsDesc": "簽到、分享、邀請賺積分",
+    "history": "占卜歷史",
+    "historyDesc": "查看以往的占卜記錄",
+    "favorites": "我的收藏",
+    "favoritesDesc": "收藏的占卜和塔羅牌",
+    "settings": "設定",
+    "settingsDesc": "個性化你的體驗",
+    "logout": "登出",
+    "loginButton": "登入 / 註冊"
+  },
+  "login": {
+    "title": "登入",
+    "email": "電子郵件",
+    "password": "密碼",
+    "submit": "登入",
+    "submitting": "登入中...",
+    "noAccount": "沒有帳號？",
+    "register": "立即註冊",
+    "forgotPassword": "忘記密碼？"
+  },
+  "register": {
+    "title": "註冊",
+    "username": "用戶名",
+    "email": "電子郵件",
+    "password": "密碼",
+    "confirmPassword": "確認密碼",
+    "inviteCode": "邀請碼（可選）",
+    "inviteCodePlaceholder": "有邀請碼？填寫可獲20積分",
+    "submit": "註冊",
+    "submitting": "註冊中...",
+    "hasAccount": "已有帳號？",
+    "login": "立即登入",
+    "passwordMismatch": "兩次密碼不一致",
+    "success": "註冊成功！"
+  },
+  "history": {
+    "title": "占卜歷史",
+    "empty": "暫無占卜記錄",
+    "emptyHint": "去抽一次牌吧！",
+    "goReading": "開始占卜",
+    "spread": "牌陣",
+    "question": "問題",
+    "noQuestion": "未提問",
+    "detail": "占卜詳情",
+    "interpretation": "AI解讀",
+    "cards": "牌面",
+    "date": "日期",
+    "recordNotFound": "記錄不存在或已被刪除"
+  },
+  "share": {
+    "title": "塔羅占卜結果",
+    "sharedBy": "分享自2or.com",
+    "tryIt": "我也要占卜",
+    "cards": "牌面",
+    "interpretation": "解讀",
+    "question": "問題",
+    "spread": "牌陣"
+  },
+  "wheel": {
+    "title": "🎰 幸運轉盤",
+    "subtitle": "消耗 {{cost}} 積分 · 贏取更多",
+    "spin": "抽一次（{{cost}}積分 · 剩餘{{points}}）",
+    "spinning": "轉動中...",
+    "netWin": "淨賺 +{{amount}} 積分",
+    "netLoss": "消耗 {{amount}} 積分",
+    "netZero": "積分不變",
+    "remaining": "剩餘 {{points}}",
+    "close": "關閉",
+    "pts5": "5分",
+    "pts10": "10分",
+    "pts20": "20分",
+    "pts50": "50分",
+    "pts100": "100分",
+    "thanks": "謝謝參與",
+    "freeTicket": "免費券",
+    "tryAgain": "再來一次"
+  },
+  "shuffle": {
+    "gatherHint": "靜心冥想你的問題...",
+    "shuffleHint": "牌正在為你洗牌...",
+    "selectHint": "憑直覺選擇 {{count}} 張牌",
+    "skip": "跳過動畫",
+    "selected": "已選 {{current}}/{{total}}"
+  },
+  "common": {
+    "loading": "載入中...",
+    "error": "出錯了",
+    "retry": "重試",
+    "confirm": "確認",
+    "cancel": "取消",
+    "save": "儲存",
+    "back": "返回",
+    "close": "關閉",
+    "copy": "複製",
+    "share": "分享",
+    "more": "更多",
+    "noData": "暫無資料",
+    "networkError": "網路錯誤",
+    "loginRequired": "請先登入",
+    "languageSwitch": "語言",
+    "justNow": "剛剛",
+    "pageNotFound": "頁面不存在，水晶球也找不到..."
+  },
+  "achievement": {
+    "week_streak": "連簽一週",
+    "week_streakDesc": "連續簽到7天",
+    "month_streak": "連簽一月",
+    "month_streakDesc": "連續簽到30天",
+    "centurion": "百日堅持",
+    "centurionDesc": "累計簽到100次",
+    "first_share": "分享達人",
+    "first_shareDesc": "首次分享占卜結果",
+    "invite_5": "召集者",
+    "invite_5Desc": "邀請5位好友註冊",
+    "reader_all": "遍歷諸師",
+    "reader_allDesc": "體驗全部4位塔羅師"
+  },
+  "seo": {
+    "homeTitle": "2or塔羅 - AI智慧塔羅牌線上占卜",
+    "homeDesc": "專業AI塔羅牌線上占卜，免費抽牌解讀。精準分析愛情、事業、財運，多種牌陣選擇。"
+  },
+  "readers_data": {
+    "mystic": {
+      "name": "月影靈師",
+      "title": "靈性占卜師 · 月之使者",
+      "tagline": "月光所照之處，真相自然浮現",
+      "desc": "詩意靈性，月光般深邃",
+      "description": "月影靈師是一位遊走在現實與靈性之間的神秘占卜師。她自幼便能感知月亮的能量波動，在少女時代開始接觸塔羅牌後，迅速展現出非凡的直覺天賦。她的解讀如月光般溫柔卻鋒利——看似輕描淡寫，實則直指核心。她擅長用詩意的語言傳遞深刻的洞見，讓每一次占卜都像一場靈性之旅。",
+      "personality": [
+        "神秘深邃",
+        "詩意浪漫",
+        "直覺敏銳",
+        "溫柔有力"
+      ],
+      "specialties": [
+        "感情走向",
+        "靈性成長",
+        "潛意識探索",
+        "前世今生"
+      ],
+      "style": "靈性詩意",
+      "readingStyle": "月影靈師的解讀像一場夢境對話。她會用豐富的意象和隱喻引導你探索內心深處，在星光與月影之間找到問題的答案。她的語言充滿靈性詩意，偶爾引用古老的神秘學智慧，讓你感受到宇宙的浩瀚與自身的渺小和偉大。",
+      "quote": "✨ 不要害怕黑暗，月亮正是在最深的夜裡綻放光芒。"
+    },
+    "rational": {
+      "name": "蘇格拉",
+      "title": "理性分析師 · 邏輯之眼",
+      "tagline": "數據不會說謊，象徵自有邏輯",
+      "desc": "邏輯嚴謹，精準可操作",
+      "description": "蘇格拉是塔羅界罕見的\"理性派\"。擁有心理學和數據分析雙重背景的他，堅信塔羅牌的價值不在於預言未來，而在於提供一面鏡子，幫助人們理解自己的心理模式和決策偏好。他的解讀摒棄一切玄學術語，取而代之的是精確的情境分析、認知行為框架和可操作的行動建議。",
+      "personality": [
+        "理性嚴謹",
+        "邏輯清晰",
+        "實事求是",
+        "精準犀利"
+      ],
+      "specialties": [
+        "職業發展",
+        "決策分析",
+        "關係模式識別",
+        "目標規劃"
+      ],
+      "style": "邏輯分析",
+      "readingStyle": "蘇格拉的解讀像一份專業諮詢報告。他會將每張牌的象徵意義精確映射到你的現實情境，用結構化的分析框架拆解問題，每一段都有明確的\"因為…所以…\"邏輯鏈。不講故事，不談感覺，只給你能拿來立即行動的乾貨。",
+      "quote": "📊 塔羅牌不是水晶球，它是幫你看清自己的鏡子。"
+    },
+    "warm": {
+      "name": "小鹿",
+      "title": "暖心解讀師 · 治癒之聲",
+      "tagline": "每一張牌，都在說你值得被愛",
+      "desc": "知心姐姐，溫柔共情",
+      "description": "小鹿是一位天生的治癒者。她的解讀不是冷冰冰的分析，而是一場溫暖的心靈對話。她有著超強的共情能力，總能精準地感受到你的情緒狀態，並用恰到好處的溫度給予回應。在她的解讀中，你不會覺得自己在\"被算命\"，更像是在和一個知心好友聊天——她理解你，支持你，同時也會溫柔但堅定地指出需要面對的課題。",
+      "personality": [
+        "溫暖親切",
+        "善解人意",
+        "樂觀積極",
+        "治癒系"
+      ],
+      "specialties": [
+        "感情困惑",
+        "自我認知",
+        "人際關係",
+        "情緒疏導"
+      ],
+      "style": "溫暖治癒",
+      "readingStyle": "小鹿的解讀像一杯溫熱的奶茶。她會先共情你的感受，再用溫柔的話語引導你看到事情積極的一面。她擅長在困難中發現希望的種子，在混亂中找到清晰的路徑。偶爾的可愛語氣詞和小表情，讓整個解讀過程輕鬆而治癒。",
+      "quote": "🌸 親愛的，無論牌面如何，你都比自己想像的更強大呢~"
+    },
+    "punk": {
+      "name": "Rex",
+      "title": "朋克塔羅師 · 真相獵手",
+      "tagline": "別裝了，讓我告訴你真相",
+      "desc": "直接犀利，一針見血",
+      "description": "Rex是塔羅界的一股清流——或者說是一陣颶風。他不搞那些虛頭巴腦的儀式感，不說那些模稜兩可的廢話。他相信真正的關懷是把真相一把扔到你面前，而不是用糖衣包裹壞消息。他的解讀犀利到讓人心跳加速，但每個聽過他解讀的人都承認：Rex說的，往往是你最不想聽、卻最需要聽的話。",
+      "personality": [
+        "直言不諱",
+        "犀利果斷",
+        "外冷內熱",
+        "叛逆有趣"
+      ],
+      "specialties": [
+        "突破瓶頸",
+        "真相揭露",
+        "行動力激發",
+        "破除幻想"
+      ],
+      "style": "犀利直接",
+      "readingStyle": "Rex的解讀像一杯雙倍濃縮的Espresso。他不兜圈子，上來就直擊要害。如果牌面不好，他會直接告訴你\"這牌不行\"然後分析為什麼。他偶爾會用網路流行語和俚語讓氣氛沒那麼嚴肅，但別被他的痞氣騙了——他可能是最認真幫你分析問題的那個人。",
+      "quote": "🔥 真相可能不好聽，但它比甜言蜜語更能救你的命。"
+    }
+  },
+  "errors": {
+    "getFortuneFailed": "取得運勢失敗",
+    "getDetailFailed": "取得解讀詳情失敗",
+    "deleteFailed": "刪除失敗",
+    "shareFailed": "分享不存在或已失效",
+    "followUpFailed": "追問失敗",
+    "interpretationFailed": "解讀失敗，請重試",
+    "getHistoryFailed": "獲取歷史記錄失敗",
+    "deleteHistoryFailed": "刪除記錄失敗"
+  },
+  "spreads": {
+    "spreads.single": {
+      "name": "單張牌",
+      "description": "最簡潔直接的占卜方式，適合快速獲取指引",
+      "positions": {
+        "position0": {
+          "Name": "核心信息",
+          "meaning": "當前情況的核心指引或答案"
+        }
+      },
+      "suitableFor": [
+        "快速指引",
+        "日常建議",
+        "簡單問題"
+      ]
+    },
+    "spreads.three-card": {
+      "name": "三張牌",
+      "description": "經典的三張牌陣，探索過去、現在、未來",
+      "positions": {
+        "position0": {
+          "Name": "過去",
+          "meaning": "影響當前情況的過去因素"
+        },
+        "position1": {
+          "Name": "現在",
+          "meaning": "當前的情況和挑戰"
+        },
+        "position2": {
+          "Name": "未來",
+          "meaning": "可能的未來發展"
+        }
+      },
+      "suitableFor": [
+        "時間線",
+        "關係發展",
+        "項目進展"
+      ]
+    },
+    "spreads.celtic-cross": {
+      "name": "凱爾特十字",
+      "description": "最全面的經典牌陣，深入探索問題的各個層面",
+      "positions": {
+        "position0": {
+          "Name": "當前狀況",
+          "meaning": "你現在的情況"
+        },
+        "position1": {
+          "Name": "挑戰",
+          "meaning": "阻礙或輔助你的力量"
+        },
+        "position2": {
+          "Name": "基礎",
+          "meaning": "問題的基礎和根源"
+        },
+        "position3": {
+          "Name": "過去",
+          "meaning": "正在消散的影響"
+        },
+        "position4": {
+          "Name": "未來",
+          "meaning": "即將到來的影響"
+        },
+        "position5": {
+          "Name": "自我",
+          "meaning": "你的態度和感受"
+        },
+        "position6": {
+          "Name": "環境",
+          "meaning": "外部影響和他人態度"
+        },
+        "position7": {
+          "Name": "希望/恐懼",
+          "meaning": "你的希望或恐懼"
+        },
+        "position8": {
+          "Name": "結果",
+          "meaning": "最終結果或建議"
+        }
+      },
+      "suitableFor": [
+        "複雜問題",
+        "深度探索",
+        "人生方向"
+      ]
+    },
+    "spreads.relationship": {
+      "name": "關係牌陣",
+      "description": "專門探索兩人關係的動態和發展",
+      "positions": {
+        "position0": {
+          "Name": "你的立場",
+          "meaning": "你在關係中的狀態和感受"
+        },
+        "position1": {
+          "Name": "對方的立場",
+          "meaning": "對方在關係中的狀態和感受"
+        },
+        "position2": {
+          "Name": "關係動態",
+          "meaning": "你們之間的能量流動"
+        },
+        "position3": {
+          "Name": "挑戰",
+          "meaning": "關係面臨的困難或障礙"
+        },
+        "position4": {
+          "Name": "潛力",
+          "meaning": "關係的可能發展方向"
+        }
+      },
+      "suitableFor": [
+        "愛情關係",
+        "友情",
+        "合作關係"
+      ]
+    },
+    "spreads.decision": {
+      "name": "決策牌陣",
+      "description": "幫助你做出重要決定的牌陣",
+      "positions": {
+        "position0": {
+          "Name": "現狀",
+          "meaning": "當前情況的全面圖景"
+        },
+        "position1": {
+          "Name": "選擇A",
+          "meaning": "選擇第一條路的結果"
+        },
+        "position2": {
+          "Name": "選擇B",
+          "meaning": "選擇第二條路的結果"
+        },
+        "position3": {
+          "Name": "建議",
+          "meaning": "幫助你決策的指引"
+        }
+      },
+      "suitableFor": [
+        "職業選擇",
+        "搬家決定",
+        "重大決策"
+      ]
+    },
+    "spreads.problem-solving": {
+      "name": "問題解決",
+      "description": "分析問題的起因、現狀和解決方法",
+      "positions": {
+        "position0": {
+          "Name": "問題起因",
+          "meaning": "導致當前問題的根本原因"
+        },
+        "position1": {
+          "Name": "當前狀態",
+          "meaning": "問題現在的發展階段"
+        },
+        "position2": {
+          "Name": "解決方法",
+          "meaning": "建議的應對策略和行動方向"
+        }
+      },
+      "suitableFor": [
+        "困境分析",
+        "尋找方法",
+        "突破瓶頸"
+      ]
+    },
+    "spreads.career": {
+      "name": "事業牌陣",
+      "description": "專注探索事業發展、職場挑戰和機遇",
+      "positions": {
+        "position0": {
+          "Name": "當前職業狀態",
+          "meaning": "你目前的事業處境和能量"
+        },
+        "position1": {
+          "Name": "阻礙因素",
+          "meaning": "阻礙事業發展的因素"
+        },
+        "position2": {
+          "Name": "隱藏機遇",
+          "meaning": "你可能忽略的機會"
+        },
+        "position3": {
+          "Name": "行動建議",
+          "meaning": "推動事業發展的具體行動"
+        },
+        "position4": {
+          "Name": "未來展望",
+          "meaning": "事業發展的趨勢和潛力"
+        }
+      },
+      "suitableFor": [
+        "職業發展",
+        "跳槽決策",
+        "創業方向"
+      ]
+    },
+    "spreads.diamond": {
+      "name": "鑽石牌陣",
+      "description": "萬能型事件分析，全面解讀起因、現狀與未來",
+      "positions": {
+        "position0": {
+          "Name": "事情起因",
+          "meaning": "事件發生的根源和背景"
+        },
+        "position1": {
+          "Name": "當前狀況",
+          "meaning": "事件目前的發展狀態"
+        },
+        "position2": {
+          "Name": "隱藏影響",
+          "meaning": "看不見但影響結果的因素"
+        },
+        "position3": {
+          "Name": "最終結果",
+          "meaning": "事件的發展方向和結局"
+        }
+      },
+      "suitableFor": [
+        "單一事件",
+        "預測未來",
+        "全面分析"
+      ]
+    }
+  },
+  "apiErrors": {
+    "requestTimeout": "請求逾時，請檢查網路連線後重試",
+    "networkError": "網路連線失敗，請檢查網路後重試",
+    "noReading": "暫無解讀"
+  },
+  "voiceReader": {
+    "generating": "產生語音中...",
+    "pause": "暫停",
+    "resume": "繼續",
+    "voiceReading": "語音解讀",
+    "generatingTip": "解讀產生中，請稍候..."
+  },
+  "shareImage": {
+    "aiReading": "AI塔羅占卜",
+    "tarotReader": "塔羅師：",
+    "reversed": "逆位",
+    "upright": "正位",
+    "aiSummary": "✨ AI解讀摘要",
+    "scanQR": "掃碼查看完整解讀",
+    "tryFortune": "也來測測你的運勢吧~",
+    "brandLine": "2or.com · AI塔羅占卜",
+    "longPressSave": "長按圖片保存，分享到微信",
+    "saveImage": "保存圖片",
+    "generationFailed": "圖片產生失敗",
+    "close": "關閉",
+    "generating": "正在產生分享圖片..."
+  },
+  "time": {
+    "minutesAgo": "{{count}}分鐘前",
+    "hoursAgo": "{{count}}小時前",
+    "daysAgo": "{{count}}天前"
+  },
+  "errorBoundary": {
+    "title": "哎呀，出了點問題",
+    "message": "抱歉，應用遇到了未知錯誤。你可以嘗試刷新頁面。",
+    "reload": "刷新頁面"
+  }
+}

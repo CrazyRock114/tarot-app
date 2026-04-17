@@ -1,0 +1,728 @@
+{
+  "cards": {
+    "major": {
+      "fool": {
+        "name": "The Fool",
+        "keywords": {
+          "upright": ["New Beginnings", "Adventure", "Freedom", "Potential"],
+          "reversed": ["Recklessness", "Risk-taking", "Naivety", "Lack of Planning"]
+        },
+        "meanings": {
+          "upright": "Represents new beginnings, a spirit of adventure, and infinite potential. The Fool is about to embark on an unknown journey, full of optimism and trust. It is a time to follow your intuition and embrace change.",
+          "reversed": "Warns against being too reckless or naive. It may suggest a lack of planning, blind risk-taking, or a need to be more grounded. Reminds you to think before you act."
+        },
+        "description": "A traveler stands at the edge of a cliff, carrying a small bag, ready to leap into the unknown. A small dog accompanies him, symbolizing instinct and loyalty.",
+        "element": "Air",
+        "planet": "Uranus"
+      },
+      "magician": {
+        "name": "The Magician",
+        "keywords": {
+          "upright": ["Creativity", "Willpower", "Manifestation", "Ability"],
+          "reversed": ["Deception", "Manipulation", "Lack of Confidence", "Wasted Talent"]
+        },
+        "meanings": {
+          "upright": "You possess all the resources and abilities needed to achieve your goals. Now is the moment to take action and manifest your ideas into reality. Believe in your own power.",
+          "reversed": "May suggest self-doubt or a failure to fully utilize your talents. Be wary of deception or manipulative behavior, whether from others or yourself."
+        },
+        "description": "The Magician stands before an altar, raising a wand to the sky while pointing to the ground with the other hand. Tools representing the four elements lie on the table.",
+        "element": "Air",
+        "planet": "Mercury"
+      },
+      "highPriestess": {
+        "name": "The High Priestess",
+        "keywords": {
+          "upright": ["Intuition", "Subconscious", "Mystery", "Inner Wisdom"],
+          "reversed": ["Secrets", "Suppressed Intuition", "Superficiality", "Confusion"]
+        },
+        "meanings": {
+          "upright": "Listen to your inner voice and intuition. The High Priestess invites you to delve deep into the subconscious to explore hidden truths. Trust your sixth sense.",
+          "reversed": "You may be ignoring the guidance of your intuition and relying too much on logic. Alternatively, it suggests hidden motives and secrets that need to be revealed."
+        },
+        "description": "The High Priestess sits between two pillars, holding a scroll, with a crescent moon at her feet. She connects the worlds of consciousness and the subconscious.",
+        "element": "Water",
+        "planet": "Moon"
+      },
+      "empress": {
+        "name": "The Empress",
+        "keywords": {
+          "upright": ["Abundance", "Motherhood", "Creativity", "Nature"],
+          "reversed": ["Dependency", "Infertility", "Creative Block", "Self-neglect"]
+        },
+        "meanings": {
+          "upright": "Symbolizes abundance, nourishment, and the flow of creativity. Focus on your sensory pleasures, connect with nature, and allow yourself to receive goodness.",
+          "reversed": "May indicate over-dependence on others or neglecting your own needs. Creativity is blocked, and there is a need to reconnect with your inner feminine energy."
+        },
+        "description": "The Empress sits amidst a bountiful wheat field, surrounded by the beauty of nature. She represents maternal nurturing and abundance.",
+        "element": "Earth",
+        "planet": "Venus"
+      },
+      "emperor": {
+        "name": "The Emperor",
+        "keywords": {
+          "upright": ["Authority", "Structure", "Control", "Fatherhood"],
+          "reversed": ["Tyranny", "Rigidity", "Lack of Discipline", "Abuse of Power"]
+        },
+        "meanings": {
+          "upright": "Establish order and structure, and exert leadership. The Emperor represents stability, discipline, and practical wisdom. Create a plan and execute it firmly.",
+          "reversed": "Beware of over-control or rigidity. It may suggest issues with authority or a need to break out of old, restrictive patterns."
+        },
+        "description": "The Emperor sits upon a stone throne, holding a scepter and orb, with majestic mountains behind him. He symbolizes worldly power and stability.",
+        "element": "Fire",
+        "planet": "Mars",
+        "zodiac": "Aries"
+      },
+      "hierophant": {
+        "name": "The Hierophant",
+        "keywords": {
+          "upright": ["Tradition", "Belief", "Education", "Guidance"],
+          "reversed": ["Rebellion", "Unconventional", "Personal Beliefs", "Breaking Rules"]
+        },
+        "meanings": {
+          "upright": "Seek traditional wisdom and spiritual guidance. May suggest a need to follow established rules or learn from a mentor. Respect traditional values.",
+          "reversed": "Question tradition and find your own path. May imply breaking the rules or developing a personal, unique belief system."
+        },
+        "description": "The Hierophant sits between two pillars, holding a scepter, with two kneeling devotees before him. He represents tradition and spiritual authority.",
+        "element": "Earth",
+        "zodiac": "Taurus"
+      },
+      "lovers": {
+        "name": "The Lovers",
+        "keywords": {
+          "upright": ["Love", "Choice", "Harmony", "Values"],
+          "reversed": ["Disharmony", "Difficult Choice", "Conflict of Values", "Separation"]
+        },
+        "meanings": {
+          "upright": "About love, relationships, and important choices. The Lovers card suggests the need to make decisions aligned with your inner values, seeking harmony and balance.",
+          "reversed": "Disharmony in a relationship or a conflict of values. You may face a difficult choice and need to re-examine what truly matters to you."
+        },
+        "description": "Adam and Eve stand in the Garden of Eden under the blessing of an angel. Symbolizes love, union, and divine choice.",
+        "element": "Air",
+        "zodiac": "Gemini"
+      },
+      "chariot": {
+        "name": "The Chariot",
+        "keywords": {
+          "upright": ["Willpower", "Victory", "Determination", "Control"],
+          "reversed": ["Loss of Control", "Setbacks", "Lack of Direction", "Weak Willpower"]
+        },
+        "meanings": {
+          "upright": "Achieve victory through firm willpower and determination. Control opposing forces and move toward your goals. Trust that you can overcome any obstacle.",
+          "reversed": "You may feel out of control or lack direction. Setbacks remind you to re-evaluate your strategy and strengthen your inner resolve."
+        },
+        "description": "A warrior drives a chariot pulled by two opposing sphinxes, without reins yet determined. Symbolizes the victory of willpower.",
+        "element": "Water",
+        "zodiac": "Cancer"
+      },
+      "strength": {
+        "name": "Strength",
+        "keywords": {
+          "upright": ["Inner Strength", "Courage", "Patience", "Compassion"],
+          "reversed": ["Weakness", "Self-doubt", "Impatience", "Repression"]
+        },
+        "meanings": {
+          "upright": "True strength comes from inner courage and patience, not brute force. Face challenges with gentleness and compassion, taming the beast within you.",
+          "reversed": "You may feel a lack of inner strength or self-doubt. You need to learn how to manage your emotions and avoid repression or outbursts."
+        },
+        "description": "A woman gently closes the lion's mouth, taming the beast with patience and love. Symbolizes inner strength and courage.",
+        "element": "Fire",
+        "zodiac": "Leo"
+      },
+      "hermit": {
+        "name": "The Hermit",
+        "keywords": {
+          "upright": ["Introspection", "Solitude", "Guidance", "Seeking Truth"],
+          "reversed": ["Loneliness", "Lost", "Isolation", "Rejecting Advice"]
+        },
+        "meanings": {
+          "upright": "A time for solitude and reflection is needed. The Hermit guides you to look inward for answers, away from the noise of the outside world. Wisdom comes from within.",
+          "reversed": "May indicate excessive loneliness or a refusal to seek help from others. It could also suggest avoiding the truth, necessitating a move out of isolation."
+        },
+        "description": "The Hermit holds a lantern, standing alone atop a mountain. Symbolizes introspection, seeking truth, and spiritual guidance.",
+        "element": "Earth",
+        "zodiac": "Virgo"
+      },
+      "wheelOfFortune": {
+        "name": "Wheel of Fortune",
+        "keywords": {
+          "upright": ["Change", "Cycles", "Fate", "Turning Point"],
+          "reversed": ["Bad Luck", "Resisting Change", "Misfortune", "Stagnation"]
+        },
+        "meanings": {
+          "upright": "Changes and turning points in the cycles of life. The Wheel of Fortune turns, bringing good luck and new opportunities. Adapt to change and seize the moment.",
+          "reversed": "You may encounter bad luck or resist inevitable changes. Reminds you to maintain hope in adversity; this too shall pass."
+        },
+        "description": "A giant wheel turns, with mythological creatures at the four corners. Symbolizes the cycles of fate and the constant changes of life.",
+        "element": "Fire",
+        "planet": "Jupiter"
+      },
+      "justice": {
+        "name": "Justice",
+        "keywords": {
+          "upright": ["Justice", "Truth", "Cause and Effect", "Law"],
+          "reversed": ["Injustice", "Dishonesty", "Avoiding Responsibility", "Bias"]
+        },
+        "meanings": {
+          "upright": "A moment of fairness and balance. Face the truth and bear the consequences of your actions. Honesty and integrity will bring a just verdict.",
+          "reversed": "You may face unfair treatment or need to confront dishonest behavior. Re-evaluate what is truly fair."
+        },
+        "description": "The goddess of Justice holds scales and a sword, blindfolded. Symbolizes justice, truth, and the law of cause and effect.",
+        "element": "Air",
+        "zodiac": "Libra"
+      },
+      "hangedMan": {
+        "name": "The Hanged Man",
+        "keywords": {
+          "upright": ["Sacrifice", "Pause", "New Perspective", "Letting Go"],
+          "reversed": ["Resistance", "Stalling", "Needless Sacrifice", "Stagnation"]
+        },
+        "meanings": {
+          "upright": "A moment for pause and reflection. Look at situations from a different perspective; a temporary sacrifice might be needed to gain greater insight.",
+          "reversed": "You may be resisting necessary change or clinging to a needless sacrifice. Learn to let go at the appropriate time."
+        },
+        "description": "A man hangs upside down from a tree, in a peaceful posture. Symbolizes sacrifice, new perspective, and voluntary pause.",
+        "element": "Water",
+        "planet": "Neptune"
+      },
+      "death": {
+        "name": "Death",
+        "keywords": {
+          "upright": ["Transformation", "Ending", "New Beginnings", "Release"],
+          "reversed": ["Resisting Change", "Stagnation", "Fear of Change", "Unable to Let Go"]
+        },
+        "meanings": {
+          "upright": "Significant transformation and endings, making room for new beginnings. Let go of old patterns and embrace necessary change. Death brings rebirth.",
+          "reversed": "Resisting an inevitable ending leads to stagnation. Fear of change only prolongs suffering; learn to accept and let go."
+        },
+        "description": "A skeleton knight rides a white horse, with people kneeling before him. Symbolizes transformation, ending, and inevitable change.",
+        "element": "Water",
+        "zodiac": "Scorpio"
+      },
+      "temperance": {
+        "name": "Temperance",
+        "keywords": {
+          "upright": ["Balance", "Moderation", "Patience", "Harmony"],
+          "reversed": ["Extremes", "Imbalance", "Excess", "Impatience"]
+        },
+        "meanings": {
+          "upright": "Seeking balance and moderation. Temperance reminds you to find the middle path between extremes and to patiently harmonize different elements.",
+          "reversed": "You may be in a state of imbalance or heading toward extremes. You need to find your life's equilibrium and center again."
+        },
+        "description": "An angel stands by the water, mixing liquid between two cups. Symbolizes balance, moderation, and alchemy.",
+        "element": "Fire",
+        "zodiac": "Sagittarius"
+      },
+      "devil": {
+        "name": "The Devil",
+        "keywords": {
+          "upright": ["Bondage", "Materialism", "Temptation", "Shadow Self"],
+          "reversed": ["Release", "Breaking Limits", "Regaining Freedom", "Awakening"]
+        },
+        "meanings": {
+          "upright": "Face your shadow side and bondages. The Devil represents material desires and addictions, reminding you not to become a slave to your cravings.",
+          "reversed": "Break the chains and regain your freedom. Realize that limitations are often self-imposed, and you have the power to liberate yourself."
+        },
+        "description": "The Devil looks down upon a chained man and woman, but the chains are loose. Symbolizes bondage, temptation, and material desire.",
+        "element": "Earth",
+        "zodiac": "Capricorn"
+      },
+      "tower": {
+        "name": "The Tower",
+        "keywords": {
+          "upright": ["Sudden Change", "Awakening", "Upheaval", "Revelation"],
+          "reversed": ["Avoiding Disaster", "Delayed Change", "Personal Transformation", "Internal Collapse"]
+        },
+        "meanings": {
+          "upright": "Sudden and drastic change, the collapse of old structures. Although painful, it is a necessary awakening to make room for the truth.",
+          "reversed": "You may be trying to avoid an inevitable change, or experiencing a personal transformation internally rather than an external collapse."
+        },
+        "description": "A tall tower is struck by lightning, with people falling from it. Symbolizes sudden change, revelation, and the collapse of old structures.",
+        "element": "Fire",
+        "planet": "Mars"
+      },
+      "star": {
+        "name": "The Star",
+        "keywords": {
+          "upright": ["Hope", "Inspiration", "Serenity", "Spiritual Connection"],
+          "reversed": ["Despair", "Loss of Faith", "Disillusionment", "Lack of Inspiration"]
+        },
+        "meanings": {
+          "upright": "A beacon of hope and inspiration. The Star brings serenity and faith, trust that the universe is guiding you. A time for spiritual connection and healing.",
+          "reversed": "You may feel despair or a loss of faith. Temporary disillusionment reminds you to reconnect with your inner light and trust."
+        },
+        "description": "A woman pours water into a pond and onto the earth under a starry sky. Symbolizes hope, inspiration, and cosmic connection.",
+        "element": "Air",
+        "zodiac": "Aquarius"
+      },
+      "moon": {
+        "name": "The Moon",
+        "keywords": {
+          "upright": ["Illusion", "Fear", "Subconscious", "Intuition"],
+          "reversed": ["Confusion Dissipating", "Facing Fear", "Secrets Revealed", "Clarity"]
+        },
+        "meanings": {
+          "upright": "The world of the subconscious and hidden truths. The Moon reveals fears and illusions but also brings profound intuition. Trust your feelings.",
+          "reversed": "Secrets are revealed and illusions dissipate. Facing your fears will lead to a clear understanding."
+        },
+        "description": "A full moon hangs high, with a dog and wolf howling below, and a crayfish crawling out of the water. Symbolizes the subconscious, illusion, and intuition.",
+        "element": "Water",
+        "zodiac": "Pisces"
+      },
+      "sun": {
+        "name": "The Sun",
+        "keywords": {
+          "upright": ["Joy", "Success", "Vitality", "Consciousness"],
+          "reversed": ["Temporary Depression", "Conceit", "Delayed Success", "Lack of Clarity"]
+        },
+        "meanings": {
+          "upright": "A time of light, joy, and success. The Sun brings vitality and positive energy; everything is clear and bright. Enjoy the gifts of life.",
+          "reversed": "You may experience temporary gloom or blind spots caused by conceit. Success is merely delayed; maintain your faith."
+        },
+        "description": "A joyful child rides a white horse, with the sun high in the sky. Symbolizes joy, success, and the vitality of life.",
+        "element": "Fire",
+        "planet": "Sun"
+      },
+      "judgement": {
+        "name": "Judgement",
+        "keywords": {
+          "upright": ["Awakening", "Rebirth", "Inner Calling", "Forgiveness"],
+          "reversed": ["Self-doubt", "Refusing the Call", "Lack of Self-reflection", "Unable to Forgive"]
+        },
+        "meanings": {
+          "upright": "A moment of inner awakening and rebirth. Respond to your soul's calling, forgive yourself and others, and welcome new beginnings.",
+          "reversed": "You may be resisting your inner calling or deep in self-doubt. Self-reflection and forgiveness are needed to move forward."
+        },
+        "description": "An angel blows a trumpet, with people rising from their graves. Symbolizes judgment, awakening, and rebirth.",
+        "element": "Fire",
+        "planet": "Pluto"
+      },
+      "world": {
+        "name": "The World",
+        "keywords": {
+          "upright": ["Completion", "Integration", "Accomplishment", "Wholeness"],
+          "reversed": ["Unfinished Business", "Lack of Closure", "Emptiness", "Delayed Success"]
+        },
+        "meanings": {
+          "upright": "Completion and accomplishment of a cycle. The World symbolizes integration and wholeness; you have reached a significant milestone. Celebrate your achievement.",
+          "reversed": "There may be unfinished business or a difficulty in letting go. You need to find true closure before starting a new cycle."
+        },
+        "description": "A dancer is in a wreath, with mythological creatures at the four corners. Symbolizes completion, achievement, and cosmic unity.",
+        "element": "Earth",
+        "planet": "Saturn"
+      }
+    },
+    "minor": {
+      "wands_1": {
+        "name": "Ace of Wands",
+        "keywords": { "upright": ["Inspiration", "Creation", "New Beginning", "Potential"], "reversed": ["Delays", "Lack of Motivation", "Wasted Potential", "Hesitation"] },
+        "meanings": { "upright": "The Ace of Wands represents a spark of inspiration and the birth of creative energy. It signals a time of new beginnings filled with enthusiasm and potential.", "reversed": "The reversed Ace of Wands suggests delays or a lack of motivation. You may feel hesitant to start new projects or fear that your creative potential is being wasted." },
+        "description": "A hand emerges from the clouds offering a sprouting wand, symbolizing creative inspiration and new opportunities.",
+        "element": "Fire"
+      },
+      "wands_2": {
+        "name": "Two of Wands",
+        "keywords": { "upright": ["Planning", "Future", "Progress", "Decisions"], "reversed": ["Fear of Unknown", "Poor Planning", "Avoidance", "Procrastination"] },
+        "meanings": { "upright": "The Two of Wands indicates planning for the future and making progress toward your goals. You stand at a crossroads, contemplating your next move with confidence.", "reversed": "The reversed Two of Wands suggests fear of the unknown or poor planning. You may be avoiding decisions or procrastinating when you should be taking action." },
+        "description": "A figure stands on a castle wall, holding a globe and a wand, gazing out at the distant horizon.",
+        "element": "Fire"
+      },
+      "wands_3": {
+        "name": "Three of Wands",
+        "keywords": { "upright": ["Expansion", "Foresight", "Leadership", "Exploration"], "reversed": ["Obstacles", "Delays", "Limitations", "Unpreparedness"] },
+        "meanings": { "upright": "The Three of Wands represents expansion and exploration. Your plans are taking shape, and you're ready to venture into new territory with confidence and foresight.", "reversed": "The reversed Three of Wands indicates obstacles or delays in your plans. You may feel limited by circumstances or unprepared for the challenges ahead." },
+        "description": "A figure stands on a cliff watching ships sailing across the sea, representing the expansion of horizons.",
+        "element": "Fire"
+      },
+      "wands_4": {
+        "name": "Four of Wands",
+        "keywords": { "upright": ["Celebration", "Harmony", "Milestone", "Joy"], "reversed": ["Transition", "Instability", "Lack of Support", "Postponement"] },
+        "meanings": { "upright": "The Four of Wands celebrates a significant milestone and the joy of achievement. It represents harmony, stability, and the happiness that comes from shared success.", "reversed": "The reversed Four of Wands suggests a period of transition or instability. You may lack support from others or need to postpone celebrations until a more stable time." },
+        "description": "A joyful celebration beneath a floral canopy of four wands, representing harmony and happy reunions.",
+        "element": "Fire"
+      },
+      "wands_5": {
+        "name": "Five of Wands",
+        "keywords": { "upright": ["Conflict", "Competition", "Tension", "Diversity"], "reversed": ["Avoiding Conflict", "Resolution", "Cooperation", "Agreement"] },
+        "meanings": { "upright": "The Five of Wands represents conflict, competition, and tension. Multiple forces are at play, creating a chaotic but potentially energizing environment.", "reversed": "The reversed Five of Wands suggests avoiding conflict or finding resolution. It's time to seek cooperation and agreement rather than continuing to compete." },
+        "description": "Five figures clash with wands in a mock battle, representing competition and the struggle of differing opinions.",
+        "element": "Fire"
+      },
+      "wands_6": {
+        "name": "Six of Wands",
+        "keywords": { "upright": ["Victory", "Recognition", "Success", "Confidence"], "reversed": ["Fall from Grace", "Ego", "Lack of Recognition", "Delay"] },
+        "meanings": { "upright": "The Six of Wands heralds victory and public recognition for your achievements. Success brings confidence and the admiration of others.", "reversed": "The reversed Six of Wands warns against arrogance or a fall from grace. You may not receive the recognition you expect, or success may be delayed." },
+        "description": "A triumphant rider on horseback is celebrated by a crowd, crowned with a victory wreath.",
+        "element": "Fire"
+      },
+      "wands_7": {
+        "name": "Seven of Wands",
+        "keywords": { "upright": ["Defense", "Perseverance", "Protection", "Resilience"], "reversed": ["Overwhelm", "Exhaustion", "Giving Up", "Vulnerability"] },
+        "meanings": { "upright": "The Seven of Wands represents standing your ground and defending your position. Despite challenges from all sides, your resilience and perseverance will see you through.", "reversed": "The reversed Seven of Wands suggests feeling overwhelmed or exhausted. You may be tempted to give up or feel vulnerable to attacks from competitors." },
+        "description": "A figure stands on higher ground, defending against six wands raised against them from below.",
+        "element": "Fire"
+      },
+      "wands_8": {
+        "name": "Eight of Wands",
+        "keywords": { "upright": ["Speed", "Action", "Movement", "Progress"], "reversed": ["Delays", "Resistance", "Confusion", "Frustration"] },
+        "meanings": { "upright": "The Eight of Wands brings swift action and rapid progress. Things are moving quickly, and momentum is on your side. Seize the moment.", "reversed": "The reversed Eight of Wands indicates delays or resistance. Progress may be slowed by confusion or frustration, requiring patience." },
+        "description": "Eight wands fly through the air with great speed, symbolizing rapid movement and swift communication.",
+        "element": "Fire"
+      },
+      "wands_9": {
+        "name": "Nine of Wands",
+        "keywords": { "upright": ["Resilience", "Courage", "Persistence", "Last Stand"], "reversed": ["Exhaustion", "Defensiveness", "Paranoia", "Burnout"] },
+        "meanings": { "upright": "The Nine of Wands represents resilience and the courage to keep going despite weariness. You've been through battles but remain ready for the final challenge.", "reversed": "The reversed Nine of Wands warns of exhaustion or paranoia. You may be too defensive or approaching burnout from prolonged struggle." },
+        "description": "A weary but determined figure stands guard with bandaged head, holding a wand as eight others stand behind.",
+        "element": "Fire"
+      },
+      "wands_10": {
+        "name": "Ten of Wands",
+        "keywords": { "upright": ["Burden", "Responsibility", "Hard Work", "Completion"], "reversed": ["Release", "Delegation", "Overwhelm", "Collapse"] },
+        "meanings": { "upright": "The Ten of Wands represents the burden of responsibility and hard work. You're carrying a heavy load but are near completion of your task.", "reversed": "The reversed Ten of Wands suggests it's time to release your burden. Delegate tasks or let go of responsibilities that are overwhelming you." },
+        "description": "A figure struggles to carry ten heavy wands toward a distant village, representing the weight of responsibility.",
+        "element": "Fire"
+      },
+      "wands_page": {
+        "name": "Page of Wands",
+        "keywords": { "upright": ["Exploration", "Discovery", "Enthusiasm", "Freedom"], "reversed": ["Lack of Direction", "Procrastination", "Bad News", "Immaturity"] },
+        "meanings": { "upright": "The Page of Wands brings enthusiasm for exploration and discovery. A free spirit full of creative potential and eagerness to learn.", "reversed": "The reversed Page of Wands suggests lack of direction or immaturity. You may be procrastinating or receiving disappointing news about a creative project." },
+        "description": "A young figure holds a sprouting wand, gazing upward with curiosity and passion for adventure.",
+        "element": "Fire"
+      },
+      "wands_knight": {
+        "name": "Knight of Wands",
+        "keywords": { "upright": ["Action", "Adventure", "Passion", "Impulsiveness"], "reversed": ["Recklessness", "Haste", "Anger", "Delay"] },
+        "meanings": { "upright": "The Knight of Wands charges forward with passion and daring. An adventurous spirit who takes action quickly and embraces new challenges.", "reversed": "The reversed Knight of Wands warns against recklessness and haste. Your anger or impulsiveness may lead to poor decisions or unnecessary delays." },
+        "description": "A knight in armor rides a rearing horse, brandishing a wand with fierce determination and fiery energy.",
+        "element": "Fire"
+      },
+      "wands_queen": {
+        "name": "Queen of Wands",
+        "keywords": { "upright": ["Confidence", "Determination", "Charisma", "Optimism"], "reversed": ["Self-doubt", "Jealousy", "Insecurity", "Tyranny"] },
+        "meanings": { "upright": "The Queen of Wands radiates confidence and magnetic charisma. She approaches life with optimism and determination, inspiring others with her warmth.", "reversed": "The reversed Queen of Wands suggests self-doubt or jealousy. You may be feeling insecure or becoming tyrannical in your pursuit of goals." },
+        "description": "A regal queen sits on her throne holding a wand, with a black cat at her feet symbolizing mystery and intuition.",
+        "element": "Fire"
+      },
+      "wands_king": {
+        "name": "King of Wands",
+        "keywords": { "upright": ["Leadership", "Vision", "Entrepreneurship", "Honor"], "reversed": ["Impulsiveness", "Ruthlessness", "Tyranny", "Inconsistency"] },
+        "meanings": { "upright": "The King of Wands represents natural leadership and entrepreneurial vision. He leads with honor and inspires others to follow his bold vision.", "reversed": "The reversed King of Wands warns against ruthless leadership or impulsiveness. Your tyrannical behavior or inconsistency may alienate your followers." },
+        "description": "A commanding king sits on his throne, holding a flowering wand, embodying the mastery of fire energy.",
+        "element": "Fire"
+      },
+      "cups_1": {
+        "name": "Ace of Cups",
+        "keywords": { "upright": ["Love", "New Feelings", "Emotional Fulfillment", "Creativity"], "reversed": ["Blocked Emotions", "Emptiness", "Repressed Love", "Instability"] },
+        "meanings": { "upright": "The Ace of Cups overflows with love and emotional fulfillment. A new relationship or creative inspiration brings joy and spiritual abundance.", "reversed": "The reversed Ace of Cups suggests blocked emotions or emptiness. You may be repressing your feelings or experiencing emotional instability." },
+        "description": "A divine hand offers a cup overflowing with water, representing the abundance of emotion and spiritual love.",
+        "element": "Water"
+      },
+      "cups_2": {
+        "name": "Two of Cups",
+        "keywords": { "upright": ["Partnership", "Harmony", "Mutual Attraction", "Union"], "reversed": ["Imbalance", "Broken Relationship", "Disconnection", "Conflict"] },
+        "meanings": { "upright": "The Two of Cups celebrates a harmonious partnership based on mutual attraction and respect. A meaningful union of hearts and minds.", "reversed": "The reversed Two of Cups indicates imbalance or disconnection in a relationship. A partnership may be broken or experiencing conflict." },
+        "description": "Two figures exchange cups in a loving gesture, with the caduceus of healing between them.",
+        "element": "Water"
+      },
+      "cups_3": {
+        "name": "Three of Cups",
+        "keywords": { "upright": ["Celebration", "Friendship", "Joy", "Community"], "reversed": ["Overindulgence", "Gossip", "Isolation", "Drama"] },
+        "meanings": { "upright": "The Three of Cups brings celebration and the joy of friendship. Community support and shared happiness lift your spirits.", "reversed": "The reversed Three of Cups warns against overindulgence or gossip. You may feel isolated from your community or caught in social drama." },
+        "description": "Three women raise their cups in celebration, dancing together in a circle of friendship and joy.",
+        "element": "Water"
+      },
+      "cups_4": {
+        "name": "Four of Cups",
+        "keywords": { "upright": ["Contemplation", "Apathy", "Reevaluation", "Meditation"], "reversed": ["New Awareness", "Acceptance", "Decisiveness", "Boredom"] },
+        "meanings": { "upright": "The Four of Cups represents contemplation and apathy. You may be so focused on what you lack that you miss the opportunities being offered to you.", "reversed": "The reversed Four of Cups brings new awareness and acceptance. It's time to wake up from apathy and embrace the possibilities before you." },
+        "description": "A seated figure contemplates three cups while a divine hand offers a fourth from the clouds, unnoticed.",
+        "element": "Water"
+      },
+      "cups_5": {
+        "name": "Five of Cups",
+        "keywords": { "upright": ["Loss", "Grief", "Disappointment", "Regret"], "reversed": ["Acceptance", "Moving On", "Forgiveness", "Recovery"] },
+        "meanings": { "upright": "The Five of Cups represents loss and grief. You're focused on past disappointments and the three spilled cups, missing the two that remain standing.", "reversed": "The reversed Five of Cups signals acceptance and the beginning of recovery. It's time to forgive, let go of regret, and move forward with hope." },
+        "description": "A cloaked figure mourns three spilled cups, unaware that two upright cups remain behind them.",
+        "element": "Water"
+      },
+      "cups_6": {
+        "name": "Six of Cups",
+        "keywords": { "upright": ["Nostalgia", "Childhood", "Memories", "Innocence"], "reversed": ["Living in Past", "Stuck", "Naivety", "Unresolved Issues"] },
+        "meanings": { "upright": "The Six of Cups brings nostalgia and sweet memories of childhood. Innocence, playfulness, and the comfort of familiar relationships.", "reversed": "The reversed Six of Cups warns against living in the past or remaining stuck in old patterns. Unresolved issues from childhood may need attention." },
+        "description": "Children exchange flowers and cups in a garden, representing innocence, nostalgia, and happy memories.",
+        "element": "Water"
+      },
+      "cups_7": {
+        "name": "Seven of Cups",
+        "keywords": { "upright": ["Choices", "Fantasy", "Wishful Thinking", "Imagination"], "reversed": ["Clarity", "Decision", "Reality Check", "Overwhelm"] },
+        "meanings": { "upright": "The Seven of Cups presents many choices and possibilities, but beware of wishful thinking and fantasy. Not all that glitters is gold.", "reversed": "The reversed Seven of Cups brings clarity and the ability to make a decision. Time for a reality check and commitment to one path." },
+        "description": "Seven cups float in the clouds, each containing different visions and temptations, representing choices and illusions.",
+        "element": "Water"
+      },
+      "cups_8": {
+        "name": "Eight of Cups",
+        "keywords": { "upright": ["Walking Away", "Seeking Truth", "Disillusionment", "Journey"], "reversed": ["Stagnation", "Fear of Change", "Avoidance", "Return"] },
+        "meanings": { "upright": "The Eight of Cups represents walking away from something that no longer fulfills you. A courageous journey to seek deeper meaning and truth.", "reversed": "The reversed Eight of Cups suggests stagnation or fear of change. You may be avoiding the necessary journey or considering returning to the past." },
+        "description": "A figure walks away from eight stacked cups into the mountains, seeking deeper meaning and spiritual fulfillment.",
+        "element": "Water"
+      },
+      "cups_9": {
+        "name": "Nine of Cups",
+        "keywords": { "upright": ["Wishes Fulfilled", "Contentment", "Satisfaction", "Gratitude"], "reversed": ["Dissatisfaction", "Greed", "Hedonism", "Inner Emptiness"] },
+        "meanings": { "upright": "The Nine of Cups is the wish card, representing contentment and emotional satisfaction. Your wishes are coming true; take time to feel grateful.", "reversed": "The reversed Nine of Cups reveals dissatisfaction or inner emptiness. External pleasures may mask a lack of true emotional fulfillment." },
+        "description": "A smiling figure sits before nine arranged cups, representing emotional satisfaction and fulfilled wishes.",
+        "element": "Water"
+      },
+      "cups_10": {
+        "name": "Ten of Cups",
+        "keywords": { "upright": ["Joy", "Family Harmony", "Lasting Happiness", "Fulfillment"], "reversed": ["Broken Home", "Discord", "Misalignment", "Emotional Pain"] },
+        "meanings": { "upright": "The Ten of Cups radiates joy and family harmony. Lasting happiness and emotional fulfillment create a rainbow of blessings in your life.", "reversed": "The reversed Ten of Cups suggests family discord or emotional pain. There may be misalignment between family members or a sense of broken home." },
+        "description": "A loving family celebrates beneath a rainbow of ten cups, representing emotional fulfillment and domestic bliss.",
+        "element": "Water"
+      },
+      "cups_page": {
+        "name": "Page of Cups",
+        "keywords": { "upright": ["Creativity", "Intuition", "New Love", "Sensitivity"], "reversed": ["Emotional Immaturity", "Insecurity", "Fantasy", "Over-sensitivity"] },
+        "meanings": { "upright": "The Page of Cups brings creative inspiration and intuitive insights. A messenger of new love or artistic expression approaches.", "reversed": "The reversed Page of Cups suggests emotional immaturity or insecurity. You may be lost in fantasy or struggling with over-sensitivity." },
+        "description": "A young figure holds a cup with a fish peeking out, symbolizing creativity and the emergence of intuition.",
+        "element": "Water"
+      },
+      "cups_knight": {
+        "name": "Knight of Cups",
+        "keywords": { "upright": ["Romance", "Charm", "Idealism", "Imagination"], "reversed": ["Unrealistic", "Moodiness", "Disappointment", "Escapism"] },
+        "meanings": { "upright": "The Knight of Cups rides forth with romantic idealism and charm. He brings messages of love and creative opportunities.", "reversed": "The reversed Knight of Cups warns against unrealistic expectations or escapism. Moodiness and disappointment may follow idealistic fantasies." },
+        "description": "A knight on a white horse holds a cup, representing the pursuit of romance and idealistic dreams.",
+        "element": "Water"
+      },
+      "cups_queen": {
+        "name": "Queen of Cups",
+        "keywords": { "upright": ["Compassion", "Intuition", "Emotional Stability", "Nurturing"], "reversed": ["Emotional Manipulation", "Moodiness", "Smothering", "Insecurity"] },
+        "meanings": { "upright": "The Queen of Cups embodies deep compassion and emotional intuition. She nurtures others with unconditional love and understanding.", "reversed": "The reversed Queen of Cups suggests emotional manipulation or moodiness. You may be smothering others or struggling with insecurity." },
+        "description": "A serene queen sits by the water, holding an ornate cup, embodying emotional depth and intuitive wisdom.",
+        "element": "Water"
+      },
+      "cups_king": {
+        "name": "King of Cups",
+        "keywords": { "upright": ["Emotional Balance", "Diplomacy", "Maturity", "Counseling"], "reversed": ["Emotional Suppression", "Manipulation", "Moodiness", "Volatility"] },
+        "meanings": { "upright": "The King of Cups masters emotional balance and diplomatic wisdom. He offers mature counsel while maintaining composure.", "reversed": "The reversed King of Cups warns against emotional suppression or manipulation. Underneath the calm surface may lie volatility and moodiness." },
+        "description": "A composed king sits on his throne holding a cup and scepter, mastering the turbulent waters of emotion.",
+        "element": "Water"
+      },
+      "swords_1": {
+        "name": "Ace of Swords",
+        "keywords": { "upright": ["Clarity", "Breakthrough", "New Idea", "Mental Force"], "reversed": ["Confusion", "Chaos", "Lack of Clarity", "Miscommunication"] },
+        "meanings": { "upright": "The Ace of Swords brings clarity and breakthrough thinking. A powerful new idea or mental clarity cuts through confusion.", "reversed": "The reversed Ace of Swords indicates confusion and chaos. You may lack clarity or experience miscommunication in important matters." },
+        "description": "A divine hand offers an upright sword crowned with a wreath, symbolizing mental clarity and breakthrough.",
+        "element": "Air"
+      },
+      "swords_2": {
+        "name": "Two of Swords",
+        "keywords": { "upright": ["Indecision", "Difficult Choices", "Stalemate", "Avoidance"], "reversed": ["Decision", "Clarity", "Information", "Indecision Released"] },
+        "meanings": { "upright": "The Two of Swords represents a difficult decision that you're avoiding. Blindfolded and balanced, you must choose between two challenging options.", "reversed": "The reversed Two of Swords brings the clarity to make a decision. Information becomes available that helps release the stalemate." },
+        "description": "A blindfolded figure sits holding two crossed swords, representing the need to make a difficult choice.",
+        "element": "Air"
+      },
+      "swords_3": {
+        "name": "Three of Swords",
+        "keywords": { "upright": ["Heartbreak", "Grief", "Sorrow", "Pain"], "reversed": ["Recovery", "Forgiveness", "Moving On", "Releasing Pain"] },
+        "meanings": { "upright": "The Three of Swords pierces the heart with grief and sorrow. A painful but necessary experience of heartbreak or loss.", "reversed": "The reversed Three of Swords signals recovery and forgiveness. You're moving on and releasing the pain of past heartbreak." },
+        "description": "Three swords pierce a heart, representing the pain of heartbreak, grief, and emotional sorrow.",
+        "element": "Air"
+      },
+      "swords_4": {
+        "name": "Four of Swords",
+        "keywords": { "upright": ["Rest", "Recovery", "Contemplation", "Recuperation"], "reversed": ["Restlessness", "Burnout", "Stress", "Lack of Progress"] },
+        "meanings": { "upright": "The Four of Swords calls for rest and recovery. Take time to recuperate and contemplate before returning to action.", "reversed": "The reversed Four of Swords warns of restlessness or burnout. Stress from lack of proper rest is hindering your progress." },
+        "description": "A knight lies in repose in a church, with three swords above and one beneath, representing rest and recuperation.",
+        "element": "Air"
+      },
+      "swords_5": {
+        "name": "Five of Swords",
+        "keywords": { "upright": ["Conflict", "Defeat", "Winning at Costs", "Betrayal"], "reversed": ["Reconciliation", "Making Amends", "Resolution", "Acceptance"] },
+        "meanings": { "upright": "The Five of Swords represents conflict and hollow victory. Winning at any cost may lead to isolation and betrayal of trust.", "reversed": "The reversed Five of Swords brings opportunities for reconciliation and making amends. Resolution of conflicts is possible now." },
+        "description": "A figure collects three swords while two defeated opponents walk away, representing conflict and its aftermath.",
+        "element": "Air"
+      },
+      "swords_6": {
+        "name": "Six of Swords",
+        "keywords": { "upright": ["Transition", "Change", "Moving On", "Journey"], "reversed": ["Resistance to Change", "Stagnation", "Unfinished Business", "Baggage"] },
+        "meanings": { "upright": "The Six of Swords represents transition and moving on from troubled waters. A journey toward calmer times and healing.", "reversed": "The reversed Six of Swords suggests resistance to change or carrying too much baggage. You may be stuck in stagnant waters." },
+        "description": "A boatman ferries passengers across calm waters, leaving troubled times behind for a better future.",
+        "element": "Air"
+      },
+      "swords_7": {
+        "name": "Seven of Swords",
+        "keywords": { "upright": ["Deception", "Strategy", "Sneakiness", "Getting Away With"], "reversed": ["Confession", "Conscience", "Turning Yourself In", "Caught"] },
+        "meanings": { "upright": "The Seven of Swords suggests deception or strategic cunning. You may be getting away with something or need a clever strategy.", "reversed": "The reversed Seven of Swords indicates a guilty conscience or being caught. It may be time to confess and face the consequences." },
+        "description": "A figure sneaks away with five swords while leaving two behind, representing deception and strategy.",
+        "element": "Air"
+      },
+      "swords_8": {
+        "name": "Eight of Swords",
+        "keywords": { "upright": ["Restriction", "Imprisonment", "Self-victimization", "Limitation"], "reversed": ["Freedom", "Release", "Taking Control", "New Perspective"] },
+        "meanings": { "upright": "The Eight of Swords represents self-imposed restriction and feeling trapped. Your limitations may be more mental than real.", "reversed": "The reversed Eight of Swords brings freedom and release. You're taking control and seeing new perspectives that liberate you." },
+        "description": "A bound and blindfolded figure stands among eight swords, representing restriction and feeling trapped.",
+        "element": "Air"
+      },
+      "swords_9": {
+        "name": "Nine of Swords",
+        "keywords": { "upright": ["Anxiety", "Worry", "Fear", "Nightmares"], "reversed": ["Hope", "Reaching Out", "Despair Ending", "Recovery"] },
+        "meanings": { "upright": "The Nine of Swords represents anxiety and worry that keeps you awake at night. Mental anguish and fear are overwhelming you.", "reversed": "The reversed Nine of Swords brings hope and the end of despair. Reach out for help as recovery from anxiety is possible." },
+        "description": "A figure wakes in distress, head in hands, with nine swords on the wall, representing anxiety and nightmares.",
+        "element": "Air"
+      },
+      "swords_10": {
+        "name": "Ten of Swords",
+        "keywords": { "upright": ["Painful Ending", "Deep Wounds", "Betrayal", "Loss"], "reversed": ["Recovery", "Regeneration", "Resisting End", "New Beginning"] },
+        "meanings": { "upright": "The Ten of Swords represents a painful ending or deep betrayal. Rock bottom has been reached, but the worst is now behind you.", "reversed": "The reversed Ten of Swords signals recovery and regeneration. A new beginning emerges from the ashes of a painful ending." },
+        "description": "A figure lies with ten swords in their back, representing painful endings and betrayal.",
+        "element": "Air"
+      },
+      "swords_page": {
+        "name": "Page of Swords",
+        "keywords": { "upright": ["Curiosity", "New Ideas", "Communication", "Vigilance"], "reversed": ["Deception", "Manipulation", "Bad News", "Gossip"] },
+        "meanings": { "upright": "The Page of Swords brings curiosity and new ideas. A messenger of communication and mental alertness approaches.", "reversed": "The reversed Page of Swords warns of deception or manipulation. Bad news or gossip may be circulating that requires vigilance." },
+        "description": "A young figure stands alert holding a sword, ready to defend and observe with keen curiosity.",
+        "element": "Air"
+      },
+      "swords_knight": {
+        "name": "Knight of Swords",
+        "keywords": { "upright": ["Action", "Ambition", "Assertiveness", "Speed"], "reversed": ["Impulsiveness", "Aggression", "Haste", "Ruthlessness"] },
+        "meanings": { "upright": "The Knight of Swords charges forward with ambition and determination. Swift action and assertiveness drive you toward your goals.", "reversed": "The reversed Knight of Swords warns against impulsive aggression. Haste and ruthlessness may lead to unnecessary conflicts." },
+        "description": "A knight charges forward on horseback, sword raised high, representing determination and swift action.",
+        "element": "Air"
+      },
+      "swords_queen": {
+        "name": "Queen of Swords",
+        "keywords": { "upright": ["Independent", "Unbiased Judgment", "Clear Boundaries", "Direct Communication"], "reversed": ["Cold-hearted", "Cruel", "Bitter", "Overly Emotional"] },
+        "meanings": { "upright": "The Queen of Swords combines intellect with independence. She offers unbiased judgment and communicates with clarity and directness.", "reversed": "The reversed Queen of Swords suggests coldness or bitterness. You may be overly emotional or cruel in your communication." },
+        "description": "A stern queen sits on her throne under a cloudy sky, holding a sword, representing intellectual clarity.",
+        "element": "Air"
+      },
+      "swords_king": {
+        "name": "King of Swords",
+        "keywords": { "upright": ["Mental Clarity", "Intellectual Power", "Authority", "Truth"], "reversed": ["Quiet Power", "Cruelty", "Coldness", "Tyranny"] },
+        "meanings": { "upright": "The King of Swords embodies intellectual authority and mental clarity. He makes decisions based on truth and logical analysis.", "reversed": "The reversed King of Swords warns of tyranny disguised as authority. Coldness and cruelty may masquerade as intellectual superiority." },
+        "description": "A regal king sits in judgment, sword raised, representing intellectual authority and fair-minded leadership.",
+        "element": "Air"
+      },
+      "coins_1": {
+        "name": "Ace of Pentacles",
+        "keywords": { "upright": ["New Financial Opportunity", "Prosperity", "Manifestation", "Abundance"], "reversed": ["Lost Opportunity", "Lack of Planning", "Scarcity", "Greed"] },
+        "meanings": { "upright": "The Ace of Pentacles brings a new financial opportunity and the promise of prosperity. A seed of abundance is ready to manifest.", "reversed": "The reversed Ace of Pentacles warns of a lost opportunity or lack of planning. Scarcity or greed may block your material success." },
+        "description": "A divine hand offers a pentacle above a garden path, representing new material opportunities and prosperity.",
+        "element": "Earth"
+      },
+      "coins_2": {
+        "name": "Two of Pentacles",
+        "keywords": { "upright": ["Balance", "Adaptability", "Prioritization", "Flexibility"], "reversed": ["Overwhelm", "Disorganization", "Financial Stress", "Reprioritization"] },
+        "meanings": { "upright": "The Two of Pentacles represents the balance of multiple priorities. Stay flexible and adaptable as you juggle responsibilities.", "reversed": "The reversed Two of Pentacles suggests overwhelm and disorganization. Financial stress requires you to reprioritize your commitments." },
+        "description": "A figure juggles two pentacles in an infinity loop, representing the balance of competing priorities.",
+        "element": "Earth"
+      },
+      "coins_3": {
+        "name": "Three of Pentacles",
+        "keywords": { "upright": ["Teamwork", "Collaboration", "Learning", "Implementation"], "reversed": ["Lack of Teamwork", "Disregard for Skills", "Poor Quality", "Conflict"] },
+        "meanings": { "upright": "The Three of Pentacles celebrates teamwork and skilled collaboration. Learning and implementation come together through collective effort.", "reversed": "The reversed Three of Pentacles indicates lack of teamwork or disregard for skills. Poor quality work may result from unresolved conflict." },
+        "description": "A craftsman works on a cathedral while others observe, representing skilled work and collaborative effort.",
+        "element": "Earth"
+      },
+      "coins_4": {
+        "name": "Four of Pentacles",
+        "keywords": { "upright": ["Security", "Conservation", "Frugality", "Control"], "reversed": ["Greed", "Materialism", "Self-protection", "Generosity"] },
+        "meanings": { "upright": "The Four of Pentacles represents a desire for security and financial control. Conservation and frugality help protect your resources.", "reversed": "The reversed Four of Pentacles warns against greed and materialism. Consider being more generous rather than hoarding resources." },
+        "description": "A figure clutches four pentacles tightly, representing control over resources and desire for security.",
+        "element": "Earth"
+      },
+      "coins_5": {
+        "name": "Five of Pentacles",
+        "keywords": { "upright": ["Financial Loss", "Poverty", "Lack", "Isolation"], "reversed": ["Recovery", "Resourcefulness", "Charity", "Improvement"] },
+        "meanings": { "upright": "The Five of Pentacles represents financial hardship and feelings of lack. You may feel isolated during a difficult period.", "reversed": "The reversed Five of Pentacles signals recovery and resourcefulness. Help is available through charity or your own ingenuity." },
+        "description": "Two figures walk in the snow past a lit church window, representing hardship and spiritual isolation.",
+        "element": "Earth"
+      },
+      "coins_6": {
+        "name": "Six of Pentacles",
+        "keywords": { "upright": ["Generosity", "Charity", "Giving", "Prosperity"], "reversed": ["Debt", "Selfishness", "One-sided Charity", "Unfairness"] },
+        "meanings": { "upright": "The Six of Pentacles represents generosity and charitable giving. Sharing your prosperity creates balance and goodwill.", "reversed": "The reversed Six of Pentacles warns of selfishness or unfair exchange. You may be in debt or dealing with one-sided charity." },
+        "description": "A wealthy figure gives coins to beggars while holding a balanced scale, representing generosity and fairness.",
+        "element": "Earth"
+      },
+      "coins_7": {
+        "name": "Seven of Pentacles",
+        "keywords": { "upright": ["Long-term View", "Sustainable Results", "Perseverance", "Investment"], "reversed": ["Lack of Growth", "Impatience", "Bad Investment", "Wasted Effort"] },
+        "meanings": { "upright": "The Seven of Pentacles represents the patience of long-term investment. Your sustained efforts are beginning to show results.", "reversed": "The reversed Seven of Pentacles suggests impatience or lack of growth. A bad investment or wasted effort may require reassessment." },
+        "description": "A figure pauses to contemplate growing plants and pentacles, representing assessment of long-term progress.",
+        "element": "Earth"
+      },
+      "coins_8": {
+        "name": "Eight of Pentacles",
+        "keywords": { "upright": ["Apprenticeship", "Repetition", "Mastery", "Dedication"], "reversed": ["Self-development", "Perfectionism", "Lack of Focus", "Misdirected Effort"] },
+        "meanings": { "upright": "The Eight of Pentacles represents dedication to mastering your craft. Through repetition and apprenticeship, you develop true skill.", "reversed": "The reversed Eight of Pentacles warns of perfectionism or lack of focus. Your efforts may be misdirected away from true development." },
+        "description": "A craftsman diligently works on eight pentacles, representing dedication to skill development and craftsmanship.",
+        "element": "Earth"
+      },
+      "coins_9": {
+        "name": "Nine of Pentacles",
+        "keywords": { "upright": ["Abundance", "Luxury", "Self-sufficiency", "Financial Independence"], "reversed": ["Self-worth Issues", "Lack of Abundance", "Dependence", "Showing Off"] },
+        "meanings": { "upright": "The Nine of Pentacles represents financial independence and the enjoyment of abundance. You've achieved self-sufficiency through your efforts.", "reversed": "The reversed Nine of Pentacles suggests self-worth issues or showing off. You may feel dependent on others or lack true abundance." },
+        "description": "A graceful figure enjoys a garden of abundance, with a falcon on their hand, representing refined success.",
+        "element": "Earth"
+      },
+      "coins_10": {
+        "name": "Ten of Pentacles",
+        "keywords": { "upright": ["Wealth", "Family", "Long-term Success", "Inheritance"], "reversed": ["Financial Failure", "Loneliness", "Family Conflict", "Loss"] },
+        "meanings": { "upright": "The Ten of Pentacles represents lasting wealth and family legacy. Long-term success creates security for generations to come.", "reversed": "The reversed Ten of Pentacles warns of financial failure or family conflict. The foundation of security may be threatened by loss." },
+        "description": "A family gathers in a courtyard beneath ten pentacles, representing generational wealth and family legacy.",
+        "element": "Earth"
+      },
+      "coins_page": {
+        "name": "Page of Pentacles",
+        "keywords": { "upright": ["Manifestation", "Financial Opportunity", "Skill Development", "Ambition"], "reversed": ["Lack of Progress", "Procrastination", "Short-term Focus", "Bad News"] },
+        "meanings": { "upright": "The Page of Pentacles brings news of financial opportunity and the chance to develop new skills. Ambition drives you toward manifestation.", "reversed": "The reversed Page of Pentacles suggests procrastination or lack of progress. Short-term thinking may derail your ambitions." },
+        "description": "A young figure studies a pentacle with focus, representing the study of material opportunities and practical skills.",
+        "element": "Earth"
+      },
+      "coins_knight": {
+        "name": "Knight of Pentacles",
+        "keywords": { "upright": ["Efficiency", "Hard Work", "Responsibility", "Diligence"], "reversed": ["Laziness", "Obsession with Details", "Stagnation", "Carelessness"] },
+        "meanings": { "upright": "The Knight of Pentacles approaches work with diligence and responsibility. Hard work and efficiency lead to steady progress.", "reversed": "The reversed Knight of Pentacles warns of laziness or obsession with details. You may be stuck in stagnation or careless with responsibilities." },
+        "description": "A steadfast knight on a horse holds a pentacle, representing methodical progress and steady determination.",
+        "element": "Earth"
+      },
+      "coins_queen": {
+        "name": "Queen of Pentacles",
+        "keywords": { "upright": ["Nurturing", "Practical", "Financial Security", "Generosity"], "reversed": ["Financial Independence", "Self-care", "Work-home Conflict", "Smothering"] },
+        "meanings": { "upright": "The Queen of Pentacles nurtures others through practical care and financial security. She creates abundance and generously shares it.", "reversed": "The reversed Queen of Pentacles suggests work-home conflict or smothering care. You may need to focus on self-care and financial independence." },
+        "description": "A nurturing queen sits among abundant nature, holding a pentacle, representing practical nurturing and prosperity.",
+        "element": "Earth"
+      },
+      "coins_king": {
+        "name": "King of Pentacles",
+        "keywords": { "upright": ["Abundance", "Prosperity", "Security", "Discipline"], "reversed": ["Materialism", "Greed", "Financial Incompetence", "Stubbornness"] },
+        "meanings": { "upright": "The King of Pentacles embodies abundance and financial mastery. Through discipline and wisdom, he creates lasting prosperity and security.", "reversed": "The reversed King of Pentacles warns of materialism or greed. Financial incompetence or stubbornness may threaten your security." },
+        "description": "A prosperous king sits on his throne surrounded by wealth, holding a pentacle and scepter, representing material mastery.",
+        "element": "Earth"
+      },
+      "suits": {
+        "wands": { "name": "Wands", "element": "Fire", "keywords": "Passion, Action, Creativity" },
+        "cups": { "name": "Cups", "element": "Water", "keywords": "Emotions, Relationships, Intuition" },
+        "swords": { "name": "Swords", "element": "Air", "keywords": "Thought, Challenge, Truth" },
+        "coins": { "name": "Pentacles", "element": "Earth", "keywords": "Physicality, Security, Practicality" }
+      },
+      "numbers": ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"],
+      "courts": {
+        "page": { "name": "Page", "title": "Page" },
+        "knight": { "name": "Knight", "title": "Knight" },
+        "queen": { "name": "Queen", "title": "Queen" },
+        "king": { "name": "King", "title": "King" }
+      }
+    }
+  },
+  "elements": {
+    "fire": "Fire",
+    "water": "Water",
+    "air": "Air",
+    "earth": "Earth"
+  }
+}
