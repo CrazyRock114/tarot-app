@@ -53,14 +53,24 @@ const Admin = () => {
   }, [tab, isAdmin, usersPage, readingsPage, pointsPage, errorPage, requestPage]);
 
   const checkAdmin = async () => {
+    if (!token) {
+      setLoading(false);
+      navigate('/login');
+      return;
+    }
     try {
       const res = await fetch('/api/admin/dashboard', { headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) {
         setIsAdmin(true);
         const data = await res.json();
         setDashboard(data);
+      } else if (res.status === 401) {
+        // Token expired, redirect to login
+        navigate('/login');
       }
-    } catch {}
+    } catch (err) {
+      console.error('Admin check failed:', err);
+    }
     setLoading(false);
   };
 
