@@ -44,7 +44,7 @@ const App: FC = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/tr-admin" element={<Admin />} />
             <Route path="/history" element={<History />} />
             <Route path="/history/:id" element={<HistoryDetail />} />
             <Route path="/interpretation" element={<Interpretation />} />

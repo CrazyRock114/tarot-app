@@ -215,12 +215,13 @@ ErrorLogSchema.index({ createdAt: -1 });
 ErrorLogSchema.index({ type: 1 });
 const ErrorLog = mongoose.models.ErrorLog || mongoose.model('ErrorLog', ErrorLogSchema);
 
-// Admin Middleware
+// Admin Middleware - only specific admin email
+const ADMIN_EMAILS = ['paul89114@126.com'];
 const adminMiddleware = async (req: any, res: any) => {
   const userId = await authMiddleware(req, res, true);
   if (!userId) return null;
   const user = await User.findById(userId);
-  if (!user || user.role !== 'admin') {
+  if (!user || !ADMIN_EMAILS.includes(user.email)) {
     res.status(403).json({ message: 'Admin access required' });
     return null;
   }

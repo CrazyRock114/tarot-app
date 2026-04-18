@@ -143,20 +143,6 @@ export const Profile: FC = () => {
           })}
         </motion.div>
 
-        {/* Admin Button */}
-      {user?.role === 'admin' && (
-        <button
-          onClick={() => navigate('/admin')}
-          className="w-full flex items-center justify-between px-4 py-3 bg-red-500/10 border border-red-500/20 rounded-xl hover:bg-red-500/20 transition-colors"
-        >
-          <div className="flex items-center gap-3">
-            <Settings className="w-5 h-5 text-red-400" />
-            <span className="text-red-300">🔧 管理后台</span>
-          </div>
-          <ChevronRight className="w-5 h-5 text-red-400" />
-        </button>
-      )}
-
       {/* Logout Button */}
         <motion.button
           initial={{ opacity: 0, y: 20 }}
