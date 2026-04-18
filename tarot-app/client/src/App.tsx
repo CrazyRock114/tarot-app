@@ -21,6 +21,7 @@ import Readers from './pages/Readers';
 import ReaderDetail from './pages/ReaderDetail';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Admin from './pages/Admin';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HelmetProvider } from 'react-helmet-async';
@@ -43,6 +44,7 @@ const App: FC = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/history" element={<History />} />
             <Route path="/history/:id" element={<HistoryDetail />} />
             <Route path="/interpretation" element={<Interpretation />} />

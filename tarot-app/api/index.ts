@@ -82,6 +82,7 @@ const UserSchema = new mongoose.Schema({
   // Membership
   membership: { type: String, enum: ['free', 'monthly', 'yearly'], default: 'free' },
   membershipExpiry: { type: Date, default: null },
+  role: { type: String, enum: ['user', 'admin'], default: 'user' },
   createdAt: { type: Date, default: Date.now },
 });
 
@@ -181,6 +182,50 @@ const PasswordResetTokenSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 const PasswordResetToken = mongoose.models.PasswordResetToken || mongoose.model('PasswordResetToken', PasswordResetTokenSchema);
+
+// RequestLog Schema - API访问日志
+const RequestLogSchema = new mongoose.Schema({
+  method: { type: String, required: true },
+  path: { type: String, required: true },
+  statusCode: { type: Number },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  ip: { type: String },
+  userAgent: { type: String },
+  duration: { type: Number },
+  error: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+RequestLogSchema.index({ createdAt: -1 });
+RequestLogSchema.index({ path: 1 });
+const RequestLog = mongoose.models.RequestLog || mongoose.model('RequestLog', RequestLogSchema);
+
+// ErrorLog Schema - 错误日志
+const ErrorLogSchema = new mongoose.Schema({
+  type: { type: String, enum: ['api', 'auth', 'ai', 'db', 'tts', 'email', 'other'], default: 'api' },
+  message: { type: String, required: true },
+  stack: { type: String },
+  path: { type: String },
+  method: { type: String },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  ip: { type: String },
+  requestBody: { type: mongoose.Schema.Types.Mixed },
+  createdAt: { type: Date, default: Date.now },
+});
+ErrorLogSchema.index({ createdAt: -1 });
+ErrorLogSchema.index({ type: 1 });
+const ErrorLog = mongoose.models.ErrorLog || mongoose.model('ErrorLog', ErrorLogSchema);
+
+// Admin Middleware
+const adminMiddleware = async (req: any, res: any) => {
+  const userId = await authMiddleware(req, res, true);
+  if (!userId) return null;
+  const user = await User.findById(userId);
+  if (!user || user.role !== 'admin') {
+    res.status(403).json({ message: 'Admin access required' });
+    return null;
+  }
+  return userId;
+};
 
 // Auth Middleware
 const authMiddleware = async (req: any, res: any, silent = false) => {
@@ -778,6 +823,7 @@ const corsHeaders = {
 };
 
 export default async function handler(req, res) {
+  const startTime = Date.now();
   log(`Request: ${req.method} ${req.url}`);
 
   if (req.method === 'OPTIONS') {
@@ -817,6 +863,17 @@ export default async function handler(req, res) {
     if (path === '/api/auth/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/auth/forgot-password' && method === 'POST') return handleForgotPassword(req, res);
     if (path === '/api/auth/reset-password' && method === 'POST') return handleResetPassword(req, res);
+    // Admin routes
+    if (path === '/api/admin/dashboard' && method === 'GET') return handleAdminDashboard(req, res);
+    if (path === '/api/admin/users' && method === 'GET') return handleAdminUsers(req, res);
+    if (path === '/api/admin/users' && method === 'PUT') return handleAdminUpdateUser(req, res);
+    if (path === '/api/admin/users' && method === 'DELETE') return handleAdminDeleteUser(req, res);
+    if (path === '/api/admin/readings' && method === 'GET') return handleAdminReadings(req, res);
+    if (path === '/api/admin/points-logs' && method === 'GET') return handleAdminPointsLogs(req, res);
+    if (path === '/api/admin/error-logs' && method === 'GET') return handleAdminErrorLogs(req, res);
+    if (path === '/api/admin/request-logs' && method === 'GET') return handleAdminRequestLogs(req, res);
+    if (path === '/api/admin/error-logs' && method === 'DELETE') return handleAdminClearErrorLogs(req, res);
+    if (path === '/api/admin/request-logs' && method === 'DELETE') return handleAdminClearRequestLogs(req, res);
     if (path === '/api/user' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/readings' && method === 'GET') return handleGetReadings(req, res);
@@ -838,8 +895,49 @@ export default async function handler(req, res) {
     return res.status(404).json({ error: 'Not found', path, method });
   } catch (error) {
     log('Handler error:', { error: error.message });
+    // Record error log
+    try {
+      await connectDB();
+      const authHeader = req.headers.authorization;
+      let errUserId = null;
+      if (authHeader) {
+        try { errUserId = (jwt.verify(authHeader.split(' ')[1], JWT_SECRET) as any).userId; } catch {}
+      }
+      await ErrorLog.create({
+        type: 'api',
+        message: error.message || 'Unknown error',
+        stack: error.stack?.substring(0, 2000),
+        path: parsedUrl.pathname,
+        method: req.method,
+        userId: errUserId,
+        ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress,
+      });
+    } catch {}
     return res.status(500).json({ error: 'Server error', message: error.message });
   }
+
+  // Record request log (skip admin/log endpoints to avoid noise)
+  try {
+    const duration = Date.now() - startTime;
+    const pathStr = parsedUrl.pathname;
+    if (!pathStr.startsWith('/api/admin') && !pathStr.includes('favicon')) {
+      await connectDB();
+      const authHeader = req.headers.authorization;
+      let logUserId = null;
+      if (authHeader) {
+        try { logUserId = (jwt.verify(authHeader.split(' ')[1], JWT_SECRET) as any).userId; } catch {}
+      }
+      await RequestLog.create({
+        method: req.method,
+        path: pathStr,
+        statusCode: res.statusCode,
+        userId: logUserId,
+        ip: (req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '').toString().split(',')[0].trim(),
+        userAgent: req.headers['user-agent']?.substring(0, 500),
+        duration,
+      });
+    }
+  } catch {}
 }
 
 async function handleHealth(req, res) {
@@ -1531,7 +1629,7 @@ async function handleRegister(req, res) {
   }
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  return res.status(201).json({ token, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, createdAt: user.createdAt } });
+  return res.status(201).json({ token, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
 }
 
 async function handleLogin(req, res) {
@@ -1546,7 +1644,7 @@ async function handleLogin(req, res) {
   if (!isValidPassword) return res.status(401).json({ message: t(req, 'wrongCredentials') });
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  return res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', createdAt: user.createdAt } });
+  return res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
 }
 
 async function handleGetMe(req, res) {
@@ -1649,6 +1747,244 @@ async function handleResetPassword(req, res) {
   await resetToken.save();
 
   return res.status(200).json({ message: t(req, 'resetSuccess') });
+}
+
+// ============= Admin Handlers =============
+
+async function handleAdminDashboard(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const totalUsers = await User.countDocuments();
+    const totalReadings = await Reading.countDocuments();
+    const totalPointsLogs = await PointsLog.countDocuments();
+    const todayStart = new Date(); todayStart.setHours(0,0,0,0);
+    const todayUsers = await User.countDocuments({ createdAt: { $gte: todayStart } });
+    const todayReadings = await Reading.countDocuments({ createdAt: { $gte: todayStart } });
+
+    // 最近7天每天的注册数和占卜数
+    const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
+    const dailyStats = await Reading.aggregate([
+      { $match: { createdAt: { $gte: sevenDaysAgo } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, count: { $sum: 1 } } },
+      { $sort: { _id: 1 } }
+    ]);
+
+    const dailyRegistrations = await User.aggregate([
+      { $match: { createdAt: { $gte: sevenDaysAgo } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, count: { $sum: 1 } } },
+      { $sort: { _id: 1 } }
+    ]);
+
+    // 会员统计
+    const membershipStats = await User.aggregate([
+      { $group: { _id: '$membership', count: { $sum: 1 } } }
+    ]);
+
+    // 最近错误数
+    const recentErrors = await ErrorLog.countDocuments({ createdAt: { $gte: sevenDaysAgo } });
+
+    return res.status(200).json({
+      totalUsers, totalReadings, totalPointsLogs,
+      todayUsers, todayReadings, recentErrors,
+      dailyStats, dailyRegistrations, membershipStats,
+    });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Dashboard error', error: error.message });
+  }
+}
+
+async function handleAdminUsers(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 20, search = '', role = '', sort = 'createdAt' } = req.query;
+    const query: any = {};
+    if (search) {
+      query.$or = [
+        { username: { $regex: search, $options: 'i' } },
+        { email: { $regex: search, $options: 'i' } },
+      ];
+    }
+    if (role) query.role = role;
+
+    const users = await User.find(query)
+      .select('-password')
+      .sort({ [sort as string]: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await User.countDocuments(query);
+
+    return res.status(200).json({ users, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching users', error: error.message });
+  }
+}
+
+async function handleAdminUpdateUser(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { userId, username, email, points, membership, role, membershipExpiry } = req.body;
+    if (!userId) return res.status(400).json({ message: 'userId required' });
+
+    const update: any = {};
+    if (username !== undefined) update.username = username;
+    if (email !== undefined) update.email = email;
+    if (points !== undefined) update.points = points;
+    if (membership !== undefined) update.membership = membership;
+    if (role !== undefined) update.role = role;
+    if (membershipExpiry !== undefined) update.membershipExpiry = membershipExpiry;
+
+    const user = await User.findByIdAndUpdate(userId, update, { new: true }).select('-password');
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    return res.status(200).json(user);
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error updating user', error: error.message });
+  }
+}
+
+async function handleAdminDeleteUser(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { userId } = req.body;
+    if (!userId) return res.status(400).json({ message: 'userId required' });
+    if (userId === adminId.toString()) return res.status(400).json({ message: 'Cannot delete yourself' });
+
+    await User.findByIdAndDelete(userId);
+    await Reading.deleteMany({ userId });
+    await PointsLog.deleteMany({ userId });
+
+    return res.status(200).json({ message: 'User deleted' });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error deleting user', error: error.message });
+  }
+}
+
+async function handleAdminReadings(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 20, userId = '' } = req.query;
+    const query: any = {};
+    if (userId) query.userId = userId;
+
+    const readings = await Reading.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit))
+      .select('-interpretation');
+
+    const total = await Reading.countDocuments(query);
+
+    return res.status(200).json({ readings, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching readings', error: error.message });
+  }
+}
+
+async function handleAdminPointsLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 20, userId = '', type = '' } = req.query;
+    const query: any = {};
+    if (userId) query.userId = userId;
+    if (type) query.type = type;
+
+    const logs = await PointsLog.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await PointsLog.countDocuments(query);
+
+    return res.status(200).json({ logs, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching points logs', error: error.message });
+  }
+}
+
+async function handleAdminErrorLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 50, type = '' } = req.query;
+    const query: any = {};
+    if (type) query.type = type;
+
+    const logs = await ErrorLog.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await ErrorLog.countDocuments(query);
+
+    return res.status(200).json({ logs, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching error logs', error: error.message });
+  }
+}
+
+async function handleAdminRequestLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 50, path: logPath = '', method: logMethod = '' } = req.query;
+    const query: any = {};
+    if (logPath) query.path = { $regex: logPath, $options: 'i' };
+    if (logMethod) query.method = logMethod;
+
+    const logs = await RequestLog.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await RequestLog.countDocuments(query);
+
+    return res.status(200).json({ logs, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching request logs', error: error.message });
+  }
+}
+
+async function handleAdminClearErrorLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { beforeDays = 30 } = req.body;
+    const cutoff = new Date(Date.now() - Number(beforeDays) * 86400000);
+    const result = await ErrorLog.deleteMany({ createdAt: { $lt: cutoff } });
+    return res.status(200).json({ deleted: result.deletedCount });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error clearing logs', error: error.message });
+  }
+}
+
+async function handleAdminClearRequestLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { beforeDays = 30 } = req.body;
+    const cutoff = new Date(Date.now() - Number(beforeDays) * 86400000);
+    const result = await RequestLog.deleteMany({ createdAt: { $lt: cutoff } });
+    return res.status(200).json({ deleted: result.deletedCount });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error clearing logs', error: error.message });
+  }
 }
 
 async function handleGetReadings(req, res) {
