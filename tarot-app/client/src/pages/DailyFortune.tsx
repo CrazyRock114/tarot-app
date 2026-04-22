@@ -355,7 +355,7 @@ const DailyFortune = () => {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="text-white font-medium text-sm">{item.cardName}</span>
-                          <span className="text-gray-500 text-xs">{item.cardOrientation}</span>
+                          <span className="text-gray-500 text-xs">{item.cardOrientation === 'reversed' || item.cardOrientation?.toLowerCase().includes('reverse') ? t('draw.reversed') : t('draw.upright')}</span>
                         </div>
                         <p className="text-gray-400 text-xs mt-1 truncate">{item.advice}</p>
                         <div className="flex items-center gap-1 mt-1">

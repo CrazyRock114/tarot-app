@@ -3,10 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Sparkles, Sun, Moon } from 'lucide-react';
 import SEO from '../components/SEO';
-import { majorArcana } from '../data/majorArcana';
-import { minorArcana } from '../data/minorArcana';
-
-const allCards = [...majorArcana, ...minorArcana];
+import { getMajorArcana } from '../data/majorArcana';
+import { getMinorArcana } from '../data/minorArcana';
 
 const CardDetail = () => {
   const { t, i18n } = useTranslation();
@@ -22,7 +20,8 @@ const CardDetail = () => {
   };
   const { cardId } = useParams<{ cardId: string }>();
   const navigate = useNavigate();
-  
+
+  const allCards = [...getMajorArcana(), ...getMinorArcana()];
   const card = allCards.find(c => String(c.id) === cardId || c.nameEn.toLowerCase().replace(/ /g, '-') === cardId);
   
   if (!card) {
@@ -40,8 +39,8 @@ const CardDetail = () => {
 
   const suit = suitInfo[card.suit || card.arcana] || suitInfo.major;
   
-  const currentKeywords = !isZh && card.keywordsEn ? card.keywordsEn : card.keywords;
-  const currentMeanings = !isZh && card.meaningsEn ? card.meaningsEn : card.meanings;
+  const currentKeywords = card.keywords;
+  const currentMeanings = card.meanings;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">

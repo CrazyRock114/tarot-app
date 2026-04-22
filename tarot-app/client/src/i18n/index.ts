@@ -43,13 +43,15 @@ i18n
     interpolation: { escapeValue: false },
   });
 
-// 初始化时设置 cookie，供后端语言检测使用
+// 初始化时设置 cookie 和 html lang，供后端和浏览器组件使用
 const currentLang = i18n.language || 'zh-CN';
 document.cookie = `i18nLang=${currentLang}; path=/; max-age=31536000`;
+document.documentElement.lang = currentLang;
 
-// 语言变化时更新 cookie
+// 语言变化时更新 cookie 和 html lang
 i18n.on('languageChanged', (lng: string) => {
   document.cookie = `i18nLang=${lng}; path=/; max-age=31536000`;
+  document.documentElement.lang = lng;
 });
 
 export default i18n;

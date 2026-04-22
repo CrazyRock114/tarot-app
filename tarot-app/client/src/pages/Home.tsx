@@ -46,9 +46,9 @@ export const Home: React.FC = () => {
   ];
 
   const vipPlans = [
-    { plan: t('home.weekPlan'), price: '6.9' + t('membership.pointsUnit'), period: t('home.perWeek'), color: 'from-blue-600 to-cyan-600', features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup')] },
-    { plan: t('home.monthPlan'), price: '19.9' + t('membership.pointsUnit'), period: t('home.perMonth'), color: 'from-purple-600 to-indigo-600', popular: true, features: [t('home.unlimitedReading'), t('home.voiceReading'), t('home.exclusiveBack'), t('home.unlimitedFollowup')] },
-    { plan: t('home.yearPlan'), price: '168' + t('membership.pointsUnit'), period: t('home.perYear'), color: 'from-yellow-500 to-orange-500', features: [t('home.allBenefits'), t('home.annualReport'), t('home.earlyAccess')] },
+    { plan: t('membership.weekly'), price: t('membership.weeklyPrice'), period: t('home.perWeek'), color: 'from-blue-600 to-cyan-600', features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup')] },
+    { plan: t('membership.monthly'), price: t('membership.monthlyPrice'), period: t('home.perMonth'), color: 'from-purple-600 to-indigo-600', popular: true, features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup'), t('home.voiceReading'), t('home.exclusiveBack')] },
+    { plan: t('membership.yearly'), price: t('membership.yearlyPrice'), period: t('home.perYear'), color: 'from-yellow-500 to-orange-500', features: [t('home.allBenefits'), t('home.annualReport'), t('home.earlyAccess')] },
   ];
 
   return (
