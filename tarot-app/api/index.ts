@@ -1118,19 +1118,19 @@ async function handleDailyFortune(req: any, res: any) {
   const day = parseInt(parts.length === 3 ? parts[2] : parts[1]);
   
   const zodiacMap = [
-    { name: '摩羯座', nameEn: 'Capricorn', start: [1,1], end: [1,19] },
-    { name: '水瓶座', nameEn: 'Aquarius', start: [1,20], end: [2,18] },
-    { name: '双鱼座', nameEn: 'Pisces', start: [2,19], end: [3,20] },
-    { name: '白羊座', nameEn: 'Aries', start: [3,21], end: [4,19] },
-    { name: '金牛座', nameEn: 'Taurus', start: [4,20], end: [5,20] },
-    { name: '双子座', nameEn: 'Gemini', start: [5,21], end: [6,21] },
-    { name: '巨蟹座', nameEn: 'Cancer', start: [6,22], end: [7,22] },
-    { name: '狮子座', nameEn: 'Leo', start: [7,23], end: [8,22] },
-    { name: '处女座', nameEn: 'Virgo', start: [8,23], end: [9,22] },
-    { name: '天秤座', nameEn: 'Libra', start: [9,23], end: [10,23] },
-    { name: '天蝎座', nameEn: 'Scorpio', start: [10,24], end: [11,22] },
-    { name: '射手座', nameEn: 'Sagittarius', start: [11,23], end: [12,21] },
-    { name: '摩羯座', nameEn: 'Capricorn', start: [12,22], end: [12,31] },
+    { name: '摩羯座', nameEn: 'Capricorn', nameJa: '山羊座', nameKo: '염소자리', start: [1,1], end: [1,19] },
+    { name: '水瓶座', nameEn: 'Aquarius', nameJa: '水瓶座', nameKo: '물병자리', start: [1,20], end: [2,18] },
+    { name: '双鱼座', nameEn: 'Pisces', nameJa: '魚座', nameKo: '물고기자리', start: [2,19], end: [3,20] },
+    { name: '白羊座', nameEn: 'Aries', nameJa: '牡羊座', nameKo: '양자리', start: [3,21], end: [4,19] },
+    { name: '金牛座', nameEn: 'Taurus', nameJa: '牡牛座', nameKo: '황소자리', start: [4,20], end: [5,20] },
+    { name: '双子座', nameEn: 'Gemini', nameJa: '双子座', nameKo: '쌍둥이자리', start: [5,21], end: [6,21] },
+    { name: '巨蟹座', nameEn: 'Cancer', nameJa: '蟹座', nameKo: '게자리', start: [6,22], end: [7,22] },
+    { name: '狮子座', nameEn: 'Leo', nameJa: '獅子座', nameKo: '사자자리', start: [7,23], end: [8,22] },
+    { name: '处女座', nameEn: 'Virgo', nameJa: '乙女座', nameKo: '처녀자리', start: [8,23], end: [9,22] },
+    { name: '天秤座', nameEn: 'Libra', nameJa: '天秤座', nameKo: '천칭자리', start: [9,23], end: [10,23] },
+    { name: '天蝎座', nameEn: 'Scorpio', nameJa: '蠍座', nameKo: '전갈자리', start: [10,24], end: [11,22] },
+    { name: '射手座', nameEn: 'Sagittarius', nameJa: '射手座', nameKo: '궁수자리', start: [11,23], end: [12,21] },
+    { name: '摩羯座', nameEn: 'Capricorn', nameJa: '山羊座', nameKo: '염소자리', start: [12,22], end: [12,31] },
   ];
   
   let zodiac = zodiacMap[0];
@@ -1156,37 +1156,24 @@ async function handleDailyFortune(req: any, res: any) {
     }
   } catch (e) { /* not logged in */ }
 
-  // For logged-in users: find any fortune today (regardless of language) to avoid regeneration on language switch
+  // ── 1. 当前语言缓存（登录用户 & 匿名用户） ──
+  let cached = null;
   if (fortuneUserId) {
-    const userAnyLang = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, userId: fortuneUserId });
-    if (userAnyLang) {
-      return res.status(200).json({
-        zodiac: zodiac.name,
-        zodiacEn: zodiac.nameEn,
-        date: today,
-        cardName: userAnyLang.cardName,
-        cardNameEn: userAnyLang.cardNameEn,
-        cardImage: userAnyLang.cardImage,
-        cardOrientation: userAnyLang.cardOrientation,
-        fortune: userAnyLang.fortune,
-        scores: { overall: userAnyLang.overall, love: userAnyLang.love, career: userAnyLang.career, wealth: userAnyLang.wealth, health: userAnyLang.health },
-        luckyNumber: userAnyLang.luckyNumber,
-        luckyColor: userAnyLang.luckyColor,
-        advice: userAnyLang.advice,
-        cached: true,
-      });
-    }
+    cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, userId: fortuneUserId, lang });
+  } else {
+    cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, lang, userId: null });
   }
-
-  // For anonymous users: check cache by language
-  const cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, lang, userId: null });
   if (cached) {
     return res.status(200).json({
       zodiac: zodiac.name,
       zodiacEn: zodiac.nameEn,
+      zodiacJa: zodiac.nameJa,
+      zodiacKo: zodiac.nameKo,
       date: today,
       cardName: cached.cardName,
       cardNameEn: cached.cardNameEn,
+      cardNameJa: cached.cardNameJa,
+      cardNameKo: cached.cardNameKo,
       cardImage: cached.cardImage,
       cardOrientation: cached.cardOrientation,
       fortune: cached.fortune,
@@ -1197,40 +1184,65 @@ async function handleDailyFortune(req: any, res: any) {
       cached: true,
     });
   }
-  
-  // Pick a random card for today's fortune
+
+  // ── 2. 登录用户查找其他语言缓存（复用牌和分数，只重新生成文字） ──
+  let baseRecord = null;
+  if (fortuneUserId) {
+    baseRecord = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, userId: fortuneUserId });
+  }
+
+  // ── 3. 抽牌（如果有 baseRecord 则复用，否则随机抽） ──
   const allCards = [
-    { name: '愚者', nameEn: 'The Fool', image: '/cards/00-fool.jpg' },
-    { name: '魔术师', nameEn: 'The Magician', image: '/cards/01-magician.jpg' },
-    { name: '女祭司', nameEn: 'The High Priestess', image: '/cards/02-high-priestess.jpg' },
-    { name: '皇后', nameEn: 'The Empress', image: '/cards/03-empress.jpg' },
-    { name: '皇帝', nameEn: 'The Emperor', image: '/cards/04-emperor.jpg' },
-    { name: '教皇', nameEn: 'The Hierophant', image: '/cards/05-hierophant.jpg' },
-    { name: '恋人', nameEn: 'The Lovers', image: '/cards/06-lovers.jpg' },
-    { name: '战车', nameEn: 'The Chariot', image: '/cards/07-chariot.jpg' },
-    { name: '力量', nameEn: 'Strength', image: '/cards/08-strength.jpg' },
-    { name: '隐者', nameEn: 'The Hermit', image: '/cards/09-hermit.jpg' },
-    { name: '命运之轮', nameEn: 'Wheel of Fortune', image: '/cards/10-wheel.jpg' },
-    { name: '正义', nameEn: 'Justice', image: '/cards/11-justice.jpg' },
-    { name: '倒吊人', nameEn: 'The Hanged Man', image: '/cards/12-hanged-man.jpg' },
-    { name: '死神', nameEn: 'Death', image: '/cards/13-death.jpg' },
-    { name: '节制', nameEn: 'Temperance', image: '/cards/14-temperance.jpg' },
-    { name: '恶魔', nameEn: 'The Devil', image: '/cards/15-devil.jpg' },
-    { name: '塔', nameEn: 'The Tower', image: '/cards/16-tower.jpg' },
-    { name: '星星', nameEn: 'The Star', image: '/cards/17-star.jpg' },
-    { name: '月亮', nameEn: 'The Moon', image: '/cards/18-moon.jpg' },
-    { name: '太阳', nameEn: 'The Sun', image: '/cards/19-sun.jpg' },
-    { name: '审判', nameEn: 'Judgement', image: '/cards/20-judgement.jpg' },
-    { name: '世界', nameEn: 'The World', image: '/cards/21-world.jpg' },
+    { name: '愚者', nameEn: 'The Fool', nameJa: '愚者', nameKo: '바보', image: '/cards/00-fool.jpg' },
+    { name: '魔术师', nameEn: 'The Magician', nameJa: '魔術師', nameKo: '마법사', image: '/cards/01-magician.jpg' },
+    { name: '女祭司', nameEn: 'The High Priestess', nameJa: '女教皇', nameKo: '여사제', image: '/cards/02-high-priestess.jpg' },
+    { name: '皇后', nameEn: 'The Empress', nameJa: '女帝', nameKo: '여황제', image: '/cards/03-empress.jpg' },
+    { name: '皇帝', nameEn: 'The Emperor', nameJa: '皇帝', nameKo: '황제', image: '/cards/04-emperor.jpg' },
+    { name: '教皇', nameEn: 'The Hierophant', nameJa: '教皇', nameKo: '교황', image: '/cards/05-hierophant.jpg' },
+    { name: '恋人', nameEn: 'The Lovers', nameJa: '恋人', nameKo: '연인', image: '/cards/06-lovers.jpg' },
+    { name: '战车', nameEn: 'The Chariot', nameJa: '戦車', nameKo: '전차', image: '/cards/07-chariot.jpg' },
+    { name: '力量', nameEn: 'Strength', nameJa: '力', nameKo: '힘', image: '/cards/08-strength.jpg' },
+    { name: '隐者', nameEn: 'The Hermit', nameJa: '隠者', nameKo: '은둔자', image: '/cards/09-hermit.jpg' },
+    { name: '命运之轮', nameEn: 'Wheel of Fortune', nameJa: '運命の輪', nameKo: '울림의 바퀴', image: '/cards/10-wheel.jpg' },
+    { name: '正义', nameEn: 'Justice', nameJa: '正義', nameKo: '정의', image: '/cards/11-justice.jpg' },
+    { name: '倒吊人', nameEn: 'The Hanged Man', nameJa: '吊るされた男', nameKo: '매달린 남자', image: '/cards/12-hanged-man.jpg' },
+    { name: '死神', nameEn: 'Death', nameJa: '死神', nameKo: '죽음', image: '/cards/13-death.jpg' },
+    { name: '节制', nameEn: 'Temperance', nameJa: '節制', nameKo: '절제', image: '/cards/14-temperance.jpg' },
+    { name: '恶魔', nameEn: 'The Devil', nameJa: '悪魔', nameKo: '악마', image: '/cards/15-devil.jpg' },
+    { name: '塔', nameEn: 'The Tower', nameJa: '塔', nameKo: '탑', image: '/cards/16-tower.jpg' },
+    { name: '星星', nameEn: 'The Star', nameJa: '星', nameKo: '별', image: '/cards/17-star.jpg' },
+    { name: '月亮', nameEn: 'The Moon', nameJa: '月', nameKo: '달', image: '/cards/18-moon.jpg' },
+    { name: '太阳', nameEn: 'The Sun', nameJa: '太陽', nameKo: '태양', image: '/cards/19-sun.jpg' },
+    { name: '审判', nameEn: 'Judgement', nameJa: '審判', nameKo: '심판', image: '/cards/20-judgement.jpg' },
+    { name: '世界', nameEn: 'The World', nameJa: '世界', nameKo: '세계', image: '/cards/21-world.jpg' },
   ];
-  
-  const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
-  const orientation = Math.random() > 0.3 ? 'upright' : 'reversed';
-  
-  // Generate fortune with AI
+
+  let randomCard: typeof allCards[0];
+  let orientation: string;
+  let scores: any;
+
+  if (baseRecord) {
+    // 复用已有缓存的牌和分数
+    randomCard = allCards.find(c => c.nameEn === baseRecord!.cardNameEn) || allCards[0];
+    orientation = baseRecord.cardOrientation;
+    scores = {
+      overall: baseRecord.overall,
+      love: baseRecord.love,
+      career: baseRecord.career,
+      wealth: baseRecord.wealth,
+      health: baseRecord.health,
+    };
+  } else {
+    // 全新抽牌
+    randomCard = allCards[Math.floor(Math.random() * allCards.length)];
+    orientation = Math.random() > 0.3 ? 'upright' : 'reversed';
+    scores = null;
+  }
+
+  // ── 4. AI 生成运势文字 ──
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
-  
+
   const isZh = lang.startsWith('zh');
   const isJa = lang === 'ja';
   const isKo = lang === 'ko';
@@ -1243,17 +1255,22 @@ async function handleDailyFortune(req: any, res: any) {
   let prompt: string;
   let systemContent: string;
 
+  // 如果有 baseRecord 且已有分数，告诉 AI 沿用分数
+  const scoresHint = scores
+    ? `\n沿用今日已确定的运势分数：综合${scores.overall}分、爱情${scores.love}分、事业${scores.career}分、财富${scores.wealth}分、健康${scores.health}分。`
+    : '';
+
   if (isZh) {
-    prompt = `你是一位专业的塔罗占星师。今天是${today}，为${zodiac.name}的人生成每日运势。\n今日塔罗牌：${randomCard.name}（${randomCard.nameEn}）${orientationLabel}\n\n请严格按以下JSON格式返回（不要添加任何其他文字）：\n{\n  "fortune": "今日运势综合解读（150-200字，结合星座特质和塔罗牌寓意，语气温暖有灵性）",\n  "overall": 数字1-5,\n  "love": 数字1-5,\n  "career": 数字1-5,\n  "wealth": 数字1-5,\n  "health": 数字1-5,\n  "luckyNumber": 数字1-99,\n  "luckyColor": "一种颜色",\n  "advice": "今日一句话建议（20字以内）"\n}`;
+    prompt = `你是一位专业的塔罗占星师。今天是${today}，为${zodiac.name}的人生成每日运势。\n今日塔罗牌：${randomCard.name}（${randomCard.nameEn}）${orientationLabel}${scoresHint}\n\n请严格按以下JSON格式返回（不要添加任何其他文字）：\n{\n  "fortune": "今日运势综合解读（150-200字，结合星座特质和塔罗牌寓意，语气温暖有灵性）",\n  "overall": ${scores ? scores.overall : '数字1-5'},\n  "love": ${scores ? scores.love : '数字1-5'},\n  "career": ${scores ? scores.career : '数字1-5'},\n  "wealth": ${scores ? scores.wealth : '数字1-5'},\n  "health": ${scores ? scores.health : '数字1-5'},\n  "luckyNumber": 数字1-99,\n  "luckyColor": "一种颜色",\n  "advice": "今日一句话建议（20字以内）"\n}`;
     systemContent = '你是专业的塔罗占星师，只返回JSON格式数据。';
   } else if (isJa) {
-    prompt = `あなたはプロのタロット占星術師です。今日は${today}です。${zodiac.nameEn}の人のための今日の運勢を生成してください。\n今日のタロットカード：${randomCard.nameEn}（${orientationLabel}）\n\n以下のJSON形式で厳密に返してください（他の文章は追加しないでください）：\n{\n  "fortune": "今日の運勢総合解説（150-200文字、星座の特質とタロットカードの意味を組み合わせ、温かく神秘的な雰囲気）",\n  "overall": 1から5の数字,\n  "love": 1から5の数字,\n  "career": 1から5の数字,\n  "wealth": 1から5の数字,\n  "health": 1から5の数字,\n  "luckyNumber": 1から99の数字,\n  "luckyColor": "色の名前",\n  "advice": "今日のアドバイス一言（20文字以内）"\n}`;
+    prompt = `あなたはプロのタロット占星術師です。今日は${today}です。${zodiac.nameEn}の人のための今日の運勢を生成してください。\n今日のタロットカード：${randomCard.nameEn}（${orientationLabel}）${scoresHint}\n\n以下のJSON形式で厳密に返してください（他の文章は追加しないでください）：\n{\n  "fortune": "今日の運勢総合解説（150-200文字、星座の特質とタロットカードの意味を組み合わせ、温かく神秘的な雰囲気）",\n  "overall": ${scores ? scores.overall : '1から5の数字'},\n  "love": ${scores ? scores.love : '1から5の数字'},\n  "career": ${scores ? scores.career : '1から5の数字'},\n  "wealth": ${scores ? scores.wealth : '1から5の数字'},\n  "health": ${scores ? scores.health : '1から5の数字'},\n  "luckyNumber": 1から99の数字,\n  "luckyColor": "色の名前",\n  "advice": "今日のアドバイス一言（20文字以内）"\n}`;
     systemContent = 'あなたはプロのタロット占星術師です。JSON形式のみで返してください。';
   } else if (isKo) {
-    prompt = `당신은 프로 타로 점술사입니다. 오늘은 ${today}입니다. ${zodiac.nameEn}의 일일 운세를 생성해 주세요.\n오늘의 타로 카드: ${randomCard.nameEn} (${orientationLabel})\n\n다음 JSON 형식으로만 엄격하게 반환해 주세요 (다른 텍스트는 추가하지 마세요):\n{\n  "fortune": "오늘의 운세 종합 해석 (150-200자, 별자리 특성과 타로 카드 의미를 결합, 따뜻하고 신비로운 분위기)",\n  "overall": 1에서 5 사이의 숫자,\n  "love": 1에서 5 사이의 숫자,\n  "career": 1에서 5 사이의 숫자,\n  "wealth": 1에서 5 사이의 숫자,\n  "health": 1에서 5 사이의 숫자,\n  "luckyNumber": 1에서 99 사이의 숫자,\n  "luckyColor": "색상 이름",\n  "advice": "오늘의 한 마디 조언 (20자 이내)"\n}`;
+    prompt = `당신은 프로 타로 점술사입니다. 오늘은 ${today}입니다. ${zodiac.nameEn}의 일일 운세를 생성해 주세요.\n오늘의 타로 카드: ${randomCard.nameEn} (${orientationLabel})${scoresHint}\n\n다음 JSON 형식으로만 엄격하게 반환해 주세요 (다른 텍스트는 추가하지 마세요):\n{\n  "fortune": "오늘의 운세 종합 해석 (150-200자, 별자리 특성과 타로 카드 의미를 결합, 따뜻하고 신비로운 분위기)",\n  "overall": ${scores ? scores.overall : '1에서 5 사이의 숫자'},\n  "love": ${scores ? scores.love : '1에서 5 사이의 숫자'},\n  "career": ${scores ? scores.career : '1에서 5 사이의 숫자'},\n  "wealth": ${scores ? scores.wealth : '1에서 5 사이의 숫자'},\n  "health": ${scores ? scores.health : '1에서 5 사이의 숫자'},\n  "luckyNumber": 1에서 99 사이의 숫자,\n  "luckyColor": "색상 이름",\n  "advice": "오늘의 한 마디 조언 (20자 이내)"\n}`;
     systemContent = '당신은 프로 타로 점술사입니다. JSON 형식으로만 반환해 주세요.';
   } else {
-    prompt = `You are a professional tarot astrologer. Today is ${today}. Generate a daily fortune reading for ${zodiac.nameEn}.\nToday's tarot card: ${randomCard.nameEn} (${orientationLabel})\n\nPlease return strictly in the following JSON format (no other text):\n{\n  "fortune": "Today's fortune interpretation (150-200 words, combining zodiac traits and tarot card meaning, warm and spiritual tone)",\n  "overall": number 1-5,\n  "love": number 1-5,\n  "career": number 1-5,\n  "wealth": number 1-5,\n  "health": number 1-5,\n  "luckyNumber": number 1-99,\n  "luckyColor": "a color name",\n  "advice": "A one-sentence advice for today (within 20 words)"\n}`;
+    prompt = `You are a professional tarot astrologer. Today is ${today}. Generate a daily fortune reading for ${zodiac.nameEn}.\nToday's tarot card: ${randomCard.nameEn} (${orientationLabel})${scoresHint}\n\nPlease return strictly in the following JSON format (no other text):\n{\n  "fortune": "Today's fortune interpretation (150-200 words, combining zodiac traits and tarot card meaning, warm and spiritual tone)",\n  "overall": ${scores ? scores.overall : 'number 1-5'},\n  "love": ${scores ? scores.love : 'number 1-5'},\n  "career": ${scores ? scores.career : 'number 1-5'},\n  "wealth": ${scores ? scores.wealth : 'number 1-5'},\n  "health": ${scores ? scores.health : 'number 1-5'},\n  "luckyNumber": number 1-99,\n  "luckyColor": "a color name",\n  "advice": "A one-sentence advice for today (within 20 words)"\n}`;
     systemContent = 'You are a professional tarot astrologer. Return data in JSON format only.';
   }
 
@@ -1271,16 +1288,25 @@ async function handleDailyFortune(req: any, res: any) {
         max_tokens: 800,
       }),
     });
-    
+
     const data = await response.json() as any;
     const text = data.choices?.[0]?.message?.content || '';
-    
+
     // Parse JSON from response
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) return res.status(500).json({ error: t(req, 'fortuneFailed') });
-    
+
     const fortune = JSON.parse(jsonMatch[0]);
-    
+
+    // 使用已有分数（如果复用）或 AI 返回的分数（全新生成）
+    const finalScores = scores || {
+      overall: fortune.overall,
+      love: fortune.love,
+      career: fortune.career,
+      wealth: fortune.wealth,
+      health: fortune.health,
+    };
+
     // Save to DB cache
     const fortuneDoc = new DailyFortune({
       date: today,
@@ -1289,30 +1315,36 @@ async function handleDailyFortune(req: any, res: any) {
       lang,
       cardName: randomCard.name,
       cardNameEn: randomCard.nameEn,
+      cardNameJa: randomCard.nameJa,
+      cardNameKo: randomCard.nameKo,
       cardImage: randomCard.image,
       cardOrientation: orientation,
       fortune: fortune.fortune,
-      overall: fortune.overall,
-      love: fortune.love,
-      career: fortune.career,
-      wealth: fortune.wealth,
-      health: fortune.health,
+      overall: finalScores.overall,
+      love: finalScores.love,
+      career: finalScores.career,
+      wealth: finalScores.wealth,
+      health: finalScores.health,
       luckyNumber: fortune.luckyNumber,
       luckyColor: fortune.luckyColor,
       advice: fortune.advice,
     });
     await fortuneDoc.save();
-    
+
     return res.status(200).json({
       zodiac: zodiac.name,
       zodiacEn: zodiac.nameEn,
+      zodiacJa: zodiac.nameJa,
+      zodiacKo: zodiac.nameKo,
       date: today,
       cardName: randomCard.name,
       cardNameEn: randomCard.nameEn,
+      cardNameJa: randomCard.nameJa,
+      cardNameKo: randomCard.nameKo,
       cardImage: randomCard.image,
       cardOrientation: orientation,
       fortune: fortune.fortune,
-      scores: { overall: fortune.overall, love: fortune.love, career: fortune.career, wealth: fortune.wealth, health: fortune.health },
+      scores: finalScores,
       luckyNumber: fortune.luckyNumber,
       luckyColor: fortune.luckyColor,
       advice: fortune.advice,
@@ -1320,6 +1352,28 @@ async function handleDailyFortune(req: any, res: any) {
     });
   } catch (err: any) {
     console.error('Daily fortune error:', err);
+    // 如果复用时 AI 失败，尝试返回 baseRecord（兜底）
+    if (baseRecord) {
+      return res.status(200).json({
+        zodiac: zodiac.name,
+        zodiacEn: zodiac.nameEn,
+        zodiacJa: zodiac.nameJa,
+        zodiacKo: zodiac.nameKo,
+        date: today,
+        cardName: baseRecord.cardName,
+        cardNameEn: baseRecord.cardNameEn,
+        cardNameJa: baseRecord.cardNameJa,
+        cardNameKo: baseRecord.cardNameKo,
+        cardImage: baseRecord.cardImage,
+        cardOrientation: baseRecord.cardOrientation,
+        fortune: baseRecord.fortune,
+        scores: { overall: baseRecord.overall, love: baseRecord.love, career: baseRecord.career, wealth: baseRecord.wealth, health: baseRecord.health },
+        luckyNumber: baseRecord.luckyNumber,
+        luckyColor: baseRecord.luckyColor,
+        advice: baseRecord.advice,
+        cached: true,
+      });
+    }
     return res.status(500).json({ error: t(req, 'fortuneFailedRetry'), detail: err?.message || String(err) });
   }
 }

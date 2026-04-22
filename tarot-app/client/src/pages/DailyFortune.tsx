@@ -9,9 +9,13 @@ import { useAuth } from '../contexts/AuthContext';
 interface FortuneData {
   zodiac: string;
   zodiacEn: string;
+  zodiacJa?: string;
+  zodiacKo?: string;
   date: string;
   cardName: string;
   cardNameEn: string;
+  cardNameJa?: string;
+  cardNameKo?: string;
   cardImage: string;
   cardOrientation: string;
   fortune: string;
@@ -55,7 +59,10 @@ const ScoreBar = ({ label, score, icon: Icon, textColor, bgColor }: { label: str
 );
 
 const DailyFortune = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isZh = i18n.language.startsWith('zh');
+  const isJa = i18n.language === 'ja';
+  const isKo = i18n.language === 'ko';
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
   const [step, setStep] = useState<'input' | 'loading' | 'result'>('input');
@@ -256,9 +263,9 @@ const DailyFortune = () => {
               {/* Header */}
               <div className="text-center">
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-5xl mb-2">
-                  {getZodiacEmoji(fortune.zodiac) || '⭐'}
+                  {getZodiacEmoji(fortune.zodiacEn) || '⭐'}
                 </motion.div>
-                <h1 className="text-2xl font-bold text-white">{(localStorage.getItem('i18nextLng') || 'zh-CN').startsWith('zh') ? fortune.zodiac : fortune.zodiacEn} {t('fortune.title')}</h1>
+                <h1 className="text-2xl font-bold text-white">{isZh ? fortune.zodiac : (isJa ? (fortune.zodiacJa || fortune.zodiacEn) : (isKo ? (fortune.zodiacKo || fortune.zodiacEn) : fortune.zodiacEn))} {t('fortune.title')}</h1>
                 <p className="text-gray-400 text-sm mt-1">{fortune.date}</p>
               </div>
 
@@ -283,8 +290,8 @@ const DailyFortune = () => {
                 </div>
               </motion.div>
               <div className="text-center">
-                <p className="text-white font-medium">{fortune.cardName} · {t(`draw.${fortune.cardOrientation === 'reversed' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'reversed' : 'upright'}`)}</p>
-                <p className="text-gray-500 text-xs">{fortune.cardNameEn}</p>
+                <p className="text-white font-medium">{isZh ? fortune.cardName : (isJa ? (fortune.cardNameJa || fortune.cardNameEn) : (isKo ? (fortune.cardNameKo || fortune.cardNameEn) : fortune.cardNameEn))} · {t(`draw.${fortune.cardOrientation === 'reversed' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'reversed' : 'upright'}`)}</p>
+                <p className="text-gray-500 text-xs">{isZh ? fortune.cardNameEn : fortune.cardName}</p>
               </div>
 
               {/* Fortune */}
@@ -349,12 +356,14 @@ const DailyFortune = () => {
                 <div className="p-4 overflow-y-auto max-h-[55vh] space-y-3">
                   {history.length === 0 ? (
                     <p className="text-gray-500 text-center py-8">{t('fortune.noHistory')}</p>
-                  ) : history.map((item, i) => (
+                  ) : history.map((item: any, i) => {
+                    const histCardName = isZh ? item.cardName : (isJa ? (item.cardNameJa || item.cardNameEn) : (isKo ? (item.cardNameKo || item.cardNameEn) : item.cardNameEn));
+                    return (
                     <div key={i} className="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4">
-                      <img src={item.cardImage} alt={item.cardName} className="w-12 aspect-[512/917] rounded-lg object-contain flex-shrink-0" />
+                      <img src={item.cardImage} alt={histCardName} className="w-12 aspect-[512/917] rounded-lg object-contain flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
-                          <span className="text-white font-medium text-sm">{item.cardName}</span>
+                          <span className="text-white font-medium text-sm">{histCardName}</span>
                           <span className="text-gray-500 text-xs">{item.cardOrientation === 'reversed' || item.cardOrientation?.toLowerCase().includes('reverse') ? t('draw.reversed') : t('draw.upright')}</span>
                         </div>
                         <p className="text-gray-400 text-xs mt-1 truncate">{item.advice}</p>
@@ -366,10 +375,11 @@ const DailyFortune = () => {
                       </div>
                       <div className="text-right flex-shrink-0">
                         <p className="text-gray-500 text-xs">{item.date}</p>
-                        <p className="text-lg">{getZodiacEmoji(item.zodiac) || '⭐'}</p>
+                        <p className="text-lg">{getZodiacEmoji(item.zodiacEn || item.zodiac) || '⭐'}</p>
                       </div>
                     </div>
-                  ))}
+                  );
+                  })}
                 </div>
               </motion.div>
             </motion.div>

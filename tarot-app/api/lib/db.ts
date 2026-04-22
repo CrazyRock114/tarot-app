@@ -103,6 +103,8 @@ const DailyFortuneSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   cardName: { type: String },
   cardNameEn: { type: String },
+  cardNameJa: { type: String },
+  cardNameKo: { type: String },
   cardImage: { type: String },
   cardOrientation: { type: String },
   fortune: { type: String },
@@ -117,7 +119,7 @@ const DailyFortuneSchema = new mongoose.Schema({
   lang: { type: String, default: 'zh-CN' },
   createdAt: { type: Date, default: Date.now },
 });
-DailyFortuneSchema.index({ date: 1, zodiac: 1, lang: 1 }, { unique: true });
+DailyFortuneSchema.index({ date: 1, zodiac: 1, userId: 1, lang: 1 }, { unique: true });
 
 // PointsLog Schema
 const PointsLogSchema = new mongoose.Schema({
