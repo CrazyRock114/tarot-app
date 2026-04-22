@@ -817,5 +817,23 @@
     "title": "哎呀，出了点问题",
     "message": "抱歉，应用遇到了未知错误。你可以尝试刷新页面。",
     "reload": "刷新页面"
+  },
+  "forgotPassword": {
+    "title": "忘记密码",
+    "desc": "输入您的注册邮箱，我们将发送重置密码链接",
+    "submit": "发送重置链接",
+    "sent": "重置链接已发送到您的邮箱，请在30分钟内完成重置",
+    "backToLogin": "返回登录"
+  },
+  "resetPassword": {
+    "title": "重置密码",
+    "desc": "请输入您的新密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认新密码",
+    "submit": "重置密码",
+    "success": "密码重置成功！",
+    "redirecting": "3秒后跳转到登录页...",
+    "passwordMismatch": "两次输入的密码不一致",
+    "invalidLink": "重置链接无效或已过期"
   }
 }

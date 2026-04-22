@@ -817,5 +817,23 @@
     "title": "Oops, something went wrong",
     "message": "Sorry, the app encountered an unexpected error. You can try refreshing the page.",
     "reload": "Reload Page"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "desc": "Enter your registered email and we'll send you a reset link",
+    "submit": "Send Reset Link",
+    "sent": "Reset link sent! Please check your email and reset within 30 minutes.",
+    "backToLogin": "Back to Login"
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "desc": "Enter your new password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "submit": "Reset Password",
+    "success": "Password reset successful!",
+    "redirecting": "Redirecting to login in 3 seconds...",
+    "passwordMismatch": "Passwords do not match",
+    "invalidLink": "Reset link is invalid or expired"
   }
 }

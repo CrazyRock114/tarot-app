@@ -817,5 +817,23 @@
     "title": "哎呀，出了點問題",
     "message": "抱歉，應用遇到了未知錯誤。你可以嘗試刷新頁面。",
     "reload": "刷新頁面"
+  },
+  "forgotPassword": {
+    "title": "忘記密碼",
+    "desc": "輸入您的註冊郵箱，我們將發送重設密碼連結",
+    "submit": "發送重設連結",
+    "sent": "重設連結已發送到您的郵箱，請在30分鐘內完成重設",
+    "backToLogin": "返回登入"
+  },
+  "resetPassword": {
+    "title": "重設密碼",
+    "desc": "請輸入您的新密碼",
+    "newPassword": "新密碼",
+    "confirmPassword": "確認新密碼",
+    "submit": "重設密碼",
+    "success": "密碼重設成功！",
+    "redirecting": "3秒後跳轉到登入頁...",
+    "passwordMismatch": "兩次輸入的密碼不一致",
+    "invalidLink": "重設連結無效或已過期"
   }
 }

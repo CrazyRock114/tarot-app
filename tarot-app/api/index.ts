@@ -82,6 +82,7 @@ const UserSchema = new mongoose.Schema({
   // Membership
   membership: { type: String, enum: ['free', 'monthly', 'yearly'], default: 'free' },
   membershipExpiry: { type: Date, default: null },
+  role: { type: String, enum: ['user', 'admin'], default: 'user' },
   createdAt: { type: Date, default: Date.now },
 });
 
@@ -171,6 +172,61 @@ const PointsLogSchema = new mongoose.Schema({
 });
 
 const PointsLog = mongoose.models.PointsLog || mongoose.model('PointsLog', PointsLogSchema);
+
+// PasswordResetToken Schema
+const PasswordResetTokenSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
+  token: { type: String, required: true, unique: true },
+  expiresAt: { type: Date, required: true },
+  used: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now },
+});
+const PasswordResetToken = mongoose.models.PasswordResetToken || mongoose.model('PasswordResetToken', PasswordResetTokenSchema);
+
+// RequestLog Schema - API访问日志
+const RequestLogSchema = new mongoose.Schema({
+  method: { type: String, required: true },
+  path: { type: String, required: true },
+  statusCode: { type: Number },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  ip: { type: String },
+  userAgent: { type: String },
+  duration: { type: Number },
+  error: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+RequestLogSchema.index({ createdAt: -1 });
+RequestLogSchema.index({ path: 1 });
+const RequestLog = mongoose.models.RequestLog || mongoose.model('RequestLog', RequestLogSchema);
+
+// ErrorLog Schema - 错误日志
+const ErrorLogSchema = new mongoose.Schema({
+  type: { type: String, enum: ['api', 'auth', 'ai', 'db', 'tts', 'email', 'other'], default: 'api' },
+  message: { type: String, required: true },
+  stack: { type: String },
+  path: { type: String },
+  method: { type: String },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  ip: { type: String },
+  requestBody: { type: mongoose.Schema.Types.Mixed },
+  createdAt: { type: Date, default: Date.now },
+});
+ErrorLogSchema.index({ createdAt: -1 });
+ErrorLogSchema.index({ type: 1 });
+const ErrorLog = mongoose.models.ErrorLog || mongoose.model('ErrorLog', ErrorLogSchema);
+
+// Admin Middleware - only specific admin email
+const ADMIN_EMAILS = ['paul89114@126.com'];
+const adminMiddleware = async (req: any, res: any) => {
+  const userId = await authMiddleware(req, res, true);
+  if (!userId) return null;
+  const user = await User.findById(userId);
+  if (!user || !ADMIN_EMAILS.includes(user.email)) {
+    res.status(403).json({ message: 'Admin access required' });
+    return null;
+  }
+  return userId;
+};
 
 // Auth Middleware
 const authMiddleware = async (req: any, res: any, silent = false) => {
@@ -280,6 +336,10 @@ const MSG = {
     provideEmailPassword: '请提供邮箱和密码',
     wrongCredentials: '邮箱或密码错误',
     forgotInDev: '密码重置链接已发送到您的邮箱（功能开发中）',
+    resetTokenSent: '重置密码链接已发送到您的邮箱，请在30分钟内完成重置',
+    resetTokenInvalid: '重置链接无效或已过期，请重新申请',
+    resetSuccess: '密码重置成功，请使用新密码登录',
+    resetPasswordTooShort: '新密码至少6位字符',
     provideEmail: '请提供邮箱地址',
     emailNotFound: '该邮箱未注册',
     invalidPlan: '无效的订阅计划',
@@ -346,6 +406,10 @@ const MSG = {
     provideEmailPassword: '請提供郵箱和密碼',
     wrongCredentials: '郵箱或密碼錯誤',
     forgotInDev: '密碼重設連結已發送到您的郵箱（功能開發中）',
+    resetTokenSent: '重設密碼連結已發送到您的郵箱，請在30分鐘內完成重設',
+    resetTokenInvalid: '重設連結無效或已過期，請重新申請',
+    resetSuccess: '密碼重設成功，請使用新密碼登入',
+    resetPasswordTooShort: '新密碼至少6位字符',
     provideEmail: '請提供郵箱地址',
     emailNotFound: '該郵箱未註冊',
     invalidPlan: '無效的訂閱計劃',
@@ -412,6 +476,10 @@ const MSG = {
     provideEmailPassword: 'Please provide email and password',
     wrongCredentials: 'Incorrect email or password',
     forgotInDev: 'Password reset link sent to your email (feature in development)',
+    resetTokenSent: 'A password reset link has been sent to your email. Please reset within 30 minutes.',
+    resetTokenInvalid: 'Reset link is invalid or expired. Please request again.',
+    resetSuccess: 'Password reset successful. Please log in with your new password.',
+    resetPasswordTooShort: 'New password must be at least 6 characters',
     provideEmail: 'Please provide an email address',
     emailNotFound: 'This email is not registered',
     invalidPlan: 'Invalid subscription plan',
@@ -478,6 +546,10 @@ const MSG = {
     provideEmailPassword: 'メールアドレスとパスワードを入力してください',
     wrongCredentials: 'メールアドレスまたはパスワードが正しくありません',
     forgotInDev: 'パスワードリセットリンクをメールに送信しました（機能開発中）',
+    resetTokenSent: 'パスワードリセットリンクをメールに送信しました。30分以内にリセットしてください。',
+    resetTokenInvalid: 'リセットリンクが無効または期限切れです。再度申請してください。',
+    resetSuccess: 'パスワードのリセットが完了しました。新しいパスワードでログインしてください。',
+    resetPasswordTooShort: '新しいパスワードは6文字以上である必要があります',
     provideEmail: 'メールアドレスを入力してください',
     emailNotFound: 'このメールは登録されていません',
     invalidPlan: '無効なサブスクリプションプラン',
@@ -544,6 +616,10 @@ const MSG = {
     provideEmailPassword: '이메일과 비밀번호를 입력해 주세요',
     wrongCredentials: '이메일 또는 비밀번호가 올바르지 않습니다',
     forgotInDev: '비밀번호 재설정 링크를 이메일로 보냈습니다 (기능 개발 중)',
+    resetTokenSent: '비밀번호 재설정 링크가 이메일로 전송되었습니다. 30분 이내에 재설정해 주세요.',
+    resetTokenInvalid: '재설정 링크가 유효하지 않거나 만료되었습니다. 다시 요청해 주세요.',
+    resetSuccess: '비밀번호가 성공적으로 재설정되었습니다. 새 비밀번호로 로그인하세요.',
+    resetPasswordTooShort: '새 비밀번호는 6자 이상이어야 합니다',
     provideEmail: '이메일 주소를 입력해 주세요',
     emailNotFound: '이 이메일은 등록되어 있지 않습니다',
     invalidPlan: '유효하지 않은 구독 플랜',
@@ -753,6 +829,7 @@ const corsHeaders = {
 };
 
 export default async function handler(req, res) {
+  const startTime = Date.now();
   log(`Request: ${req.method} ${req.url}`);
 
   if (req.method === 'OPTIONS') {
@@ -791,6 +868,18 @@ export default async function handler(req, res) {
     if (path === '/api/auth/login' && method === 'POST') return handleLogin(req, res);
     if (path === '/api/auth/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/auth/forgot-password' && method === 'POST') return handleForgotPassword(req, res);
+    if (path === '/api/auth/reset-password' && method === 'POST') return handleResetPassword(req, res);
+    // Admin routes
+    if (path === '/api/admin/dashboard' && method === 'GET') return handleAdminDashboard(req, res);
+    if (path === '/api/admin/users' && method === 'GET') return handleAdminUsers(req, res);
+    if (path === '/api/admin/users' && method === 'PUT') return handleAdminUpdateUser(req, res);
+    if (path === '/api/admin/users' && method === 'DELETE') return handleAdminDeleteUser(req, res);
+    if (path === '/api/admin/readings' && method === 'GET') return handleAdminReadings(req, res);
+    if (path === '/api/admin/points-logs' && method === 'GET') return handleAdminPointsLogs(req, res);
+    if (path === '/api/admin/error-logs' && method === 'GET') return handleAdminErrorLogs(req, res);
+    if (path === '/api/admin/request-logs' && method === 'GET') return handleAdminRequestLogs(req, res);
+    if (path === '/api/admin/error-logs' && method === 'DELETE') return handleAdminClearErrorLogs(req, res);
+    if (path === '/api/admin/request-logs' && method === 'DELETE') return handleAdminClearRequestLogs(req, res);
     if (path === '/api/user' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/readings' && method === 'GET') return handleGetReadings(req, res);
@@ -812,8 +901,49 @@ export default async function handler(req, res) {
     return res.status(404).json({ error: 'Not found', path, method });
   } catch (error) {
     log('Handler error:', { error: error.message });
+    // Record error log
+    try {
+      await connectDB();
+      const authHeader = req.headers.authorization;
+      let errUserId = null;
+      if (authHeader) {
+        try { errUserId = (jwt.verify(authHeader.split(' ')[1], JWT_SECRET) as any).userId; } catch {}
+      }
+      await ErrorLog.create({
+        type: 'api',
+        message: error.message || 'Unknown error',
+        stack: error.stack?.substring(0, 2000),
+        path: parsedUrl.pathname,
+        method: req.method,
+        userId: errUserId,
+        ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress,
+      });
+    } catch {}
     return res.status(500).json({ error: 'Server error', message: error.message });
   }
+
+  // Record request log (skip admin/log endpoints to avoid noise)
+  try {
+    const duration = Date.now() - startTime;
+    const pathStr = parsedUrl.pathname;
+    if (!pathStr.startsWith('/api/admin') && !pathStr.includes('favicon')) {
+      await connectDB();
+      const authHeader = req.headers.authorization;
+      let logUserId = null;
+      if (authHeader) {
+        try { logUserId = (jwt.verify(authHeader.split(' ')[1], JWT_SECRET) as any).userId; } catch {}
+      }
+      await RequestLog.create({
+        method: req.method,
+        path: pathStr,
+        statusCode: res.statusCode,
+        userId: logUserId,
+        ip: (req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '').toString().split(',')[0].trim(),
+        userAgent: req.headers['user-agent']?.substring(0, 500),
+        duration,
+      });
+    }
+  } catch {}
 }
 
 async function handleHealth(req, res) {
@@ -1268,7 +1398,6 @@ async function handleReading(req, res) {
     const upright = t(req, 'upright');
     const reversed = t(req, 'reversed');
 
-    const lang = getLang(req);
     const cardInfo = selectedCards.map((c, i) => {
       const card = c.card || c;
       const orient = c.orientation === 'reversed' ? reversed : upright;
@@ -1508,7 +1637,7 @@ async function handleRegister(req, res) {
   }
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  return res.status(201).json({ token, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, createdAt: user.createdAt } });
+  return res.status(201).json({ token, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
 }
 
 async function handleLogin(req, res) {
@@ -1523,7 +1652,7 @@ async function handleLogin(req, res) {
   if (!isValidPassword) return res.status(401).json({ message: t(req, 'wrongCredentials') });
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  return res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', createdAt: user.createdAt } });
+  return res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
 }
 
 async function handleGetMe(req, res) {
@@ -1549,7 +1678,321 @@ async function handleForgotPassword(req, res) {
   const user = await User.findOne({ email });
   if (!user) return res.status(404).json({ message: t(req, 'emailNotFound') });
 
-  return res.status(200).json({ message: t(req, 'forgotInDev') });
+  // Generate reset token
+  const crypto = await import('crypto');
+  const token = crypto.randomBytes(32).toString('hex');
+  const expiresAt = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
+
+  // Delete existing tokens for this user
+  await PasswordResetToken.deleteMany({ userId: user._id });
+
+  // Save new token
+  await PasswordResetToken.create({ userId: user._id, token, expiresAt });
+
+  // Send email via Resend
+  const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+  const resetUrl = `${BASE_URL}/reset-password?token=${token}`;
+  const lang = detectLang(req);
+
+  const emailSubject = lang === 'zh-TW' ? '重設您的密碼' :
+    lang === 'en' ? 'Reset Your Password' :
+    lang === 'ja' ? 'パスワードのリセット' :
+    lang === 'ko' ? '비밀번호 재설정' : '重置您的密码';
+
+  const emailBody = lang === 'en' ?
+    `<p>You requested a password reset.</p><p>Click the link below to reset your password (valid for 30 minutes):</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>If you did not request this, please ignore this email.</p>` :
+    lang === 'zh-TW' ?
+    `<p>您申請了密碼重設。</p><p>請點擊以下連結重設您的密碼（30分鐘內有效）：</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>如果您沒有申請此操作，請忽略此郵件。</p>` :
+    `<p>您申请了密码重置。</p><p>请点击以下链接重置您的密码（30分钟内有效）：</p><p><a href="${resetUrl}">${resetUrl}</a></p><p>如果您没有申请此操作，请忽略此邮件。</p>`;
+
+  try {
+    const emailRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: '塔罗占卜 <noreply@2or.com>',
+        to: [email],
+        subject: emailSubject,
+        html: emailBody,
+      }),
+    });
+    const emailResult = await emailRes.json() as any;
+    if (!emailRes.ok) {
+      console.error('Resend error:', emailResult);
+      return res.status(500).json({ message: 'Failed to send email', detail: emailResult });
+    }
+  } catch (err) {
+    console.error('Email send error:', err);
+    return res.status(500).json({ message: 'Failed to send email' });
+  }
+
+  return res.status(200).json({ message: t(req, 'resetTokenSent') });
+}
+
+async function handleResetPassword(req, res) {
+  await connectDB();
+  const { token, password } = req.body || {};
+  if (!token || !password) return res.status(400).json({ message: t(req, 'missingParams') });
+  if (password.length < 6) return res.status(400).json({ message: t(req, 'resetPasswordTooShort') });
+
+  const resetToken = await PasswordResetToken.findOne({ token, used: false });
+  if (!resetToken || new Date() > resetToken.expiresAt) {
+    return res.status(400).json({ message: t(req, 'resetTokenInvalid') });
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  const hashed = await bcrypt.hash(password, salt);
+
+  await mongoose.connection.db.collection('users').updateOne(
+    { _id: resetToken.userId },
+    { $set: { password: hashed } }
+  );
+
+  resetToken.used = true;
+  await resetToken.save();
+
+  return res.status(200).json({ message: t(req, 'resetSuccess') });
+}
+
+// ============= Admin Handlers =============
+
+async function handleAdminDashboard(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const totalUsers = await User.countDocuments();
+    const totalReadings = await Reading.countDocuments();
+    const totalPointsLogs = await PointsLog.countDocuments();
+    const todayStart = new Date(); todayStart.setHours(0,0,0,0);
+    const todayUsers = await User.countDocuments({ createdAt: { $gte: todayStart } });
+    const todayReadings = await Reading.countDocuments({ createdAt: { $gte: todayStart } });
+
+    // 最近7天每天的注册数和占卜数
+    const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
+    const dailyStats = await Reading.aggregate([
+      { $match: { createdAt: { $gte: sevenDaysAgo } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, count: { $sum: 1 } } },
+      { $sort: { _id: 1 } }
+    ]);
+
+    const dailyRegistrations = await User.aggregate([
+      { $match: { createdAt: { $gte: sevenDaysAgo } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, count: { $sum: 1 } } },
+      { $sort: { _id: 1 } }
+    ]);
+
+    // 会员统计
+    const membershipStats = await User.aggregate([
+      { $group: { _id: '$membership', count: { $sum: 1 } } }
+    ]);
+
+    // 最近错误数
+    const recentErrors = await ErrorLog.countDocuments({ createdAt: { $gte: sevenDaysAgo } });
+
+    return res.status(200).json({
+      totalUsers, totalReadings, totalPointsLogs,
+      todayUsers, todayReadings, recentErrors,
+      dailyStats, dailyRegistrations, membershipStats,
+    });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Dashboard error', error: error.message });
+  }
+}
+
+async function handleAdminUsers(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 20, search = '', role = '', sort = 'createdAt' } = req.query;
+    const query: any = {};
+    if (search) {
+      query.$or = [
+        { username: { $regex: search, $options: 'i' } },
+        { email: { $regex: search, $options: 'i' } },
+      ];
+    }
+    if (role) query.role = role;
+
+    const users = await User.find(query)
+      .select('-password')
+      .sort({ [sort as string]: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await User.countDocuments(query);
+
+    return res.status(200).json({ users, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching users', error: error.message });
+  }
+}
+
+async function handleAdminUpdateUser(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { userId, username, email, points, membership, role, membershipExpiry } = req.body;
+    if (!userId) return res.status(400).json({ message: 'userId required' });
+
+    const update: any = {};
+    if (username !== undefined) update.username = username;
+    if (email !== undefined) update.email = email;
+    if (points !== undefined) update.points = points;
+    if (membership !== undefined) update.membership = membership;
+    if (role !== undefined) update.role = role;
+    if (membershipExpiry !== undefined) update.membershipExpiry = membershipExpiry;
+
+    const user = await User.findByIdAndUpdate(userId, update, { new: true }).select('-password');
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    return res.status(200).json(user);
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error updating user', error: error.message });
+  }
+}
+
+async function handleAdminDeleteUser(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { userId } = req.body;
+    if (!userId) return res.status(400).json({ message: 'userId required' });
+    if (userId === adminId.toString()) return res.status(400).json({ message: 'Cannot delete yourself' });
+
+    await User.findByIdAndDelete(userId);
+    await Reading.deleteMany({ userId });
+    await PointsLog.deleteMany({ userId });
+
+    return res.status(200).json({ message: 'User deleted' });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error deleting user', error: error.message });
+  }
+}
+
+async function handleAdminReadings(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 20, userId = '' } = req.query;
+    const query: any = {};
+    if (userId) query.userId = userId;
+
+    const readings = await Reading.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit))
+      .select('-interpretation');
+
+    const total = await Reading.countDocuments(query);
+
+    return res.status(200).json({ readings, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching readings', error: error.message });
+  }
+}
+
+async function handleAdminPointsLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 20, userId = '', type = '' } = req.query;
+    const query: any = {};
+    if (userId) query.userId = userId;
+    if (type) query.type = type;
+
+    const logs = await PointsLog.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await PointsLog.countDocuments(query);
+
+    return res.status(200).json({ logs, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching points logs', error: error.message });
+  }
+}
+
+async function handleAdminErrorLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 50, type = '' } = req.query;
+    const query: any = {};
+    if (type) query.type = type;
+
+    const logs = await ErrorLog.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await ErrorLog.countDocuments(query);
+
+    return res.status(200).json({ logs, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching error logs', error: error.message });
+  }
+}
+
+async function handleAdminRequestLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { page = 1, limit = 50, path: logPath = '', method: logMethod = '' } = req.query;
+    const query: any = {};
+    if (logPath) query.path = { $regex: logPath, $options: 'i' };
+    if (logMethod) query.method = logMethod;
+
+    const logs = await RequestLog.find(query)
+      .sort({ createdAt: -1 })
+      .skip((Number(page) - 1) * Number(limit))
+      .limit(Number(limit));
+
+    const total = await RequestLog.countDocuments(query);
+
+    return res.status(200).json({ logs, total, page: Number(page), limit: Number(limit) });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error fetching request logs', error: error.message });
+  }
+}
+
+async function handleAdminClearErrorLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { beforeDays = 30 } = req.body;
+    const cutoff = new Date(Date.now() - Number(beforeDays) * 86400000);
+    const result = await ErrorLog.deleteMany({ createdAt: { $lt: cutoff } });
+    return res.status(200).json({ deleted: result.deletedCount });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error clearing logs', error: error.message });
+  }
+}
+
+async function handleAdminClearRequestLogs(req, res) {
+  const adminId = await adminMiddleware(req, res);
+  if (!adminId) return;
+
+  try {
+    const { beforeDays = 30 } = req.body;
+    const cutoff = new Date(Date.now() - Number(beforeDays) * 86400000);
+    const result = await RequestLog.deleteMany({ createdAt: { $lt: cutoff } });
+    return res.status(200).json({ deleted: result.deletedCount });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Error clearing logs', error: error.message });
+  }
 }
 
 async function handleGetReadings(req, res) {

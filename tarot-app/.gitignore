@@ -29,3 +29,4 @@ npm-debug.log*
 .vercel/
 .vercel
 .env*.local
+tarot-app/server/node_modules/

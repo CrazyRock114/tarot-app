@@ -61,6 +61,9 @@ const Login = () => {
                 </button>
               </div>
             </div>
+            <div className="flex justify-end">
+              <Link to="/forgot-password" className="text-sm text-indigo-400 hover:text-indigo-300">{t('login.forgotPassword')}</Link>
+            </div>
             <button type="submit" disabled={loading}
               className="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
               {loading ? <><Loader2 className="w-5 h-5 animate-spin" />{t('login.submitting')}</> : t('login.submit')}

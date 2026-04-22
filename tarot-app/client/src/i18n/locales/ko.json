@@ -817,5 +817,23 @@
     "title": "문제가 발생했습니다",
     "message": "죄송합니다. 앱에 예기치 않은 오류가 발생했습니다. 페이지를 새로고침해 보세요.",
     "reload": "페이지 새로고침"
+  },
+  "forgotPassword": {
+    "title": "비밀번호 찾기",
+    "desc": "등록된 이메일 주소를 입력해 주세요",
+    "submit": "재설정 링크 보내기",
+    "sent": "재설정 링크가 전송되었습니다. 30분 이내에 재설정해 주세요.",
+    "backToLogin": "로그인으로 돌아가기"
+  },
+  "resetPassword": {
+    "title": "비밀번호 재설정",
+    "desc": "새 비밀번호를 입력해 주세요",
+    "newPassword": "새 비밀번호",
+    "confirmPassword": "새 비밀번호 확인",
+    "submit": "비밀번호 재설정",
+    "success": "비밀번호가 성공적으로 재설정되었습니다!",
+    "redirecting": "3초 후 로그인 페이지로 이동합니다...",
+    "passwordMismatch": "비밀번호가 일치하지 않습니다",
+    "invalidLink": "재설정 링크가 유효하지 않거나 만료되었습니다"
   }
 }
