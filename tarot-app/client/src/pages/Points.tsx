@@ -311,7 +311,7 @@ const Points = () => {
                       <span className="text-lg">{info.icon}</span>
                       <div>
                         <div className="text-white text-sm">{log.description || info.label}</div>
-                        <div className="text-gray-500 text-xs">{new Date(log.createdAt).toLocaleString(localStorage.getItem('i18nextLng') || 'zh-CN')}</div>
+                        <div className="text-gray-500 text-xs">{new Date(log.createdAt).toLocaleString(localStorage.getItem('i18nextLng') || 'en')}</div>
                       </div>
                     </div>
                     <span className={`font-medium text-sm ${log.amount > 0 ? 'text-green-400' : 'text-red-400'}`}>

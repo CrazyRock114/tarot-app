@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ChevronLeft, Users, BookOpen, Coins, AlertTriangle, Activity, Shield, Trash2, Edit, Search, Eye, X, Save } from 'lucide-react';
 
 const Admin = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [tab, setTab] = useState<'dashboard' | 'users' | 'readings' | 'points' | 'errors' | 'logs'>('dashboard');
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -33,6 +35,7 @@ const Admin = () => {
   const [userPoints, setUserPoints] = useState<any[]>([]);
 
   const token = localStorage.getItem('token');
+  const locale = localStorage.getItem('i18nextLng') || 'en';
 
   useEffect(() => { checkAdmin(); }, []);
 
@@ -82,42 +85,42 @@ const Admin = () => {
   const updateUser = async () => {
     try {
       const res = await fetch('/api/admin/users', { method: 'PUT', headers: ah(), body: JSON.stringify({ userId: selectedUser._id, ...editForm }) });
-      if (res.ok) { setSelectedUser(await res.json()); fetchUsers(); alert('保存成功'); }
+      if (res.ok) { setSelectedUser(await res.json()); fetchUsers(); alert(t('admin.saveSuccess')); }
     } catch {}
   };
 
   const deleteUser = async (uid: string) => {
-    if (!confirm('确定删除此用户？所有数据不可恢复！')) return;
-    try { const r = await fetch('/api/admin/users', { method: 'DELETE', headers: ah(), body: JSON.stringify({ userId: uid }) }); if (r.ok) { setSelectedUser(null); fetchUsers(); alert('已删除'); } } catch {}
+    if (!confirm(t('admin.confirmDeleteUser'))) return;
+    try { const r = await fetch('/api/admin/users', { method: 'DELETE', headers: ah(), body: JSON.stringify({ userId: uid }) }); if (r.ok) { setSelectedUser(null); fetchUsers(); alert(t('admin.deleted')); } } catch {}
   };
 
   const clearErrorLogs = async () => {
-    if (!confirm('清理30天前的错误日志？')) return;
-    try { const r = await fetch('/api/admin/error-logs', { method: 'DELETE', headers: ah(), body: JSON.stringify({ beforeDays: 30 }) }); if (r.ok) { alert(`已清理 ${(await r.json()).deleted} 条`); fetchErrors(); } } catch {}
+    if (!confirm(t('admin.confirmClearErrors'))) return;
+    try { const r = await fetch('/api/admin/error-logs', { method: 'DELETE', headers: ah(), body: JSON.stringify({ beforeDays: 30 }) }); if (r.ok) { alert(t('admin.clearedCount', { count: (await r.json()).deleted })); fetchErrors(); } } catch {}
   };
 
   const openReadingDetail = async (r: any) => { setReadingDetail(r); };
 
-  if (loading) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white">验证权限中...</div>;
-  if (!isAdmin) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-red-400 text-lg">⚠️ 无管理员权限</div>;
+  if (loading) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white">{t('admin.verifying')}</div>;
+  if (!isAdmin) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-red-400 text-lg">⚠️ {t('admin.noPermission')}</div>;
 
   const tabs = [
-    { key: 'dashboard' as const, label: '仪表盘', icon: Activity },
-    { key: 'users' as const, label: '用户管理', icon: Users },
-    { key: 'readings' as const, label: '占卜记录', icon: BookOpen },
-    { key: 'points' as const, label: '积分记录', icon: Coins },
-    { key: 'errors' as const, label: '错误日志', icon: AlertTriangle },
-    { key: 'logs' as const, label: '访问日志', icon: Shield },
+    { key: 'dashboard' as const, label: t('admin.tabDashboard'), icon: Activity },
+    { key: 'users' as const, label: t('admin.tabUsers'), icon: Users },
+    { key: 'readings' as const, label: t('admin.tabReadings'), icon: BookOpen },
+    { key: 'points' as const, label: t('admin.tabPoints'), icon: Coins },
+    { key: 'errors' as const, label: t('admin.tabErrors'), icon: AlertTriangle },
+    { key: 'logs' as const, label: t('admin.tabLogs'), icon: Shield },
   ];
   const tp = (t: number, l: number) => Math.max(1, Math.ceil(t / l));
-  const fd = (d: string) => new Date(d).toLocaleString('zh-CN');
-  const fs = (d: string) => new Date(d).toLocaleDateString('zh-CN');
+  const fd = (d: string) => new Date(d).toLocaleString(locale);
+  const fs = (d: string) => new Date(d).toLocaleDateString(locale);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="bg-gray-800 border-b border-gray-700 px-4 py-3 flex items-center gap-3 sticky top-0 z-40">
         <button onClick={() => navigate('/profile')} className="text-gray-400 hover:text-white"><ChevronLeft className="w-5 h-5" /></button>
-        <h1 className="text-lg font-bold">🔧 管理后台</h1>
+        <h1 className="text-lg font-bold">🔧 {t('admin.title')}</h1>
       </div>
       <div className="flex">
         <div className="hidden md:flex w-44 bg-gray-800 min-h-[calc(100vh-52px)] border-r border-gray-700 py-2 flex-col">
@@ -140,26 +143,26 @@ const Admin = () => {
           {tab === 'dashboard' && dashboard && (
             <div className="space-y-6">
               <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
-                <SC label="总用户" value={dashboard.totalUsers} sub={`今日 +${dashboard.todayUsers}`} c="indigo" />
-                <SC label="总占卜" value={dashboard.totalReadings} sub={`今日 +${dashboard.todayReadings}`} c="blue" />
-                <SC label="积分记录" value={dashboard.totalPointsLogs} c="green" />
-                <SC label="近7天错误" value={dashboard.recentErrors} c="red" />
-                <SC label="付费会员" value={dashboard.membershipStats?.filter((s:any)=>s._id&&s._id!=='free').reduce((a:any,s:any)=>a+s.count,0)||0} c="yellow" />
+                <SC label={t('admin.totalUsers')} value={dashboard.totalUsers} sub={t('admin.todayPlus', { count: dashboard.todayUsers })} c="indigo" />
+                <SC label={t('admin.totalReadings')} value={dashboard.totalReadings} sub={t('admin.todayPlus', { count: dashboard.todayReadings })} c="blue" />
+                <SC label={t('admin.pointsLogs')} value={dashboard.totalPointsLogs} c="green" />
+                <SC label={t('admin.recentErrors')} value={dashboard.recentErrors} c="red" />
+                <SC label={t('admin.paidMembers')} value={dashboard.membershipStats?.filter((s:any)=>s._id&&s._id!=='free').reduce((a:any,s:any)=>a+s.count,0)||0} c="yellow" />
               </div>
               <div className="bg-gray-800 rounded-lg p-4">
-                <h3 className="font-medium mb-3">会员分布</h3>
+                <h3 className="font-medium mb-3">{t('admin.membershipDist')}</h3>
                 <div className="flex gap-8">
                   {dashboard.membershipStats?.map((s: any) => (<div key={s._id||'free'} className="text-center"><div className="text-2xl font-bold text-indigo-400">{s.count}</div><div className="text-xs text-gray-400">{s._id||'free'}</div></div>))}
                 </div>
               </div>
               <div className="bg-gray-800 rounded-lg p-4">
-                <h3 className="font-medium mb-3">近7天占卜趋势</h3>
+                <h3 className="font-medium mb-3">{t('admin.readingTrend')}</h3>
                 <div className="flex items-end gap-2 h-28">
                   {dashboard.dailyStats?.map((d: any) => { const mx = Math.max(...(dashboard.dailyStats?.map((x:any)=>x.count)||[1]),1); return <div key={d._id} className="flex-1 flex flex-col items-center"><div className="w-full bg-indigo-600 rounded-t" style={{height:`${(d.count/mx)*100}%`,minHeight:d.count>0?'4px':'0'}} /><div className="text-xs text-gray-500 mt-1">{d._id?.slice(5)}</div><div className="text-xs text-gray-300">{d.count}</div></div>; })}
                 </div>
               </div>
               <div className="bg-gray-800 rounded-lg p-4">
-                <h3 className="font-medium mb-3">近7天注册趋势</h3>
+                <h3 className="font-medium mb-3">{t('admin.registrationTrend')}</h3>
                 <div className="flex items-end gap-2 h-28">
                   {dashboard.dailyRegistrations?.map((d: any) => { const mx = Math.max(...(dashboard.dailyRegistrations?.map((x:any)=>x.count)||[1]),1); return <div key={d._id} className="flex-1 flex flex-col items-center"><div className="w-full bg-green-600 rounded-t" style={{height:`${(d.count/mx)*100}%`,minHeight:d.count>0?'4px':'0'}} /><div className="text-xs text-gray-500 mt-1">{d._id?.slice(5)}</div><div className="text-xs text-gray-300">{d.count}</div></div>; })}
                 </div>
@@ -171,14 +174,14 @@ const Admin = () => {
           {tab === 'users' && (
             <div className="space-y-4">
               <div className="flex gap-2">
-                <input value={usersSearch} onChange={e=>setUsersSearch(e.target.value)} placeholder="搜索用户名/邮箱..." className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded text-sm" onKeyDown={e=>e.key==='Enter'&&fetchUsers()} />
-                <button onClick={fetchUsers} className="px-4 py-2 bg-indigo-600 rounded text-sm flex items-center gap-1"><Search className="w-4 h-4" />搜索</button>
+                <input value={usersSearch} onChange={e=>setUsersSearch(e.target.value)} placeholder={t('admin.searchPlaceholder')} className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded text-sm" onKeyDown={e=>e.key==='Enter'&&fetchUsers()} />
+                <button onClick={fetchUsers} className="px-4 py-2 bg-indigo-600 rounded text-sm flex items-center gap-1"><Search className="w-4 h-4" />{t('admin.search')}</button>
               </div>
-              <div className="text-xs text-gray-500">共 {usersTotal} 个用户</div>
+              <div className="text-xs text-gray-500">{t('admin.totalUsersCount', { total: usersTotal })}</div>
               <div className="hidden md:block">
                 <table className="w-full text-sm">
                   <thead><tr className="text-gray-400 border-b border-gray-700 text-xs">
-                    <th className="text-left py-2 px-2">用户名</th><th className="text-left py-2 px-2">邮箱</th><th className="text-left py-2 px-2">积分</th><th className="text-left py-2 px-2">会员</th><th className="text-left py-2 px-2">签到</th><th className="text-left py-2 px-2">注册时间</th><th className="text-left py-2 px-2">操作</th>
+                    <th className="text-left py-2 px-2">{t('admin.username')}</th><th className="text-left py-2 px-2">{t('admin.email')}</th><th className="text-left py-2 px-2">{t('admin.points')}</th><th className="text-left py-2 px-2">{t('admin.membership')}</th><th className="text-left py-2 px-2">{t('admin.checkIn')}</th><th className="text-left py-2 px-2">{t('admin.registeredAt')}</th><th className="text-left py-2 px-2">{t('admin.actions')}</th>
                   </tr></thead>
                   <tbody>
                     {users.map(u => (
@@ -187,11 +190,11 @@ const Admin = () => {
                         <td className="py-2 px-2 text-gray-400 text-xs">{u.email}</td>
                         <td className="py-2 px-2 text-yellow-300">{u.points}</td>
                         <td className="py-2 px-2"><span className={`px-2 py-0.5 rounded text-xs ${u.membership==='yearly'?'bg-yellow-600/20 text-yellow-300':u.membership==='monthly'?'bg-blue-600/20 text-blue-300':'bg-gray-600/20 text-gray-400'}`}>{u.membership}</span></td>
-                        <td className="py-2 px-2 text-xs">{u.checkInStreak}天/{u.totalCheckIns}次</td>
+                        <td className="py-2 px-2 text-xs">{u.checkInStreak}{t('points.days')}/{u.totalCheckIns}{t('points.totalCheckins')}</td>
                         <td className="py-2 px-2 text-gray-500 text-xs">{fs(u.createdAt)}</td>
                         <td className="py-2 px-2 flex gap-1">
-                          <button onClick={()=>openUserDetail(u)} className="p-1 hover:bg-gray-700 rounded" title="查看"><Eye className="w-4 h-4 text-blue-400" /></button>
-                          <button onClick={()=>deleteUser(u._id)} className="p-1 hover:bg-gray-700 rounded" title="删除"><Trash2 className="w-4 h-4 text-red-400" /></button>
+                          <button onClick={()=>openUserDetail(u)} className="p-1 hover:bg-gray-700 rounded" title={t('admin.view')}><Eye className="w-4 h-4 text-blue-400" /></button>
+                          <button onClick={()=>deleteUser(u._id)} className="p-1 hover:bg-gray-700 rounded" title={t('admin.delete')}><Trash2 className="w-4 h-4 text-red-400" /></button>
                         </td>
                       </tr>
                     ))}
@@ -203,37 +206,37 @@ const Admin = () => {
                   <div key={u._id} className="bg-gray-800 rounded-lg p-3 cursor-pointer" onClick={()=>openUserDetail(u)}>
                     <div className="flex justify-between items-center"><span className="font-medium">{u.username}</span><span className={`px-2 py-0.5 rounded text-xs ${u.membership==='yearly'?'bg-yellow-600/20 text-yellow-300':u.membership==='monthly'?'bg-blue-600/20 text-blue-300':'bg-gray-600/20 text-gray-400'}`}>{u.membership}</span></div>
                     <div className="text-xs text-gray-400 mt-1">{u.email}</div>
-                    <div className="flex gap-4 mt-1 text-xs"><span className="text-yellow-300">{u.points} 积分</span><span>签到{u.checkInStreak}天</span></div>
+                    <div className="flex gap-4 mt-1 text-xs"><span className="text-yellow-300">{t('admin.pointsUnit', { points: u.points })}</span><span>{t('admin.checkInDays', { days: u.checkInStreak })}</span></div>
                   </div>
                 ))}
               </div>
-              <Pagination page={usersPage} total={tp(usersTotal,20)} setPage={setUsersPage} />
+              <Pagination page={usersPage} total={tp(usersTotal,20)} setPage={setUsersPage} t={t} />
             </div>
           )}
 
           {/* Readings */}
           {tab === 'readings' && (
             <div className="space-y-4">
-              <div className="text-xs text-gray-500">共 {readingsTotal} 条占卜记录</div>
+              <div className="text-xs text-gray-500">{t('admin.totalReadingsCount', { total: readingsTotal })}</div>
               <div className="space-y-2">
                 {readings.map(r => (
                   <div key={r._id} className="bg-gray-800 rounded-lg p-3 cursor-pointer hover:bg-gray-750" onClick={()=>openReadingDetail(r)}>
                     <div className="flex justify-between items-start">
-                      <div><div className="font-medium text-sm">{r.spreadName||r.spreadType||'占卜'}</div><div className="text-xs text-gray-400 mt-0.5">{r.readerStyle||'默认'}</div></div>
-                      <div className="text-right"><div className="text-xs text-gray-500">{fd(r.createdAt)}</div><div className="text-xs text-gray-600 mt-0.5">用户: {r.userId?.toString().slice(-8)}</div></div>
+                      <div><div className="font-medium text-sm">{r.spreadName||r.spreadType||t('admin.reading')}</div><div className="text-xs text-gray-400 mt-0.5">{r.readerStyle||t('admin.default')}</div></div>
+                      <div className="text-right"><div className="text-xs text-gray-500">{fd(r.createdAt)}</div><div className="text-xs text-gray-600 mt-0.5">{t('admin.userIdPrefix')} {r.userId?.toString().slice(-8)}</div></div>
                     </div>
                     {r.cards&&<div className="flex gap-1 mt-2 flex-wrap">{(Array.isArray(r.cards)?r.cards:[]).slice(0,5).map((c:any,i:number)=><span key={i} className="px-1.5 py-0.5 bg-indigo-600/20 text-indigo-300 rounded text-xs">{typeof c==='string'?c:c.name||`Card${i+1}`}</span>)}{r.cards?.length>5&&<span className="text-xs text-gray-500">+{r.cards.length-5}</span>}</div>}
                   </div>
                 ))}
               </div>
-              <Pagination page={readingsPage} total={tp(readingsTotal,20)} setPage={setReadingsPage} />
+              <Pagination page={readingsPage} total={tp(readingsTotal,20)} setPage={setReadingsPage} t={t} />
             </div>
           )}
 
           {/* Points */}
           {tab === 'points' && (
             <div className="space-y-4">
-              <div className="text-xs text-gray-500">共 {pointsTotal} 条积分记录</div>
+              <div className="text-xs text-gray-500">{t('admin.totalPointsCount', { total: pointsTotal })}</div>
               <div className="space-y-1.5">
                 {pointsLogs.map(p => (
                   <div key={p._id} className="flex justify-between items-center bg-gray-800 rounded px-3 py-2">
@@ -242,7 +245,7 @@ const Admin = () => {
                   </div>
                 ))}
               </div>
-              <Pagination page={pointsPage} total={tp(pointsTotal,20)} setPage={setPointsPage} />
+              <Pagination page={pointsPage} total={tp(pointsTotal,20)} setPage={setPointsPage} t={t} />
             </div>
           )}
 
@@ -250,8 +253,8 @@ const Admin = () => {
           {tab === 'errors' && (
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <div className="text-xs text-gray-500">共 {errorTotal} 条错误</div>
-                <button onClick={clearErrorLogs} className="px-3 py-1 bg-red-600/20 text-red-300 rounded text-xs hover:bg-red-600/30 flex items-center gap-1"><Trash2 className="w-3 h-3" />清理30天前</button>
+                <div className="text-xs text-gray-500">{t('admin.totalErrors', { total: errorTotal })}</div>
+                <button onClick={clearErrorLogs} className="px-3 py-1 bg-red-600/20 text-red-300 rounded text-xs hover:bg-red-600/30 flex items-center gap-1"><Trash2 className="w-3 h-3" />{t('admin.clearOldErrors')}</button>
               </div>
               <div className="space-y-2">
                 {errorLogs.map(e => (
@@ -265,14 +268,14 @@ const Admin = () => {
                   </div>
                 ))}
               </div>
-              <Pagination page={errorPage} total={tp(errorTotal,50)} setPage={setErrorPage} />
+              <Pagination page={errorPage} total={tp(errorTotal,50)} setPage={setErrorPage} t={t} />
             </div>
           )}
 
           {/* Logs */}
           {tab === 'logs' && (
             <div className="space-y-4">
-              <div className="text-xs text-gray-500">共 {requestTotal} 条访问记录</div>
+              <div className="text-xs text-gray-500">{t('admin.totalRequests', { total: requestTotal })}</div>
               <div className="space-y-1">
                 {requestLogs.map(l => (
                   <div key={l._id} className="flex items-center gap-2 bg-gray-800 rounded px-3 py-1.5 text-xs">
@@ -285,7 +288,7 @@ const Admin = () => {
                   </div>
                 ))}
               </div>
-              <Pagination page={requestPage} total={tp(requestTotal,50)} setPage={setRequestPage} />
+              <Pagination page={requestPage} total={tp(requestTotal,50)} setPage={setRequestPage} t={t} />
             </div>
           )}
         </div>
@@ -300,45 +303,48 @@ const Admin = () => {
               <button onClick={()=>setSelectedUser(null)} className="text-gray-400 hover:text-white"><X className="w-5 h-5" /></button>
             </div>
             <div className="flex border-b border-gray-700">
-              {(['info','readings','points'] as const).map(t=>(
-                <button key={t} onClick={()=>setUserDetailTab(t)} className={`px-4 py-2 text-sm ${userDetailTab===t?'text-indigo-400 border-b-2 border-indigo-400':'text-gray-400'}`}>{t==='info'?'基本信息':t==='readings'?'占卜记录':'积分记录'}</button>
-              ))}
+              {(['info','readings','points'] as const).map(ta=>{
+                const label = ta==='info'?t('admin.basicInfo'):ta==='readings'?t('admin.userReadings'):t('admin.userPoints');
+                return (
+                  <button key={ta} onClick={()=>setUserDetailTab(ta)} className={`px-4 py-2 text-sm ${userDetailTab===ta?'text-indigo-400 border-b-2 border-indigo-400':'text-gray-400'}`}>{label}</button>
+                );
+              })}
             </div>
             <div className="p-4 max-h-[60vh] overflow-y-auto">
               {userDetailTab==='info'&&(
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div><span className="text-gray-500">ID:</span><div className="font-mono text-xs text-gray-400 mt-0.5">{selectedUser._id}</div></div>
-                    <div><span className="text-gray-500">邮箱:</span><div className="mt-0.5">{selectedUser.email}</div></div>
-                    <div><span className="text-gray-500">注册时间:</span><div className="mt-0.5">{fd(selectedUser.createdAt)}</div></div>
-                    <div><span className="text-gray-500">连续签到:</span><div className="mt-0.5">{selectedUser.checkInStreak}天 / 累计{selectedUser.totalCheckIns}次</div></div>
-                    <div><span className="text-gray-500">会员到期:</span><div className="mt-0.5">{selectedUser.membershipExpiry?fd(selectedUser.membershipExpiry):'无'}</div></div>
-                    <div><span className="text-gray-500">邀请码:</span><div className="mt-0.5 font-mono text-xs">{selectedUser.inviteCode||'无'}</div></div>
-                    {selectedUser.achievements?.length>0&&<div className="col-span-2"><span className="text-gray-500">成就:</span><div className="flex flex-wrap gap-1 mt-1">{selectedUser.achievements.map((a:string)=><span key={a} className="px-1.5 py-0.5 bg-purple-600/20 text-purple-300 rounded text-xs">{a}</span>)}</div></div>}
+                    <div><span className="text-gray-500">{t('admin.userId')}:</span><div className="font-mono text-xs text-gray-400 mt-0.5">{selectedUser._id}</div></div>
+                    <div><span className="text-gray-500">{t('admin.email')}:</span><div className="mt-0.5">{selectedUser.email}</div></div>
+                    <div><span className="text-gray-500">{t('admin.registeredAt')}:</span><div className="mt-0.5">{fd(selectedUser.createdAt)}</div></div>
+                    <div><span className="text-gray-500">{t('admin.streak')}:</span><div className="mt-0.5">{selectedUser.checkInStreak}{t('points.days')} / {t('points.totalCheckins')}{selectedUser.totalCheckIns}</div></div>
+                    <div><span className="text-gray-500">{t('admin.membershipExpiry')}:</span><div className="mt-0.5">{selectedUser.membershipExpiry?fd(selectedUser.membershipExpiry):t('common.noData')}</div></div>
+                    <div><span className="text-gray-500">{t('admin.inviteCode')}:</span><div className="mt-0.5 font-mono text-xs">{selectedUser.inviteCode||t('common.noData')}</div></div>
+                    {selectedUser.achievements?.length>0&&<div className="col-span-2"><span className="text-gray-500">{t('admin.achievements')}:</span><div className="flex flex-wrap gap-1 mt-1">{selectedUser.achievements.map((a:string)=><span key={a} className="px-1.5 py-0.5 bg-purple-600/20 text-purple-300 rounded text-xs">{a}</span>)}</div></div>}
                   </div>
                   <div className="border-t border-gray-700 pt-4">
-                    <h4 className="text-sm font-medium text-gray-400 mb-3 flex items-center gap-1"><Edit className="w-4 h-4" />编辑</h4>
+                    <h4 className="text-sm font-medium text-gray-400 mb-3 flex items-center gap-1"><Edit className="w-4 h-4" />{t('admin.edit')}</h4>
                     <div className="grid grid-cols-2 gap-3">
-                      <div><label className="text-xs text-gray-500">积分</label><input type="number" value={editForm.points} onChange={e=>setEditForm({...editForm,points:Number(e.target.value)})} className="w-full px-3 py-2 bg-gray-700 rounded mt-1 text-sm" /></div>
-                      <div><label className="text-xs text-gray-500">会员</label><select value={editForm.membership} onChange={e=>setEditForm({...editForm,membership:e.target.value})} className="w-full px-3 py-2 bg-gray-700 rounded mt-1 text-sm"><option value="free">free</option><option value="monthly">monthly</option><option value="yearly">yearly</option></select></div>
-                      <div className="col-span-2"><label className="text-xs text-gray-500">邮箱</label><input type="email" value={editForm.email} onChange={e=>setEditForm({...editForm,email:e.target.value})} className="w-full px-3 py-2 bg-gray-700 rounded mt-1 text-sm" /></div>
+                      <div><label className="text-xs text-gray-500">{t('admin.points')}</label><input type="number" value={editForm.points} onChange={e=>setEditForm({...editForm,points:Number(e.target.value)})} className="w-full px-3 py-2 bg-gray-700 rounded mt-1 text-sm" /></div>
+                      <div><label className="text-xs text-gray-500">{t('admin.membership')}</label><select value={editForm.membership} onChange={e=>setEditForm({...editForm,membership:e.target.value})} className="w-full px-3 py-2 bg-gray-700 rounded mt-1 text-sm"><option value="free">free</option><option value="monthly">monthly</option><option value="yearly">yearly</option></select></div>
+                      <div className="col-span-2"><label className="text-xs text-gray-500">{t('admin.email')}</label><input type="email" value={editForm.email} onChange={e=>setEditForm({...editForm,email:e.target.value})} className="w-full px-3 py-2 bg-gray-700 rounded mt-1 text-sm" /></div>
                     </div>
                     <div className="flex gap-2 mt-4">
-                      <button onClick={updateUser} className="px-4 py-2 bg-indigo-600 rounded text-sm flex items-center gap-1 hover:bg-indigo-500"><Save className="w-4 h-4" />保存修改</button>
-                      <button onClick={()=>deleteUser(selectedUser._id)} className="px-4 py-2 bg-red-600/20 text-red-300 rounded text-sm flex items-center gap-1 hover:bg-red-600/30"><Trash2 className="w-4 h-4" />删除用户</button>
+                      <button onClick={updateUser} className="px-4 py-2 bg-indigo-600 rounded text-sm flex items-center gap-1 hover:bg-indigo-500"><Save className="w-4 h-4" />{t('admin.saveChanges')}</button>
+                      <button onClick={()=>deleteUser(selectedUser._id)} className="px-4 py-2 bg-red-600/20 text-red-300 rounded text-sm flex items-center gap-1 hover:bg-red-600/30"><Trash2 className="w-4 h-4" />{t('admin.deleteUser')}</button>
                     </div>
                   </div>
                 </div>
               )}
               {userDetailTab==='readings'&&(
                 <div className="space-y-2">
-                  {userReadings.length===0&&<div className="text-sm text-gray-500">暂无占卜记录</div>}
+                  {userReadings.length===0&&<div className="text-sm text-gray-500">{t('admin.noReadings')}</div>}
                   {userReadings.map(r=>(<div key={r._id} className="bg-gray-700/50 rounded p-2 text-sm"><div className="flex justify-between"><span>{r.spreadName||r.spreadType}</span><span className="text-xs text-gray-400">{fs(r.createdAt)}</span></div>{r.cards&&<div className="flex gap-1 mt-1 flex-wrap">{(Array.isArray(r.cards)?r.cards:[]).slice(0,5).map((c:any,i:number)=><span key={i} className="px-1 py-0.5 bg-indigo-600/20 text-indigo-300 rounded text-xs">{typeof c==='string'?c:c.name||`Card${i+1}`}</span>)}{r.cards?.length>5&&<span className="text-xs text-gray-500">+{r.cards.length-5}</span>}</div>}</div>))}
                 </div>
               )}
               {userDetailTab==='points'&&(
                 <div className="space-y-1.5">
-                  {userPoints.length===0&&<div className="text-sm text-gray-500">暂无积分记录</div>}
+                  {userPoints.length===0&&<div className="text-sm text-gray-500">{t('admin.noPoints')}</div>}
                   {userPoints.map(p=>(<div key={p._id} className="flex justify-between items-center bg-gray-700/50 rounded px-2 py-1.5 text-xs"><div className="flex items-center gap-2"><span className="px-1 py-0.5 bg-gray-600 rounded">{p.type}</span><span className="text-gray-300">{p.description}</span></div><div className="flex items-center gap-2"><span className={p.amount>0?'text-green-400':'text-red-400'}>{p.amount>0?'+':''}{p.amount}</span><span className="text-gray-500">{fs(p.createdAt)}</span></div></div>))}
                 </div>
               )}
@@ -352,16 +358,16 @@ const Admin = () => {
         <div className="fixed inset-0 bg-black/70 flex items-start justify-center z-50 overflow-y-auto py-8" onClick={()=>setReadingDetail(null)}>
           <div className="bg-gray-800 rounded-lg w-full max-w-lg mx-4" onClick={e=>e.stopPropagation()}>
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
-              <h3 className="font-bold">🔮 占卜详情</h3>
+              <h3 className="font-bold">🔮 {t('admin.readingDetail')}</h3>
               <button onClick={()=>setReadingDetail(null)} className="text-gray-400 hover:text-white"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-4 space-y-3 text-sm max-h-[60vh] overflow-y-auto">
-              <div><span className="text-gray-500">牌阵:</span> {readingDetail.spreadName||readingDetail.spreadType}</div>
-              <div><span className="text-gray-500">塔罗师:</span> {readingDetail.readerStyle||'默认'}</div>
-              <div><span className="text-gray-500">时间:</span> {fd(readingDetail.createdAt)}</div>
-              {readingDetail.cards&&<div><span className="text-gray-500">抽牌:</span><div className="flex flex-wrap gap-1 mt-1">{(Array.isArray(readingDetail.cards)?readingDetail.cards:[]).map((c:any,i:number)=><span key={i} className="px-2 py-0.5 bg-indigo-600/20 text-indigo-300 rounded text-xs">{typeof c==='string'?c:c.name||`Card${i+1}`}</span>)}</div></div>}
-              {readingDetail.question&&<div><span className="text-gray-500">问题:</span><div className="text-gray-300 mt-1">{readingDetail.question}</div></div>}
-              {readingDetail.interpretation&&<div><span className="text-gray-500">解读:</span><div className="text-gray-300 mt-1 whitespace-pre-wrap text-xs">{readingDetail.interpretation}</div></div>}
+              <div><span className="text-gray-500">{t('admin.spreadLabel')}</span> {readingDetail.spreadName||readingDetail.spreadType}</div>
+              <div><span className="text-gray-500">{t('admin.readerLabel')}</span> {readingDetail.readerStyle||t('admin.default')}</div>
+              <div><span className="text-gray-500">{t('admin.timeLabel')}</span> {fd(readingDetail.createdAt)}</div>
+              {readingDetail.cards&&<div><span className="text-gray-500">{t('admin.cardsLabel')}</span><div className="flex flex-wrap gap-1 mt-1">{(Array.isArray(readingDetail.cards)?readingDetail.cards:[]).map((c:any,i:number)=><span key={i} className="px-2 py-0.5 bg-indigo-600/20 text-indigo-300 rounded text-xs">{typeof c==='string'?c:c.name||`Card${i+1}`}</span>)}</div></div>}
+              {readingDetail.question&&<div><span className="text-gray-500">{t('admin.questionLabel')}</span><div className="text-gray-300 mt-1">{readingDetail.question}</div></div>}
+              {readingDetail.interpretation&&<div><span className="text-gray-500">{t('admin.interpretationLabel')}</span><div className="text-gray-300 mt-1 whitespace-pre-wrap text-xs">{readingDetail.interpretation}</div></div>}
             </div>
           </div>
         </div>
@@ -375,11 +381,11 @@ const SC = ({ label, value, sub, c }: { label: string; value: number; sub?: stri
   return (<div className="bg-gray-800 rounded-lg p-3"><div className="text-xs text-gray-500">{label}</div><div className={`text-xl font-bold mt-1 ${colors[c||'indigo']}`}>{value.toLocaleString()}</div>{sub&&<div className="text-xs text-green-400 mt-0.5">{sub}</div>}</div>);
 };
 
-const Pagination = ({ page, total, setPage }: { page: number; total: number; setPage: (p: number) => void }) => (
+const Pagination = ({ page, total, setPage, t }: { page: number; total: number; setPage: (p: number) => void; t: (key: string) => string }) => (
   <div className="flex items-center justify-center gap-3 mt-4">
-    <button onClick={()=>setPage(Math.max(1,page-1))} disabled={page<=1} className="px-3 py-1.5 bg-gray-700 rounded text-sm disabled:opacity-30 hover:bg-gray-600">上一页</button>
+    <button onClick={()=>setPage(Math.max(1,page-1))} disabled={page<=1} className="px-3 py-1.5 bg-gray-700 rounded text-sm disabled:opacity-30 hover:bg-gray-600">{t('admin.prevPage')}</button>
     <span className="text-sm text-gray-400">{page} / {total}</span>
-    <button onClick={()=>setPage(page+1)} disabled={page>=total} className="px-3 py-1.5 bg-gray-700 rounded text-sm disabled:opacity-30 hover:bg-gray-600">下一页</button>
+    <button onClick={()=>setPage(page+1)} disabled={page>=total} className="px-3 py-1.5 bg-gray-700 rounded text-sm disabled:opacity-30 hover:bg-gray-600">{t('admin.nextPage')}</button>
   </div>
 );
 

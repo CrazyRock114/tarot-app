@@ -86,7 +86,8 @@ function getCardImage(card: SharedCard): string | null {
 }
 
 const Share = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isZh = i18n.language.startsWith('zh');
   const getReaderName = (id: string) => t('readers_data.' + id + '.name');
   const { shareId } = useParams<{ shareId: string }>();
   const navigate = useNavigate();
@@ -219,7 +220,7 @@ const Share = () => {
             </div>
           )}
           <p className="text-gray-500 text-sm mt-2">
-            {new Date(reading.createdAt).toLocaleString(localStorage.getItem('i18nextLng') || 'zh-CN')}
+            {new Date(reading.createdAt).toLocaleString(localStorage.getItem('i18nextLng') || 'en')}
           </p>
         </motion.div>
 
@@ -260,8 +261,8 @@ const Share = () => {
                   
                   {/* Card Info */}
                   <div className="space-y-1">
-                    <p className="text-white font-medium">{card.name}</p>
-                    <p className="text-gray-400 text-sm">{card.nameEn}</p>
+                    <p className="text-white font-medium">{isZh ? card.name : (card.nameEn || card.name)}</p>
+                    <p className="text-gray-400 text-sm">{isZh ? card.nameEn : card.name}</p>
                     <span className={`inline-block px-2 py-0.5 text-xs rounded-full ${
                       card.orientation === 'reversed' 
                         ? 'bg-amber-600/20 text-amber-300' 

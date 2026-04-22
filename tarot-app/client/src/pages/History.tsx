@@ -102,7 +102,7 @@ const History = () => {
     if (diffHours < 24) return t('time.hoursAgo', { count: diffHours });
     if (diffDays < 7) return t('time.daysAgo', { count: diffDays });
     
-    return date.toLocaleDateString('zh-CN', {
+    return date.toLocaleDateString(localStorage.getItem('i18nextLng') || 'en', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',

@@ -13,6 +13,7 @@ interface ShareImageProps {
   interpretation: string;
   cards: Array<{
     name: string;
+    nameEn?: string;
     orientation: string;
     image?: string;
   }>;
@@ -48,7 +49,8 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, x: number, y: num
 }
 
 const ShareImage = ({ visible, onClose, shareUrl, question, spreadName, readerName, interpretation, cards }: ShareImageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isZh = i18n.language.startsWith('zh');
   const [imageUrl, setImageUrl] = useState('');
   const [, setGenerating] = useState(false);
 
@@ -166,7 +168,7 @@ const ShareImage = ({ visible, onClose, shareUrl, question, spreadName, readerNa
       // Question
       ctx.font = '24px sans-serif';
       ctx.fillStyle = '#94a3b8';
-      const q = question.length > 25 ? '「' + question.slice(0, 25) + '...」' : '「' + question + '」';
+      const q = question.length > 25 ? '"' + question.slice(0, 25) + '..."' : '"' + question + '"';
       ctx.fillText(q, W / 2, curY + 20);
       curY += 28;
       
@@ -246,7 +248,7 @@ const ShareImage = ({ visible, onClose, shareUrl, question, spreadName, readerNa
         ctx.textAlign = 'center';
         ctx.font = '20px sans-serif';
         ctx.fillStyle = '#c7d2fe';
-        ctx.fillText(card.name, cx + cardW / 2, labelY);
+        ctx.fillText(isZh ? card.name : (card.nameEn || card.name), cx + cardW / 2, labelY);
         
         ctx.font = '18px sans-serif';
         ctx.fillStyle = card.orientation === 'reversed' ? '#f87171' : '#4ade80';

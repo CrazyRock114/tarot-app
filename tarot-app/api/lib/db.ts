@@ -114,9 +114,10 @@ const DailyFortuneSchema = new mongoose.Schema({
   luckyNumber: { type: Number },
   luckyColor: { type: String },
   advice: { type: String },
+  lang: { type: String, default: 'zh-CN' },
   createdAt: { type: Date, default: Date.now },
 });
-DailyFortuneSchema.index({ date: 1, zodiac: 1 }, { unique: true });
+DailyFortuneSchema.index({ date: 1, zodiac: 1, lang: 1 }, { unique: true });
 
 // PointsLog Schema
 const PointsLogSchema = new mongoose.Schema({

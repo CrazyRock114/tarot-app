@@ -72,7 +72,8 @@ function getCardImage(card: { nameEn?: string; image?: string; id?: string; suit
 }
 
 const HistoryDetail = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isZh = i18n.language.startsWith('zh');
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isAuthenticated, loading: authLoading } = useAuth();
@@ -319,8 +320,8 @@ const HistoryDetail = () => {
                   
                   {/* Card Info */}
                   <div className="space-y-1">
-                    <h3 className="text-white font-medium">{card.name}</h3>
-                    <p className="text-gray-500 text-xs">{card.nameEn}</p>
+                    <h3 className="text-white font-medium">{isZh ? card.name : (card.nameEn || card.name)}</h3>
+                    <p className="text-gray-500 text-xs">{isZh ? card.nameEn : card.name}</p>
                     {card.orientation && (
                       <span className={`inline-block px-2 py-0.5 text-xs rounded-full ${
                         card.orientation === 'reversed'

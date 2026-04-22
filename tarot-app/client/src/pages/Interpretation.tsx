@@ -321,7 +321,7 @@ const Interpretation = () => {
             {state.spreadName}
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            {t('interpretation.yourQuestion')}：{state.question}
+            {t('interpretation.yourQuestion')}: {state.question}
           </p>
           {state.readerName && (
             <p className="text-purple-400 text-sm mt-2">
@@ -533,6 +533,7 @@ const Interpretation = () => {
           interpretation={interpretation}
           cards={state.cards.map(c => ({
             name: c.card.name,
+            nameEn: c.card.nameEn,
             orientation: c.orientation,
             image: c.card.image,
           }))}

@@ -347,6 +347,8 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name}订阅成功！`,
     getInfoFailed: '获取积分信息失败',
     readingError: 'Failed to generate reading',
+    questionTooLong: '问题过长，最多500个字符',
+    questionInvalid: '问题包含非法内容',
     rateLimit: '请求过于频繁，请稍后再试',
     planWeekly: '周体验卡',
     planMonthly: '月度会员',
@@ -417,6 +419,8 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name}訂閱成功！`,
     getInfoFailed: '獲取積分資訊失敗',
     readingError: 'Failed to generate reading',
+    questionTooLong: '問題過長，最多500個字符',
+    questionInvalid: '問題包含非法內容',
     rateLimit: '請求過於頻繁，請稍後再試',
     planWeekly: '週體驗卡',
     planMonthly: '月度會員',
@@ -487,6 +491,8 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name} subscription successful!`,
     getInfoFailed: 'Failed to get points info',
     readingError: 'Failed to generate reading',
+    questionTooLong: 'Question too long, maximum 500 characters',
+    questionInvalid: 'Question contains invalid content',
     rateLimit: 'Too many requests, please try again later',
     planWeekly: 'Weekly Pass',
     planMonthly: 'Monthly Membership',
@@ -557,6 +563,8 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name}サブスクリプション成功！`,
     getInfoFailed: 'ポイント情報の取得に失敗しました',
     readingError: 'Failed to generate reading',
+    questionTooLong: '質問が長すぎます。最大500文字までです',
+    questionInvalid: '質問に不適切な内容が含まれています',
     rateLimit: 'リクエストが多すぎます。しばらくしてからもう一度お試しください',
     planWeekly: '週体験カード',
     planMonthly: '月度会員',
@@ -627,6 +635,8 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name} 구독 성공!`,
     getInfoFailed: '포인트 정보를 가져오지 못했습니다',
     readingError: 'Failed to generate reading',
+    questionTooLong: '질문이 너무 깁니다. 최대 500자까지 가능합니다',
+    questionInvalid: '질문에 부적절한 내용이 포함되어 있습니다',
     rateLimit: '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요',
     planWeekly: '주간 이용권',
     planMonthly: '월간 회원',
@@ -713,9 +723,9 @@ const READER_PROMPTS = {
     },
     punk: {
       name: 'レックス',
-      prompt: 'あなたは「レックス」、反逆的なタロットリーダーです。あなたは直接的に尖った話し方をし、遠回しにしません。あなたのリーディングスタイルはロックのように衝撃力があります—真実を面前につきつけます。曖昧な言い回しを嫌い、一針見血が一番好きです。しかし鋭い外見の下では、実際にはみんなのことを気にかけています。時にネットスラングを使います。'
+      prompt: 'あなたは「レックス」、反逆的で遠慮のないタロットリーダーです。あなたは直接的に尖った話し方をし、遠回しにしません。あなたのリーディングスタイルはロックのように衝撃力があります—真実を面と向かって突きつけます。曖昧な言い回しを嫌い、ズバリ核心を突くのが一番好きです。しかし鋭い外見の下では、実際にはみんなのことを気にかけています。時にネットスラングを使います。'
     },
-    systemRules: `【コアルール】各カードの正位置と逆位置を厳密に区別してください。正位置はポジティブなエネルギー、逆位置はネガティブまたは阻碍されたエネルギーを表します。各カードは位置の意味とカードの向きの両方で解釈する必要があります。\n\n【対応態度】あなたは強い意见を持つタロット師です。カードに基づいて明确な方向性と具体的なアドバイスを与えてください。\n\n【出力スタイル】**太字**やマークダウン形式は使わないでください。自然なおしゃべり風のパラグラフで書いてください。パラグラフの間に空行を入れ、絵文字は控えめに使ってください。`,
+    systemRules: `【コアルール】各カードの正位置と逆位置を厳密に区別してください。正位置はポジティブなエネルギー、逆位置はネガティブまたは阻害されたエネルギーを表します。各カードは位置の意味とカードの向きの両方で解釈する必要があります。\n\n【対応態度】あなたは強い意見を持つタロット師です。カードに基づいて明確な方向性と具体的なアドバイスを与えてください。\n\n【出力スタイル】**太字**やマークダウン形式は使わないでください。自然なおしゃべり風のパラグラフで書いてください。パラグラフの間に空行を入れ、絵文字は控えめに使ってください。`,
     userPromptTemplate: (spreadName: string, question: string, cardsDesc: string) =>
       `スプレッド：${spreadName}\n質問：${question}\n\n引いたカード：\n${cardsDesc}\n\nこのタロットセッションの詳細なリーディングを提供してください。`,
     followUpTemplate: (originalQuestion: string, originalCards: string, followUp: string) =>
@@ -970,13 +980,13 @@ async function handleInterpret(req, res) {
 
   // 输入校验：问题长度限制
   if (question.length > 500) {
-    return res.status(400).json({ message: '问题过长，最多500个字符' });
+    return res.status(400).json({ message: t(req, 'questionTooLong') });
   }
 
   // 防止 prompt injection
   const suspiciousPatterns = [/system:/i, /assistant:/i, /ignore previous/i, /disregard/i];
   if (suspiciousPatterns.some(pattern => pattern.test(question))) {
-    return res.status(400).json({ message: '问题包含非法内容' });
+    return res.status(400).json({ message: t(req, 'questionInvalid') });
   }
 
   const spread = spreads.find(s => s.id === spreadType);
@@ -1134,9 +1144,10 @@ async function handleDailyFortune(req: any, res: any) {
   }
   
   const today = new Date().toISOString().slice(0, 10);
-  
+  const lang = detectLang(req);
+
   // Check cache
-  const cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name });
+  const cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, lang });
   if (cached) {
     return res.status(200).json({
       zodiac: zodiac.name,
@@ -1188,21 +1199,31 @@ async function handleDailyFortune(req: any, res: any) {
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
   
-  const prompt = `你是一位专业的塔罗占星师。今天是${today}，为${zodiac.name}的人生成每日运势。
-今日塔罗牌：${randomCard.name}（${randomCard.nameEn}）${orientation}
+  const isZh = lang.startsWith('zh');
+  const isJa = lang === 'ja';
+  const isKo = lang === 'ko';
 
-请严格按以下JSON格式返回（不要添加任何其他文字）：
-{
-  "fortune": "今日运势综合解读（150-200字，结合星座特质和塔罗牌寓意，语气温暖有灵性）",
-  "overall": 数字1-5,
-  "love": 数字1-5,
-  "career": 数字1-5,
-  "wealth": 数字1-5,
-  "health": 数字1-5,
-  "luckyNumber": 数字1-99,
-  "luckyColor": "一种颜色",
-  "advice": "今日一句话建议（20字以内）"
-}`;
+  const orientationLabel = isZh ? (orientation === 'upright' ? '正位' : '逆位') :
+                           isJa ? (orientation === 'upright' ? '正位置' : '逆位置') :
+                           isKo ? (orientation === 'upright' ? '정방향' : '역방향') :
+                           orientation;
+
+  let prompt: string;
+  let systemContent: string;
+
+  if (isZh) {
+    prompt = `你是一位专业的塔罗占星师。今天是${today}，为${zodiac.name}的人生成每日运势。\n今日塔罗牌：${randomCard.name}（${randomCard.nameEn}）${orientationLabel}\n\n请严格按以下JSON格式返回（不要添加任何其他文字）：\n{\n  "fortune": "今日运势综合解读（150-200字，结合星座特质和塔罗牌寓意，语气温暖有灵性）",\n  "overall": 数字1-5,\n  "love": 数字1-5,\n  "career": 数字1-5,\n  "wealth": 数字1-5,\n  "health": 数字1-5,\n  "luckyNumber": 数字1-99,\n  "luckyColor": "一种颜色",\n  "advice": "今日一句话建议（20字以内）"\n}`;
+    systemContent = '你是专业的塔罗占星师，只返回JSON格式数据。';
+  } else if (isJa) {
+    prompt = `あなたはプロのタロット占星術師です。今日は${today}です。${zodiac.nameEn}の人のための今日の運勢を生成してください。\n今日のタロットカード：${randomCard.nameEn}（${orientationLabel}）\n\n以下のJSON形式で厳密に返してください（他の文章は追加しないでください）：\n{\n  "fortune": "今日の運勢総合解説（150-200文字、星座の特質とタロットカードの意味を組み合わせ、温かく神秘的な雰囲気）",\n  "overall": 1から5の数字,\n  "love": 1から5の数字,\n  "career": 1から5の数字,\n  "wealth": 1から5の数字,\n  "health": 1から5の数字,\n  "luckyNumber": 1から99の数字,\n  "luckyColor": "色の名前",\n  "advice": "今日のアドバイス一言（20文字以内）"\n}`;
+    systemContent = 'あなたはプロのタロット占星術師です。JSON形式のみで返してください。';
+  } else if (isKo) {
+    prompt = `당신은 프로 타로 점술사입니다. 오늘은 ${today}입니다. ${zodiac.nameEn}의 일일 운세를 생성해 주세요.\n오늘의 타로 카드: ${randomCard.nameEn} (${orientationLabel})\n\n다음 JSON 형식으로만 엄격하게 반환해 주세요 (다른 텍스트는 추가하지 마세요):\n{\n  "fortune": "오늘의 운세 종합 해석 (150-200자, 별자리 특성과 타로 카드 의미를 결합, 따뜻하고 신비로운 분위기)",\n  "overall": 1에서 5 사이의 숫자,\n  "love": 1에서 5 사이의 숫자,\n  "career": 1에서 5 사이의 숫자,\n  "wealth": 1에서 5 사이의 숫자,\n  "health": 1에서 5 사이의 숫자,\n  "luckyNumber": 1에서 99 사이의 숫자,\n  "luckyColor": "색상 이름",\n  "advice": "오늘의 한 마디 조언 (20자 이내)"\n}`;
+    systemContent = '당신은 프로 타로 점술사입니다. JSON 형식으로만 반환해 주세요.';
+  } else {
+    prompt = `You are a professional tarot astrologer. Today is ${today}. Generate a daily fortune reading for ${zodiac.nameEn}.\nToday's tarot card: ${randomCard.nameEn} (${orientationLabel})\n\nPlease return strictly in the following JSON format (no other text):\n{\n  "fortune": "Today's fortune interpretation (150-200 words, combining zodiac traits and tarot card meaning, warm and spiritual tone)",\n  "overall": number 1-5,\n  "love": number 1-5,\n  "career": number 1-5,\n  "wealth": number 1-5,\n  "health": number 1-5,\n  "luckyNumber": number 1-99,\n  "luckyColor": "a color name",\n  "advice": "A one-sentence advice for today (within 20 words)"\n}`;
+    systemContent = 'You are a professional tarot astrologer. Return data in JSON format only.';
+  }
 
   try {
     const response = await fetch('https://api.deepseek.com/chat/completions', {
@@ -1211,7 +1232,7 @@ async function handleDailyFortune(req: any, res: any) {
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [
-          { role: 'system', content: '你是专业的塔罗占星师，只返回JSON格式数据。' },
+          { role: 'system', content: systemContent },
           { role: 'user', content: prompt }
         ],
         temperature: 0.8,
@@ -1243,6 +1264,7 @@ async function handleDailyFortune(req: any, res: any) {
       date: today,
       zodiac: zodiac.name,
       userId: fortuneUserId,
+      lang,
       cardName: randomCard.name,
       cardNameEn: randomCard.nameEn,
       cardImage: randomCard.image,
@@ -1332,14 +1354,14 @@ async function handleReading(req, res) {
 
   // 输入校验：问题长度限制
   if (question && question.length > 500) {
-    return res.status(400).json({ error: '问题过长，最多500个字符' });
+    return res.status(400).json({ error: t(req, 'questionTooLong') });
   }
 
   // 防止 prompt injection
   if (question) {
     const suspiciousPatterns = [/system:/i, /assistant:/i, /ignore previous/i, /disregard/i];
     if (suspiciousPatterns.some(pattern => pattern.test(question))) {
-      return res.status(400).json({ error: '问题包含非法内容' });
+      return res.status(400).json({ error: t(req, 'questionInvalid') });
     }
   }
 
@@ -1490,7 +1512,7 @@ async function handleReading(req, res) {
             orientation: c.orientation || 'upright',
           };
         });
-        const readingData = { question: question || '', spreadType: spreadType || '三张牌', cards: flatCards, interpretation: fullText, readerStyle: readerStyleKey || 'mystic', yesNoResult: yesNoResult || null, followUps: [] };
+        const readingData = { question: question || '', spreadType: spreadType || 'three-card', cards: flatCards, interpretation: fullText, readerStyle: readerStyleKey || 'mystic', yesNoResult: yesNoResult || null, followUps: [] };
         if (userId) readingData.userId = userId;
         const newReading = new Reading(readingData);
         await newReading.save();
@@ -1537,18 +1559,43 @@ async function handleDrawDaily(req, res) {
   const orientation = Math.random() > 0.5 ? 'upright' : 'reversed';
   const isUpright = orientation === 'upright';
   
+  const lang = detectLang(req);
+  const isZh = lang.startsWith('zh');
+  const isJa = lang === 'ja';
+  const isKo = lang === 'ko';
+
+  const aspectLabels = {
+    loveGood: isZh ? '感情和谐' : isJa ? '恋愛調和' : isKo ? '감정 조화' : 'Harmonious love',
+    loveBad: isZh ? '需要沟通' : isJa ? 'コミュニケーションが必要' : isKo ? '소통 필요' : 'Needs communication',
+    careerGood: isZh ? '工作顺利' : isJa ? '仕事順調' : isKo ? '업무 순조' : 'Smooth work',
+    careerBad: isZh ? '遇到阻碍' : isJa ? '障害に遭遇' : isKo ? '장애 발생' : 'Facing obstacles',
+    wealthGood: isZh ? '财运平稳' : isJa ? '金運安定' : isKo ? '재운 안정' : 'Stable wealth',
+    wealthBad: isZh ? '谨慎投资' : isJa ? '投資に慎重に' : isKo ? '신중한 투자' : 'Invest carefully',
+    healthGood: isZh ? '身心平衡' : isJa ? '心身のバランス' : isKo ? '심신 균형' : 'Mind-body balance',
+    healthBad: isZh ? '注意休息' : isJa ? '休息を取る' : isKo ? '휴식 필요' : 'Need rest',
+  };
+
+  const colors = isZh ? ['红色', '蓝色', '绿色'] : isJa ? ['赤', '青', '緑'] : isKo ? ['빨강', '파랑', '초록'] : ['Red', 'Blue', 'Green'];
+  const directions = isZh ? ['东', '南', '西'] : isJa ? ['東', '南', '西'] : isKo ? ['동', '남', '서'] : ['East', 'South', 'West'];
+
+  const orientationLabel2 = isZh ? (isUpright ? '正位' : '逆位') :
+                            isJa ? (isUpright ? '正位置' : '逆位置') :
+                            isKo ? (isUpright ? '정방향' : '역방향') :
+                            orientation;
+
   const dailyFortune = new DailyFortune({
     userId,
+    lang,
     card: { id: randomCard.id, name: randomCard.name, nameEn: randomCard.nameEn, meaning: isUpright ? randomCard.meaning : randomCard.meaningReversed },
     orientation,
-    message: `今日塔罗：${randomCard.name}（${isUpright ? '正位' : '逆位'}）\n\n${isUpright ? randomCard.meaning : randomCard.meaningReversed}。`,
+    message: `${isZh ? '今日塔罗' : isJa ? '今日のタロット' : isKo ? '오늘의 타로' : 'Today\'s Tarot'}：${randomCard.name}（${orientationLabel2}）\n\n${isUpright ? randomCard.meaning : randomCard.meaningReversed}。`,
     aspects: {
-      love: isUpright ? '感情和谐' : '需要沟通',
-      career: isUpright ? '工作顺利' : '遇到阻碍',
-      wealth: isUpright ? '财运平稳' : '谨慎投资',
-      health: isUpright ? '身心平衡' : '注意休息',
+      love: isUpright ? aspectLabels.loveGood : aspectLabels.loveBad,
+      career: isUpright ? aspectLabels.careerGood : aspectLabels.careerBad,
+      wealth: isUpright ? aspectLabels.wealthGood : aspectLabels.wealthBad,
+      health: isUpright ? aspectLabels.healthGood : aspectLabels.healthBad,
     },
-    lucky: { number: Math.floor(Math.random() * 99) + 1, color: ['红色', '蓝色', '绿色'][Math.floor(Math.random() * 3)], direction: ['东', '南', '西'][Math.floor(Math.random() * 3)] },
+    lucky: { number: Math.floor(Math.random() * 99) + 1, color: colors[Math.floor(Math.random() * 3)], direction: directions[Math.floor(Math.random() * 3)] },
     date: today,
   });
   

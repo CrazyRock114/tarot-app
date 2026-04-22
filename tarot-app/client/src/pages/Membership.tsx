@@ -137,7 +137,7 @@ export default function Membership() {
               <Crown className="w-6 h-6 text-yellow-400" />
             </div>
             <div>
-              <p className="text-yellow-400 font-semibold">{t('membership.current')}：{info.membership === 'yearly' ? t('membership.yearly') : t('membership.monthly')}</p>
+              <p className="text-yellow-400 font-semibold">{t('membership.current')}: {info.membership === 'yearly' ? t('membership.yearly') : t('membership.monthly')}</p>
               <p className="text-gray-400 text-sm">
                 {t('membership.daysLeft', { days: info.daysLeft })} · {info.membershipExpiry ? new Date(info.membershipExpiry).toLocaleDateString(localStorage.getItem('i18nextLng') || 'zh-CN') : ''}
               </p>
@@ -197,7 +197,7 @@ export default function Membership() {
                 <div className="mb-4">
                   <div className="text-2xl font-bold text-white">{plan.price}</div>
                   <div className="text-purple-400 text-sm mt-1">
-                    {t('membership.subscribe')}：{plan.pointsPrice} {t('membership.pointsUnit')}
+                    {t('membership.subscribe')}: {plan.pointsPrice} {t('membership.pointsUnit')}
                   </div>
                 </div>
 
