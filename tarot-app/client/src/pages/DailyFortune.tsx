@@ -41,16 +41,16 @@ const getZodiacEmoji = (zodiac: string) => {
   return map[zodiac] || '⭐';
 };
 
-const ScoreBar = ({ label, score, icon: Icon, color }: { label: string; score: number; icon: any; color: string }) => (
+const ScoreBar = ({ label, score, icon: Icon, textColor, bgColor }: { label: string; score: number; icon: any; textColor: string; bgColor: string }) => (
   <div className="flex items-center gap-3">
-    <Icon className={`w-4 h-4 ${color} flex-shrink-0`} />
+    <Icon className={`w-4 h-4 ${textColor} flex-shrink-0`} />
     <span className="text-gray-400 text-sm w-12">{label}</span>
     <div className="flex-1 flex gap-1">
       {[1, 2, 3, 4, 5].map(i => (
-        <div key={i} className={`h-2.5 flex-1 rounded-full transition-all ${i <= score ? color.replace('text-', 'bg-') : 'bg-gray-700'}`} />
+        <div key={i} className={`h-2.5 flex-1 rounded-full transition-all ${i <= score ? bgColor : 'bg-gray-700'}`} />
       ))}
     </div>
-    <span className={`text-sm font-medium ${color}`}>{score}/5</span>
+    <span className={`text-sm font-medium ${textColor}`}>{score}/5</span>
   </div>
 );
 
@@ -295,11 +295,11 @@ const DailyFortune = () => {
               {/* Scores */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700/50 space-y-4">
                 <h2 className="text-white font-semibold mb-2">{t('fortune.overallFortune')}</h2>
-                <ScoreBar label={t('fortune.overallFortune')} score={fortune.scores.overall} icon={Star} color="text-purple-400" />
-                <ScoreBar label={t('fortune.love')} score={fortune.scores.love} icon={Heart} color="text-pink-400" />
-                <ScoreBar label={t('fortune.career')} score={fortune.scores.career} icon={Briefcase} color="text-blue-400" />
-                <ScoreBar label={t('fortune.wealth')} score={fortune.scores.wealth} icon={Coins} color="text-yellow-400" />
-                <ScoreBar label={t('fortune.health')} score={fortune.scores.health} icon={Activity} color="text-green-400" />
+                <ScoreBar label={t('fortune.overallFortune')} score={fortune.scores.overall} icon={Star} textColor="text-purple-400" bgColor="bg-purple-400" />
+                <ScoreBar label={t('fortune.love')} score={fortune.scores.love} icon={Heart} textColor="text-pink-400" bgColor="bg-pink-400" />
+                <ScoreBar label={t('fortune.career')} score={fortune.scores.career} icon={Briefcase} textColor="text-blue-400" bgColor="bg-blue-400" />
+                <ScoreBar label={t('fortune.wealth')} score={fortune.scores.wealth} icon={Coins} textColor="text-yellow-400" bgColor="bg-yellow-400" />
+                <ScoreBar label={t('fortune.health')} score={fortune.scores.health} icon={Activity} textColor="text-green-400" bgColor="bg-green-400" />
               </motion.div>
 
               {/* Lucky */}

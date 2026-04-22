@@ -1146,8 +1146,40 @@ async function handleDailyFortune(req: any, res: any) {
   const today = new Date().toISOString().slice(0, 10);
   const lang = detectLang(req);
 
-  // Check cache
-  const cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, lang });
+  // Check if user is logged in
+  let fortuneUserId: any = null;
+  try {
+    const token = (req.headers.authorization || '').replace('Bearer ', '');
+    if (token) {
+      const decoded = jwt.verify(token, JWT_SECRET) as any;
+      fortuneUserId = decoded.userId;
+    }
+  } catch (e) { /* not logged in */ }
+
+  // For logged-in users: find any fortune today (regardless of language) to avoid regeneration on language switch
+  if (fortuneUserId) {
+    const userAnyLang = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, userId: fortuneUserId });
+    if (userAnyLang) {
+      return res.status(200).json({
+        zodiac: zodiac.name,
+        zodiacEn: zodiac.nameEn,
+        date: today,
+        cardName: userAnyLang.cardName,
+        cardNameEn: userAnyLang.cardNameEn,
+        cardImage: userAnyLang.cardImage,
+        cardOrientation: userAnyLang.cardOrientation,
+        fortune: userAnyLang.fortune,
+        scores: { overall: userAnyLang.overall, love: userAnyLang.love, career: userAnyLang.career, wealth: userAnyLang.wealth, health: userAnyLang.health },
+        luckyNumber: userAnyLang.luckyNumber,
+        luckyColor: userAnyLang.luckyColor,
+        advice: userAnyLang.advice,
+        cached: true,
+      });
+    }
+  }
+
+  // For anonymous users: check cache by language
+  const cached = await DailyFortune.findOne({ date: today, zodiac: zodiac.name, lang, userId: null });
   if (cached) {
     return res.status(200).json({
       zodiac: zodiac.name,
@@ -1250,16 +1282,6 @@ async function handleDailyFortune(req: any, res: any) {
     const fortune = JSON.parse(jsonMatch[0]);
     
     // Save to DB cache
-    // Get userId if logged in (optional)
-    let fortuneUserId = null;
-    try {
-      const token = (req.headers.authorization || '').replace('Bearer ', '');
-      if (token) {
-        const decoded = jwt.verify(token, JWT_SECRET) as any;
-        fortuneUserId = decoded.userId;
-      }
-    } catch (e) { /* not logged in, fine */ }
-    
     const fortuneDoc = new DailyFortune({
       date: today,
       zodiac: zodiac.name,

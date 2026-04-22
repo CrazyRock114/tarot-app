@@ -46,9 +46,9 @@ export const Home: React.FC = () => {
   ];
 
   const vipPlans = [
-    { plan: t('membership.weekly'), price: t('membership.weeklyPrice'), period: t('home.perWeek'), color: 'from-blue-600 to-cyan-600', features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup')] },
-    { plan: t('membership.monthly'), price: t('membership.monthlyPrice'), period: t('home.perMonth'), color: 'from-purple-600 to-indigo-600', popular: true, features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup'), t('home.voiceReading'), t('home.exclusiveBack')] },
-    { plan: t('membership.yearly'), price: t('membership.yearlyPrice'), period: t('home.perYear'), color: 'from-yellow-500 to-orange-500', features: [t('home.allBenefits'), t('home.annualReport'), t('home.earlyAccess')] },
+    { plan: t('membership.weekly'), price: t('membership.weeklyPrice'), points: 150, color: 'from-blue-600 to-cyan-600', features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup')] },
+    { plan: t('membership.monthly'), price: t('membership.monthlyPrice'), points: 500, color: 'from-purple-600 to-indigo-600', popular: true, features: [t('home.unlimitedReading'), t('home.allReaders'), t('home.unlimitedFollowup'), t('home.voiceReading'), t('home.exclusiveBack')] },
+    { plan: t('membership.yearly'), price: t('membership.yearlyPrice'), points: 4000, color: 'from-yellow-500 to-orange-500', features: [t('home.allBenefits'), t('home.annualReport'), t('home.earlyAccess')] },
   ];
 
   return (
@@ -199,10 +199,10 @@ export const Home: React.FC = () => {
                   <Crown className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-white font-semibold mb-1">{item.plan}</h3>
-                <div className="mb-4">
+                <div className="mb-1">
                   <span className="text-2xl font-bold text-white">{item.price}</span>
-                  <span className="text-gray-400 text-sm">{item.period}</span>
                 </div>
+                <p className="text-purple-400 text-sm mb-4">{t('membership.subscribe')}: {item.points} {t('membership.pointsUnit')}</p>
                 <ul className="space-y-2 mb-5">
                   {item.features.map((f, j) => (
                     <li key={j} className="flex items-center gap-2 text-sm text-gray-300">

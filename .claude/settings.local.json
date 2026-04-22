@@ -50,7 +50,19 @@
       "Bash(node -e \"const ko = require\\('./cards.ko.json'\\); const count = Object.keys\\(ko.cards.major\\).length + Object.keys\\(ko.cards.minor\\).length; console.log\\('Korean cards:', count, 'cards'\\); console.log\\('Major:', Object.keys\\(ko.cards.major\\).length\\); console.log\\('Minor:', Object.keys\\(ko.cards.minor\\).length\\);\")",
       "Bash(git init:*)",
       "Bash(git remote:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(gh auth:*)",
+      "Bash(git commit:*)",
+      "Bash(node fix-translations.js)",
+      "Bash(ssh-add -l)",
+      "Bash(ssh-add ~/.ssh/id_ed25519)",
+      "Bash(git pull *)",
+      "Bash(git fetch *)",
+      "Bash(GIT_SSH_COMMAND=\"ssh -v\" git fetch origin main)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(git reset *)"
     ]
   }
 }
