@@ -197,7 +197,7 @@ const Share = () => {
           </h1>
           {reading.question && (
             <p className="text-gray-400 max-w-xl mx-auto">
-              {t('share.question')}：{reading.question}
+              {t('share.question')}: {reading.question}
             </p>
           )}
           {reading.readerStyle && (
@@ -219,7 +219,7 @@ const Share = () => {
             </div>
           )}
           <p className="text-gray-500 text-sm mt-2">
-            {new Date(reading.createdAt).toLocaleString('zh-CN')}
+            {new Date(reading.createdAt).toLocaleString(localStorage.getItem('i18nextLng') || 'zh-CN')}
           </p>
         </motion.div>
 
@@ -270,7 +270,7 @@ const Share = () => {
                       {card.orientation === 'reversed' ? t('draw.reversed') : t('draw.upright')}
                     </span>
                     {card.position && (
-                      <p className="text-gray-500 text-xs">{t('share.spread')}：{card.position}</p>
+                      <p className="text-gray-500 text-xs">{t('share.spread')}: {card.position}</p>
                     )}
                   </div>
                 </motion.div>

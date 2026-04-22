@@ -105,7 +105,7 @@ const HistoryDetail = () => {
       if (err.response?.status === 404) {
         setError(t('history.recordNotFound'));
       } else {
-        setError(err.response?.data?.message || '获取解读详情失败，请重试');
+        setError(err.response?.data?.message || t('errors.loadFailed', 'Failed to load reading details, please try again'));
       }
     } finally {
       setLoading(false);
@@ -114,7 +114,7 @@ const HistoryDetail = () => {
 
   // 删除记录
   const handleDelete = async () => {
-    if (!confirm(t('common.confirm') + '：' + t('history.title') + '？')) {
+    if (!confirm(t('common.confirm') + ': ' + t('history.title') + '?')) {
       return;
     }
 
@@ -132,7 +132,8 @@ const HistoryDetail = () => {
   // 格式化日期
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
+    const lang = localStorage.getItem('i18nextLng') || 'zh-CN';
+    return date.toLocaleDateString(lang, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -156,8 +157,8 @@ const HistoryDetail = () => {
   // 复制分享
   const handleShare = async () => {
     if (!reading) return;
-    
-    const shareText = `【AI塔罗解读】\n问题：${reading.question || '无特定问题'}\n牌阵：${getSpreadTypeName(reading.spreadType)}\n时间：${formatDate(reading.createdAt)}\n\n牌面：${reading.cards?.map(c => c.name).join('、')}\n\n解读摘要：${reading.interpretation?.slice(0, 100)}...`;
+
+    const shareText = `${t('share.shareTitle')}\n${t('share.questionLabel')}: ${reading.question || t('share.noQuestion')}\n${t('share.spreadLabel')}: ${getSpreadTypeName(reading.spreadType)}\n${t('share.timeLabel')}: ${formatDate(reading.createdAt)}\n\n${t('share.cardsLabel')}: ${reading.cards?.map(c => c.name).join(', ')}\n\n${t('share.summaryLabel')}: ${reading.interpretation?.slice(0, 100)}...`;
     
     try {
       await navigator.clipboard.writeText(shareText);

@@ -208,8 +208,8 @@ const Interpretation = () => {
   }
 
   if (error) {
-    const needRegister = error.includes('注册');
-    const needPoints = error.includes('积分');
+    const needRegister = /注册|register|login|登録|ログイン|가입|로그인/i.test(error);
+    const needPoints = /积分|points|ポイント|포인트/i.test(error);
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
         <div className="max-w-md mx-auto text-center">

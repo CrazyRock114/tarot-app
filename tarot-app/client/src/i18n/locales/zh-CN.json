@@ -383,7 +383,14 @@
     "cards": "牌面",
     "interpretation": "解读",
     "question": "问题",
-    "spread": "牌阵"
+    "spread": "牌阵",
+    "shareTitle": "AI塔罗解读",
+    "questionLabel": "问题",
+    "spreadLabel": "牌阵",
+    "timeLabel": "时间",
+    "cardsLabel": "牌面",
+    "summaryLabel": "解读摘要",
+    "noQuestion": "无特定问题"
   },
   "wheel": {
     "title": "🎰 幸运转盘",

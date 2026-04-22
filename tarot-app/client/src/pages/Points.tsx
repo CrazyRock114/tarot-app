@@ -141,7 +141,7 @@ const Points = () => {
             onAnimationComplete={() => setTimeout(() => setNewAchievements([]), 2500)}
           >
             <Trophy className="w-5 h-5" />
-            {t('points.achievementUnlockedMsg', { names: newAchievements.map(a => ACHIEVEMENTS[a]?.name || a).join('、') })}
+            {t('points.achievementUnlockedMsg', { names: newAchievements.map(a => ACHIEVEMENTS[a]?.name || a).join(', ') })}
           </motion.div>
         )}
       </AnimatePresence>
@@ -247,7 +247,7 @@ const Points = () => {
               <span className="text-white font-medium text-sm">{t("points.inviteFriend")}</span>
               <span className="text-purple-400 text-xs ml-auto">+50</span>
             </div>
-            <p className="text-gray-500 text-xs mb-3">{t('points.inviteCode')}：<code className="text-yellow-400">{data?.inviteCode}</code></p>
+            <p className="text-gray-500 text-xs mb-3">{t('points.inviteCode')}: <code className="text-yellow-400">{data?.inviteCode}</code></p>
             <button onClick={handleCopy} className="w-full py-2 rounded-lg text-sm font-medium bg-purple-600 text-white hover:bg-purple-500 transition-all flex items-center justify-center gap-1">
               {copied ? <><Check className="w-3.5 h-3.5" /> {t('points.copied')}</> : <><Copy className="w-3.5 h-3.5" /> {t('points.copyLink')}</>}
             </button>
@@ -311,7 +311,7 @@ const Points = () => {
                       <span className="text-lg">{info.icon}</span>
                       <div>
                         <div className="text-white text-sm">{log.description || info.label}</div>
-                        <div className="text-gray-500 text-xs">{new Date(log.createdAt).toLocaleString('zh-CN')}</div>
+                        <div className="text-gray-500 text-xs">{new Date(log.createdAt).toLocaleString(localStorage.getItem('i18nextLng') || 'zh-CN')}</div>
                       </div>
                     </div>
                     <span className={`font-medium text-sm ${log.amount > 0 ? 'text-green-400' : 'text-red-400'}`}>

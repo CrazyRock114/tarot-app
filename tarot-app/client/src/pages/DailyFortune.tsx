@@ -258,7 +258,7 @@ const DailyFortune = () => {
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-5xl mb-2">
                   {getZodiacEmoji(fortune.zodiac) || '⭐'}
                 </motion.div>
-                <h1 className="text-2xl font-bold text-white">{fortune.zodiac} {t('fortune.title')}</h1>
+                <h1 className="text-2xl font-bold text-white">{(localStorage.getItem('i18nextLng') || 'zh-CN').startsWith('zh') ? fortune.zodiac : fortune.zodiacEn} {t('fortune.title')}</h1>
                 <p className="text-gray-400 text-sm mt-1">{fortune.date}</p>
               </div>
 
@@ -273,7 +273,7 @@ const DailyFortune = () => {
               >
                 <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
                   <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl shadow-purple-900/30" style={{ backfaceVisibility: 'hidden' }}>
-                    <div className={fortune.cardOrientation === 'reversed' || fortune.cardOrientation === '逆位' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'w-full h-full rotate-180' : 'w-full h-full'}>
+                    <div className={fortune.cardOrientation === 'reversed' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'w-full h-full rotate-180' : 'w-full h-full'}>
                       <img src={fortune.cardImage} alt={fortune.cardName} className="w-full h-full object-contain" />
                     </div>
                   </div>
@@ -283,7 +283,7 @@ const DailyFortune = () => {
                 </div>
               </motion.div>
               <div className="text-center">
-                <p className="text-white font-medium">{fortune.cardName} · {t(`draw.${fortune.cardOrientation === 'reversed' || fortune.cardOrientation === '逆位' ? 'reversed' : 'upright'}`)}</p>
+                <p className="text-white font-medium">{fortune.cardName} · {t(`draw.${fortune.cardOrientation === 'reversed' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'reversed' : 'upright'}`)}</p>
                 <p className="text-gray-500 text-xs">{fortune.cardNameEn}</p>
               </div>
 

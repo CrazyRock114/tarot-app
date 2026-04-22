@@ -287,6 +287,7 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name}订阅成功！`,
     getInfoFailed: '获取积分信息失败',
     readingError: 'Failed to generate reading',
+    rateLimit: '请求过于频繁，请稍后再试',
     planWeekly: '周体验卡',
     planMonthly: '月度会员',
     planYearly: '年度会员',
@@ -352,6 +353,7 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name}訂閱成功！`,
     getInfoFailed: '獲取積分資訊失敗',
     readingError: 'Failed to generate reading',
+    rateLimit: '請求過於頻繁，請稍後再試',
     planWeekly: '週體驗卡',
     planMonthly: '月度會員',
     planYearly: '年度會員',
@@ -417,6 +419,7 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name} subscription successful!`,
     getInfoFailed: 'Failed to get points info',
     readingError: 'Failed to generate reading',
+    rateLimit: 'Too many requests, please try again later',
     planWeekly: 'Weekly Pass',
     planMonthly: 'Monthly Membership',
     planYearly: 'Yearly Membership',
@@ -482,6 +485,7 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name}サブスクリプション成功！`,
     getInfoFailed: 'ポイント情報の取得に失敗しました',
     readingError: 'Failed to generate reading',
+    rateLimit: 'リクエストが多すぎます。しばらくしてからもう一度お試しください',
     planWeekly: '週体験カード',
     planMonthly: '月度会員',
     planYearly: '年度会員',
@@ -547,6 +551,7 @@ const MSG = {
     subscribeSuccess: (name: string) => `${name} 구독 성공!`,
     getInfoFailed: '포인트 정보를 가져오지 못했습니다',
     readingError: 'Failed to generate reading',
+    rateLimit: '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요',
     planWeekly: '주간 이용권',
     planMonthly: '월간 회원',
     planYearly: '연간 회원',
@@ -757,7 +762,7 @@ export default async function handler(req, res) {
 
   // 应用限流
   if (!rateLimit(req, res)) {
-    return res.status(429).json({ error: 'Too many requests', message: '请求过于频繁，请稍后再试' });
+    return res.status(429).json({ error: 'Too many requests', message: t(req, 'rateLimit') });
   }
 
   Object.entries(corsHeaders).forEach(([key, value]) => res.setHeader(key, value));
@@ -866,7 +871,8 @@ async function handleInterpret(req, res) {
       const meaning = c.orientation === 'reversed'
         ? (lang === 'en' ? (c.card?.meaningEnReversed || c.card?.meaningReversed) : c.card?.meaningReversed)
         : (lang === 'en' ? (c.card?.meaningEn || c.card?.meaning) : c.card?.meaning);
-      return `${positionFn(index)}（${posName}）：${cardName || t(req, 'unknown')}（${orient}）- ${meaning || ''}`;
+      const [open, close, colon] = lang.startsWith('zh') || lang === 'ja' ? ['（', '）', '：'] : [' (', ')', ': '];
+      return `${positionFn(index)}${open}${posName}${close}${colon}${cardName || t(req, 'unknown')}${open}${orient}${close} - ${meaning || ''}`;
     }).join('\n');
 
     const systemPrompt = selectedReader.prompt + '\n\n' + langPrompts.systemRules;
@@ -1268,7 +1274,8 @@ async function handleReading(req, res) {
       const orient = c.orientation === 'reversed' ? reversed : upright;
       const cardName = lang === 'en' ? (card.nameEn || card.name) : card.name;
       const cardMeaning = lang === 'en' ? (card.meaningEn || card.meaning) : card.meaning;
-      return `${t(req, 'position', i)}：${cardName || t(req, 'unknown')}（${card.nameEn || ''}）[${orient}] - ${cardMeaning || ''}`;
+      const [open, close, colon] = lang.startsWith('zh') || lang === 'ja' ? ['（', '）', '：'] : [' (', ')', ': '];
+      return `${t(req, 'position', i)}${colon}${cardName || t(req, 'unknown')}${open}${card.nameEn || ''}${close}[${orient}] - ${cardMeaning || ''}`;
     }).join('\n');
 
     const userPrompt = langPrompts.userPromptTemplate(
@@ -1384,7 +1391,7 @@ async function handleGetDaily(req, res) {
   const today = new Date().toISOString().split('T')[0];
   const fortune = await DailyFortune.findOne({ userId, date: today });
   
-  if (!fortune) return res.status(404).json({ message: '今日还未抽取运势', canDraw: true });
+  if (!fortune) return res.status(404).json({ message: t(req, 'fortuneNoDay'), canDraw: true });
   return res.status(200).json(fortune);
 }
 
@@ -1395,7 +1402,7 @@ async function handleDrawDaily(req, res) {
   
   const today = new Date().toISOString().split('T')[0];
   const existing = await DailyFortune.findOne({ userId, date: today });
-  if (existing) return res.status(400).json({ message: '今日已抽取运势，请明日再来' });
+  if (existing) return res.status(400).json({ message: t(req, 'fortuneAlready') });
   
   const randomCard = cards[Math.floor(Math.random() * cards.length)];
   const orientation = Math.random() > 0.5 ? 'upright' : 'reversed';
@@ -1799,19 +1806,20 @@ async function handleFollowUp(req, res, readingId) {
   await new PointsLog({ userId: authUserId, type: 'spend', amount: -FOLLOWUP_COST, description: t(req, 'followUpCost') }).save();
 
   // Build context from original reading (multilingual)
+  const lang = getLang(req);
+  const [open, close, colon] = lang.startsWith('zh') || lang === 'ja' ? ['（', '）', '：'] : [' (', ')', ': '];
   const cardInfo = reading.cards.map((c, i) => {
     const orientation = c.orientation === 'reversed' ? t(req, 'reversed') : t(req, 'upright');
     const posLabel = t(req, 'position', i + 1);
-    return `${posLabel}：${c.name}（${c.nameEn}）[${orientation}] - ${c.meaning || ''}`;
+    return `${posLabel}${colon}${c.name}${open}${c.nameEn || ''}${close}[${orientation}] - ${c.meaning || ''}`;
   }).join('\n');
 
   // Build conversation history with multilingual reader prompts
-  const lang = getLang(req);
   const langPrompts = READER_PROMPTS[lang as keyof typeof READER_PROMPTS] || READER_PROMPTS['zh-CN'];
   const readerData = langPrompts[reading.readerStyle as keyof typeof langPrompts] || langPrompts.mystic;
   const followUpLangHint = lang === 'en' ? 'Please keep your previous character and style, and answer concisely (under 300 words).' :
     lang === 'ja' ? '以前のキャラクターとスタイルを保ち、簡潔に回答してください（300語以内）。' :
-    lang === 'ko' ? '이전的角色과 스타일을 유지하고 간결하게 답변해 주세요（300단어 이내）. ' :
+    lang === 'ko' ? '이전의 캐릭터와 스타일을 유지하고 간결하게 답변해 주세요 (300단어 이내).' :
     lang === 'zh-TW' ? '請保持之前的角色和風格，結合牌面信息回答追問。回答簡潔有力，控制在300字以內。' :
     '请保持之前的角色和风格，结合牌面信息回答追问。回答简洁有力，控制在300字以内。';
   const systemContent = readerData.prompt + '\n' + followUpLangHint;

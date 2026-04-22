@@ -167,7 +167,8 @@
     "seoDesc": "瀏覽78張塔羅牌圖鑑，了解每張牌的正位與逆位含義",
     "noResults": "沒有找到匹配的牌",
     "cardCount": "共 {{count}} 張牌",
-    "faceDesc": "牌面描述"
+    "faceDesc": "牌面描述",
+    "seoTitle": "78張塔羅牌圖鑑"
   },
   "cardDetail": {
     "upright": "正位含義",
@@ -382,7 +383,14 @@
     "cards": "牌面",
     "interpretation": "解讀",
     "question": "問題",
-    "spread": "牌陣"
+    "spread": "牌陣",
+    "shareTitle": "AI塔羅解讀",
+    "questionLabel": "問題",
+    "spreadLabel": "牌陣",
+    "timeLabel": "時間",
+    "cardsLabel": "牌面",
+    "summaryLabel": "解讀摘要",
+    "noQuestion": "無特定問題"
   },
   "wheel": {
     "title": "🎰 幸運轉盤",
@@ -548,7 +556,7 @@
     "deleteHistoryFailed": "刪除記錄失敗"
   },
   "spreads": {
-    "spreads.single": {
+    "single": {
       "name": "單張牌",
       "description": "最簡潔直接的占卜方式，適合快速獲取指引",
       "positions": {
@@ -563,7 +571,7 @@
         "簡單問題"
       ]
     },
-    "spreads.three-card": {
+    "three-card": {
       "name": "三張牌",
       "description": "經典的三張牌陣，探索過去、現在、未來",
       "positions": {
@@ -586,7 +594,7 @@
         "項目進展"
       ]
     },
-    "spreads.celtic-cross": {
+    "celtic-cross": {
       "name": "凱爾特十字",
       "description": "最全面的經典牌陣，深入探索問題的各個層面",
       "positions": {
@@ -633,7 +641,7 @@
         "人生方向"
       ]
     },
-    "spreads.relationship": {
+    "relationship": {
       "name": "關係牌陣",
       "description": "專門探索兩人關係的動態和發展",
       "positions": {
@@ -664,7 +672,7 @@
         "合作關係"
       ]
     },
-    "spreads.decision": {
+    "decision": {
       "name": "決策牌陣",
       "description": "幫助你做出重要決定的牌陣",
       "positions": {
@@ -691,7 +699,7 @@
         "重大決策"
       ]
     },
-    "spreads.problem-solving": {
+    "problem-solving": {
       "name": "問題解決",
       "description": "分析問題的起因、現狀和解決方法",
       "positions": {
@@ -714,7 +722,7 @@
         "突破瓶頸"
       ]
     },
-    "spreads.career": {
+    "career": {
       "name": "事業牌陣",
       "description": "專注探索事業發展、職場挑戰和機遇",
       "positions": {
@@ -745,7 +753,7 @@
         "創業方向"
       ]
     },
-    "spreads.diamond": {
+    "diamond": {
       "name": "鑽石牌陣",
       "description": "萬能型事件分析，全面解讀起因、現狀與未來",
       "positions": {

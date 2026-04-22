@@ -383,7 +383,14 @@
     "cards": "カード",
     "interpretation": "解釈",
     "question": "質問",
-    "spread": "スプレッド"
+    "spread": "スプレッド",
+    "shareTitle": "AIタロットリーディング",
+    "questionLabel": "質問",
+    "spreadLabel": "スプレッド",
+    "timeLabel": "時間",
+    "cardsLabel": "カード",
+    "summaryLabel": "解読要約",
+    "noQuestion": "特定の質問なし"
   },
   "wheel": {
     "title": "🎰 ラッキーホイール",

@@ -24,29 +24,32 @@ function getCurrentLang(): string {
 
 // 获取翻译后的牌名
 function getCardName(suit: string, number: number, isCourt: boolean = false, courtKey?: string): { name: string; nameEn: string } {
-  const t = i18next.getResourceBundle(getCurrentLang(), 'translation');
+  const lang = getCurrentLang();
+  const t = i18next.getResourceBundle(lang, 'translation');
   const cards = t?.cards?.minor || {};
 
   if (isCourt && courtKey) {
     const key = `${suit}_${courtKey}`;
     const cardData = cards[key];
     return {
-      name: cardData?.name || `${suitBaseToName(suit)}${courtKeyToName(courtKey)}`,
+      name: cardData?.name || `${suitBaseToName(suit, lang)}${courtKeyToName(courtKey, lang)}`,
       nameEn: cardData?.nameEn || `${courtKey.charAt(0).toUpperCase() + courtKey.slice(1)} of ${suitBaseToNameEn(suit)}`,
     };
   } else {
     const key = `${suit}_${number}`;
     const cardData = cards[key];
     return {
-      name: cardData?.name || `${suitBaseToName(suit)}${numberToName(number)}`,
+      name: cardData?.name || `${suitBaseToName(suit, lang)}${numberToName(number, lang)}`,
       nameEn: cardData?.nameEn || `${numbersEn[number - 1]} of ${suitBaseToNameEn(suit)}`,
     };
   }
 }
 
-function suitBaseToName(suit: string): string {
-  const map: Record<string, string> = { wands: '权杖', cups: '圣杯', swords: '宝剑', coins: '星币' };
-  return map[suit] || suit;
+function suitBaseToName(suit: string, lang: string): string {
+  const mapZh: Record<string, string> = { wands: '权杖', cups: '圣杯', swords: '宝剑', coins: '星币' };
+  const mapEn: Record<string, string> = { wands: 'Wands', cups: 'Cups', swords: 'Swords', coins: 'Coins' };
+  if (lang.startsWith('zh')) return mapZh[suit] || suit;
+  return mapEn[suit] || suit;
 }
 
 function suitBaseToNameEn(suit: string): string {
@@ -54,14 +57,17 @@ function suitBaseToNameEn(suit: string): string {
   return map[suit] || suit;
 }
 
-function numberToName(num: number): string {
-  const map = ['首牌', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
-  return map[num - 1] || String(num);
+function numberToName(num: number, lang: string): string {
+  const mapZh = ['首牌', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+  if (lang.startsWith('zh')) return mapZh[num - 1] || String(num);
+  return numbersEn[num - 1] || String(num);
 }
 
-function courtKeyToName(key: string): string {
-  const map: Record<string, string> = { page: '侍从', knight: '骑士', queen: '王后', king: '国王' };
-  return map[key] || key;
+function courtKeyToName(key: string, lang: string): string {
+  const mapZh: Record<string, string> = { page: '侍从', knight: '骑士', queen: '王后', king: '国王' };
+  const mapEn: Record<string, string> = { page: 'Page', knight: 'Knight', queen: 'Queen', king: 'King' };
+  if (lang.startsWith('zh')) return mapZh[key] || key;
+  return mapEn[key] || key;
 }
 
 // 生成小阿尔克那
@@ -72,7 +78,7 @@ function generateMinorArcana(): TarotCard[] {
   const t = i18next.getResourceBundle(getCurrentLang(), 'translation');
   const cards = t?.cards?.minor || {};
 
-  suitsBase.forEach(({ suit, nameEn, element, elementEn, keywordsEn }) => {
+  suitsBase.forEach(({ suit, element, elementEn, keywordsEn }) => {
     // 生成数字牌 (1-10)
     for (let num = 1; num <= 10; num++) {
       const key = `${suit}_${num}`;

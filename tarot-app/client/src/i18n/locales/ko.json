@@ -383,7 +383,14 @@
     "cards": "카드",
     "interpretation": "해석",
     "question": "질문",
-    "spread": "스프레드"
+    "spread": "스프레드",
+    "shareTitle": "AI 타로 리딩",
+    "questionLabel": "질문",
+    "spreadLabel": "스프레드",
+    "timeLabel": "시간",
+    "cardsLabel": "카드",
+    "summaryLabel": "리딩 요약",
+    "noQuestion": "특정 질문 없음"
   },
   "wheel": {
     "title": "🎰 행운의 룰렛",
@@ -605,7 +612,7 @@
         },
         "position3": {
           "Name": "과거",
-          "meaning": "消散 중인 과거의 영향"
+          "meaning": "사라지는 과거의 영향"
         },
         "position4": {
           "Name": "미래",
@@ -729,7 +736,7 @@
         },
         "position2": {
           "Name": "숨겨진 기회",
-          "meaning": "見칠 수 있는 기회"
+          "meaning": "보일 수 있는 기회"
         },
         "position3": {
           "Name": "행동 제안",
@@ -748,7 +755,7 @@
     },
     "diamond": {
       "name": "다이아몬드 스프레드",
-      "description": "万能型 이벤트 분석, 원인, 현재, 미래를 종합적으로 해석",
+      "description": "다용도 이벤트 분석, 원인, 현재, 미래를 종합적으로 해석",
       "positions": {
         "position0": {
           "Name": "사건의 원인",
@@ -764,7 +771,7 @@
         },
         "position3": {
           "Name": "최종 결과",
-          "meaning": "사건의发展方向과 결말"
+          "meaning": "사건의 발전 방향과 결말"
         }
       },
       "suitableFor": [
@@ -787,7 +794,7 @@
     "generatingTip": "해석 생성 중, 잠시만 기다려주세요..."
   },
   "shareImage": {
-    "aiReading": "AI 타로 占術",
+    "aiReading": "AI 타로 점술",
     "tarotReader": "타로 리더: ",
     "reversed": "역위",
     "upright": "정위",

@@ -139,7 +139,7 @@ export default function Membership() {
             <div>
               <p className="text-yellow-400 font-semibold">{t('membership.current')}：{info.membership === 'yearly' ? t('membership.yearly') : t('membership.monthly')}</p>
               <p className="text-gray-400 text-sm">
-                {t('membership.daysLeft', { days: info.daysLeft })} · {info.membershipExpiry ? new Date(info.membershipExpiry).toLocaleDateString('zh-CN') : ''}
+                {t('membership.daysLeft', { days: info.daysLeft })} · {info.membershipExpiry ? new Date(info.membershipExpiry).toLocaleDateString(localStorage.getItem('i18nextLng') || 'zh-CN') : ''}
               </p>
             </div>
             <div className="ml-auto">

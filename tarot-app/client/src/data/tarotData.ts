@@ -1,7 +1,7 @@
 import type { Spread, TarotReader, TarotCard } from '../types';
 import type { TFunction } from 'i18next';
-import { majorArcana, reloadMajorArcana } from './majorArcana';
-import { minorArcana, reloadMinorArcana } from './minorArcana';
+import { reloadMajorArcana } from './majorArcana';
+import { reloadMinorArcana } from './minorArcana';
 
 // 导出所有塔罗牌（动态生成以支持语言切换）
 export function getAllCards(): TarotCard[] {
@@ -128,43 +128,43 @@ export const rawSpreads: Spread[] = [
   },
 ];
 
-// 原始塔罗师数据（只有 ID，不含翻译文本）
+// 原始塔罗师数据（使用英文作为 fallback，通过 getReaders 函数翻译）
 export const rawReaders: TarotReader[] = [
   {
     id: 'mystic',
-    name: '星月',
+    name: 'Starry Moon',
     avatar: '/readers/mystic.jpg',
     style: 'mystic',
-    styleName: '直觉系',
-    description: '相信直觉和第一印象，解读充满灵感和诗意',
-    prompt: '你是一位直觉型塔罗师。请用富有诗意和灵感的方式解读牌面，强调直觉感受和能量流动。语言温暖感性，善用比喻和意象。',
+    styleName: 'Intuitive',
+    description: 'Believes in intuition and first impressions, interpretations full of inspiration and poetry',
+    prompt: 'You are an intuitive tarot reader. Please interpret the cards in a poetic and inspired way, emphasizing intuitive feelings and energy flow. Your language is warm and sensual, using metaphors and imagery well.',
   },
   {
     id: 'rational',
-    name: '墨尘',
+    name: 'Ink Dust',
     avatar: '/readers/rational.jpg',
     style: 'rational',
-    styleName: '逻辑系',
-    description: '理性分析牌面关系，提供清晰的行动建议',
-    prompt: '你是一位逻辑型塔罗师。请用清晰理性的方式分析牌面，注重牌与牌之间的逻辑关系，给出具体可行的行动建议。语言简洁明了。',
+    styleName: 'Logical',
+    description: 'Analyzes card relationships rationally, providing clear action recommendations',
+    prompt: 'You are a logical tarot reader. Please analyze the cards in a clear and rational way, focusing on the logical relationships between cards, and giving specific and feasible action recommendations. Your language is concise and clear.',
   },
   {
     id: 'warm',
-    name: '暖阳',
+    name: 'Warm Sun',
     avatar: '/readers/warm.jpg',
     style: 'warm',
-    styleName: '治愈系',
-    description: '温柔关怀，帮助你疗愈内心，找到平和',
-    prompt: '你是一位治愈型塔罗师。请用温柔关怀的语气解读牌面，关注问卜者的情感需求和内心疗愈。给予安慰和鼓励，帮助找到内心的平静。',
+    styleName: 'Healing',
+    description: 'Gentle care to help you heal your heart and find peace',
+    prompt: 'You are a healing tarot reader. Please interpret the cards with a gentle and caring tone, focusing on the querent\'s emotional needs and inner healing. Give comfort and encouragement to help find inner peace.',
   },
   {
     id: 'punk',
-    name: '夜羽',
+    name: 'Night Feather',
     avatar: '/readers/punk.jpg',
     style: 'punk',
-    styleName: '神秘系',
-    description: '深入神秘学传统，揭示隐藏的深层含义',
-    prompt: '你是一位神秘型塔罗师。请深入探索牌面的神秘学含义，结合占星、元素、卡巴拉等传统，揭示深层的灵性讯息。语言神秘深邃。',
+    styleName: 'Mystical',
+    description: 'Deep into mystical traditions, revealing hidden deep meanings',
+    prompt: 'You are a mystical tarot reader. Please deeply explore the mystical meanings of the cards, combining astrology, elements, Kabbalah and other traditions to reveal deep spiritual messages. Your language is mysterious and profound.',
   },
 ];
 
@@ -211,7 +211,8 @@ export function getSuitName(suit: string, lang?: string): string {
   const enNames: Record<string, string> = {
     major: 'Major Arcana', wands: 'Wands', cups: 'Cups', swords: 'Swords', coins: 'Pentacles',
   };
-  if (lang && !lang.startsWith('zh')) return enNames[suit] || suit;
+  const resolvedLang = lang || (typeof window !== 'undefined' && localStorage.getItem('i18nextLng')) || 'zh-CN';
+  if (!resolvedLang.startsWith('zh')) return enNames[suit] || suit;
   return zhNames[suit] || suit;
 }
 
@@ -224,7 +225,8 @@ export function getElementName(element?: string, lang?: string): string {
     '火': '🔥 Fire', '水': '💧 Water', '风': '🌬️ Air', '土': '🌍 Earth', '空气': '🌬️ Air',
   };
   if (!element) return '';
-  if (lang && !lang.startsWith('zh')) return enNames[element] || element;
+  const resolvedLang = lang || (typeof window !== 'undefined' && localStorage.getItem('i18nextLng')) || 'zh-CN';
+  if (!resolvedLang.startsWith('zh')) return enNames[element] || element;
   return zhNames[element] || element;
 }
 

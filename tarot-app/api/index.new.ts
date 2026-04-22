@@ -37,7 +37,7 @@ export default async function handler(req: any, res: any) {
 
   // 应用限流
   if (!rateLimit(req, res)) {
-    return res.status(429).json({ error: 'Too many requests', message: '请求过于频繁，请稍后再试' });
+    return res.status(429).json({ error: 'Too many requests', message: t(req, 'rateLimit') });
   }
 
   Object.entries(corsHeaders).forEach(([key, value]) => res.setHeader(key, value));

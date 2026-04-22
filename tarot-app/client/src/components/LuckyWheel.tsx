@@ -32,7 +32,7 @@ interface Props {
 export default function LuckyWheel({ points, onDraw, onClose }: Props) {
   const { t } = useTranslation();
   const [spinning, setSpinning] = useState(false);
-  const [result, setResult] = useState<{ prize: string; pointsWon: number; net: number; points: number } | null>(null);
+  const [result, setResult] = useState<{ prize: string; pointsWon: number; net: number; points: number; prizeKey?: string } | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [currentPoints, setCurrentPoints] = useState(points);
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -383,7 +383,14 @@
     "cards": "Cards",
     "interpretation": "Reading",
     "question": "Question",
-    "spread": "Spread"
+    "spread": "Spread",
+    "shareTitle": "AI Tarot Reading",
+    "questionLabel": "Question",
+    "spreadLabel": "Spread",
+    "timeLabel": "Time",
+    "cardsLabel": "Cards",
+    "summaryLabel": "Summary",
+    "noQuestion": "No specific question"
   },
   "wheel": {
     "title": "🎰 Lucky Wheel",
