@@ -105,21 +105,35 @@ const DailyFortuneSchema = new mongoose.Schema({
   cardNameEn: { type: String },
   cardNameJa: { type: String },
   cardNameKo: { type: String },
+  cardNameTw: { type: String },
   cardImage: { type: String },
   cardOrientation: { type: String },
-  fortune: { type: String },
+  // 多语言运势文本（一次性生成所有语言）
+  fortuneZh: { type: String },
+  fortuneEn: { type: String },
+  fortuneJa: { type: String },
+  fortuneKo: { type: String },
+  fortuneTw: { type: String },
   overall: { type: Number, min: 1, max: 5 },
   love: { type: Number, min: 1, max: 5 },
   career: { type: Number, min: 1, max: 5 },
   wealth: { type: Number, min: 1, max: 5 },
   health: { type: Number, min: 1, max: 5 },
   luckyNumber: { type: Number },
-  luckyColor: { type: String },
-  advice: { type: String },
+  luckyColorZh: { type: String },
+  luckyColorEn: { type: String },
+  luckyColorJa: { type: String },
+  luckyColorKo: { type: String },
+  luckyColorTw: { type: String },
+  adviceZh: { type: String },
+  adviceEn: { type: String },
+  adviceJa: { type: String },
+  adviceKo: { type: String },
+  adviceTw: { type: String },
   lang: { type: String, default: 'zh-CN' },
   createdAt: { type: Date, default: Date.now },
 });
-DailyFortuneSchema.index({ date: 1, zodiac: 1, userId: 1, lang: 1 }, { unique: true });
+DailyFortuneSchema.index({ date: 1, zodiac: 1, userId: 1 }, { unique: true });
 
 // PointsLog Schema
 const PointsLogSchema = new mongoose.Schema({

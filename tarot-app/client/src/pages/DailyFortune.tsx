@@ -11,11 +11,13 @@ interface FortuneData {
   zodiacEn: string;
   zodiacJa?: string;
   zodiacKo?: string;
+  zodiacTw?: string;
   date: string;
   cardName: string;
   cardNameEn: string;
   cardNameJa?: string;
   cardNameKo?: string;
+  cardNameTw?: string;
   cardImage: string;
   cardOrientation: string;
   fortune: string;
@@ -60,7 +62,8 @@ const ScoreBar = ({ label, score, icon: Icon, textColor, bgColor }: { label: str
 
 const DailyFortune = () => {
   const { t, i18n } = useTranslation();
-  const isZh = i18n.language.startsWith('zh');
+  const isZh = i18n.language === 'zh-CN';
+  const isTw = i18n.language === 'zh-TW';
   const isJa = i18n.language === 'ja';
   const isKo = i18n.language === 'ko';
   const navigate = useNavigate();
@@ -83,6 +86,13 @@ const DailyFortune = () => {
       fetchFortune(savedBirthday);
     }
   }, [user]);
+
+  // 语言切换时重新获取运势（后端会返回对应语言的缓存）
+  useEffect(() => {
+    if (fortune && birthday) {
+      fetchFortune(birthday);
+    }
+  }, [i18n.language]);
 
   const fetchFortune = async (bday: string) => {
     setStep('loading');
@@ -265,7 +275,7 @@ const DailyFortune = () => {
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-5xl mb-2">
                   {getZodiacEmoji(fortune.zodiacEn) || '⭐'}
                 </motion.div>
-                <h1 className="text-2xl font-bold text-white">{isZh ? fortune.zodiac : (isJa ? (fortune.zodiacJa || fortune.zodiacEn) : (isKo ? (fortune.zodiacKo || fortune.zodiacEn) : fortune.zodiacEn))} {t('fortune.title')}</h1>
+                <h1 className="text-2xl font-bold text-white">{isZh ? fortune.zodiac : (isTw ? (fortune.zodiacTw || fortune.zodiac) : (isJa ? (fortune.zodiacJa || fortune.zodiacEn) : (isKo ? (fortune.zodiacKo || fortune.zodiacEn) : fortune.zodiacEn)))} {t('fortune.title')}</h1>
                 <p className="text-gray-400 text-sm mt-1">{fortune.date}</p>
               </div>
 
@@ -290,8 +300,8 @@ const DailyFortune = () => {
                 </div>
               </motion.div>
               <div className="text-center">
-                <p className="text-white font-medium">{isZh ? fortune.cardName : (isJa ? (fortune.cardNameJa || fortune.cardNameEn) : (isKo ? (fortune.cardNameKo || fortune.cardNameEn) : fortune.cardNameEn))} · {t(`draw.${fortune.cardOrientation === 'reversed' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'reversed' : 'upright'}`)}</p>
-                <p className="text-gray-500 text-xs">{isZh ? fortune.cardNameEn : fortune.cardName}</p>
+                <p className="text-white font-medium">{isZh ? fortune.cardName : (isTw ? (fortune.cardNameTw || fortune.cardName) : (isJa ? (fortune.cardNameJa || fortune.cardNameEn) : (isKo ? (fortune.cardNameKo || fortune.cardNameEn) : fortune.cardNameEn)))} · {t(`draw.${fortune.cardOrientation === 'reversed' || fortune.cardOrientation?.toLowerCase().includes('reverse') ? 'reversed' : 'upright'}`)}</p>
+                <p className="text-gray-500 text-xs">{(isZh || isTw) ? fortune.cardNameEn : fortune.cardName}</p>
               </div>
 
               {/* Fortune */}
