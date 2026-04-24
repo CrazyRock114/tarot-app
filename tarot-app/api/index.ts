@@ -1014,7 +1014,7 @@ export default async function handler(req, res) {
         type: 'api',
         message: error.message || 'Unknown error',
         stack: error.stack?.substring(0, 2000),
-        path: parsedUrl.pathname,
+        path: path || req.url,
         method: req.method,
         userId: errUserId,
         ip: req.headers['x-forwarded-for'] || req.socket?.remoteAddress,
@@ -1026,7 +1026,7 @@ export default async function handler(req, res) {
   // Record request log (skip admin/log endpoints to avoid noise)
   try {
     const duration = Date.now() - startTime;
-    const pathStr = parsedUrl.pathname;
+    const pathStr = path || req.url;
     if (!pathStr.startsWith('/api/admin') && !pathStr.includes('favicon')) {
       await connectDB();
       const authHeader = req.headers.authorization;

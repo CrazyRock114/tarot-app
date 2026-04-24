@@ -112,7 +112,9 @@
     "maybe": "? たぶん",
     "noInterpretation": "解釈がありません",
     "copySuccess": "クリップボードにコピーしました",
-    "copyFailed": "コピーに失敗しました。手動でコピーしてください"
+    "copyFailed": "コピーに失敗しました。手動でコピーしてください",
+    "seoTitle": "タロット解釈",
+    "seoDesc": "AIタロットカードの解釈結果を確認。追問とシェアに対応。"
   },
   "fortune": {
     "title": "今日の運勢",
@@ -341,7 +343,9 @@
     "settings": "設定",
     "settingsDesc": "体験をカスタマイズ",
     "logout": "ログアウト",
-    "loginButton": "ログイン / 登録"
+    "loginButton": "ログイン / 登録",
+    "seoTitle": "マイページ",
+    "seoDesc": "タロット占いの履歴、ポイント、メンバーシップ、個人設定を確認。"
   },
   "login": {
     "title": "ログイン",
@@ -408,7 +412,9 @@
     "timeLabel": "時間",
     "cardsLabel": "カード",
     "summaryLabel": "解読要約",
-    "noQuestion": "特定の質問なし"
+    "noQuestion": "特定の質問なし",
+    "seoTitle": "タロット占い結果",
+    "seoDesc": "シェアされたAIタロット占いの結果と解釈を確認。"
   },
   "wheel": {
     "title": "🎰 ラッキーホイール",

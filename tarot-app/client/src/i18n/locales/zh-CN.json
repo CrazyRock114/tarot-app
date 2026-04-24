@@ -112,6 +112,8 @@
     "maybe": "? 可能",
     "noInterpretation": "暂无解读",
     "copySuccess": "已复制到剪贴板",
+    "seoTitle": "塔罗解读",
+    "seoDesc": "查看AI塔罗牌解读结果，支持追问和分享。",
     "copyFailed": "复制失败，请手动复制"
   },
   "fortune": {
@@ -341,7 +343,9 @@
     "settings": "设置",
     "settingsDesc": "个性化你的体验",
     "logout": "退出登录",
-    "loginButton": "登录 / 注册"
+    "loginButton": "登录 / 注册",
+    "seoTitle": "个人中心",
+    "seoDesc": "查看您的塔罗占卜记录、积分、会员订阅和个人设置。"
   },
   "login": {
     "title": "登录",
@@ -408,7 +412,9 @@
     "timeLabel": "时间",
     "cardsLabel": "牌面",
     "summaryLabel": "解读摘要",
-    "noQuestion": "无特定问题"
+    "noQuestion": "无特定问题",
+    "seoTitle": "塔罗占卜结果",
+    "seoDesc": "查看分享的AI塔罗牌占卜结果和解读。"
   },
   "wheel": {
     "title": "🎰 幸运转盘",

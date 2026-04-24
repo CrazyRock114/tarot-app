@@ -8,6 +8,7 @@ import { followUpStream } from '../api/tarot';
 import api from '../api';
 import TarotCardComponent from '../components/tarot/TarotCard';
 import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/SEO';
 import ShareImage from '../components/ShareImage';
 import VoiceReader from '../components/VoiceReader';
 import type { DrawResult } from '../types';
@@ -175,6 +176,7 @@ const Interpretation = () => {
   if (!state) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('interpretation.seoTitle')} description={t('interpretation.seoDesc')} />
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gray-400">{t("common.loading")}</p>
           <button
@@ -191,6 +193,7 @@ const Interpretation = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('interpretation.seoTitle')} description={t('interpretation.seoDesc')} />
         <div className="max-w-4xl mx-auto text-center text-gray-400">
           <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4" />
           <p>{t('interpretation.loading')}</p>
@@ -204,6 +207,7 @@ const Interpretation = () => {
     const needPoints = /积分|points|ポイント|포인트/i.test(error);
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('interpretation.seoTitle')} description={t('interpretation.seoDesc')} />
         <div className="max-w-md mx-auto text-center">
           <div className="bg-red-900/20 border border-red-600/30 rounded-xl p-8 mb-6">
             <div className="text-4xl mb-4">{needRegister ? '🔮' : needPoints ? '💰' : '⚠️'}</div>
@@ -244,6 +248,7 @@ const Interpretation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">
+      <SEO title={t('interpretation.seoTitle')} description={t('interpretation.seoDesc')} />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { User, History, Settings, Heart, ChevronRight, LogOut, Sparkles, BookOpen, Coins , Crown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/SEO';
 
 export const Profile: FC = () => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -26,6 +27,7 @@ export const Profile: FC = () => {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('profile.seoTitle')} description={t('profile.seoDesc')} />
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -80,6 +82,7 @@ export const Profile: FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">
+      <SEO title={t('profile.seoTitle')} description={t('profile.seoDesc')} />
       <div className="max-w-2xl mx-auto">
         {/* Profile Header */}
         <motion.div

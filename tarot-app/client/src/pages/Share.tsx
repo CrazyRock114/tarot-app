@@ -4,8 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, Loader2, Copy, Check, Home } from 'lucide-react';
 import VoiceReader from '../components/VoiceReader';
-
-
+import SEO from '../components/SEO';
 
 interface SharedCard {
   id: string;
@@ -135,6 +134,7 @@ const Share = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 flex items-center justify-center">
+        <SEO title={t('share.seoTitle')} description={t('share.seoDesc')} />
         <div className="text-center text-gray-400">
           <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4" />
           <p>{t('common.loading')}</p>
@@ -146,6 +146,7 @@ const Share = () => {
   if (error || !reading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 flex items-center justify-center px-4">
+        <SEO title={t('share.seoTitle')} description={t('share.seoDesc')} />
         <div className="text-center">
           <div className="text-6xl mb-4">🔮</div>
           <h2 className="text-xl text-white mb-2">{t("common.error")}</h2>
@@ -163,6 +164,7 @@ const Share = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">
+      <SEO title={t('share.seoTitle')} description={t('share.seoDesc')} />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

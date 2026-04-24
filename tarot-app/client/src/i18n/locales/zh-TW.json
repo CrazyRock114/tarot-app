@@ -112,7 +112,9 @@
     "maybe": "? 可能",
     "noInterpretation": "暫無解讀",
     "copySuccess": "已複製到剪貼板",
-    "copyFailed": "複製失敗，請手動複製"
+    "copyFailed": "複製失敗，請手動複製",
+    "seoTitle": "塔羅解讀",
+    "seoDesc": "查看AI塔羅牌解讀結果，支持追問和分享。"
   },
   "fortune": {
     "title": "每日運勢",
@@ -341,7 +343,9 @@
     "settings": "設定",
     "settingsDesc": "個性化你的體驗",
     "logout": "登出",
-    "loginButton": "登入 / 註冊"
+    "loginButton": "登入 / 註冊",
+    "seoTitle": "個人中心",
+    "seoDesc": "查看您的塔羅占卜記錄、積分、會員訂閱和個人設定。"
   },
   "login": {
     "title": "登入",
@@ -408,7 +412,9 @@
     "timeLabel": "時間",
     "cardsLabel": "牌面",
     "summaryLabel": "解讀摘要",
-    "noQuestion": "無特定問題"
+    "noQuestion": "無特定問題",
+    "seoTitle": "塔羅占卜結果",
+    "seoDesc": "查看分享的AI塔羅牌占卜結果和解讀。"
   },
   "wheel": {
     "title": "🎰 幸運轉盤",

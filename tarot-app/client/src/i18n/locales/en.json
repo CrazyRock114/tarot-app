@@ -112,7 +112,9 @@
     "maybe": "? Maybe",
     "noInterpretation": "No interpretation available",
     "copySuccess": "Copied to clipboard",
-    "copyFailed": "Copy failed, please copy manually"
+    "copyFailed": "Copy failed, please copy manually",
+    "seoTitle": "Tarot Interpretation",
+    "seoDesc": "View AI tarot card interpretation results with follow-up and sharing."
   },
   "fortune": {
     "title": "Daily Fortune",
@@ -341,7 +343,9 @@
     "settings": "Settings",
     "settingsDesc": "Personalize your experience",
     "logout": "Logout",
-    "loginButton": "Login / Register"
+    "loginButton": "Login / Register",
+    "seoTitle": "Profile",
+    "seoDesc": "View your tarot reading history, points, membership, and personal settings."
   },
   "login": {
     "title": "Login",
@@ -408,7 +412,9 @@
     "timeLabel": "Time",
     "cardsLabel": "Cards",
     "summaryLabel": "Summary",
-    "noQuestion": "No specific question"
+    "noQuestion": "No specific question",
+    "seoTitle": "Tarot Reading Result",
+    "seoDesc": "View shared AI tarot reading results and interpretation."
   },
   "wheel": {
     "title": "🎰 Lucky Wheel",
