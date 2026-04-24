@@ -16,7 +16,7 @@ import { MsEdgeTTS, OUTPUT_FORMAT } from 'msedge-tts';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import crypto from 'crypto';
+import { createHmac } from 'crypto';
 
 // MongoDB 连接
 const MONGODB_URI = process.env.MONGODB_URI || '';
@@ -81,7 +81,7 @@ function getCorsHeaders(req: any) {
 
 // CSRF Token — 使用 HMAC 生成（无状态，适配 Vercel Serverless）
 function generateCsrfToken(sessionId: string): string {
-  return crypto.createHmac('sha256', JWT_SECRET).update(sessionId).digest('hex');
+  return createHmac('sha256', JWT_SECRET).update(sessionId).digest('hex');
 }
 
 function validateCsrfToken(req: any): boolean {
@@ -94,9 +94,15 @@ function validateCsrfToken(req: any): boolean {
   const cookieHeader = req.headers.cookie;
   const sessionMatch = cookieHeader?.match(/sessionId=([^;]+)/);
   const sessionId = sessionMatch ? sessionMatch[1] : '';
-  if (!sessionId || !csrfHeader) return false;
+  console.log('[CSRF Debug]', { path, method: req.method, hasCsrfHeader: !!csrfHeader, hasSessionId: !!sessionId, csrfHeaderLength: csrfHeader?.length });
+  if (!sessionId || !csrfHeader) {
+    console.log('[CSRF Fail] missing sessionId or csrfHeader');
+    return false;
+  }
   const expectedToken = generateCsrfToken(sessionId);
-  return expectedToken === csrfHeader;
+  const valid = expectedToken === csrfHeader;
+  console.log('[CSRF Result]', { valid, expectedPrefix: expectedToken.slice(0, 8), headerPrefix: csrfHeader.slice(0, 8) });
+  return valid;
 }
 
 // 连接 MongoDB
