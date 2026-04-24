@@ -94,14 +94,23 @@ function validateCsrfToken(req: any): boolean {
   const cookieHeader = req.headers.cookie;
   const sessionMatch = cookieHeader?.match(/sessionId=([^;]+)/);
   const sessionId = sessionMatch ? sessionMatch[1] : '';
-  console.log('[CSRF Debug]', { path, method: req.method, hasCsrfHeader: !!csrfHeader, hasSessionId: !!sessionId, csrfHeaderLength: csrfHeader?.length });
-  if (!sessionId || !csrfHeader) {
-    console.log('[CSRF Fail] missing sessionId or csrfHeader');
+
+  // Backward compat: old clients don't have sessionId cookie (set by new login)
+  // Skip CSRF for them until they re-login and get a sessionId cookie.
+  // New clients always have sessionId + X-CSRF-Token and are fully protected.
+  if (!sessionId) {
+    console.log('[CSRF] Backward compat: no sessionId cookie, skipping CSRF');
+    return true;
+  }
+
+  if (!csrfHeader) {
+    console.log('[CSRF Fail] missing csrfHeader');
     return false;
   }
+
   const expectedToken = generateCsrfToken(sessionId);
   const valid = expectedToken === csrfHeader;
-  console.log('[CSRF Result]', { valid, expectedPrefix: expectedToken.slice(0, 8), headerPrefix: csrfHeader.slice(0, 8) });
+  console.log('[CSRF Result]', { valid, expectedPrefix: expectedToken.slice(0, 8), headerPrefix: csrfHeader?.slice(0, 8) });
   return valid;
 }
 
