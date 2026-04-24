@@ -33,7 +33,13 @@ export const CardDrawing: React.FC = () => {
     { id: 'yesno', name: t('draw.yesNo'), icon: Dices, desc: t('draw.yesNoDrawDesc') },
   ];
   const [selectedMode, setSelectedMode] = useState<string>('random');
-  const [selectedSpread, setSelectedSpread] = useState<Spread>(spreads[0]);
+  const [selectedSpread, setSelectedSpread] = useState<Spread | undefined>(spreads[0]);
+  // Keep selectedSpread in sync if spreads changes (e.g., language switch)
+  useEffect(() => {
+    if (!selectedSpread || !spreads.find(s => s.id === selectedSpread.id)) {
+      setSelectedSpread(spreads[0]);
+    }
+  }, [spreads, selectedSpread]);
   const [isShuffling, setIsShuffling] = useState(false);
   
   const [showAnimation, setShowAnimation] = useState(false);
@@ -56,6 +62,7 @@ export const CardDrawing: React.FC = () => {
 
   const doActualDraw = useCallback(() => {
     if (selectedMode === 'random') {
+      if (!selectedSpread) return;
       const cards = drawRandomCards(selectedSpread.cardCount);
       setDrawnCards(cards);
     } else if (selectedMode === 'number') {
@@ -91,6 +98,7 @@ export const CardDrawing: React.FC = () => {
 
   const handleAIInterpret = () => {
     if (!drawnCards || !question.trim()) return;
+    if (selectedMode === 'random' && !selectedSpread) return;
     // Refresh quota after interpret
     const token = localStorage.getItem('token');
     if (token) {
@@ -99,11 +107,11 @@ export const CardDrawing: React.FC = () => {
         .then(data => { if (data) setReadingQuota(data); })
         .catch(() => {});
     }
-    
+
     navigate('/interpretation', {
       state: {
-        spreadType: selectedMode === 'yesno' ? 'single' : selectedSpread.id,
-        spreadName: selectedMode === 'yesno' ? t('draw.yesNo') : selectedSpread.name,
+        spreadType: selectedMode === 'yesno' ? 'single' : (selectedSpread?.id || 'single'),
+        spreadName: selectedMode === 'yesno' ? t('draw.yesNo') : (selectedSpread?.name || ''),
         cards: drawnCards,
         question: question.trim(),
         yesNoResult: yesNoResult?.result || null,
@@ -122,7 +130,15 @@ export const CardDrawing: React.FC = () => {
     return displays[result];
   };
 
-  const animCardCount = selectedMode === 'random' ? selectedSpread.cardCount : 1;
+  const animCardCount = selectedMode === 'random' ? (selectedSpread?.cardCount ?? 1) : 1;
+
+  if (!selectedSpread) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4 flex items-center justify-center">
+        <div className="w-10 h-10 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <>
