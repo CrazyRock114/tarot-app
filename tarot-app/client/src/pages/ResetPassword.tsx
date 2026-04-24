@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { ChevronLeft, Eye, EyeOff, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { authApi } from '../api';
+import SEO from '../components/SEO';
 
 const ResetPassword = () => {
   const { t } = useTranslation();
@@ -20,6 +21,7 @@ const ResetPassword = () => {
   if (!token) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4 flex items-center justify-center">
+        <SEO title={t('resetPassword.seoTitle')} description={t('resetPassword.seoDesc')} />
         <div className="text-center">
           <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
           <p className="text-red-300 mb-4">{t('resetPassword.invalidLink')}</p>
@@ -50,6 +52,7 @@ const ResetPassword = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+      <SEO title={t('resetPassword.seoTitle')} description={t('resetPassword.seoDesc')} />
       <div className="max-w-md mx-auto">
         <button onClick={() => navigate('/login')} className="flex items-center gap-2 text-gray-400 hover:text-white mb-8">
           <ChevronLeft className="w-5 h-5" />{t('common.back')}

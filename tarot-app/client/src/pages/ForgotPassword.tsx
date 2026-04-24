@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, Link } from 'react-router-dom';
 import { ChevronLeft, Loader2, Mail, CheckCircle } from 'lucide-react';
 import { authApi } from '../api';
+import SEO from '../components/SEO';
 
 const ForgotPassword = () => {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+      <SEO title={t('forgotPassword.seoTitle')} description={t('forgotPassword.seoDesc')} />
       <div className="max-w-md mx-auto">
         <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-gray-400 hover:text-white mb-8">
           <ChevronLeft className="w-5 h-5" />{t('common.back')}

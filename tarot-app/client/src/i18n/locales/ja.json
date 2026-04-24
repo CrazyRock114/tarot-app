@@ -88,7 +88,9 @@
     "luckyNumberDesc": "1-78の数字でカードを選ぶ",
     "yesNoDrawDesc": "簡単な質問にYes/Noで回答",
     "luckyNumberPlaceholder": "例: 7, 22, 56...",
-    "questionHint": "質問に集中してください、カードが導いてくれます"
+    "questionHint": "質問に集中してください、カードが導いてくれます",
+    "seoTitle": "タロット占い",
+    "seoDesc": "スプレッドを選んでカードを引こう。AIが愛、キャリア、人生を読み解きます。"
   },
   "interpretation": {
     "title": "タロット解釈",
@@ -350,7 +352,9 @@
     "register": "新規登録",
     "forgotPassword": "パスワードを忘れた方",
     "showPassword": "パスワードを表示",
-    "hidePassword": "パスワードを隠す"
+    "hidePassword": "パスワードを隠す",
+    "seoTitle": "ログイン",
+    "seoDesc": "2or.comにログインして、タロット占いの履歴、ポイント、メンバーシップにアクセス。"
   },
   "register": {
     "title": "新規登録",
@@ -367,7 +371,9 @@
     "passwordMismatch": "パスワードが一致しません",
     "success": "登録完了！",
     "showPassword": "パスワードを表示",
-    "hidePassword": "パスワードを隠す"
+    "hidePassword": "パスワードを隠す",
+    "seoTitle": "登録",
+    "seoDesc": "2or.comアカウントを作成して、タロットの旅を始めましょう。"
   },
   "history": {
     "title": "占い履歴",
@@ -381,7 +387,11 @@
     "interpretation": "AI解釈",
     "cards": "カード",
     "date": "日付",
-    "recordNotFound": "履歴が見つからないか削除されました"
+    "recordNotFound": "履歴が見つからないか削除されました",
+    "seoTitle": "占い履歴",
+    "seoDesc": "過去のタロット占いとAI解釈を振り返る。",
+    "detailSeoTitle": "占い詳細",
+    "detailSeoDesc": "タロット占いの詳細とAI解釈を表示。"
   },
   "share": {
     "title": "タロット占い結果",
@@ -459,8 +469,8 @@
     "reader_allDesc": "全4名のタロット師を体験"
   },
   "seo": {
-    "homeTitle": "2orタロット - AI タロット占いオンライン",
-    "homeDesc": "プロのAIタロット占い。恋愛・仕事・財運を無料で鑑定。"
+    "homeTitle": "2orタロット - AI搭載オンラインタロット占い",
+    "homeDesc": "プロのAIタロット占いをオンラインで。恋愛、キャリア、金運を無料でカードリーディング。"
   },
   "readers_data": {
     "mystic": {
@@ -830,7 +840,9 @@
     "desc": "登録したメールアドレスを入力してください",
     "submit": "リセットリンクを送信",
     "sent": "リセットリンクを送信しました。30分以内にリセットしてください。",
-    "backToLogin": "ログインに戻る"
+    "backToLogin": "ログインに戻る",
+    "seoTitle": "パスワードをお忘れ",
+    "seoDesc": "2or.comアカウントのパスワードをリセット。"
   },
   "resetPassword": {
     "title": "パスワードリセット",
@@ -841,7 +853,9 @@
     "success": "パスワードのリセットが完了しました！",
     "redirecting": "3秒後にログインページへ移動します...",
     "passwordMismatch": "パスワードが一致しません",
-    "invalidLink": "リセットリンクが無効または期限切れです"
+    "invalidLink": "リセットリンクが無効または期限切れです",
+    "seoTitle": "パスワードリセット",
+    "seoDesc": "2or.comアカウントの新しいパスワードを設定。"
   },
   "admin": {
     "title": "管理画面",
@@ -911,6 +925,8 @@
     "confirmDeleteUser": "このユーザーを削除しますか？すべてのデータは復元できません！",
     "deleted": "削除しました",
     "confirmClearErrors": "30日以上前のエラーログを削除しますか？",
-    "clearedCount": "{{count}}件削除しました"
+    "clearedCount": "{{count}}件削除しました",
+    "seoTitle": "管理パネル",
+    "seoDesc": "2or.com管理ダッシュボード。"
   }
 }

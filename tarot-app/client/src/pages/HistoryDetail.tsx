@@ -15,6 +15,7 @@ import {
 import { readingsApi } from '../api';
 import { useAuth } from '../contexts/AuthContext';
 import VoiceReader from '../components/VoiceReader';
+import SEO from '../components/SEO';
 
 interface ReadingDetail {
   _id: string;
@@ -172,6 +173,7 @@ const HistoryDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('history.detailSeoTitle')} description={t('history.detailSeoDesc')} />
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center py-20">
             <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
@@ -185,6 +187,7 @@ const HistoryDetail = () => {
   if (error || !reading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('history.detailSeoTitle')} description={t('history.detailSeoDesc')} />
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => navigate('/history')}
@@ -218,6 +221,7 @@ const HistoryDetail = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">
+      <SEO title={t('history.detailSeoTitle')} description={t('history.detailSeoDesc')} />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

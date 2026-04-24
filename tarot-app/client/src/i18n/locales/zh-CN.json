@@ -88,7 +88,9 @@
     "luckyNumberDesc": "输入1-78数字，关联选牌",
     "yesNoDrawDesc": "针对简单问题快速决策",
     "luckyNumberPlaceholder": "例如：7, 22, 56...",
-    "questionHint": "集中精神想你的问题，牌会给你指引"
+    "questionHint": "集中精神想你的问题，牌会给你指引",
+    "seoTitle": "塔罗占卜",
+    "seoDesc": "选择牌阵抽牌，AI智能解读。爱情、事业、财运全方位塔罗指引。"
   },
   "interpretation": {
     "title": "塔罗解读",
@@ -350,7 +352,9 @@
     "register": "立即注册",
     "forgotPassword": "忘记密码？",
     "showPassword": "顯示密碼",
-    "hidePassword": "隱藏密碼"
+    "hidePassword": "隱藏密碼",
+    "seoTitle": "登录",
+    "seoDesc": "登录2or.com，查看您的塔罗占卜记录、积分和会员。"
   },
   "register": {
     "title": "注册",
@@ -367,7 +371,9 @@
     "passwordMismatch": "两次密码不一致",
     "success": "注册成功！",
     "showPassword": "顯示密碼",
-    "hidePassword": "隱藏密碼"
+    "hidePassword": "隱藏密碼",
+    "seoTitle": "注册",
+    "seoDesc": "注册2or.com账号，开启您的塔罗之旅。"
   },
   "history": {
     "title": "占卜历史",
@@ -381,7 +387,11 @@
     "interpretation": "AI解读",
     "cards": "牌面",
     "date": "日期",
-    "recordNotFound": "记录不存在或已被删除"
+    "recordNotFound": "记录不存在或已被删除",
+    "seoTitle": "占卜历史",
+    "seoDesc": "回顾您的塔罗占卜记录和AI解读。",
+    "detailSeoTitle": "占卜详情",
+    "detailSeoDesc": "查看塔罗占卜详情和AI完整解读。"
   },
   "share": {
     "title": "塔罗占卜结果",
@@ -830,7 +840,9 @@
     "desc": "输入您的注册邮箱，我们将发送重置密码链接",
     "submit": "发送重置链接",
     "sent": "重置链接已发送到您的邮箱，请在30分钟内完成重置",
-    "backToLogin": "返回登录"
+    "backToLogin": "返回登录",
+    "seoTitle": "忘记密码",
+    "seoDesc": "重设您的2or.com账号密码。"
   },
   "resetPassword": {
     "title": "重置密码",
@@ -841,7 +853,9 @@
     "success": "密码重置成功！",
     "redirecting": "3秒后跳转到登录页...",
     "passwordMismatch": "两次输入的密码不一致",
-    "invalidLink": "重置链接无效或已过期"
+    "invalidLink": "重置链接无效或已过期",
+    "seoTitle": "重设密码",
+    "seoDesc": "为您的2or.com账号设置新密码。"
   },
   "admin": {
     "title": "管理后台",
@@ -911,6 +925,8 @@
     "confirmDeleteUser": "确定删除此用户？所有数据不可恢复！",
     "deleted": "已删除",
     "confirmClearErrors": "清理30天前的错误日志？",
-    "clearedCount": "已清理 {{count}} 条"
+    "clearedCount": "已清理 {{count}} 条",
+    "seoTitle": "管理后台",
+    "seoDesc": "2or.com管理后台。"
   }
 }

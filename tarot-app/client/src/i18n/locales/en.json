@@ -88,7 +88,9 @@
     "luckyNumberDesc": "Enter 1-78 to pick a card",
     "yesNoDrawDesc": "Quick yes/no for simple questions",
     "luckyNumberPlaceholder": "e.g. 7, 22, 56...",
-    "questionHint": "Focus on your question, the cards will guide you"
+    "questionHint": "Focus on your question, the cards will guide you",
+    "seoTitle": "Tarot Reading",
+    "seoDesc": "Choose a spread and draw cards. AI-powered tarot reading for love, career, and life guidance."
   },
   "interpretation": {
     "title": "Tarot Reading",
@@ -350,7 +352,9 @@
     "register": "Register now",
     "forgotPassword": "Forgot password?",
     "showPassword": "Show password",
-    "hidePassword": "Hide password"
+    "hidePassword": "Hide password",
+    "seoTitle": "Login",
+    "seoDesc": "Log in to 2or.com to access your tarot readings, points, and membership."
   },
   "register": {
     "title": "Register",
@@ -367,7 +371,9 @@
     "passwordMismatch": "Passwords do not match",
     "success": "Registration successful!",
     "showPassword": "Show password",
-    "hidePassword": "Hide password"
+    "hidePassword": "Hide password",
+    "seoTitle": "Register",
+    "seoDesc": "Create your 2or.com account and start your tarot journey."
   },
   "history": {
     "title": "Reading History",
@@ -381,7 +387,11 @@
     "interpretation": "AI Reading",
     "cards": "Cards",
     "date": "Date",
-    "recordNotFound": "Record not found or deleted"
+    "recordNotFound": "Record not found or deleted",
+    "seoTitle": "Reading History",
+    "seoDesc": "Review your past tarot readings and AI interpretations.",
+    "detailSeoTitle": "Reading Detail",
+    "detailSeoDesc": "View detailed tarot reading result and AI interpretation."
   },
   "share": {
     "title": "Tarot Reading Result",
@@ -460,7 +470,7 @@
   },
   "seo": {
     "homeTitle": "2or Tarot - AI-Powered Online Tarot Reading",
-    "homeDesc": "Professional AI tarot readings. Free card draws for love, career & more."
+    "homeDesc": "Professional AI tarot readings online. Free card draws for love, career, wealth. Multiple spreads available."
   },
   "readers_data": {
     "mystic": {
@@ -830,7 +840,9 @@
     "desc": "Enter your registered email and we'll send you a reset link",
     "submit": "Send Reset Link",
     "sent": "Reset link sent! Please check your email and reset within 30 minutes.",
-    "backToLogin": "Back to Login"
+    "backToLogin": "Back to Login",
+    "seoTitle": "Forgot Password",
+    "seoDesc": "Reset your 2or.com account password."
   },
   "resetPassword": {
     "title": "Reset Password",
@@ -841,7 +853,9 @@
     "success": "Password reset successful!",
     "redirecting": "Redirecting to login in 3 seconds...",
     "passwordMismatch": "Passwords do not match",
-    "invalidLink": "Reset link is invalid or expired"
+    "invalidLink": "Reset link is invalid or expired",
+    "seoTitle": "Reset Password",
+    "seoDesc": "Set a new password for your 2or.com account."
   },
   "admin": {
     "title": "Admin Dashboard",
@@ -911,6 +925,8 @@
     "confirmDeleteUser": "Delete this user? All data will be lost!",
     "deleted": "Deleted",
     "confirmClearErrors": "Clear error logs older than 30 days?",
-    "clearedCount": "Cleared {{count}} entries"
+    "clearedCount": "Cleared {{count}} entries",
+    "seoTitle": "Admin Panel",
+    "seoDesc": "2or.com management dashboard."
   }
 }

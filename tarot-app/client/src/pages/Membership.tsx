@@ -93,7 +93,7 @@ export default function Membership() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-950/20 to-gray-900 py-8 px-4">
-      <SEO title={t('membership.seoTitle') + ' - 2or.com'} description={t('membership.seoDesc')} />
+      <SEO title={t('membership.seoTitle')} description={t('membership.seoDesc')} />
 
       <div className="max-w-4xl mx-auto">
         {/* Header */}

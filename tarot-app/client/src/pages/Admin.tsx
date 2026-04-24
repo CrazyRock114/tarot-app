@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, Users, BookOpen, Coins, AlertTriangle, Activity, Shield, Trash2, Edit, Search, Eye, X, Save } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -108,8 +109,8 @@ const Admin = () => {
 
   const openReadingDetail = async (r: any) => { setReadingDetail(r); };
 
-  if (loading) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white">{t('admin.verifying')}</div>;
-  if (!isAdmin) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-red-400 text-lg">⚠️ {t('admin.noPermission')}</div>;
+  if (loading) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white"><SEO title={t('admin.seoTitle')} description={t('admin.seoDesc')} />{t('admin.verifying')}</div>;
+  if (!isAdmin) return <div className="min-h-screen bg-gray-900 flex items-center justify-center text-red-400 text-lg"><SEO title={t('admin.seoTitle')} description={t('admin.seoDesc')} />⚠️ {t('admin.noPermission')}</div>;
 
   const tabs = [
     { key: 'dashboard' as const, label: t('admin.tabDashboard'), icon: Activity },
@@ -125,6 +126,7 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
+      <SEO title={t('admin.seoTitle')} description={t('admin.seoDesc')} />
       <div className="bg-gray-800 border-b border-gray-700 px-4 py-3 flex items-center gap-3 sticky top-0 z-40">
         <button onClick={() => navigate('/profile')} className="text-gray-400 hover:text-white"><ChevronLeft className="w-5 h-5" /></button>
         <h1 className="text-lg font-bold">🔧 {t('admin.title')}</h1>

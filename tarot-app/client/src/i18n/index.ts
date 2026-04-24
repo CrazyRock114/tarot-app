@@ -17,7 +17,7 @@ import koCards from './locales/cards.ko.json';
 
 export const LANGUAGES = [
   { code: 'zh-CN', label: '简体中文', flag: '🇨🇳' },
-  { code: 'zh-TW', label: '繁體中文', flag: '🌏' },
+  { code: 'zh-TW', label: '繁體中文', flag: '🇭🇰' },
   { code: 'en',    label: 'English',  flag: '🇺🇸' },
   { code: 'ja',    label: '日本語',   flag: '🇯🇵' },
   { code: 'ko',    label: '한국어',   flag: '🇰🇷' },
@@ -36,7 +36,8 @@ i18n
     },
     fallbackLng: 'zh-CN',
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['querystring', 'localStorage', 'navigator'],
+      lookupQuerystring: 'lang',
       lookupLocalStorage: 'i18nLang',
       caches: ['localStorage'],
     },

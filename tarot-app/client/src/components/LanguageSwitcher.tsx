@@ -24,8 +24,10 @@ export default function LanguageSwitcher() {
     // 同步设置 cookie，供后端语言检测使用
     document.cookie = `i18nLang=${code}; path=/; max-age=31536000`;
     setOpen(false);
-    // 刷新页面以重新加载带翻译的数据
-    window.location.reload();
+    // 添加 ?lang= URL 参数以便分享和 SEO
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', code);
+    window.location.replace(url.toString());
   };
 
   return (

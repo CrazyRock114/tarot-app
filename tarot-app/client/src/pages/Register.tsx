@@ -4,6 +4,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { authApi } from '../api';
 import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/SEO';
 
 const Register = () => {
   const { t } = useTranslation();
@@ -46,6 +47,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+      <SEO title={t('register.seoTitle')} description={t('register.seoDesc')} />
       <div className="max-w-md mx-auto">
         <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-gray-400 hover:text-white mb-8">
           <ChevronLeft className="w-5 h-5" />{t('common.back')}

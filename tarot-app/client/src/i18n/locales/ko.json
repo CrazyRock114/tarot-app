@@ -88,7 +88,9 @@
     "luckyNumberDesc": "1-78 숫자를 입력하여 카드 선택",
     "yesNoDrawDesc": "간단한 질문에 예/아니오로 답변",
     "luckyNumberPlaceholder": "예: 7, 22, 56...",
-    "questionHint": "질문에 집중하세요, 카드가 안내해 줄 것입니다"
+    "questionHint": "질문에 집중하세요, 카드가 안내해 줄 것입니다",
+    "seoTitle": "타로 점술",
+    "seoDesc": "스프레드를 선택하고 카드를 뽑으세요. AI가 사랑, 경력, 인생을 읽어드립니다."
   },
   "interpretation": {
     "title": "타로 해석",
@@ -350,7 +352,9 @@
     "register": "회원가입",
     "forgotPassword": "비밀번호를 잊으셨나요?",
     "showPassword": "비밀번호 표시",
-    "hidePassword": "비밀번호 숨기기"
+    "hidePassword": "비밀번호 숨기기",
+    "seoTitle": "로그인",
+    "seoDesc": "2or.com에 로그인하여 타로 점술 기록, 포인트, 멤버십을 확인하세요."
   },
   "register": {
     "title": "회원가입",
@@ -367,7 +371,9 @@
     "passwordMismatch": "비밀번호가 일치하지 않습니다",
     "success": "가입 완료!",
     "showPassword": "비밀번호 표시",
-    "hidePassword": "비밀번호 숨기기"
+    "hidePassword": "비밀번호 숨기기",
+    "seoTitle": "회원가입",
+    "seoDesc": "2or.com 계정을 만들고 타로 여행을 시작하세요."
   },
   "history": {
     "title": "점술 기록",
@@ -381,7 +387,11 @@
     "interpretation": "AI 해석",
     "cards": "카드",
     "date": "날짜",
-    "recordNotFound": "기록이 없거나 삭제되었습니다"
+    "recordNotFound": "기록이 없거나 삭제되었습니다",
+    "seoTitle": "점술 기록",
+    "seoDesc": "과거 타로 점술과 AI 해석을 확인하세요.",
+    "detailSeoTitle": "점술 상세",
+    "detailSeoDesc": "타로 점술 상세 내용과 AI 해석을 확인하세요."
   },
   "share": {
     "title": "타로 점술 결과",
@@ -459,8 +469,8 @@
     "reader_allDesc": "모든 리더 체험"
   },
   "seo": {
-    "homeTitle": "2or 타로 - AI 타로 점술 온라인",
-    "homeDesc": "전문 AI 타로 점술. 연애·직업·재물 무료 해석."
+    "homeTitle": "2or 타로 - AI 기반 온라인 타로 점술",
+    "homeDesc": "전문 AI 타로 점술 온라인. 사랑, 경력, 재물운 무료 카드 리딩."
   },
   "readers_data": {
     "mystic": {
@@ -830,7 +840,9 @@
     "desc": "등록된 이메일 주소를 입력해 주세요",
     "submit": "재설정 링크 보내기",
     "sent": "재설정 링크가 전송되었습니다. 30분 이내에 재설정해 주세요.",
-    "backToLogin": "로그인으로 돌아가기"
+    "backToLogin": "로그인으로 돌아가기",
+    "seoTitle": "비밀번호 찾기",
+    "seoDesc": "2or.com 계정 비밀번호를 재설정하세요."
   },
   "resetPassword": {
     "title": "비밀번호 재설정",
@@ -841,7 +853,9 @@
     "success": "비밀번호가 성공적으로 재설정되었습니다!",
     "redirecting": "3초 후 로그인 페이지로 이동합니다...",
     "passwordMismatch": "비밀번호가 일치하지 않습니다",
-    "invalidLink": "재설정 링크가 유효하지 않거나 만료되었습니다"
+    "invalidLink": "재설정 링크가 유효하지 않거나 만료되었습니다",
+    "seoTitle": "비밀번호 재설정",
+    "seoDesc": "2or.com 계정의 새 비밀번호를 설정하세요."
   },
   "admin": {
     "title": "관리자 페이지",
@@ -911,6 +925,8 @@
     "confirmDeleteUser": "이 사용자를 삭제하시겠습니까? 모든 데이터는 복구할 수 없습니다!",
     "deleted": "삭제되었습니다",
     "confirmClearErrors": "30일 이전의 오류 로그를 삭제하시겠습니까?",
-    "clearedCount": "{{count}}건 삭제 완료"
+    "clearedCount": "{{count}}건 삭제 완료",
+    "seoTitle": "관리자 패널",
+    "seoDesc": "2or.com 관리 대시보드."
   }
 }

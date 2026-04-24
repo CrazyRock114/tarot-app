@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { readingsApi } from '../api';
 import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/SEO';
 
 interface Reading {
   _id: string;
@@ -141,6 +142,7 @@ const History = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-12 px-4">
+        <SEO title={t('history.seoTitle')} description={t('history.seoDesc')} />
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center py-20">
             <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
@@ -153,6 +155,7 @@ const History = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-950 py-8 px-4">
+      <SEO title={t('history.seoTitle')} description={t('history.seoDesc')} />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

@@ -88,7 +88,9 @@
     "luckyNumberDesc": "輸入1-78數字，關聯選牌",
     "yesNoDrawDesc": "針對簡單問題快速決策",
     "luckyNumberPlaceholder": "例如：7, 22, 56...",
-    "questionHint": "集中精神想你的問題，牌會給你指引"
+    "questionHint": "集中精神想你的問題，牌會給你指引",
+    "seoTitle": "塔羅占卜",
+    "seoDesc": "選擇牌陣抽牌，AI智慧解讀。愛情、事業、財運全方位塔羅指引。"
   },
   "interpretation": {
     "title": "塔羅解讀",
@@ -277,9 +279,9 @@
     "annualReport": "年度運勢報告",
     "earlyAccess": "優先體驗新功能",
     "annualOnly": "（年度）",
-    "weeklyPrice": "NT$30/週",
-    "monthlyPrice": "NT$90/月",
-    "yearlyPrice": "NT$750/年",
+    "weeklyPrice": "HK$6/週",
+    "monthlyPrice": "HK$18/月",
+    "yearlyPrice": "HK$150/年",
     "seoTitle": "會員訂閱"
   },
   "points": {
@@ -350,7 +352,9 @@
     "register": "立即註冊",
     "forgotPassword": "忘記密碼？",
     "showPassword": "顯示密碼",
-    "hidePassword": "隱藏密碼"
+    "hidePassword": "隱藏密碼",
+    "seoTitle": "登入",
+    "seoDesc": "登入2or.com，查看您的塔羅占卜記錄、積分和會員。"
   },
   "register": {
     "title": "註冊",
@@ -367,7 +371,9 @@
     "passwordMismatch": "兩次密碼不一致",
     "success": "註冊成功！",
     "showPassword": "顯示密碼",
-    "hidePassword": "隱藏密碼"
+    "hidePassword": "隱藏密碼",
+    "seoTitle": "註冊",
+    "seoDesc": "註冊2or.com帳號，開啟您的塔羅之旅。"
   },
   "history": {
     "title": "占卜歷史",
@@ -381,7 +387,11 @@
     "interpretation": "AI解讀",
     "cards": "牌面",
     "date": "日期",
-    "recordNotFound": "記錄不存在或已被刪除"
+    "recordNotFound": "記錄不存在或已被刪除",
+    "seoTitle": "占卜歷史",
+    "seoDesc": "回顧您的塔羅占卜記錄和AI解讀。",
+    "detailSeoTitle": "占卜詳情",
+    "detailSeoDesc": "查看塔羅占卜詳情和AI完整解讀。"
   },
   "share": {
     "title": "塔羅占卜結果",
@@ -830,7 +840,9 @@
     "desc": "輸入您的註冊郵箱，我們將發送重設密碼連結",
     "submit": "發送重設連結",
     "sent": "重設連結已發送到您的郵箱，請在30分鐘內完成重設",
-    "backToLogin": "返回登入"
+    "backToLogin": "返回登入",
+    "seoTitle": "忘記密碼",
+    "seoDesc": "重設您的2or.com帳號密碼。"
   },
   "resetPassword": {
     "title": "重設密碼",
@@ -841,7 +853,9 @@
     "success": "密碼重設成功！",
     "redirecting": "3秒後跳轉到登入頁...",
     "passwordMismatch": "兩次輸入的密碼不一致",
-    "invalidLink": "重設連結無效或已過期"
+    "invalidLink": "重設連結無效或已過期",
+    "seoTitle": "重設密碼",
+    "seoDesc": "為您的2or.com帳號設定新密碼。"
   },
   "admin": {
     "title": "管理後台",
@@ -911,6 +925,8 @@
     "confirmDeleteUser": "確定刪除此用戶？所有資料不可恢復！",
     "deleted": "已刪除",
     "confirmClearErrors": "清理30天前的錯誤日誌？",
-    "clearedCount": "已清理 {{count}} 條"
+    "clearedCount": "已清理 {{count}} 條",
+    "seoTitle": "管理後台",
+    "seoDesc": "2or.com管理後台。"
   }
 }
