@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
+    <script>
+      // Force reload if cached version is stale (prevents CSRF issues from old JS)
+      (function() {
+        var buildTime = "20250424";
+        try {
+          var cached = localStorage.getItem('__build_time');
+          if (cached && cached !== buildTime) {
+            localStorage.setItem('__build_time', buildTime);
+            location.reload(true);
+          } else {
+            localStorage.setItem('__build_time', buildTime);
+          }
+        } catch(e) {}
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
