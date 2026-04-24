@@ -29,7 +29,7 @@ api.interceptors.request.use((config) => {
 // Handle 401 responses — auto logout and redirect to login
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (error.response?.status === 401) {
       // Skip auto-logout for login/register requests
       const url = error.config?.url || '';
@@ -41,6 +41,21 @@ api.interceptors.response.use(
         if (!window.location.pathname.includes('/login')) {
           window.location.href = '/login';
         }
+      }
+    }
+    // CSRF token invalid — stale sessionId cookie without CSRF token
+    // Call server logout to clear stuck HttpOnly cookies, then redirect
+    if (error.response?.status === 403 && error.response?.data?.error === 'CSRF token invalid') {
+      try {
+        await api.post('/auth/logout');
+      } catch {
+        // ignore
+      }
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      localStorage.removeItem('csrfToken');
+      if (!window.location.pathname.includes('/login')) {
+        window.location.href = '/login';
       }
     }
     return Promise.reject(error);

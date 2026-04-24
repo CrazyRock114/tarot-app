@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import api from '../api';
 
 // 用户类型
 interface User {
@@ -47,7 +48,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(userData);
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      // Tell server to clear HttpOnly cookies (sessionId + token)
+      await api.post('/auth/logout');
+    } catch {
+      // Ignore network errors — still clear local state
+    }
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('csrfToken');

@@ -1,0 +1,17 @@
+{
+  "name": "2or.com - AI Tarot Reading",
+  "short_name": "2or Tarot",
+  "description": "Professional AI tarot readings online. Free card draws for love, career, wealth.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

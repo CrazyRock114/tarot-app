@@ -980,6 +980,7 @@ export default async function handler(req, res) {
     if (path === '/api/auth/me' && method === 'GET') return handleGetMe(req, res);
     if (path === '/api/auth/forgot-password' && method === 'POST') return handleForgotPassword(req, res);
     if (path === '/api/auth/reset-password' && method === 'POST') return handleResetPassword(req, res);
+    if (path === '/api/auth/logout' && method === 'POST') return handleLogout(req, res);
     // Admin routes
     if (path === '/api/admin/dashboard' && method === 'GET') return handleAdminDashboard(req, res);
     if (path === '/api/admin/users' && method === 'GET') return handleAdminUsers(req, res);
@@ -1876,6 +1877,15 @@ async function handleGetMe(req, res) {
     await user.save();
   }
   return res.status(200).json(user);
+}
+
+async function handleLogout(req, res) {
+  const secureFlag = BASE_URL.startsWith('https://') ? '; Secure' : '';
+  res.setHeader('Set-Cookie', [
+    `token=; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=0`,
+    `sessionId=; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=0`,
+  ]);
+  return res.status(200).json({ message: 'Logged out' });
 }
 
 async function handleForgotPassword(req, res) {

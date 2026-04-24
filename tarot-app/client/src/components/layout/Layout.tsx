@@ -23,8 +23,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     { path: '/membership', name: t('nav.membership'), icon: Crown },
   ];
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate('/');
     setUserMenuOpen(false);
   };
