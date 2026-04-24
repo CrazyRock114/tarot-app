@@ -7,13 +7,21 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // 允许携带 Cookie（HttpOnly token + sessionId）
 });
 
-// Add auth token to requests
+// Add auth token to requests (向后兼容 localStorage)
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
+  }
+  // 添加 CSRF token（非 GET/OPTIONS 请求）
+  if (config.method && !['get', 'options'].includes(config.method.toLowerCase())) {
+    const csrfToken = localStorage.getItem('csrfToken');
+    if (csrfToken) {
+      config.headers['X-CSRF-Token'] = csrfToken;
+    }
   }
   return config;
 });
@@ -28,6 +36,7 @@ api.interceptors.response.use(
       if (!url.includes('/auth/login') && !url.includes('/auth/register')) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        localStorage.removeItem('csrfToken');
         // Redirect to login page if not already there
         if (!window.location.pathname.includes('/login')) {
           window.location.href = '/login';

@@ -109,7 +109,7 @@ export const TarotGallery: React.FC = () => {
               >
                 <TarotCardComponent card={card} size="md" />
                 <div className="mt-2 text-center">
-                  <div className="text-white text-sm font-medium truncate">{isZh ? card.name : (card.nameEn || card.name)}</div>
+                  <div className="text-white text-sm font-medium truncate">{card.name || card.nameEn}</div>
                   <div className="text-gray-500 text-xs">{getSuitName(card.suit, i18n.language)}</div>
                 </div>
               </motion.div>

@@ -32,7 +32,7 @@
     "vipTitle": "解鎖完整塔羅體驗",
     "vipSubtitle": "免費用戶每天3次，開通會員享受無限占卜",
     "vipButton": "查看會員方案",
-    "vipNote": "目前支援積分兌換 · 微信/支付寶支付即將上線",
+    "vipNote": "目前支援積分兌換 · 信用卡/Line Pay支付即將上線",
     "ctaTitle": "開始你的塔羅之旅",
     "ctaSubtitle": "讓古老的塔羅牌為你指引方向",
     "ctaButton": "免費開始占卜",
@@ -145,7 +145,10 @@
       "pisces": "雙魚座"
     },
     "seoDesc": "輸入生日，AI結合星座與塔羅為你解讀今日運勢。愛情、事業、財運、健康全方位指引。",
-    "generatingHint": "正在為你解讀星象..."
+    "generatingHint": "正在為你解讀星象...",
+    "step1Desc": "輸入你的生日，開啟專屬運勢之旅",
+    "step2Desc": "AI結合星座與塔羅，為你生成今日運勢",
+    "step3Desc": "獲取愛情、事業、財運、健康全方位指引"
   },
   "gallery": {
     "title": "塔羅圖鑑",
@@ -274,9 +277,9 @@
     "annualReport": "年度運勢報告",
     "earlyAccess": "優先體驗新功能",
     "annualOnly": "（年度）",
-    "weeklyPrice": "¥6.9/週",
-    "monthlyPrice": "¥19.9/月",
-    "yearlyPrice": "¥168/年",
+    "weeklyPrice": "NT$30/週",
+    "monthlyPrice": "NT$90/月",
+    "yearlyPrice": "NT$750/年",
     "seoTitle": "會員訂閱"
   },
   "points": {
@@ -308,7 +311,7 @@
     "achievementUnlocked": "已解鎖 {{count}} / {{total}} 個成就",
     "log": "積分記錄",
     "noLog": "暫無積分記錄",
-    "vipBanner": "開通會員享無限占卜",
+    "vipBanner": "加入會員享無限占卜",
     "vipBannerSub": "積分兌換 · 支付即將上線",
     "viewMembership": "查看會員",
     "streakHint": "已連續簽到 {{days}} 天",
@@ -345,7 +348,9 @@
     "submitting": "登入中...",
     "noAccount": "沒有帳號？",
     "register": "立即註冊",
-    "forgotPassword": "忘記密碼？"
+    "forgotPassword": "忘記密碼？",
+    "showPassword": "顯示密碼",
+    "hidePassword": "隱藏密碼"
   },
   "register": {
     "title": "註冊",
@@ -360,7 +365,9 @@
     "hasAccount": "已有帳號？",
     "login": "立即登入",
     "passwordMismatch": "兩次密碼不一致",
-    "success": "註冊成功！"
+    "success": "註冊成功！",
+    "showPassword": "顯示密碼",
+    "hidePassword": "隱藏密碼"
   },
   "history": {
     "title": "占卜歷史",
@@ -504,7 +511,7 @@
       "name": "小鹿",
       "title": "暖心解讀師 · 治癒之聲",
       "tagline": "每一張牌，都在說你值得被愛",
-      "desc": "知心姐姐，溫柔共情",
+      "desc": "溫柔姊姊，溫柔共情",
       "description": "小鹿是一位天生的治癒者。她的解讀不是冷冰冰的分析，而是一場溫暖的心靈對話。她有著超強的共情能力，總能精準地感受到你的情緒狀態，並用恰到好處的溫度給予回應。在她的解讀中，你不會覺得自己在\"被算命\"，更像是在和一個知心好友聊天——她理解你，支持你，同時也會溫柔但堅定地指出需要面對的課題。",
       "personality": [
         "溫暖親切",
@@ -524,7 +531,7 @@
     },
     "punk": {
       "name": "Rex",
-      "title": "朋克塔羅師 · 真相獵手",
+      "title": "龐克塔羅師 · 真相獵手",
       "tagline": "別裝了，讓我告訴你真相",
       "desc": "直接犀利，一針見血",
       "description": "Rex是塔羅界的一股清流——或者說是一陣颶風。他不搞那些虛頭巴腦的儀式感，不說那些模稜兩可的廢話。他相信真正的關懷是把真相一把扔到你面前，而不是用糖衣包裹壞消息。他的解讀犀利到讓人心跳加速，但每個聽過他解讀的人都承認：Rex說的，往往是你最不想聽、卻最需要聽的話。",

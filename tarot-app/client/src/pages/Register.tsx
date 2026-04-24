@@ -34,8 +34,8 @@ const Register = () => {
         username: formData.username, email: formData.email,
         password: formData.password, inviteCode: formData.inviteCode,
       });
-      const { token, user } = response.data;
-      login(token, user);
+      const { token, user, csrfToken } = response.data;
+      login(token, user, csrfToken);
       navigate('/profile');
     } catch (err: any) {
       setError(err.response?.data?.message || t('common.error'));
@@ -55,13 +55,14 @@ const Register = () => {
           {error && <div className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-200 text-sm">{error}</div>}
           <form onSubmit={handleSubmit} className="space-y-5">
             {[
-              { name: 'username', label: t('register.username'), type: 'text', placeholder: '' },
-              { name: 'email', label: t('register.email'), type: 'email', placeholder: 'your@email.com' },
+              { name: 'username', label: t('register.username'), type: 'text', placeholder: '', autocomplete: 'username' },
+              { name: 'email', label: t('register.email'), type: 'email', placeholder: 'your@email.com', autocomplete: 'email' },
             ].map(f => (
               <div key={f.name}>
                 <label className="block text-sm font-medium text-gray-300 mb-2">{f.label}</label>
                 <input type={f.type} name={f.name} value={(formData as any)[f.name]} onChange={handleChange} required
                   placeholder={f.placeholder}
+                  autoComplete={(f as any).autocomplete}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
               </div>
             ))}
@@ -69,8 +70,9 @@ const Register = () => {
               <label className="block text-sm font-medium text-gray-300 mb-2">{t('register.password')}</label>
               <div className="relative">
                 <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleChange} required
+                  autoComplete="new-password"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-12" />
-                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                <button type="button" aria-label={showPassword ? t('register.hidePassword') : t('register.showPassword')} onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
@@ -78,6 +80,7 @@ const Register = () => {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">{t('register.confirmPassword')}</label>
               <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required
+                autoComplete="new-password"
                 className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
             </div>
             <div>

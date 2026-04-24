@@ -13,4 +13,18 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // Enable manual chunks for better caching
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          animations: ['framer-motion'],
+          icons: ['lucide-react'],
+        },
+      },
+    },
+    // Drop console.log in production
+    minify: 'esbuild',
+  },
 });

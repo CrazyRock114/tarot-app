@@ -15,7 +15,7 @@
   },
   "home": {
     "badge": "✨ AI-Powered Tarot Reading",
-    "title": "Unlock the Secrets of",
+    "title": "Unlock the Tarot Whispers of",
     "titleHighlight": "Your Destiny",
     "subtitle": "Ancient tarot wisdom meets AI. Reveal your destiny — choose a spread and draw your cards.",
     "startReading": "Start Reading",
@@ -32,7 +32,7 @@
     "vipTitle": "Unlock the Full Tarot Experience",
     "vipSubtitle": "Free users get 3 readings/day. Members enjoy unlimited readings.",
     "vipButton": "View Membership Plans",
-    "vipNote": "Points exchange available · Payment coming soon",
+    "vipNote": "Points exchange available · WeChat Pay / Alipay coming soon",
     "ctaTitle": "Start Your Tarot Journey",
     "ctaSubtitle": "Let the ancient cards guide your path",
     "ctaButton": "Start Free Reading",
@@ -145,7 +145,10 @@
       "pisces": "Pisces"
     },
     "seoDesc": "Enter birthday, AI combines zodiac and tarot to interpret today's fortune for you. Love, career, wealth, health guidance.",
-    "generatingHint": "Reading the stars for you..."
+    "generatingHint": "Reading the stars for you...",
+    "step1Desc": "Enter your birthday to start your personalized fortune journey",
+    "step2Desc": "AI combines zodiac and tarot to generate your daily fortune",
+    "step3Desc": "Get guidance on love, career, wealth, and health"
   },
   "gallery": {
     "title": "Tarot Gallery",
@@ -248,7 +251,7 @@
     "points": "Points: {{points}}",
     "subscribe": "Redeem with Points",
     "subscribing": "Subscribing...",
-    "freeVsMember": "Free vs Member",
+    "freeVsMember": "Free vs Premium",
     "feature": "Feature",
     "freeUser": "Free",
     "memberUser": "Member",
@@ -269,8 +272,8 @@
     "pointsUnit": "pts",
     "seoDesc": "Subscribe to membership, unlock unlimited readings, all readers, voice readings and more.",
     "voiceReading": "Voice Reading",
-    "history": "History Records",
-    "exclusiveBack": "Exclusive Back",
+    "history": "Reading History",
+    "exclusiveBack": "Exclusive Card Back",
     "annualReport": "Annual Report",
     "earlyAccess": "Early Access",
     "annualOnly": "(Annual)",
@@ -345,7 +348,9 @@
     "submitting": "Logging in...",
     "noAccount": "No account?",
     "register": "Register now",
-    "forgotPassword": "Forgot password?"
+    "forgotPassword": "Forgot password?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
   "register": {
     "title": "Register",
@@ -360,7 +365,9 @@
     "hasAccount": "Already have an account?",
     "login": "Login now",
     "passwordMismatch": "Passwords do not match",
-    "success": "Registration successful!"
+    "success": "Registration successful!",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
   "history": {
     "title": "Reading History",
@@ -479,7 +486,7 @@
       "quote": "✨ Don't fear the dark; the moon blooms in the deepest night."
     },
     "rational": {
-      "name": "Socrates",
+      "name": "Sokra",
       "title": "Rational Analyst · Eye of Logic",
       "tagline": "Data doesn't lie, symbols have logic",
       "desc": "Strictly logical, precise and actionable",
@@ -501,10 +508,10 @@
       "quote": "📊 Tarot is not a crystal ball; it's a mirror to see yourself."
     },
     "warm": {
-      "name": "Deer",
+      "name": "Fawn",
       "title": "Warm Soul Reader · Voice of Healing",
       "tagline": "Every card says you are worthy of love",
-      "desc": "Kind sisterly vibe, warm empathy",
+      "desc": "A caring confidante with gentle empathy",
       "description": "Deer is a natural healer. Her readings are warm dialogues, not cold analysis. With strong empathy, she senses your emotional state and responds with exactly the right warmth. You'll feel like talking to a dear friend—she understands, supports, and gently points out what needs to be faced.",
       "personality": [
         "Warm",
@@ -524,9 +531,9 @@
     },
     "punk": {
       "name": "Rex",
-      "title": "Punk Tarotist · Truth Hunter",
-      "tagline": "Stop pretending, let me tell you the truth",
-      "desc": "Direct and sharp, straight to the point",
+      "title": "Punk Tarot Reader · Truth Hunter",
+      "tagline": "Drop the act. Here's the raw truth.",
+      "desc": "Blunt and razor-sharp, cutting to the core",
       "description": "Rex is a hurricane in the tarot world. No fancy rituals, no vague nonsense. He believes true care is throwing the truth in your face instead of sugarcoating bad news. His readings make your heart race, but he tells you what you need to hear, not what you want to hear.",
       "personality": [
         "Blunt",

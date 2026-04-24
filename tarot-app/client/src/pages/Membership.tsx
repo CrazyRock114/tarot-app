@@ -249,8 +249,7 @@ export default function Membership() {
 
         {/* Payment coming soon notice */}
         <div className="text-center p-5 bg-gray-800/20 border border-gray-700/30 rounded-2xl">
-          <p className="text-gray-400 text-sm mb-2">💳 {t('home.vipNote')}</p>
-          <p className="text-gray-500 text-xs">{t('home.vipNote')}</p>
+          <p className="text-gray-400 text-sm">💳 {t('home.vipNote')}</p>
         </div>
 
         {/* Benefits comparison */}

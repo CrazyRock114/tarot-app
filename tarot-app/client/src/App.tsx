@@ -1,31 +1,40 @@
 import type { FC } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/layout/Layout';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
-import Gallery from './pages/Gallery';
-import Draw from './pages/Draw';
-import Profile from './pages/Profile';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import History from './pages/History';
-import HistoryDetail from './pages/HistoryDetail';
-import Interpretation from './pages/Interpretation';
-import Share from './pages/Share';
-import Points from './pages/Points';
-import Membership from './pages/Membership';
-import CardDetail from './pages/CardDetail';
-import DailyFortune from './pages/DailyFortune';
-import Readers from './pages/Readers';
-import ReaderDetail from './pages/ReaderDetail';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
-import Admin from './pages/Admin';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
+
+// Lazy load heavy routes for code splitting
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Draw = lazy(() => import('./pages/Draw'));
+const Profile = lazy(() => import('./pages/Profile'));
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const History = lazy(() => import('./pages/History'));
+const HistoryDetail = lazy(() => import('./pages/HistoryDetail'));
+const Interpretation = lazy(() => import('./pages/Interpretation'));
+const Share = lazy(() => import('./pages/Share'));
+const Points = lazy(() => import('./pages/Points'));
+const Membership = lazy(() => import('./pages/Membership'));
+const CardDetail = lazy(() => import('./pages/CardDetail'));
+const DailyFortune = lazy(() => import('./pages/DailyFortune'));
+const Readers = lazy(() => import('./pages/Readers'));
+const ReaderDetail = lazy(() => import('./pages/ReaderDetail'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const Admin = lazy(() => import('./pages/Admin'));
+
+const LoadingFallback = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="w-10 h-10 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const App: FC = () => {
   return (
@@ -35,6 +44,7 @@ const App: FC = () => {
         <ScrollToTop />
         <ErrorBoundary>
         <Layout>
+          <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
@@ -51,13 +61,14 @@ const App: FC = () => {
             <Route path="/interpretation/:id" element={<Interpretation />} />
             <Route path="/share/:shareId" element={<Share />} />
             <Route path="/points" element={<Points />} />
-          <Route path="/membership" element={<Membership />} />
+            <Route path="/membership" element={<Membership />} />
             <Route path="/gallery/:cardId" element={<CardDetail />} />
             <Route path="/daily" element={<DailyFortune />} />
             <Route path="/readers" element={<Readers />} />
             <Route path="/readers/:readerId" element={<ReaderDetail />} />
-                    <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          </Suspense>
         </Layout>
         </ErrorBoundary>
       </Router>

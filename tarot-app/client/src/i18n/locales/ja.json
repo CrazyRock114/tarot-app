@@ -4,7 +4,7 @@
     "draw": "カードを引く",
     "fortune": "運勢",
     "gallery": "カード図鑑",
-    "readers": "タロット師",
+    "readers": "タロット占い師",
     "membership": "会員",
     "profile": "マイページ",
     "login": "ログイン",
@@ -26,7 +26,7 @@
     "multiSpreadDesc": "1枚引き、3枚、ケルト十字など",
     "dailyFortune": "今日の運勢",
     "dailyFortuneDesc": "誕生日に基づく個性化された運勢",
-    "selectReader": "AIタロット師を選ぶ",
+    "selectReader": "AIタロット占い師を選ぶ",
     "selectReaderDesc": "それぞれ独自の解釈スタイルを持つ",
     "vipSection": "会員限定",
     "vipTitle": "タロット体験をフル解放",
@@ -145,7 +145,10 @@
       "pisces": "魚座"
     },
     "seoDesc": "誕生日を入力すると、AIが星座とタロットを組み合わせて今日の運勢を解読します。恋愛、仕事、金運、健康のガイド。",
-    "generatingHint": "星を読んでいます..."
+    "generatingHint": "星を読んでいます...",
+    "step1Desc": "誕生日を入力して、パーソナライズされた運勢を開始",
+    "step2Desc": "AIが星座とタロットを組み合わせて今日の運勢を生成",
+    "step3Desc": "恋愛、仕事、財運、健康の全方位ガイダンスを取得"
   },
   "gallery": {
     "title": "タロット図鑑",
@@ -181,7 +184,7 @@
     "seoDesc": "{{name}}（{{nameEn}}）正位置の意味：{{upright}}。逆位置の意味：{{reversed}}。"
   },
   "readers": {
-    "title": "AIタロット師",
+    "title": "AIタロット占い師",
     "subtitle": "あなたに合った解釈スタイルを選ぶ",
     "viewDetail": "詳しく見る",
     "selectReader": "選ぶ",
@@ -261,9 +264,9 @@
     "readersAccess": "タロット師",
     "readersFree": "デフォルト1名",
     "readersMember": "全4名",
-    "weekly": "週間",
-    "monthly": "月額",
-    "yearly": "年間",
+    "weekly": "週間体験",
+    "monthly": "月額会員",
+    "yearly": "年間会員",
     "popular": "人気No.1",
     "bestValue": "お得",
     "pointsUnit": "pt",
@@ -343,9 +346,11 @@
     "password": "パスワード",
     "submit": "ログイン",
     "submitting": "ログイン中...",
-    "noAccount": "アカウントをお持ちでない方は",
+    "noAccount": "アカウントをお持ちでない方はこちら",
     "register": "新規登録",
-    "forgotPassword": "パスワードを忘れた方"
+    "forgotPassword": "パスワードを忘れた方",
+    "showPassword": "パスワードを表示",
+    "hidePassword": "パスワードを隠す"
   },
   "register": {
     "title": "新規登録",
@@ -357,10 +362,12 @@
     "inviteCodePlaceholder": "コードがある方は20ptボーナス",
     "submit": "登録",
     "submitting": "登録中...",
-    "hasAccount": "すでにアカウントをお持ちの方は",
+    "hasAccount": "すでにアカウントをお持ちの方はこちら",
     "login": "ログイン",
     "passwordMismatch": "パスワードが一致しません",
-    "success": "登録完了！"
+    "success": "登録完了！",
+    "showPassword": "パスワードを表示",
+    "hidePassword": "パスワードを隠す"
   },
   "history": {
     "title": "占い履歴",
@@ -673,7 +680,7 @@
       ]
     },
     "decision": {
-      "name": "意思決定",
+      "name": "意思決定スプレッド",
       "description": "重要な決定を手伝うスプレッド",
       "positions": {
         "position0": {
@@ -724,7 +731,7 @@
     },
     "career": {
       "name": "キャリアスプレッド",
-      "description": "キャリア開発、、職場の課題、機会を探る",
+      "description": "キャリア開発、職場の課題、機会を探る",
       "positions": {
         "position0": {
           "Name": "現在のキャリア状態",
@@ -775,7 +782,7 @@
         }
       },
       "suitableFor": [
-        "单一イベント",
+        "単一イベント",
         "未来予測",
         "総合分析"
       ]
@@ -795,7 +802,7 @@
   },
   "shareImage": {
     "aiReading": "AIタロット占い",
-    "tarotReader": "タロット師：",
+    "tarotReader": "タロット占い師：",
     "reversed": "逆位置",
     "upright": "正位置",
     "aiSummary": "✨ AI解説サマリー",

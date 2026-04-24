@@ -4,110 +4,210 @@
       "fool": {
         "name": "愚者",
         "keywords": {
-          "upright": ["新的开始", "冒险", "自由", "潜力"],
-          "reversed": ["鲁莽", "冒险", "天真", "缺乏计划"]
+          "upright": [
+            "新的開始",
+            "冒險",
+            "自由",
+            "潛力"
+          ],
+          "reversed": [
+            "魯莽",
+            "冒險",
+            "天真",
+            "缺乏計劃"
+          ]
         },
         "keywordsEn": {
-          "upright": ["New Beginnings", "Adventure", "Freedom", "Potential"],
-          "reversed": ["Recklessness", "Risk-taking", "Naivety", "Lack of Planning"]
+          "upright": [
+            "New Beginnings",
+            "Adventure",
+            "Freedom",
+            "Potential"
+          ],
+          "reversed": [
+            "Recklessness",
+            "Risk-taking",
+            "Naivety",
+            "Lack of Planning"
+          ]
         },
         "meanings": {
-          "upright": "代表新的开始、冒险精神和无限潜力。愚者正准备踏上未知的旅程，充满乐观和信任。这是追随直觉、拥抱变化的时刻。",
-          "reversed": "警告不要过于鲁莽或天真。可能暗示缺乏计划、盲目的冒险，或需要更加脚踏实地。提醒你在行动前多思考。"
+          "upright": "代表新的開始、冒險精神和無限潛力。愚者正準備踏上未知的旅程，充滿樂觀和信任。這是追隨直覺、擁抱變化的時刻。",
+          "reversed": "警告不要過於魯莽或天真。可能暗示缺乏計劃、盲目的冒險，或需要更加腳踏實地。提醒你在行動前多思考。"
         },
         "meaningsEn": {
           "upright": "Represents new beginnings, a spirit of adventure, and infinite potential. The Fool is about to embark on an unknown journey, full of optimism and trust. It is a time to follow your intuition and embrace change.",
           "reversed": "Warns against being too reckless or naive. It may suggest a lack of planning, blind risk-taking, or a need to be more grounded. Reminds you to think before you act."
         },
-        "description": "一位旅行者站在悬崖边缘，背着小包，准备跃入未知。身旁的小狗陪伴着他，象征本能和忠诚。",
-        "element": "空气",
+        "description": "一位旅行者站在懸崖邊緣，揹著小包，準備躍入未知。身旁的小狗陪伴著他，象徵本能和忠誠。",
+        "element": "空氣",
         "planet": "天王星"
       },
       "magician": {
-        "name": "魔术师",
+        "name": "魔術師",
         "keywords": {
-          "upright": ["创造力", "意志力", "显化", "能力"],
-          "reversed": ["欺骗", "操纵", "缺乏信心", "浪费才能"]
+          "upright": [
+            "創造力",
+            "意志力",
+            "顯化",
+            "能力"
+          ],
+          "reversed": [
+            "欺騙",
+            "操縱",
+            "缺乏信心",
+            "浪費才能"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Creativity", "Willpower", "Manifestation", "Ability"],
-          "reversed": ["Deception", "Manipulation", "Lack of Confidence", "Wasted Talent"]
+          "upright": [
+            "Creativity",
+            "Willpower",
+            "Manifestation",
+            "Ability"
+          ],
+          "reversed": [
+            "Deception",
+            "Manipulation",
+            "Lack of Confidence",
+            "Wasted Talent"
+          ]
         },
         "meanings": {
-          "upright": "你拥有实现目标所需的所有资源和能力。现在是采取行动、将想法显化为现实的时刻。相信自己的力量。",
-          "reversed": "可能暗示自我怀疑或未能充分利用自己的才能。警惕欺骗或操纵行为，无论是来自他人还是自己。"
+          "upright": "你擁有實現目標所需的所有資源和能力。現在是採取行動、將想法顯化為現實的時刻。相信自己的力量。",
+          "reversed": "可能暗示自我懷疑或未能充分利用自己的才能。警惕欺騙或操縱行為，無論是來自他人還是自己。"
         },
         "meaningsEn": {
           "upright": "You possess all the resources and abilities needed to achieve your goals. Now is the moment to take action and manifest your ideas into reality. Believe in your own power.",
           "reversed": "May suggest self-doubt or a failure to fully utilize your talents. Be wary of deception or manipulative behavior, whether from others or yourself."
         },
-        "description": "魔术师站在祭坛前，高举权杖指向天空，另一只手指向地面。桌上摆放着代表四种元素的工具。",
-        "element": "空气",
+        "description": "魔術師站在祭壇前，高舉權杖指向天空，另一隻手指向地面。桌上擺放著代表四種元素的工具。",
+        "element": "空氣",
         "planet": "水星"
       },
       "highPriestess": {
         "name": "女祭司",
         "keywords": {
-          "upright": ["直觉", "潜意识", "神秘", "内在智慧"],
-          "reversed": ["秘密", "被压抑的直觉", "表面化", "困惑"]
+          "upright": [
+            "直覺",
+            "潛意識",
+            "神秘",
+            "內在智慧"
+          ],
+          "reversed": [
+            "秘密",
+            "被壓抑的直覺",
+            "表面化",
+            "困惑"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Intuition", "Subconscious", "Mystery", "Inner Wisdom"],
-          "reversed": ["Secrets", "Suppressed Intuition", "Superficiality", "Confusion"]
+          "upright": [
+            "Intuition",
+            "Subconscious",
+            "Mystery",
+            "Inner Wisdom"
+          ],
+          "reversed": [
+            "Secrets",
+            "Suppressed Intuition",
+            "Superficiality",
+            "Confusion"
+          ]
         },
         "meanings": {
-          "upright": "倾听你内在的声音和直觉。女祭司邀请你深入潜意识，探索隐藏的真理。信任你的第六感。",
-          "reversed": "可能忽视了直觉的指引，过于依赖逻辑。或暗示隐藏的动机和秘密需要被揭露。"
+          "upright": "傾聽你內在的聲音和直覺。女祭司邀請你深入潛意識，探索隱藏的真理。信任你的第六感。",
+          "reversed": "可能忽視了直覺的指引，過於依賴邏輯。或暗示隱藏的動機和秘密需要被揭露。"
         },
         "meaningsEn": {
           "upright": "Listen to your inner voice and intuition. The High Priestess invites you to delve deep into the subconscious to explore hidden truths. Trust your sixth sense.",
           "reversed": "You may be ignoring the guidance of your intuition and relying too much on logic. Alternatively, it suggests hidden motives and secrets that need to be revealed."
         },
-        "description": "女祭司端坐于两柱之间，手持卷轴，脚边是弯月。她连接着意识与潜意识的世界。",
+        "description": "女祭司端坐於兩柱之間，手持卷軸，腳邊是彎月。她連接著意識與潛意識的世界。",
         "element": "水",
         "planet": "月亮"
       },
       "empress": {
         "name": "皇后",
         "keywords": {
-          "upright": ["丰饶", "母性", "创造力", "自然"],
-          "reversed": ["依赖", "不孕", "创造力受阻", "忽视自我"]
+          "upright": [
+            "豐饒",
+            "母性",
+            "創造力",
+            "自然"
+          ],
+          "reversed": [
+            "依賴",
+            "不孕",
+            "創造力受阻",
+            "忽視自我"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Abundance", "Motherhood", "Creativity", "Nature"],
-          "reversed": ["Dependency", "Infertility", "Creative Block", "Self-neglect"]
+          "upright": [
+            "Abundance",
+            "Motherhood",
+            "Creativity",
+            "Nature"
+          ],
+          "reversed": [
+            "Dependency",
+            "Infertility",
+            "Creative Block",
+            "Self-neglect"
+          ]
         },
         "meanings": {
-          "upright": "象征丰盛、滋养和创造力的流动。关注你的感官享受，与大自然连接，允许自己接受美好。",
-          "reversed": "可能过度依赖他人或忽视自己的需求。创造力受阻，需要重新连接内在的女性能量。"
+          "upright": "象徵豐盛、滋養和創造力的流動。關注你的感官享受，與大自然連接，允許自己接受美好。",
+          "reversed": "可能過度依賴他人或忽視自己的需求。創造力受阻，需要重新連接內在的女性能量。"
         },
         "meaningsEn": {
           "upright": "Symbolizes abundance, nourishment, and the flow of creativity. Focus on your sensory pleasures, connect with nature, and allow yourself to receive goodness.",
           "reversed": "May indicate over-dependence on others or neglecting your own needs. Creativity is blocked, and there is a need to reconnect with your inner feminine energy."
         },
-        "description": "皇后安坐在丰收的麦田中，周围环绕着自然的美景。她代表着母性的滋养和丰饶。",
+        "description": "皇后安坐在豐收的麥田中，周圍環繞著自然的美景。她代表著母性的滋養和豐饒。",
         "element": "土",
         "planet": "金星"
       },
       "emperor": {
         "name": "皇帝",
         "keywords": {
-          "upright": ["权威", "结构", "控制", "父性"],
-          "reversed": ["专制", "僵化", "缺乏纪律", "滥用权力"]
+          "upright": [
+            "權威",
+            "結構",
+            "控制",
+            "父性"
+          ],
+          "reversed": [
+            "專制",
+            "僵化",
+            "缺乏紀律",
+            "濫用權力"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Authority", "Structure", "Control", "Fatherhood"],
-          "reversed": ["Tyranny", "Rigidity", "Lack of Discipline", "Abuse of Power"]
+          "upright": [
+            "Authority",
+            "Structure",
+            "Control",
+            "Fatherhood"
+          ],
+          "reversed": [
+            "Tyranny",
+            "Rigidity",
+            "Lack of Discipline",
+            "Abuse of Power"
+          ]
         },
         "meanings": {
-          "upright": "建立秩序和结构，发挥领导力。皇帝代表稳定、纪律和实际的智慧。制定计划并坚定执行。",
-          "reversed": "警惕过度控制或僵化。可能暗示权威问题，或需要打破旧有的限制模式。"
+          "upright": "建立秩序和結構，發揮領導力。皇帝代表穩定、紀律和實際的智慧。制定計劃並堅定執行。",
+          "reversed": "警惕過度控制或僵化。可能暗示權威問題，或需要打破舊有的限制模式。"
         },
         "meaningsEn": {
           "upright": "Establish order and structure, and exert leadership. The Emperor represents stability, discipline, and practical wisdom. Create a plan and execute it firmly.",
           "reversed": "Beware of over-control or rigidity. It may suggest issues with authority or a need to break out of old, restrictive patterns."
         },
-        "description": "皇帝端坐于石座之上，手持权杖和球体，身后是雄伟的山脉。他象征着世俗权力和稳定。",
+        "description": "皇帝端坐於石座之上，手持權杖和球體，身後是雄偉的山脈。他象徵著世俗權力和穩定。",
         "element": "火",
         "planet": "火星",
         "zodiac": "白羊座"
@@ -115,992 +215,3012 @@
       "hierophant": {
         "name": "教皇",
         "keywords": {
-          "upright": ["传统", "信仰", "教育", "指导"],
-          "reversed": ["反叛", "非传统", "个人信念", "打破规则"]
+          "upright": [
+            "傳統",
+            "信仰",
+            "教育",
+            "指導"
+          ],
+          "reversed": [
+            "反叛",
+            "非傳統",
+            "個人信念",
+            "打破規則"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Tradition", "Belief", "Education", "Guidance"],
-          "reversed": ["Rebellion", "Unconventional", "Personal Beliefs", "Breaking Rules"]
+          "upright": [
+            "Tradition",
+            "Belief",
+            "Education",
+            "Guidance"
+          ],
+          "reversed": [
+            "Rebellion",
+            "Unconventional",
+            "Personal Beliefs",
+            "Breaking Rules"
+          ]
         },
         "meanings": {
-          "upright": "寻求传统智慧和精神指导。可能暗示需要遵循既定的规则或向导师学习。尊重传统价值。",
-          "reversed": "质疑传统，寻找属于自己的道路。可能暗示打破规则或发展个人独特的信仰体系。"
+          "upright": "尋求傳統智慧和精神指導。可能暗示需要遵循既定的規則或嚮導師學習。尊重傳統價值。",
+          "reversed": "質疑傳統，尋找屬於自己的道路。可能暗示打破規則或發展個人獨特的信仰體系。"
         },
         "meaningsEn": {
           "upright": "Seek traditional wisdom and spiritual guidance. May suggest a need to follow established rules or learn from a mentor. Respect traditional values.",
           "reversed": "Question tradition and find your own path. May imply breaking the rules or developing a personal, unique belief system."
         },
-        "description": "教皇坐于两根柱子间，手持权杖，前方跪着两位信徒。他代表着传统和精神权威。",
+        "description": "教皇坐於兩根柱子間，手持權杖，前方跪著兩位信徒。他代表著傳統和精神權威。",
         "element": "土",
         "zodiac": "金牛座"
       },
       "lovers": {
-        "name": "恋人",
+        "name": "戀人",
         "keywords": {
-          "upright": ["爱情", "选择", "和谐", "价值观"],
-          "reversed": ["不和谐", "困难选择", "价值观冲突", "分离"]
+          "upright": [
+            "愛情",
+            "選擇",
+            "和諧",
+            "價值觀"
+          ],
+          "reversed": [
+            "不和諧",
+            "困難選擇",
+            "價值觀衝突",
+            "分離"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Love", "Choice", "Harmony", "Values"],
-          "reversed": ["Disharmony", "Difficult Choice", "Conflict of Values", "Separation"]
+          "upright": [
+            "Love",
+            "Choice",
+            "Harmony",
+            "Values"
+          ],
+          "reversed": [
+            "Disharmony",
+            "Difficult Choice",
+            "Conflict of Values",
+            "Separation"
+          ]
         },
         "meanings": {
-          "upright": "关于爱情、关系和重要选择。恋人牌暗示需要做出符合内心价值观的决定，追求和谐与平衡。",
-          "reversed": "关系中的不和谐或价值观冲突。可能面临艰难的选择，需要重新审视什么对你真正重要。"
+          "upright": "關於愛情、關係和重要選擇。戀人牌暗示需要做出符合內心價值觀的決定，追求和諧與平衡。",
+          "reversed": "關係中的不和諧或價值觀衝突。可能面臨艱難的選擇，需要重新審視什麼對你真正重要。"
         },
         "meaningsEn": {
           "upright": "About love, relationships, and important choices. The Lovers card suggests the need to make decisions aligned with your inner values, seeking harmony and balance.",
           "reversed": "Disharmony in a relationship or a conflict of values. You may face a difficult choice and need to re-examine what truly matters to you."
         },
-        "description": "亚当和夏娃在天使祝福下站立于伊甸园。象征着爱情、结合和神圣的选择。",
-        "element": "空气",
-        "zodiac": "双子座"
+        "description": "亞當和夏娃在天使祝福下站立於伊甸園。象徵著愛情、結合和神聖的選擇。",
+        "element": "空氣",
+        "zodiac": "雙子座"
       },
       "chariot": {
-        "name": "战车",
+        "name": "戰車",
         "keywords": {
-          "upright": ["意志力", "胜利", "决心", "控制"],
-          "reversed": ["失控", "挫折", "缺乏方向", "意志力薄弱"]
+          "upright": [
+            "意志力",
+            "勝利",
+            "決心",
+            "控制"
+          ],
+          "reversed": [
+            "失控",
+            "挫折",
+            "缺乏方向",
+            "意志力薄弱"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Willpower", "Victory", "Determination", "Control"],
-          "reversed": ["Loss of Control", "Setbacks", "Lack of Direction", "Weak Willpower"]
+          "upright": [
+            "Willpower",
+            "Victory",
+            "Determination",
+            "Control"
+          ],
+          "reversed": [
+            "Loss of Control",
+            "Setbacks",
+            "Lack of Direction",
+            "Weak Willpower"
+          ]
         },
         "meanings": {
-          "upright": "通过坚定的意志力和决心取得胜利。控制对立的力量，朝着目标前进。相信你能克服任何障碍。",
-          "reversed": "可能感到失控或缺乏方向。挫折提醒你重新评估策略，加强内在的决心。"
+          "upright": "通過堅定的意志力和決心取得勝利。控制對立的力量，朝著目標前進。相信你能克服任何障礙。",
+          "reversed": "可能感到失控或缺乏方向。挫折提醒你重新評估策略，加強內在的決心。"
         },
         "meaningsEn": {
           "upright": "Achieve victory through firm willpower and determination. Control opposing forces and move toward your goals. Trust that you can overcome any obstacle.",
           "reversed": "You may feel out of control or lack direction. Setbacks remind you to re-evaluate your strategy and strengthen your inner resolve."
         },
-        "description": "战士驾驭着由两只对立狮鹫拉的战车，没有缰绳却意志坚定。象征着意志力的胜利。",
+        "description": "戰士駕馭著由兩隻對立獅鷲拉的戰車，沒有韁繩卻意志堅定。象徵著意志力的勝利。",
         "element": "水",
         "zodiac": "巨蟹座"
       },
       "strength": {
         "name": "力量",
         "keywords": {
-          "upright": ["内在力量", "勇气", "耐心", "同情心"],
-          "reversed": ["软弱", "自我怀疑", "不耐烦", "压抑"]
+          "upright": [
+            "內在力量",
+            "勇氣",
+            "耐心",
+            "同情心"
+          ],
+          "reversed": [
+            "軟弱",
+            "自我懷疑",
+            "不耐煩",
+            "壓抑"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Inner Strength", "Courage", "Patience", "Compassion"],
-          "reversed": ["Weakness", "Self-doubt", "Impatience", "Repression"]
+          "upright": [
+            "Inner Strength",
+            "Courage",
+            "Patience",
+            "Compassion"
+          ],
+          "reversed": [
+            "Weakness",
+            "Self-doubt",
+            "Impatience",
+            "Repression"
+          ]
         },
         "meanings": {
-          "upright": "真正的力量来自内心的勇气和耐心，而非武力。以温柔和同情面对挑战，驯服你内在的野兽。",
-          "reversed": "可能感到内在力量的缺乏或自我怀疑。需要学会管理情绪，避免压抑或爆发。"
+          "upright": "真正的力量來自內心的勇氣和耐心，而非武力。以溫柔和同情面對挑戰，馴服你內在的野獸。",
+          "reversed": "可能感到內在力量的缺乏或自我懷疑。需要學會管理情緒，避免壓抑或爆發。"
         },
         "meaningsEn": {
           "upright": "True strength comes from inner courage and patience, not brute force. Face challenges with gentleness and compassion, taming the beast within you.",
           "reversed": "You may feel a lack of inner strength or self-doubt. You need to learn how to manage your emotions and avoid repression or outbursts."
         },
-        "description": "女子温柔地合上狮子的嘴，用耐心和爱心驯服了野兽。象征着内在的力量和勇气。",
+        "description": "女子溫柔地合上獅子的嘴，用耐心和愛心馴服了野獸。象徵著內在的力量和勇氣。",
         "element": "火",
-        "zodiac": "狮子座"
+        "zodiac": "獅子座"
       },
       "hermit": {
-        "name": "隐者",
+        "name": "隱者",
         "keywords": {
-          "upright": ["内省", "独处", "指导", "寻求真理"],
-          "reversed": ["孤独", "迷失", "隔离", "拒绝建议"]
+          "upright": [
+            "內省",
+            "獨處",
+            "指導",
+            "尋求真理"
+          ],
+          "reversed": [
+            "孤獨",
+            "迷失",
+            "隔離",
+            "拒絕建議"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Introspection", "Solitude", "Guidance", "Seeking Truth"],
-          "reversed": ["Loneliness", "Lost", "Isolation", "Rejecting Advice"]
+          "upright": [
+            "Introspection",
+            "Solitude",
+            "Guidance",
+            "Seeking Truth"
+          ],
+          "reversed": [
+            "Loneliness",
+            "Lost",
+            "Isolation",
+            "Rejecting Advice"
+          ]
         },
         "meanings": {
-          "upright": "需要独处和反思的时间。隐者引导你向内寻找答案，远离外界的喧嚣。智慧来自内在。",
-          "reversed": "可能过度孤独或拒绝他人的帮助。也可能暗示逃避面对真相，需要走出孤立。"
+          "upright": "需要獨處和反思的時間。隱者引導你向內尋找答案，遠離外界的喧囂。智慧來自內在。",
+          "reversed": "可能過度孤獨或拒絕他人的幫助。也可能暗示逃避面對真相，需要走出孤立。"
         },
         "meaningsEn": {
           "upright": "A time for solitude and reflection is needed. The Hermit guides you to look inward for answers, away from the noise of the outside world. Wisdom comes from within.",
           "reversed": "May indicate excessive loneliness or a refusal to seek help from others. It could also suggest avoiding the truth, necessitating a move out of isolation."
         },
-        "description": "隐者手持明灯，独自站在山顶。象征着内省、寻求真理和精神的指引。",
+        "description": "隱者手持明燈，獨自站在山頂。象徵著內省、尋求真理和精神的指引。",
         "element": "土",
-        "zodiac": "处女座"
+        "zodiac": "處女座"
       },
       "wheelOfFortune": {
-        "name": "命运之轮",
+        "name": "命運之輪",
         "keywords": {
-          "upright": ["变化", "周期", "命运", "转折点"],
-          "reversed": ["不幸", "抗拒变化", "坏运气", "停滞"]
+          "upright": [
+            "變化",
+            "週期",
+            "命運",
+            "轉折點"
+          ],
+          "reversed": [
+            "不幸",
+            "抗拒變化",
+            "壞運氣",
+            "停滯"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Change", "Cycles", "Fate", "Turning Point"],
-          "reversed": ["Bad Luck", "Resisting Change", "Misfortune", "Stagnation"]
+          "upright": [
+            "Change",
+            "Cycles",
+            "Fate",
+            "Turning Point"
+          ],
+          "reversed": [
+            "Bad Luck",
+            "Resisting Change",
+            "Misfortune",
+            "Stagnation"
+          ]
         },
         "meanings": {
-          "upright": "生命周期的变化和转折。命运之轮转动，带来好运和新的机会。顺应变化，把握时机。",
-          "reversed": "可能遭遇不顺或抗拒不可避免的变化。提醒你在逆境中保持希望，一切都会过去。"
+          "upright": "生命週期的變化和轉折。命運之輪轉動，帶來好運和新的機會。順應變化，把握時機。",
+          "reversed": "可能遭遇不順或抗拒不可避免的變化。提醒你在逆境中保持希望，一切都會過去。"
         },
         "meaningsEn": {
           "upright": "Changes and turning points in the cycles of life. The Wheel of Fortune turns, bringing good luck and new opportunities. Adapt to change and seize the moment.",
           "reversed": "You may encounter bad luck or resist inevitable changes. Reminds you to maintain hope in adversity; this too shall pass."
         },
-        "description": "巨大的轮盘转动，四角有神话生物。象征着命运的循环和生命的不断变化。",
+        "description": "巨大的輪盤轉動，四角有神話生物。象徵著命運的循環和生命的不斷變化。",
         "element": "火",
         "planet": "木星"
       },
       "justice": {
-        "name": "正义",
+        "name": "正義",
         "keywords": {
-          "upright": ["公正", "真理", "因果", "法律"],
-          "reversed": ["不公", "不诚实", "逃避责任", "偏见"]
+          "upright": [
+            "公正",
+            "真理",
+            "因果",
+            "法律"
+          ],
+          "reversed": [
+            "不公",
+            "不誠實",
+            "逃避責任",
+            "偏見"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Justice", "Truth", "Cause and Effect", "Law"],
-          "reversed": ["Injustice", "Dishonesty", "Avoiding Responsibility", "Bias"]
+          "upright": [
+            "Justice",
+            "Truth",
+            "Cause and Effect",
+            "Law"
+          ],
+          "reversed": [
+            "Injustice",
+            "Dishonesty",
+            "Avoiding Responsibility",
+            "Bias"
+          ]
         },
         "meanings": {
-          "upright": "公正和平衡的时刻。面对真相，承担行为的后果。诚实和正直将带来公正的裁决。",
-          "reversed": "可能面临不公正的待遇或需要面对不诚实的行为。重新评估什么是真正公平的。"
+          "upright": "公正和平衡的時刻。面對真相，承擔行為的後果。誠實和正直將帶來公正的裁決。",
+          "reversed": "可能面臨不公正的待遇或需要面對不誠實的行為。重新評估什麼是真正公平的。"
         },
         "meaningsEn": {
           "upright": "A moment of fairness and balance. Face the truth and bear the consequences of your actions. Honesty and integrity will bring a just verdict.",
           "reversed": "You may face unfair treatment or need to confront dishonest behavior. Re-evaluate what is truly fair."
         },
-        "description": "正义女神手持天平和宝剑，蒙着眼睛。象征着公正、真理和因果法则。",
-        "element": "空气",
+        "description": "正義女神手持天平和寶劍，蒙著眼睛。象徵著公正、真理和因果法則。",
+        "element": "空氣",
         "zodiac": "天秤座"
       },
       "hangedMan": {
         "name": "倒吊人",
         "keywords": {
-          "upright": ["牺牲", "暂停", "新视角", "放手"],
-          "reversed": ["抵抗", "拖延", "无意义的牺牲", "停滞"]
+          "upright": [
+            "犧牲",
+            "暫停",
+            "新視角",
+            "放手"
+          ],
+          "reversed": [
+            "抵抗",
+            "拖延",
+            "無意義的犧牲",
+            "停滯"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Sacrifice", "Pause", "New Perspective", "Letting Go"],
-          "reversed": ["Resistance", "Stalling", "Needless Sacrifice", "Stagnation"]
+          "upright": [
+            "Sacrifice",
+            "Pause",
+            "New Perspective",
+            "Letting Go"
+          ],
+          "reversed": [
+            "Resistance",
+            "Stalling",
+            "Needless Sacrifice",
+            "Stagnation"
+          ]
         },
         "meanings": {
-          "upright": "暂停和反思的时刻。通过不同的视角看待情况，可能需要暂时的牺牲来获得更大的领悟。",
-          "reversed": "可能抗拒必要的改变或执着于无意义的牺牲。学会在适当的时候放手。"
+          "upright": "暫停和反思的時刻。通過不同的視角看待情況，可能需要暫時的犧牲來獲得更大的領悟。",
+          "reversed": "可能抗拒必要的改變或執著於無意義的犧牲。學會在適當的時候放手。"
         },
         "meaningsEn": {
           "upright": "A moment for pause and reflection. Look at situations from a different perspective; a temporary sacrifice might be needed to gain greater insight.",
           "reversed": "You may be resisting necessary change or clinging to a needless sacrifice. Learn to let go at the appropriate time."
         },
-        "description": "人倒吊在树上，姿态平静。象征着牺牲、新视角和自愿的暂停。",
+        "description": "人倒吊在樹上，姿態平靜。象徵著犧牲、新視角和自願的暫停。",
         "element": "水",
         "planet": "海王星"
       },
       "death": {
         "name": "死神",
         "keywords": {
-          "upright": ["转变", "结束", "新的开始", "释放"],
-          "reversed": ["抗拒结束", "停滞", "恐惧改变", "无法放手"]
+          "upright": [
+            "轉變",
+            "結束",
+            "新的開始",
+            "釋放"
+          ],
+          "reversed": [
+            "抗拒結束",
+            "停滯",
+            "恐懼改變",
+            "無法放手"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Transformation", "Ending", "New Beginnings", "Release"],
-          "reversed": ["Resisting Change", "Stagnation", "Fear of Change", "Unable to Let Go"]
+          "upright": [
+            "Transformation",
+            "Ending",
+            "New Beginnings",
+            "Release"
+          ],
+          "reversed": [
+            "Resisting Change",
+            "Stagnation",
+            "Fear of Change",
+            "Unable to Let Go"
+          ]
         },
         "meanings": {
-          "upright": "重大的转变和结束，为新开始腾出空间。放下旧有的模式，拥抱必要的改变。死亡带来重生。",
-          "reversed": "抗拒不可避免的结束，导致停滞。恐惧改变只会延长痛苦，学会接受和放手。"
+          "upright": "重大的轉變和結束，為新開始騰出空間。放下舊有的模式，擁抱必要的改變。死亡帶來重生。",
+          "reversed": "抗拒不可避免的結束，導致停滯。恐懼改變只會延長痛苦，學會接受和放手。"
         },
         "meaningsEn": {
           "upright": "Significant transformation and endings, making room for new beginnings. Let go of old patterns and embrace necessary change. Death brings rebirth.",
           "reversed": "Resisting an inevitable ending leads to stagnation. Fear of change only prolongs suffering; learn to accept and let go."
         },
-        "description": "骷髅骑士骑着白马，人们在他面前跪拜。象征着转变、结束和不可避免的改变。",
+        "description": "骷髏騎士騎著白馬，人們在他面前跪拜。象徵著轉變、結束和不可避免的改變。",
         "element": "水",
-        "zodiac": "天蝎座"
+        "zodiac": "天蠍座"
       },
       "temperance": {
-        "name": "节制",
+        "name": "節制",
         "keywords": {
-          "upright": ["平衡", "调和", "耐心", "中庸"],
-          "reversed": ["极端", "失衡", "过度", "不耐烦"]
+          "upright": [
+            "平衡",
+            "調和",
+            "耐心",
+            "中庸"
+          ],
+          "reversed": [
+            "極端",
+            "失衡",
+            "過度",
+            "不耐煩"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Balance", "Moderation", "Patience", "Harmony"],
-          "reversed": ["Extremes", "Imbalance", "Excess", "Impatience"]
+          "upright": [
+            "Balance",
+            "Moderation",
+            "Patience",
+            "Harmony"
+          ],
+          "reversed": [
+            "Extremes",
+            "Imbalance",
+            "Excess",
+            "Impatience"
+          ]
         },
         "meanings": {
-          "upright": "寻求平衡和调和。节制提醒你在极端之间找到中间道路，耐心调和不同的元素。",
-          "reversed": "可能处于失衡状态或走向极端。需要重新找到生活的平衡点和中心。"
+          "upright": "尋求平衡和調和。節制提醒你在極端之間找到中間道路，耐心調和不同的元素。",
+          "reversed": "可能處於失衡狀態或走向極端。需要重新找到生活的平衡點和中心。"
         },
         "meaningsEn": {
           "upright": "Seeking balance and moderation. Temperance reminds you to find the middle path between extremes and to patiently harmonize different elements.",
           "reversed": "You may be in a state of imbalance or heading toward extremes. You need to find your life's equilibrium and center again."
         },
-        "description": "天使站在水边，将两个杯子之间的液体混合。象征着平衡、调和和炼金术。",
+        "description": "天使站在水邊，將兩個杯子之間的液體混合。象徵著平衡、調和和鍊金術。",
         "element": "火",
         "zodiac": "射手座"
       },
       "devil": {
-        "name": "恶魔",
+        "name": "惡魔",
         "keywords": {
-          "upright": ["束缚", "物质主义", "诱惑", "阴影面"],
-          "reversed": ["释放", "突破限制", "重获自由", "觉醒"]
+          "upright": [
+            "束縛",
+            "物質主義",
+            "誘惑",
+            "陰影面"
+          ],
+          "reversed": [
+            "釋放",
+            "突破限制",
+            "重獲自由",
+            "覺醒"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Bondage", "Materialism", "Temptation", "Shadow Self"],
-          "reversed": ["Release", "Breaking Limits", "Regaining Freedom", "Awakening"]
+          "upright": [
+            "Bondage",
+            "Materialism",
+            "Temptation",
+            "Shadow Self"
+          ],
+          "reversed": [
+            "Release",
+            "Breaking Limits",
+            "Regaining Freedom",
+            "Awakening"
+          ]
         },
         "meanings": {
-          "upright": "面对你的阴影面和束缚。恶魔代表物质欲望和成瘾，提醒你不要成为欲望的奴隶。",
-          "reversed": "打破束缚，重获自由。意识到限制往往是自己加诸的，你有力量解放自己。"
+          "upright": "面對你的陰影面和束縛。惡魔代表物質慾望和成癮，提醒你不要成為慾望的奴隸。",
+          "reversed": "打破束縛，重獲自由。意識到限制往往是自己加諸的，你有力量解放自己。"
         },
         "meaningsEn": {
           "upright": "Face your shadow side and bondages. The Devil represents material desires and addictions, reminding you not to become a slave to your cravings.",
           "reversed": "Break the chains and regain your freedom. Realize that limitations are often self-imposed, and you have the power to liberate yourself."
         },
-        "description": "恶魔俯视着被锁链束缚的男女，但锁链是松的。象征着束缚、诱惑和物质欲望。",
+        "description": "惡魔俯視著被鎖鏈束縛的男女，但鎖鏈是松的。象徵著束縛、誘惑和物質慾望。",
         "element": "土",
         "zodiac": "摩羯座"
       },
       "tower": {
         "name": "塔",
         "keywords": {
-          "upright": ["突然改变", "觉醒", "崩塌", "启示"],
-          "reversed": ["避免灾难", "延迟改变", "个人转变", "内爆"]
+          "upright": [
+            "突然改變",
+            "覺醒",
+            "崩塌",
+            "啟示"
+          ],
+          "reversed": [
+            "避免災難",
+            "延遲改變",
+            "個人轉變",
+            "內爆"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Sudden Change", "Awakening", "Upheaval", "Revelation"],
-          "reversed": ["Avoiding Disaster", "Delayed Change", "Personal Transformation", "Internal Collapse"]
+          "upright": [
+            "Sudden Change",
+            "Awakening",
+            "Upheaval",
+            "Revelation"
+          ],
+          "reversed": [
+            "Avoiding Disaster",
+            "Delayed Change",
+            "Personal Transformation",
+            "Internal Collapse"
+          ]
         },
         "meanings": {
-          "upright": "突然和剧烈的改变，旧有结构的崩塌。虽然痛苦，但这是必要的觉醒，为真理腾出空间。",
-          "reversed": "可能试图避免不可避免的改变，或在内部经历个人转变而非外在崩塌。"
+          "upright": "突然和劇烈的改變，舊有結構的崩塌。雖然痛苦，但這是必要的覺醒，為真理騰出空間。",
+          "reversed": "可能試圖避免不可避免的改變，或在內部經歷個人轉變而非外在崩塌。"
         },
         "meaningsEn": {
           "upright": "Sudden and drastic change, the collapse of old structures. Although painful, it is a necessary awakening to make room for the truth.",
           "reversed": "You may be trying to avoid an inevitable change, or experiencing a personal transformation internally rather than an external collapse."
         },
-        "description": "高塔被闪电击中，人们从塔中坠落。象征着突然的改变、启示和旧有结构的崩塌。",
+        "description": "高塔被閃電擊中，人們從塔中墜落。象徵著突然的改變、啟示和舊有結構的崩塌。",
         "element": "火",
         "planet": "火星"
       },
       "star": {
         "name": "星星",
         "keywords": {
-          "upright": ["希望", "灵感", "宁静", "灵性连接"],
-          "reversed": ["绝望", "失去信心", "幻灭", "缺乏灵感"]
+          "upright": [
+            "希望",
+            "靈感",
+            "寧靜",
+            "靈性連接"
+          ],
+          "reversed": [
+            "絕望",
+            "失去信心",
+            "幻滅",
+            "缺乏靈感"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Hope", "Inspiration", "Serenity", "Spiritual Connection"],
-          "reversed": ["Despair", "Loss of Faith", "Disillusionment", "Lack of Inspiration"]
+          "upright": [
+            "Hope",
+            "Inspiration",
+            "Serenity",
+            "Spiritual Connection"
+          ],
+          "reversed": [
+            "Despair",
+            "Loss of Faith",
+            "Disillusionment",
+            "Lack of Inspiration"
+          ]
         },
         "meanings": {
-          "upright": "希望和灵感的灯塔。星星带来宁静和信心，相信宇宙在指引你。灵性连接和治愈的时刻。",
-          "reversed": "可能感到绝望或失去信心。暂时的幻灭提醒你重新连接内在的光芒和信任。"
+          "upright": "希望和靈感的燈塔。星星帶來寧靜和信心，相信宇宙在指引你。靈性連接和治癒的時刻。",
+          "reversed": "可能感到絕望或失去信心。暫時的幻滅提醒你重新連接內在的光芒和信任。"
         },
         "meaningsEn": {
           "upright": "A beacon of hope and inspiration. The Star brings serenity and faith, trust that the universe is guiding you. A time for spiritual connection and healing.",
           "reversed": "You may feel despair or a loss of faith. Temporary disillusionment reminds you to reconnect with your inner light and trust."
         },
-        "description": "女子在星空下将水倒入池塘和大地。象征着希望、灵感和宇宙的联系。",
-        "element": "空气",
+        "description": "女子在星空下將水倒入池塘和大地。象徵著希望、靈感和宇宙的聯繫。",
+        "element": "空氣",
         "zodiac": "水瓶座"
       },
       "moon": {
         "name": "月亮",
         "keywords": {
-          "upright": ["幻觉", "恐惧", "潜意识", "直觉"],
-          "reversed": ["混乱消散", "面对恐惧", "秘密揭露", "清晰度"]
+          "upright": [
+            "幻覺",
+            "恐懼",
+            "潛意識",
+            "直覺"
+          ],
+          "reversed": [
+            "混亂消散",
+            "面對恐懼",
+            "秘密揭露",
+            "清晰度"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Illusion", "Fear", "Subconscious", "Intuition"],
-          "reversed": ["Confusion Dissipating", "Facing Fear", "Secrets Revealed", "Clarity"]
+          "upright": [
+            "Illusion",
+            "Fear",
+            "Subconscious",
+            "Intuition"
+          ],
+          "reversed": [
+            "Confusion Dissipating",
+            "Facing Fear",
+            "Secrets Revealed",
+            "Clarity"
+          ]
         },
         "meanings": {
-          "upright": "潜意识的世界和隐藏的真相。月亮揭示恐惧和幻觉，但也带来深刻的直觉。信任你的感觉。",
-          "reversed": "秘密被揭露，幻觉消散。面对恐惧将带来清晰的认识。"
+          "upright": "潛意識的世界和隱藏的真相。月亮揭示恐懼和幻覺，但也帶來深刻的直覺。信任你的感覺。",
+          "reversed": "秘密被揭露，幻覺消散。面對恐懼將帶來清晰的認識。"
         },
         "meaningsEn": {
           "upright": "The world of the subconscious and hidden truths. The Moon reveals fears and illusions but also brings profound intuition. Trust your feelings.",
           "reversed": "Secrets are revealed and illusions dissipate. Facing your fears will lead to a clear understanding."
         },
-        "description": "满月高挂，下方有狗和狼在嚎叫，小龙虾从水中爬出。象征着潜意识、幻觉和直觉。",
+        "description": "滿月高掛，下方有狗和狼在嚎叫，小龍蝦從水中爬出。象徵著潛意識、幻覺和直覺。",
         "element": "水",
-        "zodiac": "双鱼座"
+        "zodiac": "雙魚座"
       },
       "sun": {
-        "name": "太阳",
+        "name": "太陽",
         "keywords": {
-          "upright": ["喜悦", "成功", "活力", "意识"],
-          "reversed": ["暂时的抑郁", "自负", "延迟的成功", "缺乏清晰度"]
+          "upright": [
+            "喜悅",
+            "成功",
+            "活力",
+            "意識"
+          ],
+          "reversed": [
+            "暫時的抑鬱",
+            "自負",
+            "延遲的成功",
+            "缺乏清晰度"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Joy", "Success", "Vitality", "Consciousness"],
-          "reversed": ["Temporary Depression", "Conceit", "Delayed Success", "Lack of Clarity"]
+          "upright": [
+            "Joy",
+            "Success",
+            "Vitality",
+            "Consciousness"
+          ],
+          "reversed": [
+            "Temporary Depression",
+            "Conceit",
+            "Delayed Success",
+            "Lack of Clarity"
+          ]
         },
         "meanings": {
-          "upright": "光明、喜悦和成功的时刻。太阳带来活力和积极的能量，一切清晰明朗。享受生命的礼物。",
-          "reversed": "可能经历暂时的阴霾或自负导致的盲点。成功只是延迟，保持信心。"
+          "upright": "光明、喜悅和成功的時刻。太陽帶來活力和積極的能量，一切清晰明朗。享受生命的禮物。",
+          "reversed": "可能經歷暫時的陰霾或自負導致的盲點。成功只是延遲，保持信心。"
         },
         "meaningsEn": {
           "upright": "A time of light, joy, and success. The Sun brings vitality and positive energy; everything is clear and bright. Enjoy the gifts of life.",
           "reversed": "You may experience temporary gloom or blind spots caused by conceit. Success is merely delayed; maintain your faith."
         },
-        "description": "快乐的孩童骑在白马上，太阳高挂天空。象征着喜悦、成功和生命的活力。",
+        "description": "快樂的孩童騎在白馬上，太陽高掛天空。象徵著喜悅、成功和生命的活力。",
         "element": "火",
-        "planet": "太阳"
+        "planet": "太陽"
       },
       "judgement": {
-        "name": "审判",
+        "name": "審判",
         "keywords": {
-          "upright": ["觉醒", "重生", "内在呼唤", "宽恕"],
-          "reversed": ["自我怀疑", "拒绝呼唤", "缺乏自我检视", "无法宽恕"]
+          "upright": [
+            "覺醒",
+            "重生",
+            "內在呼喚",
+            "寬恕"
+          ],
+          "reversed": [
+            "自我懷疑",
+            "拒絕呼喚",
+            "缺乏自我檢視",
+            "無法寬恕"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Awakening", "Rebirth", "Inner Calling", "Forgiveness"],
-          "reversed": ["Self-doubt", "Refusing the Call", "Lack of Self-reflection", "Unable to Forgive"]
+          "upright": [
+            "Awakening",
+            "Rebirth",
+            "Inner Calling",
+            "Forgiveness"
+          ],
+          "reversed": [
+            "Self-doubt",
+            "Refusing the Call",
+            "Lack of Self-reflection",
+            "Unable to Forgive"
+          ]
         },
         "meanings": {
-          "upright": "内在的觉醒和重生的时刻。回应灵魂的呼唤，宽恕自己和他人，迎接新的开始。",
-          "reversed": "可能抗拒内在的呼唤或深陷自我怀疑。需要自我检视和宽恕才能前进。"
+          "upright": "內在的覺醒和重生的時刻。回應靈魂的呼喚，寬恕自己和他人，迎接新的開始。",
+          "reversed": "可能抗拒內在的呼喚或深陷自我懷疑。需要自我檢視和寬恕才能前進。"
         },
         "meaningsEn": {
           "upright": "A moment of inner awakening and rebirth. Respond to your soul's calling, forgive yourself and others, and welcome new beginnings.",
           "reversed": "You may be resisting your inner calling or deep in self-doubt. Self-reflection and forgiveness are needed to move forward."
         },
-        "description": "天使吹奏号角，人们从坟墓中升起。象征着审判、觉醒和重生。",
+        "description": "天使吹奏號角，人們從墳墓中升起。象徵著審判、覺醒和重生。",
         "element": "火",
         "planet": "冥王星"
       },
       "world": {
         "name": "世界",
         "keywords": {
-          "upright": ["完成", "整合", "成就", "整体性"],
-          "reversed": ["未完成的业务", "缺乏结束", "空虚", "延迟的成就"]
+          "upright": [
+            "完成",
+            "整合",
+            "成就",
+            "整體性"
+          ],
+          "reversed": [
+            "未完成的業務",
+            "缺乏結束",
+            "空虛",
+            "延遲的成就"
+          ]
         },
         "keywordsEn": {
-          "upright": ["Completion", "Integration", "Accomplishment", "Wholeness"],
-          "reversed": ["Unfinished Business", "Lack of Closure", "Emptiness", "Delayed Success"]
+          "upright": [
+            "Completion",
+            "Integration",
+            "Accomplishment",
+            "Wholeness"
+          ],
+          "reversed": [
+            "Unfinished Business",
+            "Lack of Closure",
+            "Emptiness",
+            "Delayed Success"
+          ]
         },
         "meanings": {
-          "upright": "一个周期的完成和成就。世界象征整合和整体性，你已达到一个重要的里程碑。庆祝你的成就。",
-          "reversed": "可能还有未完成的业务或难以放手。需要找到真正的结束才能开始新的周期。"
+          "upright": "一個週期的完成和成就。世界象徵整合和整體性，你已達到一個重要的里程碑。慶祝你的成就。",
+          "reversed": "可能還有未完成的業務或難以放手。需要找到真正的結束才能開始新的週期。"
         },
         "meaningsEn": {
           "upright": "Completion and accomplishment of a cycle. The World symbolizes integration and wholeness; you have reached a significant milestone. Celebrate your achievement.",
           "reversed": "There may be unfinished business or a difficulty in letting go. You need to find true closure before starting a new cycle."
         },
-        "description": "舞者在花环中，四角有神话生物。象征着完成、成就和宇宙的统一。",
+        "description": "舞者在花環中，四角有神話生物。象徵著完成、成就和宇宙的統一。",
         "element": "土",
         "planet": "土星"
       }
     },
     "minor": {
       "wands_1": {
-        "name": "权杖首牌",
+        "name": "權杖首牌",
         "nameEn": "Ace of Wands",
-        "keywords": {"upright": ["灵感", "创造力", "新开始", "激情"], "reversed": ["延迟", "缺乏动力", "创意受阻"]},
-        "keywordsEn": {"upright": ["Inspiration", "Creativity", "New Beginnings", "Passion"], "reversed": ["Delays", "Lack of Motivation", "Creative Block"]},
-        "meanings": {"upright": "新的创意火花，灵感的涌现。开始新项目的好时机。充满潜力和成长的能量。", "reversed": "创意受阻，动力不足，需要重新点燃热情。项目可能被延迟。"},
-        "meaningsEn": {"upright": "A new spark of creativity, the emergence of inspiration. A good time to start new projects. Full of potential and growth energy.", "reversed": "Creative block, lack of motivation, a need to reignite passion. Projects may be delayed."},
-        "description": "一只从云中伸出的手紧握着发芽的权杖，象征新的创意和灵感的开始。",
+        "keywords": {
+          "upright": [
+            "靈感",
+            "創造力",
+            "新開始",
+            "激情"
+          ],
+          "reversed": [
+            "延遲",
+            "缺乏動力",
+            "創意受阻"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Inspiration",
+            "Creativity",
+            "New Beginnings",
+            "Passion"
+          ],
+          "reversed": [
+            "Delays",
+            "Lack of Motivation",
+            "Creative Block"
+          ]
+        },
+        "meanings": {
+          "upright": "新的創意火花，靈感的湧現。開始新項目的好時機。充滿潛力和成長的能量。",
+          "reversed": "創意受阻，動力不足，需要重新點燃熱情。項目可能被延遲。"
+        },
+        "meaningsEn": {
+          "upright": "A new spark of creativity, the emergence of inspiration. A good time to start new projects. Full of potential and growth energy.",
+          "reversed": "Creative block, lack of motivation, a need to reignite passion. Projects may be delayed."
+        },
+        "description": "一隻從雲中伸出的手緊握著發芽的權杖，象徵新的創意和靈感的開始。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_2": {
-        "name": "权杖二",
+        "name": "權杖二",
         "nameEn": "Two of Wands",
-        "keywords": {"upright": ["规划", "远见", "决策", "探索"], "reversed": ["恐惧", "犹豫", "目光短浅"]},
-        "keywordsEn": {"upright": ["Planning", "Vision", "Decisions", "Exploration"], "reversed": ["Fear", "Hesitation", "Short-sightedness"]},
-        "meanings": {"upright": "规划未来，制定长远计划。你有远见和资源。站在城堡上眺望远方，思考下一步。", "reversed": "恐惧未知，犹豫不前，缺乏明确方向。可能需要更多准备。"},
-        "meaningsEn": {"upright": "Planning for the future, making long-term plans. You have vision and resources. Standing on a castle looking into the distance.", "reversed": "Fear of the unknown, hesitation, lack of clear direction. May need more preparation."},
-        "description": "一个男子站在城堡的城墙上，手握地球仪，眺望远方的海洋和山脉。",
+        "keywords": {
+          "upright": [
+            "規劃",
+            "遠見",
+            "決策",
+            "探索"
+          ],
+          "reversed": [
+            "恐懼",
+            "猶豫",
+            "目光短淺"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Planning",
+            "Vision",
+            "Decisions",
+            "Exploration"
+          ],
+          "reversed": [
+            "Fear",
+            "Hesitation",
+            "Short-sightedness"
+          ]
+        },
+        "meanings": {
+          "upright": "規劃未來，制定長遠計劃。你有遠見和資源。站在城堡上眺望遠方，思考下一步。",
+          "reversed": "恐懼未知，猶豫不前，缺乏明確方向。可能需要更多準備。"
+        },
+        "meaningsEn": {
+          "upright": "Planning for the future, making long-term plans. You have vision and resources. Standing on a castle looking into the distance.",
+          "reversed": "Fear of the unknown, hesitation, lack of clear direction. May need more preparation."
+        },
+        "description": "一個男子站在城堡的城牆上，手握地球儀，眺望遠方的海洋和山脈。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_3": {
-        "name": "权杖三",
+        "name": "權杖三",
         "nameEn": "Three of Wands",
-        "keywords": {"upright": ["扩展", "远见", "领导力", "进展"], "reversed": ["阻碍", "延迟", "需要调整"]},
-        "keywordsEn": {"upright": ["Expansion", "Foresight", "Leadership", "Progress"], "reversed": ["Obstacles", "Delays", "Need for Adjustment"]},
-        "meanings": {"upright": "扩展视野，领导力显现。你的努力开始展现成果。商船即将归来，带来成功的消息。", "reversed": "遭遇阻碍，计划延迟，需要调整策略。保持耐心。"},
-        "meaningsEn": {"upright": "Expanding horizons, leadership emerging. Your efforts are beginning to show results. Merchant ships are returning with news of success.", "reversed": "Encountering obstacles, delayed plans, a need to adjust strategies. Be patient."},
-        "description": "一个商人站在悬崖边，眺望远方海面上的三艘商船，象征扩展和远见。",
+        "keywords": {
+          "upright": [
+            "擴展",
+            "遠見",
+            "領導力",
+            "進展"
+          ],
+          "reversed": [
+            "阻礙",
+            "延遲",
+            "需要調整"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Expansion",
+            "Foresight",
+            "Leadership",
+            "Progress"
+          ],
+          "reversed": [
+            "Obstacles",
+            "Delays",
+            "Need for Adjustment"
+          ]
+        },
+        "meanings": {
+          "upright": "擴展視野，領導力顯現。你的努力開始展現成果。商船即將歸來，帶來成功的消息。",
+          "reversed": "遭遇阻礙，計劃延遲，需要調整策略。保持耐心。"
+        },
+        "meaningsEn": {
+          "upright": "Expanding horizons, leadership emerging. Your efforts are beginning to show results. Merchant ships are returning with news of success.",
+          "reversed": "Encountering obstacles, delayed plans, a need to adjust strategies. Be patient."
+        },
+        "description": "一個商人站在懸崖邊，眺望遠方海面上的三艘商船，象徵擴展和遠見。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_4": {
-        "name": "权杖四",
+        "name": "權杖四",
         "nameEn": "Four of Wands",
-        "keywords": {"upright": ["庆祝", "和谐", "稳定", "喜悦"], "reversed": ["不稳定", "缺乏支持", "过渡安逸"]},
-        "keywordsEn": {"upright": ["Celebration", "Harmony", "Stability", "Joy"], "reversed": ["Instability", "Lack of Support", "Excessive Comfort"]},
-        "meanings": {"upright": "庆祝成功，享受成果。和谐稳定的时期。婚礼、庆典或家庭聚会的象征。", "reversed": "过度安逸，缺乏动力，或支持系统瓦解。可能需要重新评估基础。"},
-        "meaningsEn": {"upright": "Celebrating success, enjoying results. A period of harmony and stability. Symbol of weddings, celebrations, or family gatherings.", "reversed": "Excessive comfort, lack of motivation, or a breakdown of support systems. May need to re-evaluate foundations."},
-        "description": "两个人在装饰着花环的城堡前举起花束庆祝，象征喜悦和和谐。",
+        "keywords": {
+          "upright": [
+            "慶祝",
+            "和諧",
+            "穩定",
+            "喜悅"
+          ],
+          "reversed": [
+            "不穩定",
+            "缺乏支持",
+            "過渡安逸"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Celebration",
+            "Harmony",
+            "Stability",
+            "Joy"
+          ],
+          "reversed": [
+            "Instability",
+            "Lack of Support",
+            "Excessive Comfort"
+          ]
+        },
+        "meanings": {
+          "upright": "慶祝成功，享受成果。和諧穩定的時期。婚禮、慶典或家庭聚會的象徵。",
+          "reversed": "過度安逸，缺乏動力，或支持系統瓦解。可能需要重新評估基礎。"
+        },
+        "meaningsEn": {
+          "upright": "Celebrating success, enjoying results. A period of harmony and stability. Symbol of weddings, celebrations, or family gatherings.",
+          "reversed": "Excessive comfort, lack of motivation, or a breakdown of support systems. May need to re-evaluate foundations."
+        },
+        "description": "兩個人在裝飾著花環的城堡前舉起花束慶祝，象徵喜悅和和諧。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_5": {
-        "name": "权杖五",
+        "name": "權杖五",
         "nameEn": "Five of Wands",
-        "keywords": {"upright": ["冲突", "竞争", "挑战", "能量"], "reversed": ["避免冲突", "和解", "内耗"]},
-        "keywordsEn": {"upright": ["Conflict", "Competition", "Challenge", "Energy"], "reversed": ["Avoiding Conflict", "Reconciliation", "Internal Friction"]},
-        "meanings": {"upright": "面临竞争和冲突，需要勇气和决心。五根权杖在空中挥舞，象征激烈的辩论或竞争。", "reversed": "避免冲突，寻求和解，或内耗严重。找到建设性的解决方案。"},
-        "meaningsEn": {"upright": "Facing competition and conflict, requiring courage and determination. Five wands waving in the air symbolize intense debate or competition.", "reversed": "Avoiding conflict, seeking reconciliation, or severe internal friction. Find constructive solutions."},
-        "description": "五个年轻人在争夺空中的权杖，姿态充满活力但混乱，象征竞争和冲突。",
+        "keywords": {
+          "upright": [
+            "衝突",
+            "競爭",
+            "挑戰",
+            "能量"
+          ],
+          "reversed": [
+            "避免衝突",
+            "和解",
+            "內耗"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Conflict",
+            "Competition",
+            "Challenge",
+            "Energy"
+          ],
+          "reversed": [
+            "Avoiding Conflict",
+            "Reconciliation",
+            "Internal Friction"
+          ]
+        },
+        "meanings": {
+          "upright": "面臨競爭和衝突，需要勇氣和決心。五根權杖在空中揮舞，象徵激烈的辯論或競爭。",
+          "reversed": "避免衝突，尋求和解，或內耗嚴重。找到建設性的解決方案。"
+        },
+        "meaningsEn": {
+          "upright": "Facing competition and conflict, requiring courage and determination. Five wands waving in the air symbolize intense debate or competition.",
+          "reversed": "Avoiding conflict, seeking reconciliation, or severe internal friction. Find constructive solutions."
+        },
+        "description": "五個年輕人在爭奪空中的權杖，姿態充滿活力但混亂，象徵競爭和衝突。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_6": {
-        "name": "权杖六",
+        "name": "權杖六",
         "nameEn": "Six of Wands",
-        "keywords": {"upright": ["胜利", "认可", "自信", "进展"], "reversed": ["自负", "延迟成功", "警告"]},
-        "keywordsEn": {"upright": ["Victory", "Recognition", "Confidence", "Progress"], "reversed": ["Conceit", "Delayed Success", "Warning"]},
-        "meanings": {"upright": "胜利和认可到来，自信提升。骑马的战士受到欢迎，象征公众认可和成功。", "reversed": "自负导致失败，延迟的成功，或警告。保持谦逊。"},
-        "meaningsEn": {"upright": "Victory and recognition arrive, confidence is boosted. A warrior on horseback is welcomed, symbolizing public recognition and success.", "reversed": "Conceit leads to failure, delayed success, or a warning. Stay humble."},
-        "description": "一个骑马的战士头戴桂冠，周围的人群欢呼，象征胜利和公众认可。",
+        "keywords": {
+          "upright": [
+            "勝利",
+            "認可",
+            "自信",
+            "進展"
+          ],
+          "reversed": [
+            "自負",
+            "延遲成功",
+            "警告"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Victory",
+            "Recognition",
+            "Confidence",
+            "Progress"
+          ],
+          "reversed": [
+            "Conceit",
+            "Delayed Success",
+            "Warning"
+          ]
+        },
+        "meanings": {
+          "upright": "勝利和認可到來，自信提升。騎馬的戰士受到歡迎，象徵公眾認可和成功。",
+          "reversed": "自負導致失敗，延遲的成功，或警告。保持謙遜。"
+        },
+        "meaningsEn": {
+          "upright": "Victory and recognition arrive, confidence is boosted. A warrior on horseback is welcomed, symbolizing public recognition and success.",
+          "reversed": "Conceit leads to failure, delayed success, or a warning. Stay humble."
+        },
+        "description": "一個騎馬的戰士頭戴桂冠，周圍的人群歡呼，象徵勝利和公眾認可。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_7": {
-        "name": "权杖七",
+        "name": "權杖七",
         "nameEn": "Seven of Wands",
-        "keywords": {"upright": ["防御", "坚持", "勇气", "立场"], "reversed": ["不知所措", "放弃", "精疲力竭"]},
-        "keywordsEn": {"upright": ["Defense", "Persistence", "Courage", "Stand"], "reversed": ["Overwhelmed", "Giving Up", "Exhaustion"]},
-        "meanings": {"upright": "防御姿态，坚持立场，展现勇气。站在高处抵抗下方的六根权杖，象征捍卫自己的信念。", "reversed": "感到不知所措，想要放弃，精疲力竭。可能需要寻求支持。"},
-        "meaningsEn": {"upright": "Defensive stance, standing your ground, showing courage. Standing on high ground resisting six wands below, symbolizing defending your beliefs.", "reversed": "Feeling overwhelmed, wanting to give up, exhaustion. May need to seek support."},
-        "description": "一个人站在山顶，手持权杖抵御从下方袭来的六根权杖，象征防御和坚持。",
+        "keywords": {
+          "upright": [
+            "防禦",
+            "堅持",
+            "勇氣",
+            "立場"
+          ],
+          "reversed": [
+            "不知所措",
+            "放棄",
+            "精疲力竭"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Defense",
+            "Persistence",
+            "Courage",
+            "Stand"
+          ],
+          "reversed": [
+            "Overwhelmed",
+            "Giving Up",
+            "Exhaustion"
+          ]
+        },
+        "meanings": {
+          "upright": "防禦姿態，堅持立場，展現勇氣。站在高處抵抗下方的六根權杖，象徵捍衛自己的信念。",
+          "reversed": "感到不知所措，想要放棄，精疲力竭。可能需要尋求支持。"
+        },
+        "meaningsEn": {
+          "upright": "Defensive stance, standing your ground, showing courage. Standing on high ground resisting six wands below, symbolizing defending your beliefs.",
+          "reversed": "Feeling overwhelmed, wanting to give up, exhaustion. May need to seek support."
+        },
+        "description": "一個人站在山頂，手持權杖抵禦從下方襲來的六根權杖，象徵防禦和堅持。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_8": {
-        "name": "权杖八",
+        "name": "權杖八",
         "nameEn": "Eight of Wands",
-        "keywords": {"upright": ["速度", "行动", "进展", "消息"], "reversed": ["延迟", "挫折", "急躁"]},
-        "keywordsEn": {"upright": ["Speed", "Action", "Progress", "Messages"], "reversed": ["Delays", "Setbacks", "Impatience"]},
-        "meanings": {"upright": "快速行动，事情加速发展，进展显著。八根权杖在空中飞行，象征消息的到来。", "reversed": "延迟和挫折，阻力重重，急躁无益。保持耐心。"},
-        "meaningsEn": {"upright": "Rapid action, things accelerating, significant progress. Eight wands flying through the air symbolize incoming messages.", "reversed": "Delays and setbacks, heavy resistance, haste is useless. Be patient."},
-        "description": "八根权杖在空中快速飞行，穿越云层，象征速度和进展。",
+        "keywords": {
+          "upright": [
+            "速度",
+            "行動",
+            "進展",
+            "消息"
+          ],
+          "reversed": [
+            "延遲",
+            "挫折",
+            "急躁"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Speed",
+            "Action",
+            "Progress",
+            "Messages"
+          ],
+          "reversed": [
+            "Delays",
+            "Setbacks",
+            "Impatience"
+          ]
+        },
+        "meanings": {
+          "upright": "快速行動，事情加速發展，進展顯著。八根權杖在空中飛行，象徵消息的到來。",
+          "reversed": "延遲和挫折，阻力重重，急躁無益。保持耐心。"
+        },
+        "meaningsEn": {
+          "upright": "Rapid action, things accelerating, significant progress. Eight wands flying through the air symbolize incoming messages.",
+          "reversed": "Delays and setbacks, heavy resistance, haste is useless. Be patient."
+        },
+        "description": "八根權杖在空中快速飛行，穿越雲層，象徵速度和進展。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_9": {
-        "name": "权杖九",
+        "name": "權杖九",
         "nameEn": "Nine of Wands",
-        "keywords": {"upright": ["韧性", "毅力", "坚持", "准备"], "reversed": ["精疲力竭", "怀疑", "需要休息"]},
-        "keywordsEn": {"upright": ["Resilience", "Perseverance", "Persistence", "Preparation"], "reversed": ["Exhaustion", "Doubt", "Need for Rest"]},
-        "meanings": {"upright": "毅力和韧性，即将到达目的地。疲惫但坚定的战士，象征最后的坚持。", "reversed": "精疲力竭，怀疑目标，需要休息。不要过度勉强自己。"},
-        "meaningsEn": {"upright": "Perseverance and resilience, nearing your destination. A tired but determined warrior symbolizes final persistence.", "reversed": "Exhaustion, doubting goals, a need for rest. Don't push yourself too hard."},
-        "description": "一个疲惫但警惕的战士靠在权杖上，头上缠着绷带，象征韧性和坚持。",
+        "keywords": {
+          "upright": [
+            "韌性",
+            "毅力",
+            "堅持",
+            "準備"
+          ],
+          "reversed": [
+            "精疲力竭",
+            "懷疑",
+            "需要休息"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Resilience",
+            "Perseverance",
+            "Persistence",
+            "Preparation"
+          ],
+          "reversed": [
+            "Exhaustion",
+            "Doubt",
+            "Need for Rest"
+          ]
+        },
+        "meanings": {
+          "upright": "毅力和韌性，即將到達目的地。疲憊但堅定的戰士，象徵最後的堅持。",
+          "reversed": "精疲力竭，懷疑目標，需要休息。不要過度勉強自己。"
+        },
+        "meaningsEn": {
+          "upright": "Perseverance and resilience, nearing your destination. A tired but determined warrior symbolizes final persistence.",
+          "reversed": "Exhaustion, doubting goals, a need for rest. Don't push yourself too hard."
+        },
+        "description": "一個疲憊但警惕的戰士靠在權杖上，頭上纏著繃帶，象徵韌性和堅持。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_10": {
-        "name": "权杖十",
+        "name": "權杖十",
         "nameEn": "Ten of Wands",
-        "keywords": {"upright": ["负担", "责任", "努力", "完成"], "reversed": ["不堪重负", "需要放手", "委托"]},
-        "keywordsEn": {"upright": ["Burden", "Responsibility", "Effort", "Completion"], "reversed": ["Overwhelmed", "Need to Let Go", "Delegation"]},
-        "meanings": {"upright": "承担过多责任，但即将完成使命。十根权杖压在肩上，象征沉重的责任。", "reversed": "不堪重负，需要放手或委托他人。学会分担。"},
-        "meaningsEn": {"upright": "Taking on too much responsibility, but near the end of the mission. Ten wands on the shoulders symbolize heavy responsibility.", "reversed": "Overwhelmed, a need to let go or delegate. Learn to share the load."},
-        "description": "一个人弯腰背负着十根沉重的权杖，艰难地走向远处的村庄，象征负担和责任。",
+        "keywords": {
+          "upright": [
+            "負擔",
+            "責任",
+            "努力",
+            "完成"
+          ],
+          "reversed": [
+            "不堪重負",
+            "需要放手",
+            "委託"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Burden",
+            "Responsibility",
+            "Effort",
+            "Completion"
+          ],
+          "reversed": [
+            "Overwhelmed",
+            "Need to Let Go",
+            "Delegation"
+          ]
+        },
+        "meanings": {
+          "upright": "承擔過多責任，但即將完成使命。十根權杖壓在肩上，象徵沉重的責任。",
+          "reversed": "不堪重負，需要放手或委託他人。學會分擔。"
+        },
+        "meaningsEn": {
+          "upright": "Taking on too much responsibility, but near the end of the mission. Ten wands on the shoulders symbolize heavy responsibility.",
+          "reversed": "Overwhelmed, a need to let go or delegate. Learn to share the load."
+        },
+        "description": "一個人彎腰揹負著十根沉重的權杖，艱難地走向遠處的村莊，象徵負擔和責任。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_page": {
-        "name": "权杖侍从",
+        "name": "權杖侍從",
         "nameEn": "Page of Wands",
-        "keywords": {"upright": ["探索", "热情", "新想法", "自由精神"], "reversed": ["冲动", "缺乏方向", "不成熟"]},
-        "keywordsEn": {"upright": ["Exploration", "Enthusiasm", "New Ideas", "Free Spirit"], "reversed": ["Impulsiveness", "Lack of Direction", "Immaturity"]},
-        "meanings": {"upright": "新消息或学习的开始。代表探索、好奇和潜力的萌芽。充满热情和创意。", "reversed": "冲动行事，缺乏方向，不成熟的表现。需要更多思考。"},
-        "meaningsEn": {"upright": "A beginning of new messages or learning. Represents exploration, curiosity, and the budding of potential. Full of enthusiasm and creativity.", "reversed": "Acting impulsively, lack of direction, immature behavior. Need more thought."},
-        "description": "一个年轻侍从手持权杖，身穿鲜艳的服装，背景是沙漠和金字塔，象征探索和热情。",
+        "keywords": {
+          "upright": [
+            "探索",
+            "熱情",
+            "新想法",
+            "自由精神"
+          ],
+          "reversed": [
+            "衝動",
+            "缺乏方向",
+            "不成熟"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Exploration",
+            "Enthusiasm",
+            "New Ideas",
+            "Free Spirit"
+          ],
+          "reversed": [
+            "Impulsiveness",
+            "Lack of Direction",
+            "Immaturity"
+          ]
+        },
+        "meanings": {
+          "upright": "新消息或學習的開始。代表探索、好奇和潛力的萌芽。充滿熱情和創意。",
+          "reversed": "衝動行事，缺乏方向，不成熟的表現。需要更多思考。"
+        },
+        "meaningsEn": {
+          "upright": "A beginning of new messages or learning. Represents exploration, curiosity, and the budding of potential. Full of enthusiasm and creativity.",
+          "reversed": "Acting impulsively, lack of direction, immature behavior. Need more thought."
+        },
+        "description": "一個年輕侍從手持權杖，身穿鮮豔的服裝，背景是沙漠和金字塔，象徵探索和熱情。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_knight": {
-        "name": "权杖骑士",
+        "name": "權杖騎士",
         "nameEn": "Knight of Wands",
-        "keywords": {"upright": ["冒险", "行动", "魅力", "勇气"], "reversed": ["冲动", "鲁莽", "不耐烦"]},
-        "keywordsEn": {"upright": ["Adventure", "Action", "Charisma", "Courage"], "reversed": ["Impulsiveness", "Recklessness", "Impatience"]},
-        "meanings": {"upright": "迅速的行动和冒险。充满动力但可能冲动。骑士冲锋在前，象征勇气和热情。", "reversed": "过于冲动，鲁莽行事，缺乏耐心。学会三思而后行。"},
-        "meaningsEn": {"upright": "Swift action and adventure. Full of drive but potentially impulsive. The knight charges ahead, symbolizing courage and enthusiasm.", "reversed": "Too impulsive, acting recklessly, lacking patience. Learn to think before acting."},
-        "description": "一位骑士骑在马上，手持权杖，马匹正在疾驰，象征行动和冒险。",
+        "keywords": {
+          "upright": [
+            "冒險",
+            "行動",
+            "魅力",
+            "勇氣"
+          ],
+          "reversed": [
+            "衝動",
+            "魯莽",
+            "不耐煩"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Adventure",
+            "Action",
+            "Charisma",
+            "Courage"
+          ],
+          "reversed": [
+            "Impulsiveness",
+            "Recklessness",
+            "Impatience"
+          ]
+        },
+        "meanings": {
+          "upright": "迅速的行動和冒險。充滿動力但可能衝動。騎士衝鋒在前，象徵勇氣和熱情。",
+          "reversed": "過於衝動，魯莽行事，缺乏耐心。學會三思而後行。"
+        },
+        "meaningsEn": {
+          "upright": "Swift action and adventure. Full of drive but potentially impulsive. The knight charges ahead, symbolizing courage and enthusiasm.",
+          "reversed": "Too impulsive, acting recklessly, lacking patience. Learn to think before acting."
+        },
+        "description": "一位騎士騎在馬上，手持權杖，馬匹正在疾馳，象徵行動和冒險。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_queen": {
-        "name": "权杖王后",
+        "name": "權杖王后",
         "nameEn": "Queen of Wands",
-        "keywords": {"upright": ["自信", "热情", "独立", "创造力"], "reversed": ["过度自信", "专横", "嫉妒"]},
-        "keywordsEn": {"upright": ["Confidence", "Passion", "Independence", "Creativity"], "reversed": ["Overconfidence", "Domineering", "Jealousy"]},
-        "meanings": {"upright": "成熟的关怀和直觉。滋养、同理心和内在智慧。充满自信和魅力的女性。", "reversed": "过度自信变得专横，或嫉妒他人。需要平衡。"},
-        "meaningsEn": {"upright": "Mature care and intuition. Nurturing, empathy, and inner wisdom. A confident and charismatic woman.", "reversed": "Overconfidence becoming domineering, or jealousy of others. Need balance."},
-        "description": "一位优雅的王后端坐在宝座上，手持权杖，旁边有一只黑猫，象征自信和直觉。",
+        "keywords": {
+          "upright": [
+            "自信",
+            "熱情",
+            "獨立",
+            "創造力"
+          ],
+          "reversed": [
+            "過度自信",
+            "專橫",
+            "嫉妒"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Confidence",
+            "Passion",
+            "Independence",
+            "Creativity"
+          ],
+          "reversed": [
+            "Overconfidence",
+            "Domineering",
+            "Jealousy"
+          ]
+        },
+        "meanings": {
+          "upright": "成熟的關懷和直覺。滋養、同理心和內在智慧。充滿自信和魅力的女性。",
+          "reversed": "過度自信變得專橫，或嫉妒他人。需要平衡。"
+        },
+        "meaningsEn": {
+          "upright": "Mature care and intuition. Nurturing, empathy, and inner wisdom. A confident and charismatic woman.",
+          "reversed": "Overconfidence becoming domineering, or jealousy of others. Need balance."
+        },
+        "description": "一位優雅的王后端坐在寶座上，手持權杖，旁邊有一隻黑貓，象徵自信和直覺。",
         "element": "火",
         "elementEn": "Fire"
       },
       "wands_king": {
-        "name": "权杖国王",
+        "name": "權杖國王",
         "nameEn": "King of Wands",
-        "keywords": {"upright": ["领导力", "远见", "魅力", "创业"], "reversed": ["专制", "冲动", "暴怒"]},
-        "keywordsEn": {"upright": ["Leadership", "Vision", "Charisma", "Entrepreneurship"], "reversed": ["Despotism", "Impulsiveness", "Rage"]},
-        "meanings": {"upright": "掌控和权威。成熟、稳定和领导力。有远见的企业家，能够激励他人。", "reversed": "过于专制，冲动决策，暴怒。学会控制情绪。"},
-        "meaningsEn": {"upright": "Control and authority. Maturity, stability, and leadership. A visionary entrepreneur who can inspire others.", "reversed": "Too domineering, impulsive decisions, rage. Learn to control emotions."},
-        "description": "一位威严的国王坐在宝座上，手持权杖，姿态自信，象征领导力和远见。",
+        "keywords": {
+          "upright": [
+            "領導力",
+            "遠見",
+            "魅力",
+            "創業"
+          ],
+          "reversed": [
+            "專制",
+            "衝動",
+            "暴怒"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Leadership",
+            "Vision",
+            "Charisma",
+            "Entrepreneurship"
+          ],
+          "reversed": [
+            "Despotism",
+            "Impulsiveness",
+            "Rage"
+          ]
+        },
+        "meanings": {
+          "upright": "掌控和權威。成熟、穩定和領導力。有遠見的企業家，能夠激勵他人。",
+          "reversed": "過於專制，衝動決策，暴怒。學會控制情緒。"
+        },
+        "meaningsEn": {
+          "upright": "Control and authority. Maturity, stability, and leadership. A visionary entrepreneur who can inspire others.",
+          "reversed": "Too domineering, impulsive decisions, rage. Learn to control emotions."
+        },
+        "description": "一位威嚴的國王坐在寶座上，手持權杖，姿態自信，象徵領導力和遠見。",
         "element": "火",
         "elementEn": "Fire"
       },
       "cups_1": {
-        "name": "圣杯首牌",
+        "name": "聖杯首牌",
         "nameEn": "Ace of Cups",
-        "keywords": {"upright": ["爱", "情感", "直觉", "精神"], "reversed": ["情感阻塞", "空虚", "压抑感受"]},
-        "keywordsEn": {"upright": ["Love", "Emotion", "Intuition", "Spirituality"], "reversed": ["Emotional Blockage", "Emptiness", "Suppressed Feelings"]},
-        "meanings": {"upright": "新的情感开始，直觉觉醒。心灵打开。圣杯溢出五道水流，象征丰盛的情感。", "reversed": "情感阻塞，难以表达感受，内心空虚。需要疗愈。"},
-        "meaningsEn": {"upright": "A new emotional beginning, intuition awakening. The heart opens. The cup overflows with five streams, symbolizing abundant emotion.", "reversed": "Emotional blockage, difficulty expressing feelings, inner emptiness. Needs healing."},
-        "description": "一只从云中伸出的手托着溢出的圣杯，五道水流涌出，上方有白鸽，象征爱和情感的丰盛。",
+        "keywords": {
+          "upright": [
+            "愛",
+            "情感",
+            "直覺",
+            "精神"
+          ],
+          "reversed": [
+            "情感阻塞",
+            "空虛",
+            "壓抑感受"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Love",
+            "Emotion",
+            "Intuition",
+            "Spirituality"
+          ],
+          "reversed": [
+            "Emotional Blockage",
+            "Emptiness",
+            "Suppressed Feelings"
+          ]
+        },
+        "meanings": {
+          "upright": "新的情感開始，直覺覺醒。心靈打開。聖杯溢出五道水流，象徵豐盛的情感。",
+          "reversed": "情感阻塞，難以表達感受，內心空虛。需要療愈。"
+        },
+        "meaningsEn": {
+          "upright": "A new emotional beginning, intuition awakening. The heart opens. The cup overflows with five streams, symbolizing abundant emotion.",
+          "reversed": "Emotional blockage, difficulty expressing feelings, inner emptiness. Needs healing."
+        },
+        "description": "一隻從雲中伸出的手託著溢出的聖杯，五道水流湧出，上方有白鴿，象徵愛和情感的豐盛。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_2": {
-        "name": "圣杯二",
+        "name": "聖杯二",
         "nameEn": "Two of Cups",
-        "keywords": {"upright": ["爱情", "伙伴关系", "和谐", "吸引"], "reversed": ["失衡", "冲突", "价值观分歧"]},
-        "keywordsEn": {"upright": ["Love", "Partnership", "Harmony", "Attraction"], "reversed": ["Imbalance", "Conflict", "Value Differences"]},
-        "meanings": {"upright": "深厚的情感连接，爱情的和谐。两个人平等交换圣杯，象征互相尊重的关系。", "reversed": "关系失衡，沟通不畅，价值观分歧。需要重新协调。"},
-        "meaningsEn": {"upright": "Deep emotional connection, harmony in love. Two people exchanging cups equally, symbolizing mutual respect.", "reversed": "Relationship imbalance, poor communication, value differences. Need to re-coordinate."},
-        "description": "一男一女面对面，互相交换圣杯，上方有赫尔墨斯的权杖，象征爱情的结合和伙伴关系。",
+        "keywords": {
+          "upright": [
+            "愛情",
+            "夥伴關係",
+            "和諧",
+            "吸引"
+          ],
+          "reversed": [
+            "失衡",
+            "衝突",
+            "價值觀分歧"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Love",
+            "Partnership",
+            "Harmony",
+            "Attraction"
+          ],
+          "reversed": [
+            "Imbalance",
+            "Conflict",
+            "Value Differences"
+          ]
+        },
+        "meanings": {
+          "upright": "深厚的情感連接，愛情的和諧。兩個人平等交換聖杯，象徵互相尊重的關係。",
+          "reversed": "關係失衡，溝通不暢，價值觀分歧。需要重新協調。"
+        },
+        "meaningsEn": {
+          "upright": "Deep emotional connection, harmony in love. Two people exchanging cups equally, symbolizing mutual respect.",
+          "reversed": "Relationship imbalance, poor communication, value differences. Need to re-coordinate."
+        },
+        "description": "一男一女面對面，互相交換聖杯，上方有赫爾墨斯的權杖，象徵愛情的結合和夥伴關係。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_3": {
-        "name": "圣杯三",
+        "name": "聖杯三",
         "nameEn": "Three of Cups",
-        "keywords": {"upright": ["庆祝", "友谊", "社交", "喜悦"], "reversed": ["孤立", "过度放纵", "八卦"]},
-        "keywordsEn": {"upright": ["Celebration", "Friendship", "Socializing", "Joy"], "reversed": ["Isolation", "Overindulgence", "Gossip"]},
-        "meanings": {"upright": "与好友庆祝，友谊带来的喜悦。三个女子举杯庆祝，象征社群和团聚。", "reversed": "孤立无援，过度放纵后的空虚。避免八卦和流言。"},
-        "meaningsEn": {"upright": "Celebrating with friends, joy brought by friendship. Three women toasting, symbolizing community and reunion.", "reversed": "Isolated and helpless, emptiness after overindulgence. Avoid gossip."},
-        "description": "三位女子高举圣杯庆祝，周围是丰收的果实，象征友谊、庆祝和社交的喜悦。",
+        "keywords": {
+          "upright": [
+            "慶祝",
+            "友誼",
+            "社交",
+            "喜悅"
+          ],
+          "reversed": [
+            "孤立",
+            "過度放縱",
+            "八卦"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Celebration",
+            "Friendship",
+            "Socializing",
+            "Joy"
+          ],
+          "reversed": [
+            "Isolation",
+            "Overindulgence",
+            "Gossip"
+          ]
+        },
+        "meanings": {
+          "upright": "與好友慶祝，友誼帶來的喜悅。三個女子舉杯慶祝，象徵社群和團聚。",
+          "reversed": "孤立無援，過度放縱後的空虛。避免八卦和流言。"
+        },
+        "meaningsEn": {
+          "upright": "Celebrating with friends, joy brought by friendship. Three women toasting, symbolizing community and reunion.",
+          "reversed": "Isolated and helpless, emptiness after overindulgence. Avoid gossip."
+        },
+        "description": "三位女子高舉聖杯慶祝，周圍是豐收的果實，象徵友誼、慶祝和社交的喜悅。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_4": {
-        "name": "圣杯四",
+        "name": "聖杯四",
         "nameEn": "Four of Cups",
-        "keywords": {"upright": ["冥想", "内省", "评估", "不满"], "reversed": ["无聊", "疏离", "觉醒"]},
-        "keywordsEn": {"upright": ["Meditation", "Introspection", "Assessment", "Dissatisfaction"], "reversed": ["Boredom", "Detachment", "Awakening"]},
-        "meanings": {"upright": "冥想和内省，评估现有状况。你可能对现状感到不满，但新的机会正在呈现。", "reversed": "无聊和不满，情感上的疏离感。是时候觉醒，接受新的机会了。"},
-        "meaningsEn": {"upright": "Meditation and introspection, assessing the current situation. You may be dissatisfied, but new opportunities are presenting themselves.", "reversed": "Boredom and dissatisfaction, emotional detachment. Time to awaken and accept new opportunities."},
-        "description": "一个人坐在树下冥想，面前有三个圣杯，云中伸出的手递来第四个圣杯，但他没有看见。",
+        "keywords": {
+          "upright": [
+            "冥想",
+            "內省",
+            "評估",
+            "不滿"
+          ],
+          "reversed": [
+            "無聊",
+            "疏離",
+            "覺醒"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Meditation",
+            "Introspection",
+            "Assessment",
+            "Dissatisfaction"
+          ],
+          "reversed": [
+            "Boredom",
+            "Detachment",
+            "Awakening"
+          ]
+        },
+        "meanings": {
+          "upright": "冥想和內省，評估現有狀況。你可能對現狀感到不滿，但新的機會正在呈現。",
+          "reversed": "無聊和不滿，情感上的疏離感。是時候覺醒，接受新的機會了。"
+        },
+        "meaningsEn": {
+          "upright": "Meditation and introspection, assessing the current situation. You may be dissatisfied, but new opportunities are presenting themselves.",
+          "reversed": "Boredom and dissatisfaction, emotional detachment. Time to awaken and accept new opportunities."
+        },
+        "description": "一個人坐在樹下冥想，面前有三個聖杯，雲中伸出的手遞來第四個聖杯，但他沒有看見。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_5": {
-        "name": "圣杯五",
+        "name": "聖杯五",
         "nameEn": "Five of Cups",
-        "keywords": {"upright": ["失落", "悲伤", "遗憾", "哀悼"], "reversed": ["接受", "希望", "前进"]},
-        "keywordsEn": {"upright": ["Loss", "Grief", "Regret", "Mourning"], "reversed": ["Acceptance", "Hope", "Moving On"]},
-        "meanings": {"upright": "经历失落和悲伤，哀悼过去。三个翻倒的圣杯象征失去，但背后还有两个站立的圣杯。", "reversed": "走出阴霾，找到新的希望，接受现实。还有值得珍惜的东西。"},
-        "meaningsEn": {"upright": "Experiencing loss and grief, mourning the past. Three overturned cups symbolize loss, but two upright cups remain behind.", "reversed": "Moving out of the gloom, finding new hope, accepting reality. There are still things worth cherishing."},
-        "description": "一个披着黑袍的人低头哀悼三个翻倒的圣杯，但没有看到身后两个仍然站立的圣杯。",
+        "keywords": {
+          "upright": [
+            "失落",
+            "悲傷",
+            "遺憾",
+            "哀悼"
+          ],
+          "reversed": [
+            "接受",
+            "希望",
+            "前進"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Loss",
+            "Grief",
+            "Regret",
+            "Mourning"
+          ],
+          "reversed": [
+            "Acceptance",
+            "Hope",
+            "Moving On"
+          ]
+        },
+        "meanings": {
+          "upright": "經歷失落和悲傷，哀悼過去。三個翻倒的聖杯象徵失去，但背後還有兩個站立的聖杯。",
+          "reversed": "走出陰霾，找到新的希望，接受現實。還有值得珍惜的東西。"
+        },
+        "meaningsEn": {
+          "upright": "Experiencing loss and grief, mourning the past. Three overturned cups symbolize loss, but two upright cups remain behind.",
+          "reversed": "Moving out of the gloom, finding new hope, accepting reality. There are still things worth cherishing."
+        },
+        "description": "一個披著黑袍的人低頭哀悼三個翻倒的聖杯，但沒有看到身後兩個仍然站立的聖杯。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_6": {
-        "name": "圣杯六",
+        "name": "聖杯六",
         "nameEn": "Six of Cups",
-        "keywords": {"upright": ["回忆", "童年", "怀旧", "纯真"], "reversed": ["沉溺过去", "不成熟", "无法前进"]},
-        "keywordsEn": {"upright": ["Memories", "Childhood", "Nostalgia", "Innocence"], "reversed": ["Dwelling in Past", "Immaturity", "Unable to Move Forward"]},
-        "meanings": {"upright": "回忆美好时光，童年的纯真影响。礼物和分享的善意，象征过去的礼物。", "reversed": "沉溺过去，无法向前，需要成熟。不要逃避现实。"},
-        "meaningsEn": {"upright": "Reminiscing about good times, the influence of childhood innocence. Gifts and kindness of sharing, symbolizing gifts from the past.", "reversed": "Dwelling in the past, unable to move forward, needing maturity. Don't escape reality."},
-        "description": "两个孩子互相交换装满花朵的圣杯，背景是宁静的村庄，象征童年和纯真的回忆。",
+        "keywords": {
+          "upright": [
+            "回憶",
+            "童年",
+            "懷舊",
+            "純真"
+          ],
+          "reversed": [
+            "沉溺過去",
+            "不成熟",
+            "無法前進"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Memories",
+            "Childhood",
+            "Nostalgia",
+            "Innocence"
+          ],
+          "reversed": [
+            "Dwelling in Past",
+            "Immaturity",
+            "Unable to Move Forward"
+          ]
+        },
+        "meanings": {
+          "upright": "回憶美好時光，童年的純真影響。禮物和分享的善意，象徵過去的禮物。",
+          "reversed": "沉溺過去，無法向前，需要成熟。不要逃避現實。"
+        },
+        "meaningsEn": {
+          "upright": "Reminiscing about good times, the influence of childhood innocence. Gifts and kindness of sharing, symbolizing gifts from the past.",
+          "reversed": "Dwelling in the past, unable to move forward, needing maturity. Don't escape reality."
+        },
+        "description": "兩個孩子互相交換裝滿花朵的聖杯，背景是寧靜的村莊，象徵童年和純真的回憶。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_7": {
-        "name": "圣杯七",
+        "name": "聖杯七",
         "nameEn": "Seven of Cups",
-        "keywords": {"upright": ["选择", "幻想", "梦想", "幻觉"], "reversed": ["幻灭", "决策", "清晰"]},
-        "keywordsEn": {"upright": ["Choices", "Fantasy", "Dreams", "Illusions"], "reversed": ["Disillusionment", "Decision", "Clarity"]},
-        "meanings": {"upright": "面临多种选择，幻想与现实的权衡。七个圣杯中充满各种幻象，需要辨别真假。", "reversed": "幻觉破灭，做出决定，走出迷雾。现实逐渐清晰。"},
-        "meaningsEn": {"upright": "Facing multiple choices, balancing fantasy and reality. Seven cups filled with various visions, need to discern truth from illusion.", "reversed": "Illusions shattered, making a decision, walking out of the fog. Reality becomes clearer."},
-        "description": "七个圣杯漂浮在云端，每个都包含不同的幻象——珠宝、城堡、龙等，象征选择和幻想。",
+        "keywords": {
+          "upright": [
+            "選擇",
+            "幻想",
+            "夢想",
+            "幻覺"
+          ],
+          "reversed": [
+            "幻滅",
+            "決策",
+            "清晰"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Choices",
+            "Fantasy",
+            "Dreams",
+            "Illusions"
+          ],
+          "reversed": [
+            "Disillusionment",
+            "Decision",
+            "Clarity"
+          ]
+        },
+        "meanings": {
+          "upright": "面臨多種選擇，幻想與現實的權衡。七個聖杯中充滿各種幻象，需要辨別真假。",
+          "reversed": "幻覺破滅，做出決定，走出迷霧。現實逐漸清晰。"
+        },
+        "meaningsEn": {
+          "upright": "Facing multiple choices, balancing fantasy and reality. Seven cups filled with various visions, need to discern truth from illusion.",
+          "reversed": "Illusions shattered, making a decision, walking out of the fog. Reality becomes clearer."
+        },
+        "description": "七個聖杯漂浮在雲端，每個都包含不同的幻象——珠寶、城堡、龍等，象徵選擇和幻想。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_8": {
-        "name": "圣杯八",
+        "name": "聖杯八",
         "nameEn": "Eight of Cups",
-        "keywords": {"upright": ["离开", "放手", "寻求更多", "旅程"], "reversed": ["恐惧改变", "停滞", "难以割舍"]},
-        "keywordsEn": {"upright": ["Leaving", "Letting Go", "Seeking More", "Journey"], "reversed": ["Fear of Change", "Stagnation", "Difficulty Letting Go"]},
-        "meanings": {"upright": "放下过去，离开不再适合的状况。放下排列整齐的圣杯，寻求更深层次的意义。", "reversed": "恐惧改变，停滞不前，难以割舍。需要勇气离开舒适区。"},
-        "meaningsEn": {"upright": "Letting go of the past, leaving situations that no longer fit. Leaving behind neatly arranged cups to seek deeper meaning.", "reversed": "Fear of change, stagnation, difficulty in letting go. Need courage to leave the comfort zone."},
-        "description": "一个人在夜色中转身离开八个排列整齐的圣杯，拄着拐杖登向远山，象征离开和寻求。",
+        "keywords": {
+          "upright": [
+            "離開",
+            "放手",
+            "尋求更多",
+            "旅程"
+          ],
+          "reversed": [
+            "恐懼改變",
+            "停滯",
+            "難以割捨"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Leaving",
+            "Letting Go",
+            "Seeking More",
+            "Journey"
+          ],
+          "reversed": [
+            "Fear of Change",
+            "Stagnation",
+            "Difficulty Letting Go"
+          ]
+        },
+        "meanings": {
+          "upright": "放下過去，離開不再適合的狀況。放下排列整齊的聖杯，尋求更深層次的意義。",
+          "reversed": "恐懼改變，停滯不前，難以割捨。需要勇氣離開舒適區。"
+        },
+        "meaningsEn": {
+          "upright": "Letting go of the past, leaving situations that no longer fit. Leaving behind neatly arranged cups to seek deeper meaning.",
+          "reversed": "Fear of change, stagnation, difficulty in letting go. Need courage to leave the comfort zone."
+        },
+        "description": "一個人在夜色中轉身離開八個排列整齊的聖杯，拄著柺杖登向遠山，象徵離開和尋求。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_9": {
-        "name": "圣杯九",
+        "name": "聖杯九",
         "nameEn": "Nine of Cups",
-        "keywords": {"upright": ["满足", "愿望", "幸福", "享受"], "reversed": ["不满", "贪婪", "表面快乐"]},
-        "keywordsEn": {"upright": ["Satisfaction", "Wishes", "Happiness", "Enjoyment"], "reversed": ["Dissatisfaction", "Greed", "Superficial Joy"]},
-        "meanings": {"upright": "情感满足，愿望实现，内心幸福。坐在一排圣杯前的满足之人，象征愿望成真。", "reversed": "不满足，贪婪，表面的快乐。真正的幸福来自内在。"},
-        "meaningsEn": {"upright": "Emotional fulfillment, wishes granted, inner happiness. A satisfied person sitting before a row of cups, symbolizing wishes coming true.", "reversed": "Dissatisfaction, greed, superficial joy. True happiness comes from within."},
-        "description": "一个满足的人坐在一排九个圣杯前，双臂交叉，背景是蓝色帘幕，象征愿望实现和满足。",
+        "keywords": {
+          "upright": [
+            "滿足",
+            "願望",
+            "幸福",
+            "享受"
+          ],
+          "reversed": [
+            "不滿",
+            "貪婪",
+            "表面快樂"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Satisfaction",
+            "Wishes",
+            "Happiness",
+            "Enjoyment"
+          ],
+          "reversed": [
+            "Dissatisfaction",
+            "Greed",
+            "Superficial Joy"
+          ]
+        },
+        "meanings": {
+          "upright": "情感滿足，願望實現，內心幸福。坐在一排聖杯前的滿足之人，象徵願望成真。",
+          "reversed": "不滿足，貪婪，表面的快樂。真正的幸福來自內在。"
+        },
+        "meaningsEn": {
+          "upright": "Emotional fulfillment, wishes granted, inner happiness. A satisfied person sitting before a row of cups, symbolizing wishes coming true.",
+          "reversed": "Dissatisfaction, greed, superficial joy. True happiness comes from within."
+        },
+        "description": "一個滿足的人坐在一排九個聖杯前，雙臂交叉，背景是藍色簾幕，象徵願望實現和滿足。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_10": {
-        "name": "圣杯十",
+        "name": "聖杯十",
         "nameEn": "Ten of Cups",
-        "keywords": {"upright": ["家庭", "和谐", "爱", "圆满"], "reversed": ["家庭冲突", "不和谐", "表面幸福"]},
-        "keywordsEn": {"upright": ["Family", "Harmony", "Love", "Fulfillment"], "reversed": ["Family Conflict", "Disharmony", "Surface Happiness"]},
-        "meanings": {"upright": "家庭和谐，情感圆满，幸福生活。彩虹下的十杯象征情感的完满。", "reversed": "家庭冲突，情感不稳定，表面和谐。需要真诚沟通。"},
-        "meaningsEn": {"upright": "Family harmony, emotional fulfillment, happy life. Ten cups under a rainbow symbolize emotional completeness.", "reversed": "Family conflict, emotional instability, surface harmony. Need sincere communication."},
-        "description": "一对夫妇在彩虹下拥抱，十个圣杯排列在上方，象征家庭和谐和情感圆满。",
+        "keywords": {
+          "upright": [
+            "家庭",
+            "和諧",
+            "愛",
+            "圓滿"
+          ],
+          "reversed": [
+            "家庭衝突",
+            "不和諧",
+            "表面幸福"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Family",
+            "Harmony",
+            "Love",
+            "Fulfillment"
+          ],
+          "reversed": [
+            "Family Conflict",
+            "Disharmony",
+            "Surface Happiness"
+          ]
+        },
+        "meanings": {
+          "upright": "家庭和諧，情感圓滿，幸福生活。彩虹下的十杯象徵情感的完滿。",
+          "reversed": "家庭衝突，情感不穩定，表面和諧。需要真誠溝通。"
+        },
+        "meaningsEn": {
+          "upright": "Family harmony, emotional fulfillment, happy life. Ten cups under a rainbow symbolize emotional completeness.",
+          "reversed": "Family conflict, emotional instability, surface harmony. Need sincere communication."
+        },
+        "description": "一對夫婦在彩虹下擁抱，十個聖杯排列在上方，象徵家庭和諧和情感圓滿。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_page": {
-        "name": "圣杯侍从",
+        "name": "聖杯侍從",
         "nameEn": "Page of Cups",
-        "keywords": {"upright": ["创意", "直觉", "消息", "敏感"], "reversed": ["情绪化", "过度敏感", "不成熟"]},
-        "keywordsEn": {"upright": ["Creativity", "Intuition", "Messages", "Sensitivity"], "reversed": ["Emotional", "Overly Sensitive", "Immaturity"]},
-        "meanings": {"upright": "新的情感消息或创意的开始。充满想象力和直觉的年轻能量。", "reversed": "情绪化，过度敏感，不成熟的表达。需要学会管理情感。"},
-        "meaningsEn": {"upright": "New emotional messages or creative beginnings. Full of imagination and intuitive youthful energy.", "reversed": "Emotional, overly sensitive, immature expression. Need to learn to manage emotions."},
-        "description": "一个年轻的侍从手持圣杯，杯中有一条鱼，象征想象力和直觉。",
+        "keywords": {
+          "upright": [
+            "創意",
+            "直覺",
+            "消息",
+            "敏感"
+          ],
+          "reversed": [
+            "情緒化",
+            "過度敏感",
+            "不成熟"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Creativity",
+            "Intuition",
+            "Messages",
+            "Sensitivity"
+          ],
+          "reversed": [
+            "Emotional",
+            "Overly Sensitive",
+            "Immaturity"
+          ]
+        },
+        "meanings": {
+          "upright": "新的情感消息或創意的開始。充滿想象力和直覺的年輕能量。",
+          "reversed": "情緒化，過度敏感，不成熟的表達。需要學會管理情感。"
+        },
+        "meaningsEn": {
+          "upright": "New emotional messages or creative beginnings. Full of imagination and intuitive youthful energy.",
+          "reversed": "Emotional, overly sensitive, immature expression. Need to learn to manage emotions."
+        },
+        "description": "一個年輕的侍從手持聖杯，杯中有一條魚，象徵想象力和直覺。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_knight": {
-        "name": "圣杯骑士",
+        "name": "聖杯騎士",
         "nameEn": "Knight of Cups",
-        "keywords": {"upright": ["浪漫", "追求者", "魅力", "理想主义"], "reversed": ["不现实", "情绪化", "逃避"]},
-        "keywordsEn": {"upright": ["Romance", "Suitor", "Charm", "Idealism"], "reversed": ["Unrealistic", "Emotional", "Escapism"]},
-        "meanings": {"upright": "浪漫的追求者和梦想家。骑士手持圣杯，象征着浪漫和情感的邀约。", "reversed": "不切实际，情绪化，逃避现实。需要脚踏实地。"},
-        "meaningsEn": {"upright": "A romantic pursuer and dreamer. The knight holds a cup, symbolizing romantic and emotional invitations.", "reversed": "Unrealistic, emotional, escapist. Need to be grounded."},
-        "description": "一位骑士骑着白马，手持圣杯，姿态优雅，象征浪漫和情感的追求。",
+        "keywords": {
+          "upright": [
+            "浪漫",
+            "追求者",
+            "魅力",
+            "理想主義"
+          ],
+          "reversed": [
+            "不現實",
+            "情緒化",
+            "逃避"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Romance",
+            "Suitor",
+            "Charm",
+            "Idealism"
+          ],
+          "reversed": [
+            "Unrealistic",
+            "Emotional",
+            "Escapism"
+          ]
+        },
+        "meanings": {
+          "upright": "浪漫的追求者和夢想家。騎士手持聖杯，象徵著浪漫和情感的邀約。",
+          "reversed": "不切實際，情緒化，逃避現實。需要腳踏實地。"
+        },
+        "meaningsEn": {
+          "upright": "A romantic pursuer and dreamer. The knight holds a cup, symbolizing romantic and emotional invitations.",
+          "reversed": "Unrealistic, emotional, escapist. Need to be grounded."
+        },
+        "description": "一位騎士騎著白馬，手持聖杯，姿態優雅，象徵浪漫和情感的追求。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_queen": {
-        "name": "圣杯王后",
+        "name": "聖杯王后",
         "nameEn": "Queen of Cups",
-        "keywords": {"upright": ["同理心", "直觉", "关怀", "情感深度"], "reversed": ["过度情绪化", "依赖", "操纵"]},
-        "keywordsEn": {"upright": ["Empathy", "Intuition", "Nurturing", "Emotional Depth"], "reversed": ["Overly Emotional", "Dependent", "Manipulative"]},
-        "meanings": {"upright": "成熟的关怀和直觉。滋养、同理心和内在智慧。情感深邃且富有同情心的女性。", "reversed": "过度情绪化，依赖他人，或操纵情感。需要情感独立。"},
-        "meaningsEn": {"upright": "Mature care and intuition. Nurturing, empathy, and inner wisdom. A woman of deep emotion and compassion.", "reversed": "Overly emotional, dependent on others, or emotionally manipulative. Need emotional independence."},
-        "description": "一位优雅的王后端坐在海边的宝座上，手持装饰华丽的圣杯，象征情感和直觉。",
+        "keywords": {
+          "upright": [
+            "同理心",
+            "直覺",
+            "關懷",
+            "情感深度"
+          ],
+          "reversed": [
+            "過度情緒化",
+            "依賴",
+            "操縱"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Empathy",
+            "Intuition",
+            "Nurturing",
+            "Emotional Depth"
+          ],
+          "reversed": [
+            "Overly Emotional",
+            "Dependent",
+            "Manipulative"
+          ]
+        },
+        "meanings": {
+          "upright": "成熟的關懷和直覺。滋養、同理心和內在智慧。情感深邃且富有同情心的女性。",
+          "reversed": "過度情緒化，依賴他人，或操縱情感。需要情感獨立。"
+        },
+        "meaningsEn": {
+          "upright": "Mature care and intuition. Nurturing, empathy, and inner wisdom. A woman of deep emotion and compassion.",
+          "reversed": "Overly emotional, dependent on others, or emotionally manipulative. Need emotional independence."
+        },
+        "description": "一位優雅的王后端坐在海邊的寶座上，手持裝飾華麗的聖杯，象徵情感和直覺。",
         "element": "水",
         "elementEn": "Water"
       },
       "cups_king": {
-        "name": "圣杯国王",
+        "name": "聖杯國王",
         "nameEn": "King of Cups",
-        "keywords": {"upright": ["情感平衡", "智慧", "慈悲", "控制"], "reversed": ["情绪操控", "不诚实", "情绪失控"]},
-        "keywordsEn": {"upright": ["Emotional Balance", "Wisdom", "Compassion", "Control"], "reversed": ["Emotional Manipulation", "Dishonesty", "Emotional Instability"]},
-        "meanings": {"upright": "掌控和权威在情感领域。成熟、稳定和领导力。能够以智慧和同情心管理情感。", "reversed": "情绪操控，不诚实的情感表达，或情绪失控。需要内在平衡。"},
-        "meaningsEn": {"upright": "Control and authority in the emotional realm. Maturity, stability, and leadership. Able to manage emotions with wisdom and compassion.", "reversed": "Emotional manipulation, dishonest emotional expression, or loss of emotional control. Need inner balance."},
-        "description": "一位威严的国王坐在海上的宝座中，手持圣杯和权杖，象征情感的掌控和智慧。",
+        "keywords": {
+          "upright": [
+            "情感平衡",
+            "智慧",
+            "慈悲",
+            "控制"
+          ],
+          "reversed": [
+            "情緒操控",
+            "不誠實",
+            "情緒失控"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Emotional Balance",
+            "Wisdom",
+            "Compassion",
+            "Control"
+          ],
+          "reversed": [
+            "Emotional Manipulation",
+            "Dishonesty",
+            "Emotional Instability"
+          ]
+        },
+        "meanings": {
+          "upright": "掌控和權威在情感領域。成熟、穩定和領導力。能夠以智慧和同情心管理情感。",
+          "reversed": "情緒操控，不誠實的情感表達，或情緒失控。需要內在平衡。"
+        },
+        "meaningsEn": {
+          "upright": "Control and authority in the emotional realm. Maturity, stability, and leadership. Able to manage emotions with wisdom and compassion.",
+          "reversed": "Emotional manipulation, dishonest emotional expression, or loss of emotional control. Need inner balance."
+        },
+        "description": "一位威嚴的國王坐在海上的寶座中，手持聖杯和權杖，象徵情感的掌控和智慧。",
         "element": "水",
         "elementEn": "Water"
       },
       "swords_1": {
-        "name": "宝剑首牌",
+        "name": "寶劍首牌",
         "nameEn": "Ace of Swords",
-        "keywords": {"upright": ["清晰", "突破", "真相", "新想法"], "reversed": ["混乱", "欺骗", "沟通问题"]},
-        "keywordsEn": {"upright": ["Clarity", "Breakthrough", "Truth", "New Ideas"], "reversed": ["Confusion", "Deception", "Communication Issues"]},
-        "meanings": {"upright": "清晰的洞见，突破性的想法。真理之剑直指云霄，象征心智的清晰。", "reversed": "思维混乱，言语伤害，想法极端。需要重新理清思路。"},
-        "meaningsEn": {"upright": "Clear insight, breakthrough ideas. The sword of truth points to the sky, symbolizing mental clarity.", "reversed": "Mental confusion, hurtful words, extreme thoughts. Need to reorganize thinking."},
-        "description": "一只从云中伸出的手紧握着直立的宝剑，剑尖直指天空，象征清晰的思维和真理。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "清晰",
+            "突破",
+            "真相",
+            "新想法"
+          ],
+          "reversed": [
+            "混亂",
+            "欺騙",
+            "溝通問題"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Clarity",
+            "Breakthrough",
+            "Truth",
+            "New Ideas"
+          ],
+          "reversed": [
+            "Confusion",
+            "Deception",
+            "Communication Issues"
+          ]
+        },
+        "meanings": {
+          "upright": "清晰的洞見，突破性的想法。真理之劍直指雲霄，象徵心智的清晰。",
+          "reversed": "思維混亂，言語傷害，想法極端。需要重新理清思路。"
+        },
+        "meaningsEn": {
+          "upright": "Clear insight, breakthrough ideas. The sword of truth points to the sky, symbolizing mental clarity.",
+          "reversed": "Mental confusion, hurtful words, extreme thoughts. Need to reorganize thinking."
+        },
+        "description": "一隻從雲中伸出的手緊握著直立的寶劍，劍尖直指天空，象徵清晰的思維和真理。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_2": {
-        "name": "宝剑二",
+        "name": "寶劍二",
         "nameEn": "Two of Swords",
-        "keywords": {"upright": ["僵局", "决策", "平衡", "避免"], "reversed": ["信息过载", "无法决断", "内心冲突"]},
-        "keywordsEn": {"upright": ["Stalemate", "Decision", "Balance", "Avoidance"], "reversed": ["Information Overload", "Indecision", "Inner Conflict"]},
-        "meanings": {"upright": "两难抉择，需要权衡和决定。蒙眼的女子手持双剑交叉，象征僵局。", "reversed": "信息过载，无法决断，内心冲突。需要面对真相。"},
-        "meaningsEn": {"upright": "A difficult choice, needing balance and decision. A blindfolded woman holds two crossed swords, symbolizing stalemate.", "reversed": "Information overload, inability to decide, inner conflict. Need to face the truth."},
-        "description": "一个蒙着眼睛的女子坐在水边，双手各持一把交叉的宝剑，象征两难和僵局。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "僵局",
+            "決策",
+            "平衡",
+            "避免"
+          ],
+          "reversed": [
+            "信息過載",
+            "無法決斷",
+            "內心衝突"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Stalemate",
+            "Decision",
+            "Balance",
+            "Avoidance"
+          ],
+          "reversed": [
+            "Information Overload",
+            "Indecision",
+            "Inner Conflict"
+          ]
+        },
+        "meanings": {
+          "upright": "兩難抉擇，需要權衡和決定。矇眼的女子手持雙劍交叉，象徵僵局。",
+          "reversed": "信息過載，無法決斷，內心衝突。需要面對真相。"
+        },
+        "meaningsEn": {
+          "upright": "A difficult choice, needing balance and decision. A blindfolded woman holds two crossed swords, symbolizing stalemate.",
+          "reversed": "Information overload, inability to decide, inner conflict. Need to face the truth."
+        },
+        "description": "一個蒙著眼睛的女子坐在水邊，雙手各持一把交叉的寶劍，象徵兩難和僵局。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_3": {
-        "name": "宝剑三",
+        "name": "寶劍三",
         "nameEn": "Three of Swords",
-        "keywords": {"upright": ["心碎", "痛苦", "悲伤", "失落"], "reversed": ["恢复", "宽恕", "走出悲伤"]},
-        "keywordsEn": {"upright": ["Heartbreak", "Pain", "Grief", "Loss"], "reversed": ["Recovery", "Forgiveness", "Moving Past Grief"]},
-        "meanings": {"upright": "心碎和痛苦，但疗愈即将开始。三把剑刺穿心脏，象征情感的痛苦。", "reversed": "从痛苦中恢复，学会宽恕，走出悲伤。疗愈正在进行。"},
-        "meaningsEn": {"upright": "Heartbreak and pain, but healing is about to begin. Three swords piercing a heart symbolize emotional pain.", "reversed": "Recovering from pain, learning to forgive, moving out of grief. Healing is in progress."},
-        "description": "三把宝剑刺穿一颗红心，背景是灰暗的风雨，象征心碎和情感痛苦。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "心碎",
+            "痛苦",
+            "悲傷",
+            "失落"
+          ],
+          "reversed": [
+            "恢復",
+            "寬恕",
+            "走出悲傷"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Heartbreak",
+            "Pain",
+            "Grief",
+            "Loss"
+          ],
+          "reversed": [
+            "Recovery",
+            "Forgiveness",
+            "Moving Past Grief"
+          ]
+        },
+        "meanings": {
+          "upright": "心碎和痛苦，但療愈即將開始。三把劍刺穿心臟，象徵情感的痛苦。",
+          "reversed": "從痛苦中恢復，學會寬恕，走出悲傷。療愈正在進行。"
+        },
+        "meaningsEn": {
+          "upright": "Heartbreak and pain, but healing is about to begin. Three swords piercing a heart symbolize emotional pain.",
+          "reversed": "Recovering from pain, learning to forgive, moving out of grief. Healing is in progress."
+        },
+        "description": "三把寶劍刺穿一顆紅心，背景是灰暗的風雨，象徵心碎和情感痛苦。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_4": {
-        "name": "宝剑四",
+        "name": "寶劍四",
         "nameEn": "Four of Swords",
-        "keywords": {"upright": ["休息", "恢复", "冥想", "暂停"], "reversed": ["无法放松", "焦虑", "停滞"]},
-        "keywordsEn": {"upright": ["Rest", "Recovery", "Meditation", "Pause"], "reversed": ["Inability to Relax", "Anxiety", "Stagnation"]},
-        "meanings": {"upright": "休息和恢复，暂时远离纷争。石棺中的骑士在冥想，象征平静的休息。", "reversed": "无法放松，焦虑不安，停滞不前。需要真正的休息。"},
-        "meaningsEn": {"upright": "Rest and recovery, temporarily staying away from conflict. A knight in a sarcophagus meditating symbolizes peaceful rest.", "reversed": "Inability to relax, anxiety, stagnation. Need true rest."},
-        "description": "一个骑士的石棺上雕刻着形象，三把宝剑悬挂在墙上，一把在下方，象征休息和恢复。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "休息",
+            "恢復",
+            "冥想",
+            "暫停"
+          ],
+          "reversed": [
+            "無法放鬆",
+            "焦慮",
+            "停滯"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Rest",
+            "Recovery",
+            "Meditation",
+            "Pause"
+          ],
+          "reversed": [
+            "Inability to Relax",
+            "Anxiety",
+            "Stagnation"
+          ]
+        },
+        "meanings": {
+          "upright": "休息和恢復，暫時遠離紛爭。石棺中的騎士在冥想，象徵平靜的休息。",
+          "reversed": "無法放鬆，焦慮不安，停滯不前。需要真正的休息。"
+        },
+        "meaningsEn": {
+          "upright": "Rest and recovery, temporarily staying away from conflict. A knight in a sarcophagus meditating symbolizes peaceful rest.",
+          "reversed": "Inability to relax, anxiety, stagnation. Need true rest."
+        },
+        "description": "一個騎士的石棺上雕刻著形象，三把寶劍懸掛在牆上，一把在下方，象徵休息和恢復。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_5": {
-        "name": "宝剑五",
+        "name": "寶劍五",
         "nameEn": "Five of Swords",
-        "keywords": {"upright": ["冲突", "失败", "胜利", "空洞"], "reversed": ["和解", "放下", "道歉"]},
-        "keywordsEn": {"upright": ["Conflict", "Defeat", "Victory", "Hollowness"], "reversed": ["Reconciliation", "Letting Go", "Apology"]},
-        "meanings": {"upright": "冲突和失败，可能需要妥协。获胜者拿着三把剑，但失去的是关系。", "reversed": "愿意和解，放下骄傲，达成共识。修复关系的时候到了。"},
-        "meaningsEn": {"upright": "Conflict and failure, compromise may be needed. The winner holds three swords but has lost relationships.", "reversed": "Willingness to reconcile, letting go of pride, reaching consensus. Time to repair relationships."},
-        "description": "一个男子拿着三把宝剑，看着另外两个沮丧离开的人，象征冲突和空洞的胜利。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "衝突",
+            "失敗",
+            "勝利",
+            "空洞"
+          ],
+          "reversed": [
+            "和解",
+            "放下",
+            "道歉"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Conflict",
+            "Defeat",
+            "Victory",
+            "Hollowness"
+          ],
+          "reversed": [
+            "Reconciliation",
+            "Letting Go",
+            "Apology"
+          ]
+        },
+        "meanings": {
+          "upright": "衝突和失敗，可能需要妥協。獲勝者拿著三把劍，但失去的是關係。",
+          "reversed": "願意和解，放下驕傲，達成共識。修復關係的時候到了。"
+        },
+        "meaningsEn": {
+          "upright": "Conflict and failure, compromise may be needed. The winner holds three swords but has lost relationships.",
+          "reversed": "Willingness to reconcile, letting go of pride, reaching consensus. Time to repair relationships."
+        },
+        "description": "一個男子拿著三把寶劍，看著另外兩個沮喪離開的人，象徵衝突和空洞的勝利。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_6": {
-        "name": "宝剑六",
+        "name": "寶劍六",
         "nameEn": "Six of Swords",
-        "keywords": {"upright": ["过渡", "离开", "疗愈", "旅程"], "reversed": ["抗拒改变", "困难持续", "拖延"]},
-        "keywordsEn": {"upright": ["Transition", "Leaving", "Healing", "Journey"], "reversed": ["Resisting Change", "Prolonged Difficulty", "Delay"]},
-        "meanings": {"upright": "渡过困难时期，疗愈和转变。乘船离开危险的水域，前往更安全的地方。", "reversed": "抗拒改变，困难持续，需要放手。转变被延迟。"},
-        "meaningsEn": {"upright": "Passing through difficult times, healing and transformation. Taking a boat away from dangerous waters to a safer place.", "reversed": "Resisting change, prolonged difficulty, a need to let go. Transition is delayed."},
-        "description": "一艘小船在平静的水面上行驶，船上有一个孩子和一位蒙头的成人，六把剑插在船中，象征过渡。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "過渡",
+            "離開",
+            "療愈",
+            "旅程"
+          ],
+          "reversed": [
+            "抗拒改變",
+            "困難持續",
+            "拖延"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Transition",
+            "Leaving",
+            "Healing",
+            "Journey"
+          ],
+          "reversed": [
+            "Resisting Change",
+            "Prolonged Difficulty",
+            "Delay"
+          ]
+        },
+        "meanings": {
+          "upright": "渡過困難時期，療愈和轉變。乘船離開危險的水域，前往更安全的地方。",
+          "reversed": "抗拒改變，困難持續，需要放手。轉變被延遲。"
+        },
+        "meaningsEn": {
+          "upright": "Passing through difficult times, healing and transformation. Taking a boat away from dangerous waters to a safer place.",
+          "reversed": "Resisting change, prolonged difficulty, a need to let go. Transition is delayed."
+        },
+        "description": "一艘小船在平靜的水面上行駛，船上有一個孩子和一位矇頭的成人，六把劍插在船中，象徵過渡。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_7": {
-        "name": "宝剑七",
+        "name": "寶劍七",
         "nameEn": "Seven of Swords",
-        "keywords": {"upright": ["策略", "欺骗", "偷偷摸摸", "机智"], "reversed": ["诚实", "坦白", "被揭露"]},
-        "keywordsEn": {"upright": ["Strategy", "Deception", "Sneakiness", "Cunning"], "reversed": ["Honesty", "Confession", "Exposed"]},
-        "meanings": {"upright": "需要策略，可能有隐藏动机。男子偷偷拿着五把剑离开，留下两把。", "reversed": "诚实面对，坦白，摆脱欺骗。秘密被揭露。"},
-        "meaningsEn": {"upright": "Strategy needed, may have hidden motives. A man sneaks away with five swords, leaving two behind.", "reversed": "Facing things honestly, coming clean, getting away from deception. Secrets exposed."},
-        "description": "一个男子偷偷摸摸地拿着五把剑离开营地，回头看向剩下的两把剑，象征欺骗和策略。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "策略",
+            "欺騙",
+            "偷偷摸摸",
+            "機智"
+          ],
+          "reversed": [
+            "誠實",
+            "坦白",
+            "被揭露"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Strategy",
+            "Deception",
+            "Sneakiness",
+            "Cunning"
+          ],
+          "reversed": [
+            "Honesty",
+            "Confession",
+            "Exposed"
+          ]
+        },
+        "meanings": {
+          "upright": "需要策略，可能有隱藏動機。男子偷偷拿著五把劍離開，留下兩把。",
+          "reversed": "誠實面對，坦白，擺脫欺騙。秘密被揭露。"
+        },
+        "meaningsEn": {
+          "upright": "Strategy needed, may have hidden motives. A man sneaks away with five swords, leaving two behind.",
+          "reversed": "Facing things honestly, coming clean, getting away from deception. Secrets exposed."
+        },
+        "description": "一個男子偷偷摸摸地拿著五把劍離開營地，回頭看向剩下的兩把劍，象徵欺騙和策略。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_8": {
-        "name": "宝剑八",
+        "name": "寶劍八",
         "nameEn": "Eight of Swords",
-        "keywords": {"upright": ["受限", "束缚", "无力", "恐惧"], "reversed": ["自由", "释放", "重获控制"]},
-        "keywordsEn": {"upright": ["Restricted", "Bound", "Powerless", "Fear"], "reversed": ["Freedom", "Release", "Regaining Control"]},
-        "meanings": {"upright": "感到受限，思维被困住。蒙眼的女子被八把剑包围，但束缚是松的。", "reversed": "获得自由，摆脱束缚，重获控制。你可以解放自己。"},
-        "meaningsEn": {"upright": "Feeling restricted, thoughts are trapped. A blindfolded woman surrounded by eight swords, but the bonds are loose.", "reversed": "Gaining freedom, breaking the chains, regaining control. You can liberate yourself."},
-        "description": "一个被蒙眼绑缚的女子站在八把插在地上的宝剑中，象征受限和自我设限。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "受限",
+            "束縛",
+            "無力",
+            "恐懼"
+          ],
+          "reversed": [
+            "自由",
+            "釋放",
+            "重獲控制"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Restricted",
+            "Bound",
+            "Powerless",
+            "Fear"
+          ],
+          "reversed": [
+            "Freedom",
+            "Release",
+            "Regaining Control"
+          ]
+        },
+        "meanings": {
+          "upright": "感到受限，思維被困住。矇眼的女子被八把劍包圍，但束縛是松的。",
+          "reversed": "獲得自由，擺脫束縛，重獲控制。你可以解放自己。"
+        },
+        "meaningsEn": {
+          "upright": "Feeling restricted, thoughts are trapped. A blindfolded woman surrounded by eight swords, but the bonds are loose.",
+          "reversed": "Gaining freedom, breaking the chains, regaining control. You can liberate yourself."
+        },
+        "description": "一個被矇眼綁縛的女子站在八把插在地上的寶劍中，象徵受限和自我設限。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_9": {
-        "name": "宝剑九",
+        "name": "寶劍九",
         "nameEn": "Nine of Swords",
-        "keywords": {"upright": ["焦虑", "恐惧", "失眠", "噩梦"], "reversed": ["希望", "恐惧消散", "疗愈"]},
-        "keywordsEn": {"upright": ["Anxiety", "Fear", "Insomnia", "Nightmares"], "reversed": ["Hope", "Fear Dissipating", "Healing"]},
-        "meanings": {"upright": "焦虑和担忧，失眠和恐惧。女子在半夜惊醒，九把剑挂在墙上，象征精神痛苦。", "reversed": "恐惧消散，找到希望，噩梦结束。疗愈之光到来。"},
-        "meaningsEn": {"upright": "Anxiety and worry, insomnia and fear. A woman wakes in the middle of the night, nine swords on the wall symbolize mental anguish.", "reversed": "Fear dissipating, finding hope, the nightmare ends. Light of healing arrives."},
-        "description": "一个人在半夜从噩梦中惊醒，双手捂脸，九把剑挂在床头的墙上，象征焦虑和恐惧。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "焦慮",
+            "恐懼",
+            "失眠",
+            "噩夢"
+          ],
+          "reversed": [
+            "希望",
+            "恐懼消散",
+            "療愈"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Anxiety",
+            "Fear",
+            "Insomnia",
+            "Nightmares"
+          ],
+          "reversed": [
+            "Hope",
+            "Fear Dissipating",
+            "Healing"
+          ]
+        },
+        "meanings": {
+          "upright": "焦慮和擔憂，失眠和恐懼。女子在半夜驚醒，九把劍掛在牆上，象徵精神痛苦。",
+          "reversed": "恐懼消散，找到希望，噩夢結束。療愈之光到來。"
+        },
+        "meaningsEn": {
+          "upright": "Anxiety and worry, insomnia and fear. A woman wakes in the middle of the night, nine swords on the wall symbolize mental anguish.",
+          "reversed": "Fear dissipating, finding hope, the nightmare ends. Light of healing arrives."
+        },
+        "description": "一個人在半夜從噩夢中驚醒，雙手捂臉，九把劍掛在床頭的牆上，象徵焦慮和恐懼。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_10": {
-        "name": "宝剑十",
+        "name": "寶劍十",
         "nameEn": "Ten of Swords",
-        "keywords": {"upright": ["结束", "背叛", "失败", "痛苦"], "reversed": ["反弹", "新的开始", "希望重现"]},
-        "keywordsEn": {"upright": ["Ending", "Betrayal", "Failure", "Pain"], "reversed": ["Rebounding", "New Beginning", "Hope Reappearing"]},
-        "meanings": {"upright": "痛苦的结束，背叛和失落。一个人背上插着十把剑，象征彻底的结束。", "reversed": "从谷底反弹，新的开始，希望重现。最坏的已经过去。"},
-        "meaningsEn": {"upright": "A painful end, betrayal and loss. A person with ten swords in their back symbolizes complete ending.", "reversed": "Rebounding from the bottom, a new beginning, hope reappears. The worst has passed."},
-        "description": "一个人俯卧在地，背上插着十把剑，天空昏暗但远处有曙光，象征痛苦的结束。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "結束",
+            "背叛",
+            "失敗",
+            "痛苦"
+          ],
+          "reversed": [
+            "反彈",
+            "新的開始",
+            "希望重現"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Ending",
+            "Betrayal",
+            "Failure",
+            "Pain"
+          ],
+          "reversed": [
+            "Rebounding",
+            "New Beginning",
+            "Hope Reappearing"
+          ]
+        },
+        "meanings": {
+          "upright": "痛苦的結束，背叛和失落。一個人背上插著十把劍，象徵徹底的結束。",
+          "reversed": "從谷底反彈，新的開始，希望重現。最壞的已經過去。"
+        },
+        "meaningsEn": {
+          "upright": "A painful end, betrayal and loss. A person with ten swords in their back symbolizes complete ending.",
+          "reversed": "Rebounding from the bottom, a new beginning, hope reappears. The worst has passed."
+        },
+        "description": "一個人俯臥在地，背上插著十把劍，天空昏暗但遠處有曙光，象徵痛苦的結束。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_page": {
-        "name": "宝剑侍从",
+        "name": "寶劍侍從",
         "nameEn": "Page of Swords",
-        "keywords": {"upright": ["好奇", "警觉", "新想法", "沟通"], "reversed": ["八卦", "鲁莽", "不假思索"]},
-        "keywordsEn": {"upright": ["Curiosity", "Vigilance", "New Ideas", "Communication"], "reversed": ["Gossip", "Recklessness", "Thoughtlessness"]},
-        "meanings": {"upright": "新的想法或消息的到来。充满好奇和警觉的年轻能量。", "reversed": "八卦和流言，鲁莽行事，不假思索。需要谨慎。"},
-        "meaningsEn": {"upright": "New ideas or messages arriving. Full of curiosity and vigilance. Young energetic energy.", "reversed": "Gossip and rumors, acting recklessly, thoughtlessness. Need caution."},
-        "description": "一个年轻的侍从手持宝剑，站在风中，姿态警觉，象征好奇和警觉。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "好奇",
+            "警覺",
+            "新想法",
+            "溝通"
+          ],
+          "reversed": [
+            "八卦",
+            "魯莽",
+            "不假思索"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Curiosity",
+            "Vigilance",
+            "New Ideas",
+            "Communication"
+          ],
+          "reversed": [
+            "Gossip",
+            "Recklessness",
+            "Thoughtlessness"
+          ]
+        },
+        "meanings": {
+          "upright": "新的想法或消息的到來。充滿好奇和警覺的年輕能量。",
+          "reversed": "八卦和流言，魯莽行事，不假思索。需要謹慎。"
+        },
+        "meaningsEn": {
+          "upright": "New ideas or messages arriving. Full of curiosity and vigilance. Young energetic energy.",
+          "reversed": "Gossip and rumors, acting recklessly, thoughtlessness. Need caution."
+        },
+        "description": "一個年輕的侍從手持寶劍，站在風中，姿態警覺，象徵好奇和警覺。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_knight": {
-        "name": "宝剑骑士",
+        "name": "寶劍騎士",
         "nameEn": "Knight of Swords",
-        "keywords": {"upright": ["行动", "野心", "决断", "速度"], "reversed": ["冲动", "侵略", "鲁莽"]},
-        "keywordsEn": {"upright": ["Action", "Ambition", "Decisiveness", "Speed"], "reversed": ["Impulsiveness", "Aggression", "Recklessness"]},
-        "meanings": {"upright": "迅速的行动和决断。骑士冲锋在前，象征快速的思维和行动。", "reversed": "过于冲动，侵略性强，鲁莽。需要三思而后行。"},
-        "meaningsEn": {"upright": "Swift action and decisiveness. The knight charges ahead, symbolizing rapid thinking and action.", "reversed": "Too impulsive, aggressive, reckless. Need to think before acting."},
-        "description": "一位骑士骑着白马疾驰，手持宝剑高举，象征快速的行动和决断。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "行動",
+            "野心",
+            "決斷",
+            "速度"
+          ],
+          "reversed": [
+            "衝動",
+            "侵略",
+            "魯莽"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Action",
+            "Ambition",
+            "Decisiveness",
+            "Speed"
+          ],
+          "reversed": [
+            "Impulsiveness",
+            "Aggression",
+            "Recklessness"
+          ]
+        },
+        "meanings": {
+          "upright": "迅速的行動和決斷。騎士衝鋒在前，象徵快速的思維和行動。",
+          "reversed": "過於衝動，侵略性強，魯莽。需要三思而後行。"
+        },
+        "meaningsEn": {
+          "upright": "Swift action and decisiveness. The knight charges ahead, symbolizing rapid thinking and action.",
+          "reversed": "Too impulsive, aggressive, reckless. Need to think before acting."
+        },
+        "description": "一位騎士騎著白馬疾馳，手持寶劍高舉，象徵快速的行動和決斷。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_queen": {
-        "name": "宝剑王后",
+        "name": "寶劍王后",
         "nameEn": "Queen of Swords",
-        "keywords": {"upright": ["独立", "清晰", "智慧", "诚实"], "reversed": ["冷漠", "过度批判", "残酷"]},
-        "keywordsEn": {"upright": ["Independence", "Clarity", "Wisdom", "Honesty"], "reversed": ["Coldness", "Overly Critical", "Cruelty"]},
-        "meanings": {"upright": "成熟的心智清晰和诚实。独立、智慧和公正的判断。头脑清醒的女性。", "reversed": "冷漠无情，过度批判，残酷的诚实。需要同理心。"},
-        "meaningsEn": {"upright": "Mature mental clarity and honesty. Independence, wisdom, and fair judgment. A clear-minded woman.", "reversed": "Cold and heartless, overly critical, cruel honesty. Need empathy."},
-        "description": "一位王后坐在宝座上，手持宝剑，天空晴朗，象征清晰的思维和独立。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "獨立",
+            "清晰",
+            "智慧",
+            "誠實"
+          ],
+          "reversed": [
+            "冷漠",
+            "過度批判",
+            "殘酷"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Independence",
+            "Clarity",
+            "Wisdom",
+            "Honesty"
+          ],
+          "reversed": [
+            "Coldness",
+            "Overly Critical",
+            "Cruelty"
+          ]
+        },
+        "meanings": {
+          "upright": "成熟的心智清晰和誠實。獨立、智慧和公正的判斷。頭腦清醒的女性。",
+          "reversed": "冷漠無情，過度批判，殘酷的誠實。需要同理心。"
+        },
+        "meaningsEn": {
+          "upright": "Mature mental clarity and honesty. Independence, wisdom, and fair judgment. A clear-minded woman.",
+          "reversed": "Cold and heartless, overly critical, cruel honesty. Need empathy."
+        },
+        "description": "一位王后坐在寶座上，手持寶劍，天空晴朗，象徵清晰的思維和獨立。",
+        "element": "風",
         "elementEn": "Air"
       },
       "swords_king": {
-        "name": "宝剑国王",
+        "name": "寶劍國王",
         "nameEn": "King of Swords",
-        "keywords": {"upright": ["权威", "真理", "公正", "智力"], "reversed": ["专制", "欺骗", "滥用权力"]},
-        "keywordsEn": {"upright": ["Authority", "Truth", "Justice", "Intellect"], "reversed": ["Tyranny", "Deception", "Abuse of Power"]},
-        "meanings": {"upright": "掌控和权威在智力领域。成熟、公正和清晰的思维。能够以智慧领导。", "reversed": "专制统治，欺骗，滥用智力权力。需要道德约束。"},
-        "meaningsEn": {"upright": "Control and authority in the intellectual realm. Mature, just, and clear thinking. Able to lead with wisdom.", "reversed": "Tyrannical rule, deception, abuse of intellectual power. Need moral constraints."},
-        "description": "一位威严的国王坐在宝座上，手持宝剑，姿态公正，象征权威和真理。",
-        "element": "风",
+        "keywords": {
+          "upright": [
+            "權威",
+            "真理",
+            "公正",
+            "智力"
+          ],
+          "reversed": [
+            "專制",
+            "欺騙",
+            "濫用權力"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Authority",
+            "Truth",
+            "Justice",
+            "Intellect"
+          ],
+          "reversed": [
+            "Tyranny",
+            "Deception",
+            "Abuse of Power"
+          ]
+        },
+        "meanings": {
+          "upright": "掌控和權威在智力領域。成熟、公正和清晰的思維。能夠以智慧領導。",
+          "reversed": "專制統治，欺騙，濫用智力權力。需要道德約束。"
+        },
+        "meaningsEn": {
+          "upright": "Control and authority in the intellectual realm. Mature, just, and clear thinking. Able to lead with wisdom.",
+          "reversed": "Tyrannical rule, deception, abuse of intellectual power. Need moral constraints."
+        },
+        "description": "一位威嚴的國王坐在寶座上，手持寶劍，姿態公正，象徵權威和真理。",
+        "element": "風",
         "elementEn": "Air"
       },
       "coins_1": {
-        "name": "星币首牌",
+        "name": "星幣首牌",
         "nameEn": "Ace of Pentacles",
-        "keywords": {"upright": ["财富", "机会", "繁荣", "显现"], "reversed": ["错失机会", "贪婪", "投资失误"]},
-        "keywordsEn": {"upright": ["Wealth", "Opportunity", "Prosperity", "Manifestation"], "reversed": ["Missed Opportunity", "Greed", "Investment Errors"]},
-        "meanings": {"upright": "新的财务机会，物质丰饶的开始。花园中的金币象征物质世界的丰盛。", "reversed": "错失机会，投资失误，贪婪。需要重新评估财务决策。"},
-        "meaningsEn": {"upright": "A new financial opportunity, the beginning of material abundance. A coin in a garden symbolizes abundance in the material world.", "reversed": "Missed opportunities, investment errors, greed. Need to reassess financial decisions."},
-        "description": "一只从云中伸出的手托着金币，下方是繁茂的花园和拱门，象征物质机会和繁荣。",
+        "keywords": {
+          "upright": [
+            "財富",
+            "機會",
+            "繁榮",
+            "顯現"
+          ],
+          "reversed": [
+            "錯失機會",
+            "貪婪",
+            "投資失誤"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Wealth",
+            "Opportunity",
+            "Prosperity",
+            "Manifestation"
+          ],
+          "reversed": [
+            "Missed Opportunity",
+            "Greed",
+            "Investment Errors"
+          ]
+        },
+        "meanings": {
+          "upright": "新的財務機會，物質豐饒的開始。花園中的金幣象徵物質世界的豐盛。",
+          "reversed": "錯失機會，投資失誤，貪婪。需要重新評估財務決策。"
+        },
+        "meaningsEn": {
+          "upright": "A new financial opportunity, the beginning of material abundance. A coin in a garden symbolizes abundance in the material world.",
+          "reversed": "Missed opportunities, investment errors, greed. Need to reassess financial decisions."
+        },
+        "description": "一隻從雲中伸出的手託著金幣，下方是繁茂的花園和拱門，象徵物質機會和繁榮。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_2": {
-        "name": "星币二",
+        "name": "星幣二",
         "nameEn": "Two of Pentacles",
-        "keywords": {"upright": ["平衡", "适应", "多任务", "灵活"], "reversed": [ "失衡", "过度投入", "混乱"]},
-        "keywordsEn": {"upright": ["Balance", "Adaptation", "Multitasking", "Flexibility"], "reversed": ["Imbalance", "Overcommitment", "Chaos"]},
-        "meanings": {"upright": "平衡收支，适应变化的能力。杂耍者玩着两个金币，象征生活的平衡。", "reversed": "财务失衡，过度消费，难以取舍。需要重新平衡生活。"},
-        "meaningsEn": {"upright": "Balancing finances, ability to adapt to change. A juggler plays with two coins, symbolizing life balance.", "reversed": "Financial imbalance, overspending, difficulty in choosing. Need to rebalance life."},
-        "description": "一个杂耍者在波涛汹涌的海边玩弄两个金币，形成无限符号，象征平衡和适应。",
+        "keywords": {
+          "upright": [
+            "平衡",
+            "適應",
+            "多任務",
+            "靈活"
+          ],
+          "reversed": [
+            "失衡",
+            "過度投入",
+            "混亂"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Balance",
+            "Adaptation",
+            "Multitasking",
+            "Flexibility"
+          ],
+          "reversed": [
+            "Imbalance",
+            "Overcommitment",
+            "Chaos"
+          ]
+        },
+        "meanings": {
+          "upright": "平衡收支，適應變化的能力。雜耍者玩著兩個金幣，象徵生活的平衡。",
+          "reversed": "財務失衡，過度消費，難以取捨。需要重新平衡生活。"
+        },
+        "meaningsEn": {
+          "upright": "Balancing finances, ability to adapt to change. A juggler plays with two coins, symbolizing life balance.",
+          "reversed": "Financial imbalance, overspending, difficulty in choosing. Need to rebalance life."
+        },
+        "description": "一個雜耍者在波濤洶湧的海邊玩弄兩個金幣，形成無限符號，象徵平衡和適應。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_3": {
-        "name": "星币三",
+        "name": "星幣三",
         "nameEn": "Three of Pentacles",
-        "keywords": {"upright": ["团队合作", "技能", "学习", "成就"], "reversed": ["缺乏团队精神", "平庸", "自满"]},
-        "keywordsEn": {"upright": ["Teamwork", "Skill", "Learning", "Achievement"], "reversed": ["Lack of Team Spirit", "Mediocrity", "Complacency"]},
-        "meanings": {"upright": "团队合作，技能提升，专业成长。工匠在教堂工作，象征专业技能的认可。", "reversed": "缺乏团队精神，技能平庸，自满。需要继续学习和提升。"},
-        "meaningsEn": {"upright": "Teamwork, skill enhancement, professional growth. A craftsman working in a church symbolizes recognition of professional skills.", "reversed": "Lack of team spirit, mediocre skills, complacency. Need to continue learning and improving."},
-        "description": "一个工匠在教堂雕刻，两位顾问在旁边观看，象征团队合作和专业技能。",
+        "keywords": {
+          "upright": [
+            "團隊合作",
+            "技能",
+            "學習",
+            "成就"
+          ],
+          "reversed": [
+            "缺乏團隊精神",
+            "平庸",
+            "自滿"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Teamwork",
+            "Skill",
+            "Learning",
+            "Achievement"
+          ],
+          "reversed": [
+            "Lack of Team Spirit",
+            "Mediocrity",
+            "Complacency"
+          ]
+        },
+        "meanings": {
+          "upright": "團隊合作，技能提升，專業成長。工匠在教堂工作，象徵專業技能的認可。",
+          "reversed": "缺乏團隊精神，技能平庸，自滿。需要繼續學習和提升。"
+        },
+        "meaningsEn": {
+          "upright": "Teamwork, skill enhancement, professional growth. A craftsman working in a church symbolizes recognition of professional skills.",
+          "reversed": "Lack of team spirit, mediocre skills, complacency. Need to continue learning and improving."
+        },
+        "description": "一個工匠在教堂雕刻，兩位顧問在旁邊觀看，象徵團隊合作和專業技能。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_4": {
-        "name": "星币四",
+        "name": "星幣四",
         "nameEn": "Four of Pentacles",
-        "keywords": {"upright": ["控制", "稳定", "安全", "节俭"], "reversed": ["贪婪", "吝啬", "物质执念"]},
-        "keywordsEn": {"upright": ["Control", "Stability", "Security", "Frugality"], "reversed": ["Greed", "Stinginess", "Material Obsession"]},
-        "meanings": {"upright": "财务稳定，控制和安全需求。男子紧抱金币，象征对物质的控制。", "reversed": "贪婪吝啬，物质执念，过于保守。需要学会分享。"},
-        "meaningsEn": {"upright": "Financial stability, need for control and security. A man clutches coins tightly, symbolizing material control.", "reversed": "Greed and stinginess, material obsession, overly conservative. Need to learn to share."},
-        "description": "一个男子坐在城镇的宝座上，双手双脚各抱一个金币，头顶还有一个，象征控制和保守。",
+        "keywords": {
+          "upright": [
+            "控制",
+            "穩定",
+            "安全",
+            "節儉"
+          ],
+          "reversed": [
+            "貪婪",
+            "吝嗇",
+            "物質執念"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Control",
+            "Stability",
+            "Security",
+            "Frugality"
+          ],
+          "reversed": [
+            "Greed",
+            "Stinginess",
+            "Material Obsession"
+          ]
+        },
+        "meanings": {
+          "upright": "財務穩定，控制和安全需求。男子緊抱金幣，象徵對物質的控制。",
+          "reversed": "貪婪吝嗇，物質執念，過於保守。需要學會分享。"
+        },
+        "meaningsEn": {
+          "upright": "Financial stability, need for control and security. A man clutches coins tightly, symbolizing material control.",
+          "reversed": "Greed and stinginess, material obsession, overly conservative. Need to learn to share."
+        },
+        "description": "一個男子坐在城鎮的寶座上，雙手雙腳各抱一個金幣，頭頂還有一個，象徵控制和保守。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_5": {
-        "name": "星币五",
+        "name": "星幣五",
         "nameEn": "Five of Pentacles",
-        "keywords": {"upright": ["贫困", "困难", "孤立", "担忧"], "reversed": ["恢复", "帮助", "新资源"]},
-        "keywordsEn": {"upright": ["Poverty", "Hardship", "Isolation", "Worry"], "reversed": ["Recovery", "Help", "New Resources"]},
-        "meanings": {"upright": "财务困难，感到匮乏和孤立。两个人在雪中走过教堂，象征物质困难。", "reversed": "困境结束，获得帮助，恢复希望。援助即将到来。"},
-        "meaningsEn": {"upright": "Financial difficulty, feeling lack and isolated. Two people walking past a church in snow symbolize material hardship.", "reversed": "Hardship ending, receiving help, restoring hope. Assistance is coming."},
-        "description": "两个衣衫褴褛的人在雪中艰难行走，经过一扇明亮的窗户，象征贫困和困难。",
+        "keywords": {
+          "upright": [
+            "貧困",
+            "困難",
+            "孤立",
+            "擔憂"
+          ],
+          "reversed": [
+            "恢復",
+            "幫助",
+            "新資源"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Poverty",
+            "Hardship",
+            "Isolation",
+            "Worry"
+          ],
+          "reversed": [
+            "Recovery",
+            "Help",
+            "New Resources"
+          ]
+        },
+        "meanings": {
+          "upright": "財務困難，感到匱乏和孤立。兩個人在雪中走過教堂，象徵物質困難。",
+          "reversed": "困境結束，獲得幫助，恢復希望。援助即將到來。"
+        },
+        "meaningsEn": {
+          "upright": "Financial difficulty, feeling lack and isolated. Two people walking past a church in snow symbolize material hardship.",
+          "reversed": "Hardship ending, receiving help, restoring hope. Assistance is coming."
+        },
+        "description": "兩個衣衫襤褸的人在雪中艱難行走，經過一扇明亮的窗戶，象徵貧困和困難。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_6": {
-        "name": "星币六",
+        "name": "星幣六",
         "nameEn": "Six of Pentacles",
-        "keywords": {"upright": ["慷慨", "分享", "给予", "慈善"], "reversed": ["债务", "自私", "不平等"]},
-        "keywordsEn": {"upright": ["Generosity", "Sharing", "Giving", "Charity"], "reversed": ["Debt", "Selfishness", "Inequality"]},
-        "meanings": {"upright": "慷慨分享，给予和接受平衡。商人分发金币给乞丐，象征慈善和分享。", "reversed": "自私吝啬，债务问题，不平等。给予和接受失衡。"},
-        "meaningsEn": {"upright": "Generous sharing, balance of giving and receiving. A merchant distributes coins to beggars, symbolizing charity and sharing.", "reversed": "Selfishness and stinginess, debt issues, inequality. Imbalance of giving and receiving."},
-        "description": "一个商人手持天平，向两个跪着的乞丐分发金币，象征慷慨和慈善。",
+        "keywords": {
+          "upright": [
+            "慷慨",
+            "分享",
+            "給予",
+            "慈善"
+          ],
+          "reversed": [
+            "債務",
+            "自私",
+            "不平等"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Generosity",
+            "Sharing",
+            "Giving",
+            "Charity"
+          ],
+          "reversed": [
+            "Debt",
+            "Selfishness",
+            "Inequality"
+          ]
+        },
+        "meanings": {
+          "upright": "慷慨分享，給予和接受平衡。商人分發金幣給乞丐，象徵慈善和分享。",
+          "reversed": "自私吝嗇，債務問題，不平等。給予和接受失衡。"
+        },
+        "meaningsEn": {
+          "upright": "Generous sharing, balance of giving and receiving. A merchant distributes coins to beggars, symbolizing charity and sharing.",
+          "reversed": "Selfishness and stinginess, debt issues, inequality. Imbalance of giving and receiving."
+        },
+        "description": "一個商人手持天平，向兩個跪著的乞丐分發金幣，象徵慷慨和慈善。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_7": {
-        "name": "星币七",
+        "name": "星幣七",
         "nameEn": "Seven of Pentacles",
-        "keywords": {"upright": ["耐心", "评估", "成长", "投资"], "reversed": ["不耐烦", "无回报", "挫折"]},
-        "keywordsEn": {"upright": ["Patience", "Assessment", "Growth", "Investment"], "reversed": ["Impatience", "No Return", "Frustration"]},
-        "meanings": {"upright": "耐心等待，长期投资的评估。农夫在评估作物的成长，象征长期规划。", "reversed": "不耐烦，投资无回报，挫折感。需要重新评估投资策略。"},
-        "meaningsEn": {"upright": "Patient waiting, assessment of long-term investments. A farmer assesses crop growth, symbolizing long-term planning.", "reversed": "Impatience, no return on investment, frustration. Need to reassess investment strategy."},
-        "description": "一个农夫倚着锄头，看着藤蔓上生长的七个星币，象征耐心等待和评估。",
+        "keywords": {
+          "upright": [
+            "耐心",
+            "評估",
+            "成長",
+            "投資"
+          ],
+          "reversed": [
+            "不耐煩",
+            "無回報",
+            "挫折"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Patience",
+            "Assessment",
+            "Growth",
+            "Investment"
+          ],
+          "reversed": [
+            "Impatience",
+            "No Return",
+            "Frustration"
+          ]
+        },
+        "meanings": {
+          "upright": "耐心等待，長期投資的評估。農夫在評估作物的成長，象徵長期規劃。",
+          "reversed": "不耐煩，投資無回報，挫折感。需要重新評估投資策略。"
+        },
+        "meaningsEn": {
+          "upright": "Patient waiting, assessment of long-term investments. A farmer assesses crop growth, symbolizing long-term planning.",
+          "reversed": "Impatience, no return on investment, frustration. Need to reassess investment strategy."
+        },
+        "description": "一個農夫倚著鋤頭，看著藤蔓上生長的七個星幣，象徵耐心等待和評估。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_8": {
-        "name": "星币八",
+        "name": "星幣八",
         "nameEn": "Eight of Pentacles",
-        "keywords": {"upright": ["专注", "技能", "勤奋", "学徒"], "reversed": ["缺乏专注", "平庸", "倦怠"]},
-        "keywordsEn": {"upright": ["Focus", "Skill", "Diligence", "Apprenticeship"], "reversed": ["Lack of Focus", "Mediocrity", "Burnout"]},
-        "meanings": {"upright": "专注技能，勤奋工作，专业提升。工匠在精心雕刻星币，象征专业技能的学习。", "reversed": "缺乏专注，技能平庸，工作倦怠。需要重新找到工作的意义。"},
-        "meaningsEn": {"upright": "Focus on skills, hard work, professional improvement. A craftsman carefully carves coins, symbolizing professional skill learning.", "reversed": "Lack of focus, mediocre skills, burnout. Need to rediscover the meaning of work."},
-        "description": "一个工匠在工作台前专心雕刻星币，墙上挂着七个完成的星币，象征专注和技能。",
+        "keywords": {
+          "upright": [
+            "專注",
+            "技能",
+            "勤奮",
+            "學徒"
+          ],
+          "reversed": [
+            "缺乏專注",
+            "平庸",
+            "倦怠"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Focus",
+            "Skill",
+            "Diligence",
+            "Apprenticeship"
+          ],
+          "reversed": [
+            "Lack of Focus",
+            "Mediocrity",
+            "Burnout"
+          ]
+        },
+        "meanings": {
+          "upright": "專注技能，勤奮工作，專業提升。工匠在精心雕刻星幣，象徵專業技能的學習。",
+          "reversed": "缺乏專注，技能平庸，工作倦怠。需要重新找到工作的意義。"
+        },
+        "meaningsEn": {
+          "upright": "Focus on skills, hard work, professional improvement. A craftsman carefully carves coins, symbolizing professional skill learning.",
+          "reversed": "Lack of focus, mediocre skills, burnout. Need to rediscover the meaning of work."
+        },
+        "description": "一個工匠在工作臺前專心雕刻星幣，牆上掛著七個完成的星幣，象徵專注和技能。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_9": {
-        "name": "星币九",
+        "name": "星幣九",
         "nameEn": "Nine of Pentacles",
-        "keywords": {"upright": ["独立", "奢侈", "自给自足", "享受"], "reversed": ["依赖", "炫耀", "不安全感"]},
-        "keywordsEn": {"upright": ["Independence", "Luxury", "Self-sufficiency", "Enjoyment"], "reversed": ["Dependence", "Showing Off", "Insecurity"]},
-        "meanings": {"upright": "财务独立，物质安全感，成功。优雅的女子在丰收的花园中，象征自给自足。", "reversed": "依赖他人，缺乏安全感，炫耀财富。需要真正的自信。"},
-        "meaningsEn": {"upright": "Financial independence, material security, success. An elegant woman in a bountiful garden symbolizes self-sufficiency.", "reversed": "Dependence on others, lack of security, flaunting wealth. Need true confidence."},
-        "description": "一位优雅的女士在繁茂的花园中，一只猎鹰停在她的手上，象征独立和享受。",
+        "keywords": {
+          "upright": [
+            "獨立",
+            "奢侈",
+            "自給自足",
+            "享受"
+          ],
+          "reversed": [
+            "依賴",
+            "炫耀",
+            "不安全感"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Independence",
+            "Luxury",
+            "Self-sufficiency",
+            "Enjoyment"
+          ],
+          "reversed": [
+            "Dependence",
+            "Showing Off",
+            "Insecurity"
+          ]
+        },
+        "meanings": {
+          "upright": "財務獨立，物質安全感，成功。優雅的女子在豐收的花園中，象徵自給自足。",
+          "reversed": "依賴他人，缺乏安全感，炫耀財富。需要真正的自信。"
+        },
+        "meaningsEn": {
+          "upright": "Financial independence, material security, success. An elegant woman in a bountiful garden symbolizes self-sufficiency.",
+          "reversed": "Dependence on others, lack of security, flaunting wealth. Need true confidence."
+        },
+        "description": "一位優雅的女士在繁茂的花園中，一隻獵鷹停在她的手上，象徵獨立和享受。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_10": {
-        "name": "星币十",
+        "name": "星幣十",
         "nameEn": "Ten of Pentacles",
-        "keywords": {"upright": ["财富", "家庭", "传承", "长期成功"], "reversed": ["家庭冲突", "财务损失", "不稳定"]},
-        "keywordsEn": {"upright": ["Wealth", "Family", "Legacy", "Long-term Success"], "reversed": ["Family Conflict", "Financial Loss", "Instability"]},
-        "meanings": {"upright": "财富和成就，家庭和遗产。多代人的财富积累，象征长期的物质成功。", "reversed": "财务损失，家庭纷争，物质不稳定。需要修复家庭关系。"},
-        "meaningsEn": {"upright": "Wealth and achievement, family and legacy. Multi-generational wealth accumulation symbolizes long-term material success.", "reversed": "Financial loss, family strife, material instability. Need to repair family relationships."},
-        "description": "一个家庭三代人在拱门下，背景是城堡和十个星币，象征家庭财富和传承。",
+        "keywords": {
+          "upright": [
+            "財富",
+            "家庭",
+            "傳承",
+            "長期成功"
+          ],
+          "reversed": [
+            "家庭衝突",
+            "財務損失",
+            "不穩定"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Wealth",
+            "Family",
+            "Legacy",
+            "Long-term Success"
+          ],
+          "reversed": [
+            "Family Conflict",
+            "Financial Loss",
+            "Instability"
+          ]
+        },
+        "meanings": {
+          "upright": "財富和成就，家庭和遺產。多代人的財富積累，象徵長期的物質成功。",
+          "reversed": "財務損失，家庭紛爭，物質不穩定。需要修復家庭關係。"
+        },
+        "meaningsEn": {
+          "upright": "Wealth and achievement, family and legacy. Multi-generational wealth accumulation symbolizes long-term material success.",
+          "reversed": "Financial loss, family strife, material instability. Need to repair family relationships."
+        },
+        "description": "一個家庭三代人在拱門下，背景是城堡和十個星幣，象徵家庭財富和傳承。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_page": {
-        "name": "星币侍从",
+        "name": "星幣侍從",
         "nameEn": "Page of Pentacles",
-        "keywords": {"upright": ["学习", "机会", "新的开始", "务实"], "reversed": ["缺乏计划", "白日梦", "不切实际"]},
-        "keywordsEn": {"upright": ["Learning", "Opportunity", "New Beginnings", "Practicality"], "reversed": ["Lack of Planning", "Daydreaming", "Unrealistic"]},
-        "meanings": {"upright": "新的学习或财务机会。充满好奇和务实态度的年轻能量。", "reversed": "缺乏计划，白日梦，不切实际。需要脚踏实地的行动。"},
-        "meaningsEn": {"upright": "New learning or financial opportunity. Full of curiosity and practical attitude. Young energetic energy.", "reversed": "Lack of planning, daydreaming, unrealistic. Need grounded action."},
-        "description": "一个年轻的侍从站在花园中，双手捧着金币，专注地看着它，象征学习和机会。",
+        "keywords": {
+          "upright": [
+            "學習",
+            "機會",
+            "新的開始",
+            "務實"
+          ],
+          "reversed": [
+            "缺乏計劃",
+            "白日夢",
+            "不切實際"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Learning",
+            "Opportunity",
+            "New Beginnings",
+            "Practicality"
+          ],
+          "reversed": [
+            "Lack of Planning",
+            "Daydreaming",
+            "Unrealistic"
+          ]
+        },
+        "meanings": {
+          "upright": "新的學習或財務機會。充滿好奇和務實態度的年輕能量。",
+          "reversed": "缺乏計劃，白日夢，不切實際。需要腳踏實地的行動。"
+        },
+        "meaningsEn": {
+          "upright": "New learning or financial opportunity. Full of curiosity and practical attitude. Young energetic energy.",
+          "reversed": "Lack of planning, daydreaming, unrealistic. Need grounded action."
+        },
+        "description": "一個年輕的侍從站在花園中，雙手捧著金幣，專注地看著它，象徵學習和機會。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_knight": {
-        "name": "星币骑士",
+        "name": "星幣騎士",
         "nameEn": "Knight of Pentacles",
-        "keywords": {"upright": ["勤奋", "可靠", "耐心", "务实"], "reversed": ["固执", "懒惰", "缺乏进展"]},
-        "keywordsEn": {"upright": ["Diligence", "Reliability", "Patience", "Practicality"], "reversed": ["Stubbornness", "Laziness", "Lack of Progress"]},
-        "meanings": {"upright": "勤奋可靠的工作态度。骑士稳步前进，象征踏实和耐心。", "reversed": "过于固执，懒惰，缺乏进展。需要更灵活的方法。"},
-        "meaningsEn": {"upright": "Diligent and reliable work attitude. The knight moves steadily forward, symbolizing steadiness and patience.", "reversed": "Too stubborn, lazy, lack of progress. Need a more flexible approach."},
-        "description": "一位骑士骑着黑马，手持金币，姿态稳重，象征勤奋和可靠。",
+        "keywords": {
+          "upright": [
+            "勤奮",
+            "可靠",
+            "耐心",
+            "務實"
+          ],
+          "reversed": [
+            "固執",
+            "懶惰",
+            "缺乏進展"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Diligence",
+            "Reliability",
+            "Patience",
+            "Practicality"
+          ],
+          "reversed": [
+            "Stubbornness",
+            "Laziness",
+            "Lack of Progress"
+          ]
+        },
+        "meanings": {
+          "upright": "勤奮可靠的工作態度。騎士穩步前進，象徵踏實和耐心。",
+          "reversed": "過於固執，懶惰，缺乏進展。需要更靈活的方法。"
+        },
+        "meaningsEn": {
+          "upright": "Diligent and reliable work attitude. The knight moves steadily forward, symbolizing steadiness and patience.",
+          "reversed": "Too stubborn, lazy, lack of progress. Need a more flexible approach."
+        },
+        "description": "一位騎士騎著黑馬，手持金幣，姿態穩重，象徵勤奮和可靠。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_queen": {
-        "name": "星币王后",
+        "name": "星幣王后",
         "nameEn": "Queen of Pentacles",
-        "keywords": {"upright": ["滋养", "实用", "财务智慧", "慷慨"], "reversed": ["过度保护", "财务依赖", "自我忽视"]},
-        "keywordsEn": {"upright": ["Nurturing", "Practicality", "Financial Wisdom", "Generosity"], "reversed": ["Overprotection", "Financial Dependence", "Self-neglect"]},
-        "meanings": {"upright": "成熟的滋养和实用智慧。关怀他人同时管理资源，象征母性的实用主义。", "reversed": "过度保护，财务依赖，忽视自我需求。需要平衡给予和接受。"},
-        "meaningsEn": {"upright": "Mature nurturing and practical wisdom. Caring for others while managing resources, symbolizing maternal pragmatism.", "reversed": "Overprotection, financial dependence, neglecting self-needs. Need balance of giving and receiving."},
-        "description": "一位王后端坐在花园中的宝座上，手持金币，身旁有兔子，象征滋养和丰盛。",
+        "keywords": {
+          "upright": [
+            "滋養",
+            "實用",
+            "財務智慧",
+            "慷慨"
+          ],
+          "reversed": [
+            "過度保護",
+            "財務依賴",
+            "自我忽視"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Nurturing",
+            "Practicality",
+            "Financial Wisdom",
+            "Generosity"
+          ],
+          "reversed": [
+            "Overprotection",
+            "Financial Dependence",
+            "Self-neglect"
+          ]
+        },
+        "meanings": {
+          "upright": "成熟的滋養和實用智慧。關懷他人同時管理資源，象徵母性的實用主義。",
+          "reversed": "過度保護，財務依賴，忽視自我需求。需要平衡給予和接受。"
+        },
+        "meaningsEn": {
+          "upright": "Mature nurturing and practical wisdom. Caring for others while managing resources, symbolizing maternal pragmatism.",
+          "reversed": "Overprotection, financial dependence, neglecting self-needs. Need balance of giving and receiving."
+        },
+        "description": "一位王后端坐在花園中的寶座上，手持金幣，身旁有兔子，象徵滋養和豐盛。",
         "element": "土",
         "elementEn": "Earth"
       },
       "coins_king": {
-        "name": "星币国王",
+        "name": "星幣國王",
         "nameEn": "King of Pentacles",
-        "keywords": {"upright": ["成功", "财富", "领导力", "稳定"], "reversed": ["贪婪", "物质主义", "固执"]},
-        "keywordsEn": {"upright": ["Success", "Wealth", "Leadership", "Stability"], "reversed": ["Greed", "Materialism", "Stubbornness"]},
-        "meanings": {"upright": "掌控和权威在物质领域。成熟、稳定和财务智慧。能够创造和保持财富。", "reversed": "贪婪和物质主义，固执己见，滥用财富。需要精神成长。"},
-        "meaningsEn": {"upright": "Control and authority in the material realm. Maturity, stability, and financial wisdom. Able to create and maintain wealth.", "reversed": "Greed and materialism, stubbornness, abuse of wealth. Need spiritual growth."},
-        "description": "一位威严的国王坐在装饰华丽的宝座上，手持金币和权杖，象征财富和成功。",
+        "keywords": {
+          "upright": [
+            "成功",
+            "財富",
+            "領導力",
+            "穩定"
+          ],
+          "reversed": [
+            "貪婪",
+            "物質主義",
+            "固執"
+          ]
+        },
+        "keywordsEn": {
+          "upright": [
+            "Success",
+            "Wealth",
+            "Leadership",
+            "Stability"
+          ],
+          "reversed": [
+            "Greed",
+            "Materialism",
+            "Stubbornness"
+          ]
+        },
+        "meanings": {
+          "upright": "掌控和權威在物質領域。成熟、穩定和財務智慧。能夠創造和保持財富。",
+          "reversed": "貪婪和物質主義，固執己見，濫用財富。需要精神成長。"
+        },
+        "meaningsEn": {
+          "upright": "Control and authority in the material realm. Maturity, stability, and financial wisdom. Able to create and maintain wealth.",
+          "reversed": "Greed and materialism, stubbornness, abuse of wealth. Need spiritual growth."
+        },
+        "description": "一位威嚴的國王坐在裝飾華麗的寶座上，手持金幣和權杖，象徵財富和成功。",
         "element": "土",
         "elementEn": "Earth"
       }

@@ -24,15 +24,30 @@ const BASE_URL = process.env.BASE_URL || 'https://2or.com';
 
 // 限流存储（使用内存，生产环境建议使用 Redis）
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+const authRateLimitStore = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1分钟
-const RATE_LIMIT_MAX = 60; // 每分钟最多60个请求
+const RATE_LIMIT_MAX = 60; // 全局每分钟最多60个请求
+const AUTH_RATE_LIMIT_MAX = 5; // 登录/注册接口每分钟最多5个请求
 
 // 限流中间件
-function rateLimit(req: any, res: any): boolean {
+function rateLimit(req: any, res: any, isAuthEndpoint = false): boolean {
   const ip = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
   const key = Array.isArray(ip) ? ip[0] : ip;
   const now = Date.now();
 
+  // Auth端点专用限流（登录/注册）
+  if (isAuthEndpoint) {
+    const authRecord = authRateLimitStore.get(key);
+    if (!authRecord || now > authRecord.resetTime) {
+      authRateLimitStore.set(key, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    } else if (authRecord.count >= AUTH_RATE_LIMIT_MAX) {
+      return false;
+    } else {
+      authRecord.count++;
+    }
+  }
+
+  // 全局限流
   const record = rateLimitStore.get(key);
   if (!record || now > record.resetTime) {
     rateLimitStore.set(key, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
@@ -45,6 +60,45 @@ function rateLimit(req: any, res: any): boolean {
 
   record.count++;
   return true;
+}
+
+// CORS 允许的 Origin
+const ALLOWED_ORIGINS = ['https://2or.com', 'https://www.2or.com', 'http://localhost:3000', 'http://localhost:5173'];
+
+function getCorsHeaders(req: any) {
+  const origin = req.headers.origin || '';
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : 'https://2or.com';
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, Accept, Origin, X-CSRF-Token',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Max-Age': '86400',
+    'Vary': 'Origin',
+  };
+}
+
+// CSRF Token 存储
+const csrfStore = new Map<string, string>();
+
+function generateCsrfToken(sessionId: string): string {
+  const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
+  csrfStore.set(sessionId, token);
+  return token;
+}
+
+function validateCsrfToken(req: any): boolean {
+  // 只验证非 GET/OPTIONS 请求
+  if (req.method === 'GET' || req.method === 'OPTIONS') return true;
+  // 跳过 auth 端点的 CSRF 验证（登录前还没有 token）
+  const path = req.url?.split('?')[0] || '';
+  if (path.startsWith('/api/auth/')) return true;
+  const csrfHeader = req.headers['x-csrf-token'];
+  const cookieHeader = req.headers.cookie;
+  const sessionMatch = cookieHeader?.match(/sessionId=([^;]+)/);
+  const sessionId = sessionMatch ? sessionMatch[1] : '';
+  if (!sessionId || !csrfStore.has(sessionId)) return false;
+  return csrfStore.get(sessionId) === csrfHeader;
 }
 
 // 连接 MongoDB
@@ -228,16 +282,31 @@ const adminMiddleware = async (req: any, res: any) => {
   return userId;
 };
 
-// Auth Middleware
+// Auth Middleware - 同时支持 Bearer token (localStorage) 和 HttpOnly Cookie
+type DecodedToken = { userId: string };
+function getTokenFromRequest(req: any): string | null {
+  // 1. 优先从 Authorization header 读取 (向后兼容 localStorage)
+  const authHeader = req.headers.authorization;
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    return authHeader.split(' ')[1];
+  }
+  // 2. 从 cookie 读取 (新的 HttpOnly Cookie 方式)
+  const cookies = req.headers.cookie;
+  if (cookies) {
+    const tokenMatch = cookies.match(/token=([^;]+)/);
+    if (tokenMatch) return decodeURIComponent(tokenMatch[1]);
+  }
+  return null;
+}
+
 const authMiddleware = async (req: any, res: any, silent = false) => {
   try {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    const token = getTokenFromRequest(req);
+    if (!token) {
       if (!silent) res.status(401).json({ message: t(req, 'authRequired') });
       return null;
     }
-    const token = authHeader.split(' ')[1];
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string };
+    const decoded = jwt.verify(token, JWT_SECRET) as DecodedToken;
     return decoded.userId;
   } catch (error) {
     if (!silent) res.status(401).json({ message: t(req, 'invalidToken') });
@@ -831,31 +900,32 @@ const spreads = [
   ]},
 ];
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE, PATCH',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, Accept, Origin',
-  'Access-Control-Max-Age': '86400',
-};
-
 export default async function handler(req, res) {
   const startTime = Date.now();
   log(`Request: ${req.method} ${req.url}`);
+
+  const corsHeaders = getCorsHeaders(req);
 
   if (req.method === 'OPTIONS') {
     Object.entries(corsHeaders).forEach(([key, value]) => res.setHeader(key, value));
     return res.status(200).end();
   }
 
-  // 应用限流
-  if (!rateLimit(req, res)) {
+  const { url, method } = req;
+  const path = url.split('?')[0];
+  const isAuthEndpoint = path.startsWith('/api/auth/');
+
+  // 应用限流（auth端点单独限流）
+  if (!rateLimit(req, res, isAuthEndpoint)) {
     return res.status(429).json({ error: 'Too many requests', message: t(req, 'rateLimit') });
   }
 
+  // CSRF 验证
+  if (!validateCsrfToken(req)) {
+    return res.status(403).json({ error: 'CSRF token invalid', message: 'Invalid CSRF token' });
+  }
+
   Object.entries(corsHeaders).forEach(([key, value]) => res.setHeader(key, value));
-  
-  const { url, method } = req;
-  const path = url.split('?')[0];
 
   try {
     if (path === '/api/health' && method === 'GET') return handleHealth(req, res);
@@ -1079,6 +1149,22 @@ async function handleUpdateBirthday(req: any, res: any) {
   return res.status(200).json({ message: t(req, 'birthdaySaved'), birthday });
 }
 
+// Zodiac name mappings for history lookups
+const ZODIAC_NAMES: Record<string, { nameEn: string; nameJa: string; nameKo: string; nameTw: string }> = {
+  '白羊座': { nameEn: 'Aries', nameJa: '牡羊座', nameKo: '양자리', nameTw: '白羊座' },
+  '金牛座': { nameEn: 'Taurus', nameJa: '牡牛座', nameKo: '황소자리', nameTw: '金牛座' },
+  '双子座': { nameEn: 'Gemini', nameJa: '双子座', nameKo: '쌍둥이자리', nameTw: '雙子座' },
+  '巨蟹座': { nameEn: 'Cancer', nameJa: '蟹座', nameKo: '게자리', nameTw: '巨蟹座' },
+  '狮子座': { nameEn: 'Leo', nameJa: '獅子座', nameKo: '사자자리', nameTw: '獅子座' },
+  '处女座': { nameEn: 'Virgo', nameJa: '乙女座', nameKo: '처녀자리', nameTw: '處女座' },
+  '天秤座': { nameEn: 'Libra', nameJa: '天秤座', nameKo: '천칭자리', nameTw: '天秤座' },
+  '天蝎座': { nameEn: 'Scorpio', nameJa: '蠍座', nameKo: '전갈자리', nameTw: '天蠍座' },
+  '射手座': { nameEn: 'Sagittarius', nameJa: '射手座', nameKo: '궁수자리', nameTw: '射手座' },
+  '摩羯座': { nameEn: 'Capricorn', nameJa: '山羊座', nameKo: '염소자리', nameTw: '魔羯座' },
+  '水瓶座': { nameEn: 'Aquarius', nameJa: '水瓶座', nameKo: '물병자리', nameTw: '水瓶座' },
+  '双鱼座': { nameEn: 'Pisces', nameJa: '魚座', nameKo: '물고기자리', nameTw: '雙魚座' },
+};
+
 async function handleFortuneHistory(req: any, res: any) {
   await connectDB();
   const userId = await authMiddleware(req, res);
@@ -1092,12 +1178,19 @@ async function handleFortuneHistory(req: any, res: any) {
   // 根据当前语言挑选对应文本字段
   const lang = detectLang(req);
   const langKey = lang === 'ja' ? 'Ja' : lang === 'ko' ? 'Ko' : lang === 'zh-TW' ? 'Tw' : lang.startsWith('zh') ? 'Zh' : 'En';
-  const result = fortunes.map((f: any) => ({
-    ...f,
-    fortune: f[`fortune${langKey}`] || f.fortuneZh || f.fortuneEn,
-    luckyColor: f[`luckyColor${langKey}`] || f.luckyColorZh || f.luckyColorEn,
-    advice: f[`advice${langKey}`] || f.adviceZh || f.adviceEn,
-  }));
+  const result = fortunes.map((f: any) => {
+    const zodiacMap = ZODIAC_NAMES[f.zodiac] || { nameEn: f.zodiac, nameJa: f.zodiac, nameKo: f.zodiac, nameTw: f.zodiac };
+    return {
+      ...f,
+      zodiacEn: zodiacMap.nameEn,
+      zodiacJa: zodiacMap.nameJa,
+      zodiacKo: zodiacMap.nameKo,
+      zodiacTw: zodiacMap.nameTw,
+      fortune: f[`fortune${langKey}`] || f.fortuneZh || f.fortuneEn || f.fortune,
+      luckyColor: f[`luckyColor${langKey}`] || f.luckyColorZh || f.luckyColorEn || f.luckyColor,
+      advice: f[`advice${langKey}`] || f.adviceZh || f.adviceEn || f.advice,
+    };
+  });
 
   return res.status(200).json(result);
 }
@@ -1189,11 +1282,11 @@ async function handleDailyFortune(req: any, res: any) {
       cardNameTw: existing.cardNameTw,
       cardImage: existing.cardImage,
       cardOrientation: existing.cardOrientation,
-      fortune: (existing as any)[`fortune${langKey}`] || existing.fortuneZh || existing.fortuneEn,
+      fortune: (existing as any)[`fortune${langKey}`] || existing.fortuneZh || existing.fortuneEn || existing.fortune,
       scores: { overall: existing.overall, love: existing.love, career: existing.career, wealth: existing.wealth, health: existing.health },
       luckyNumber: existing.luckyNumber,
-      luckyColor: (existing as any)[`luckyColor${langKey}`] || existing.luckyColorZh || existing.luckyColorEn,
-      advice: (existing as any)[`advice${langKey}`] || existing.adviceZh || existing.adviceEn,
+      luckyColor: (existing as any)[`luckyColor${langKey}`] || existing.luckyColorZh || existing.luckyColorEn || existing.luckyColor,
+      advice: (existing as any)[`advice${langKey}`] || existing.adviceZh || existing.adviceEn || existing.advice,
       cached: true,
     });
   }
@@ -1696,7 +1789,15 @@ async function handleRegister(req, res) {
   }
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  return res.status(201).json({ token, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
+  const sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36);
+  const csrfToken = generateCsrfToken(sessionId);
+  // 设置 HttpOnly Cookie（向后兼容：同时返回 token 字段）
+  const isSecure = BASE_URL.startsWith('https://');
+  res.setHeader('Set-Cookie', [
+    `token=${encodeURIComponent(token)}; HttpOnly; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
+    `sessionId=${sessionId}; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
+  ]);
+  return res.status(201).json({ token, csrfToken, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
 }
 
 async function handleLogin(req, res) {
@@ -1711,7 +1812,15 @@ async function handleLogin(req, res) {
   if (!isValidPassword) return res.status(401).json({ message: t(req, 'wrongCredentials') });
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  return res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
+  const sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36);
+  const csrfToken = generateCsrfToken(sessionId);
+  // 设置 HttpOnly Cookie（向后兼容：同时返回 token 字段）
+  const isSecure = BASE_URL.startsWith('https://');
+  res.setHeader('Set-Cookie', [
+    `token=${encodeURIComponent(token)}; HttpOnly; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
+    `sessionId=${sessionId}; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
+  ]);
+  return res.status(200).json({ token, csrfToken, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
 }
 
 async function handleGetMe(req, res) {

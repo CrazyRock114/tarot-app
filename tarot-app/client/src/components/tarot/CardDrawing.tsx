@@ -248,7 +248,7 @@ export const CardDrawing: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8 p-6 bg-gray-800/50 rounded-xl border border-gray-700"
               >
-                <label className="block text-white font-medium mb-3">{t('draw.enterQuestion')}</label>
+                <label className="block text-white font-medium mb-3">{t('draw.luckyNumber')}</label>
                 <input
                   type="number"
                   min={1}
@@ -388,8 +388,24 @@ export const CardDrawing: React.FC = () => {
                         : 'border-gray-700/50 bg-gray-800/30 hover:border-gray-600'
                     }`}
                   >
-                    <div className="w-12 h-12 rounded-full overflow-hidden mx-auto mb-2 border-2 border-gray-600">
-                      <img src={reader.avatar} alt={reader.name} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gray-700 text-2xl">' + reader.emoji + '</div>'; }} />
+                    <div className="w-12 h-12 rounded-full overflow-hidden mx-auto mb-2 border-2 border-gray-600 relative bg-gray-700">
+                      <img
+                        src={reader.avatar}
+                        alt={reader.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.display = 'none';
+                          const parent = img.parentElement;
+                          if (parent) {
+                            const fallback = parent.querySelector('.avatar-fallback') as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }
+                        }}
+                      />
+                      <div className="avatar-fallback hidden w-full h-full items-center justify-center text-2xl absolute inset-0">
+                        {reader.emoji}
+                      </div>
                     </div>
                     <div className="text-white text-sm font-medium">{reader.name}</div>
                     <div className="text-gray-500 text-xs mt-1">{reader.desc}</div>

@@ -13,7 +13,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  login: (token: string, user: User) => void;
+  login: (token: string, user: User, csrfToken?: string) => void;
   logout: () => void;
   isAuthenticated: boolean;
   loading: boolean;
@@ -40,15 +40,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setLoading(false);
   }, []);
 
-  const login = (token: string, userData: User) => {
+  const login = (token: string, userData: User, csrfToken?: string) => {
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(userData));
+    if (csrfToken) localStorage.setItem('csrfToken', csrfToken);
     setUser(userData);
   };
 
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('csrfToken');
     setUser(null);
   };
 

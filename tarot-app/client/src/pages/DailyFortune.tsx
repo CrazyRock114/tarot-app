@@ -221,9 +221,9 @@ const DailyFortune = () => {
               {/* Steps */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
                 {[
-                  { step: '1', title: t('fortune.setBirthday'), desc: t('fortune.subtitle') },
-                  { step: '2', title: t('fortune.title'), desc: t('fortune.subtitle') },
-                  { step: '3', title: t('fortune.advice'), desc: t('fortune.subtitle') },
+                  { step: '1', title: t('fortune.setBirthday'), desc: t('fortune.step1Desc') },
+                  { step: '2', title: t('fortune.generatingHint'), desc: t('fortune.step2Desc') },
+                  { step: '3', title: t('fortune.advice'), desc: t('fortune.step3Desc') },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -367,7 +367,7 @@ const DailyFortune = () => {
                   {history.length === 0 ? (
                     <p className="text-gray-500 text-center py-8">{t('fortune.noHistory')}</p>
                   ) : history.map((item: any, i) => {
-                    const histCardName = isZh ? item.cardName : (isJa ? (item.cardNameJa || item.cardNameEn) : (isKo ? (item.cardNameKo || item.cardNameEn) : item.cardNameEn));
+                    const histCardName = isZh ? item.cardName : (isTw ? (item.cardNameTw || item.cardName) : (isJa ? (item.cardNameJa || item.cardNameEn) : (isKo ? (item.cardNameKo || item.cardNameEn) : item.cardNameEn)));
                     return (
                     <div key={i} className="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4">
                       <img src={item.cardImage} alt={histCardName} className="w-12 aspect-[512/917] rounded-lg object-contain flex-shrink-0" />

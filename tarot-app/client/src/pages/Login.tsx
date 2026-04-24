@@ -25,8 +25,8 @@ const Login = () => {
     setError('');
     try {
       const response = await authApi.login(formData);
-      const { token, user } = response.data;
-      login(token, user);
+      const { token, user, csrfToken } = response.data;
+      login(token, user, csrfToken);
       navigate('/profile');
     } catch (err: any) {
       setError(err.response?.data?.message || t('common.error'));
@@ -48,6 +48,7 @@ const Login = () => {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">{t('login.email')}</label>
               <input type="email" name="email" value={formData.email} onChange={handleChange} required
+                autoComplete="email"
                 className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="your@email.com" />
             </div>
@@ -55,8 +56,9 @@ const Login = () => {
               <label className="block text-sm font-medium text-gray-300 mb-2">{t('login.password')}</label>
               <div className="relative">
                 <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleChange} required
+                  autoComplete="current-password"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-12" />
-                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                <button type="button" aria-label={showPassword ? t('login.hidePassword') : t('login.showPassword')} onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>

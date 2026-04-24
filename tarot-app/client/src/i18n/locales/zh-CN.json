@@ -145,7 +145,10 @@
       "pisces": "双鱼座"
     },
     "seoDesc": "输入生日，AI结合星座与塔罗为你解读今日运势。爱情、事业、财运、健康全方位指引。",
-    "generatingHint": "正在为你解读星象..."
+    "generatingHint": "正在为你解读星象...",
+    "step1Desc": "輸入你的生日，開啟專屬運勢之旅",
+    "step2Desc": "AI結合星座與塔羅，為你生成今日運勢",
+    "step3Desc": "獲取愛情、事業、財運、健康全方位指引"
   },
   "gallery": {
     "title": "塔罗图鉴",
@@ -345,7 +348,9 @@
     "submitting": "登录中...",
     "noAccount": "没有账号？",
     "register": "立即注册",
-    "forgotPassword": "忘记密码？"
+    "forgotPassword": "忘记密码？",
+    "showPassword": "顯示密碼",
+    "hidePassword": "隱藏密碼"
   },
   "register": {
     "title": "注册",
@@ -360,7 +365,9 @@
     "hasAccount": "已有账号？",
     "login": "立即登录",
     "passwordMismatch": "两次密码不一致",
-    "success": "注册成功！"
+    "success": "注册成功！",
+    "showPassword": "顯示密碼",
+    "hidePassword": "隱藏密碼"
   },
   "history": {
     "title": "占卜历史",
