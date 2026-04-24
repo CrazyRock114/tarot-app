@@ -214,9 +214,17 @@ const DailyFortuneSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   cardName: { type: String },
   cardNameEn: { type: String },
+  cardNameJa: { type: String },
+  cardNameKo: { type: String },
+  cardNameTw: { type: String },
   cardImage: { type: String },
   cardOrientation: { type: String },
   fortune: { type: String },
+  fortuneZh: { type: String },
+  fortuneEn: { type: String },
+  fortuneJa: { type: String },
+  fortuneKo: { type: String },
+  fortuneTw: { type: String },
   overall: { type: Number, min: 1, max: 5 },
   love: { type: Number, min: 1, max: 5 },
   career: { type: Number, min: 1, max: 5 },
@@ -224,7 +232,17 @@ const DailyFortuneSchema = new mongoose.Schema({
   health: { type: Number, min: 1, max: 5 },
   luckyNumber: { type: Number },
   luckyColor: { type: String },
+  luckyColorZh: { type: String },
+  luckyColorEn: { type: String },
+  luckyColorJa: { type: String },
+  luckyColorKo: { type: String },
+  luckyColorTw: { type: String },
   advice: { type: String },
+  adviceZh: { type: String },
+  adviceEn: { type: String },
+  adviceJa: { type: String },
+  adviceKo: { type: String },
+  adviceTw: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 DailyFortuneSchema.index({ date: 1, zodiac: 1 }, { unique: true });
@@ -1279,29 +1297,38 @@ async function handleDailyFortune(req: any, res: any) {
 
   const existing = await DailyFortune.findOne(cacheQuery);
   if (existing) {
-    // 根据请求语言返回对应语言的字段
     const langKey = lang === 'ja' ? 'Ja' : lang === 'ko' ? 'Ko' : lang === 'zh-TW' ? 'Tw' : lang.startsWith('zh') ? 'Zh' : 'En';
-    return res.status(200).json({
-      zodiac: zodiac.name,
-      zodiacEn: zodiac.nameEn,
-      zodiacJa: zodiac.nameJa,
-      zodiacKo: zodiac.nameKo,
-      zodiacTw: zodiac.nameTw,
-      date: today,
-      cardName: existing.cardName,
-      cardNameEn: existing.cardNameEn,
-      cardNameJa: existing.cardNameJa,
-      cardNameKo: existing.cardNameKo,
-      cardNameTw: existing.cardNameTw,
-      cardImage: existing.cardImage,
-      cardOrientation: existing.cardOrientation,
-      fortune: (existing as any)[`fortune${langKey}`] || existing.fortuneZh || existing.fortuneEn || existing.fortune,
-      scores: { overall: existing.overall, love: existing.love, career: existing.career, wealth: existing.wealth, health: existing.health },
-      luckyNumber: existing.luckyNumber,
-      luckyColor: (existing as any)[`luckyColor${langKey}`] || existing.luckyColorZh || existing.luckyColorEn || existing.luckyColor,
-      advice: (existing as any)[`advice${langKey}`] || existing.adviceZh || existing.adviceEn || existing.advice,
-      cached: true,
-    });
+    const fortuneText = (existing as any)[`fortune${langKey}`] || existing.fortuneZh || existing.fortuneEn || existing.fortune;
+    const luckyColorText = (existing as any)[`luckyColor${langKey}`] || existing.luckyColorZh || existing.luckyColorEn || existing.luckyColor;
+    const adviceText = (existing as any)[`advice${langKey}`] || existing.adviceZh || existing.adviceEn || existing.advice;
+
+    // If any core content is missing, the cache entry is broken (e.g. saved before schema had multilingual fields)
+    if (fortuneText && luckyColorText && adviceText) {
+      return res.status(200).json({
+        zodiac: zodiac.name,
+        zodiacEn: zodiac.nameEn,
+        zodiacJa: zodiac.nameJa,
+        zodiacKo: zodiac.nameKo,
+        zodiacTw: zodiac.nameTw,
+        date: today,
+        cardName: existing.cardName,
+        cardNameEn: existing.cardNameEn,
+        cardNameJa: existing.cardNameJa,
+        cardNameKo: existing.cardNameKo,
+        cardNameTw: existing.cardNameTw,
+        cardImage: existing.cardImage,
+        cardOrientation: existing.cardOrientation,
+        fortune: fortuneText,
+        scores: { overall: existing.overall, love: existing.love, career: existing.career, wealth: existing.wealth, health: existing.health },
+        luckyNumber: existing.luckyNumber,
+        luckyColor: luckyColorText,
+        advice: adviceText,
+        cached: true,
+      });
+    }
+
+    // Broken cache entry — delete it and fall through to regeneration
+    await DailyFortune.deleteOne({ _id: existing._id });
   }
 
   // ── 2. 首次生成：抽牌 + 一次性生成所有语言 ──
