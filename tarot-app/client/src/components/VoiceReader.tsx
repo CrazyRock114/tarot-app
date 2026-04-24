@@ -43,12 +43,15 @@ const VoiceReader = ({ text, readerStyle = 'mystic', ready = true }: VoiceReader
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
+      const csrfToken = localStorage.getItem('csrfToken');
       const response = await fetch('/api/tts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
+          ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
         },
+        credentials: 'include',
         body: JSON.stringify({ text, readerStyle }),
       });
 

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, RotateCcw, ChevronLeft, Loader2, CheckCircle, Share2, Check, MessageCircle, Send, Lock, ChevronDown } from 'lucide-react';
 import { tarotApi } from '../api/tarot';
 import { followUpStream } from '../api/tarot';
+import api from '../api';
 import TarotCardComponent from '../components/tarot/TarotCard';
 import { useAuth } from '../contexts/AuthContext';
 import ShareImage from '../components/ShareImage';
@@ -53,16 +54,7 @@ const Interpretation = () => {
     if (!readingId || sharing) return;
     setSharing(true);
     try {
-      const token = localStorage.getItem('token');
-      const res = await fetch(`/api/share/create/${readingId}`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
-        },
-      });
-      if (!res.ok) throw new Error(t('errors.shareFailed'));
-      const data = await res.json();
+      const { data } = await api.post(`/share/create/${readingId}`);
       const url = `${window.location.origin}/share/${data.shareId}`;
       setShareUrl(url);
       await navigator.clipboard.writeText(url);

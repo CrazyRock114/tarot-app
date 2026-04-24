@@ -59,7 +59,14 @@ const Admin = () => {
     setLoading(false);
   };
 
-  const ah = () => ({ Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' });
+  const ah = () => {
+    const csrfToken = localStorage.getItem('csrfToken');
+    return {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
+    };
+  };
 
   const fetchDashboard = async () => { try { const r = await fetch('/api/admin/dashboard', { headers: ah() }); if (r.ok) setDashboard(await r.json()); } catch {} };
   const fetchUsers = async () => { try { const r = await fetch(`/api/admin/users?page=${usersPage}&limit=20&search=${usersSearch}`, { headers: ah() }); if (r.ok) { const d = await r.json(); setUsers(d.users); setUsersTotal(d.total); } } catch {} };
@@ -84,19 +91,19 @@ const Admin = () => {
 
   const updateUser = async () => {
     try {
-      const res = await fetch('/api/admin/users', { method: 'PUT', headers: ah(), body: JSON.stringify({ userId: selectedUser._id, ...editForm }) });
+      const res = await fetch('/api/admin/users', { method: 'PUT', headers: ah(), credentials: 'include', body: JSON.stringify({ userId: selectedUser._id, ...editForm }) });
       if (res.ok) { setSelectedUser(await res.json()); fetchUsers(); alert(t('admin.saveSuccess')); }
     } catch {}
   };
 
   const deleteUser = async (uid: string) => {
     if (!confirm(t('admin.confirmDeleteUser'))) return;
-    try { const r = await fetch('/api/admin/users', { method: 'DELETE', headers: ah(), body: JSON.stringify({ userId: uid }) }); if (r.ok) { setSelectedUser(null); fetchUsers(); alert(t('admin.deleted')); } } catch {}
+    try { const r = await fetch('/api/admin/users', { method: 'DELETE', headers: ah(), credentials: 'include', body: JSON.stringify({ userId: uid }) }); if (r.ok) { setSelectedUser(null); fetchUsers(); alert(t('admin.deleted')); } } catch {}
   };
 
   const clearErrorLogs = async () => {
     if (!confirm(t('admin.confirmClearErrors'))) return;
-    try { const r = await fetch('/api/admin/error-logs', { method: 'DELETE', headers: ah(), body: JSON.stringify({ beforeDays: 30 }) }); if (r.ok) { alert(t('admin.clearedCount', { count: (await r.json()).deleted })); fetchErrors(); } } catch {}
+    try { const r = await fetch('/api/admin/error-logs', { method: 'DELETE', headers: ah(), credentials: 'include', body: JSON.stringify({ beforeDays: 30 }) }); if (r.ok) { alert(t('admin.clearedCount', { count: (await r.json()).deleted })); fetchErrors(); } } catch {}
   };
 
   const openReadingDetail = async (r: any) => { setReadingDetail(r); };

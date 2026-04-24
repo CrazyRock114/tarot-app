@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, X } from 'lucide-react';
+import api from '../api';
 
 const PRIZE_KEYS = [
   { nameKey: 'wheel.pts5',       emoji: '🪙', color: '#4f46e5' },
@@ -38,7 +39,6 @@ export default function LuckyWheel({ points, onDraw, onClose }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const angleRef = useRef(0);
   const animRef = useRef(0);
-  const token = localStorage.getItem('token');
 
   // Build translated prizes from i18n keys
   const PRIZES = PRIZE_KEYS.map(p => ({ ...p, name: t(p.nameKey) }));
@@ -176,16 +176,7 @@ export default function LuckyWheel({ points, onDraw, onClose }: Props) {
     setShowResult(false);
 
     try {
-      const res = await fetch('/api/points/lucky-draw', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setSpinning(false);
-        return;
-      }
+      const { data } = await api.post('/points/lucky-draw');
 
       // Use prizeIndex from server (0-7), fallback to 3 if not provided
       const idx = typeof data.prizeIndex === 'number' ? data.prizeIndex : 3;

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Crown, Check, Sparkles, Zap, Star, ChevronRight, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import api from '../api';
 import SEO from '../components/SEO';
 
 interface Plan {
@@ -47,25 +48,17 @@ export default function Membership() {
   const [message, setMessage] = useState('');
   const [selectedPlan, setSelectedPlan] = useState('monthly');
 
-  const token = localStorage.getItem('token');
-  const headers = { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' };
-
   useEffect(() => {
     if (authLoading) return;
     loadInfo();
   }, [authLoading]);
 
   const loadInfo = async () => {
-    
     try {
-      if (token) {
-        const res = await fetch('/api/membership', { headers });
-        if (res.ok) setInfo(await res.json());
-      } else {
-        // Show plans without user info
-        const res = await fetch('/api/membership');
-        if (res.ok) setInfo(await res.json());
-      }
+      const { data } = await api.get('/membership');
+      setInfo(data);
+    } catch {
+      // Show plans without user info
     } finally {
       setLoading(false);
     }
@@ -79,20 +72,11 @@ export default function Membership() {
     setSubscribing(planId);
     setMessage('');
     try {
-      const res = await fetch('/api/membership/subscribe', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ planId }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setMessage(`✅ ${data.message}`);
-        loadInfo();
-      } else {
-        setMessage(`❌ ${data.message}`);
-      }
-    } catch {
-      setMessage('❌ ' + t('errors.deleteFailed'));
+      const { data } = await api.post('/membership/subscribe', { planId });
+      setMessage(`✅ ${data.message}`);
+      loadInfo();
+    } catch (e: any) {
+      setMessage(`❌ ${e.response?.data?.message || t('errors.deleteFailed')}`);
     } finally {
       setSubscribing('');
     }

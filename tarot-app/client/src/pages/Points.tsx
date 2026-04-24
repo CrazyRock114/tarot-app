@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Coins, CalendarCheck, Share2, UserPlus, ChevronLeft, Copy, Check, Loader2, Gift, Crown, Trophy, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import api from '../api';
 import SEO from '../components/SEO';
 import LuckyWheel from '../components/LuckyWheel';
 
@@ -55,7 +56,6 @@ const Points = () => {
   const typeLabels = getTypeLabels(t);
   const navigate = useNavigate();
   const { isAuthenticated, loading: authLoading } = useAuth();
-  const token = localStorage.getItem('token');
   const [data, setData] = useState<PointsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [checkingIn, setCheckingIn] = useState(false);
@@ -63,8 +63,6 @@ const Points = () => {
   const [copied, setCopied] = useState(false);
   const [showWheel, setShowWheel] = useState(false);
   const [newAchievements, setNewAchievements] = useState<string[]>([]);
-
-  const headers = { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' };
 
   useEffect(() => {
     if (authLoading) return;
@@ -74,8 +72,8 @@ const Points = () => {
 
   const loadData = async () => {
     try {
-      const res = await fetch('/api/points/all', { headers });
-      if (res.ok) setData(await res.json());
+      const { data } = await api.get('/points/all');
+      setData(data);
     } catch (e) { console.error(e); }
     finally { setLoading(false); }
   };
@@ -83,17 +81,14 @@ const Points = () => {
   const handleCheckIn = async () => {
     setCheckingIn(true);
     try {
-      const res = await fetch('/api/points/checkin', { method: 'POST', headers });
-      const d = await res.json();
-      if (res.ok) {
-        setCheckInMsg(d.message || t('points.checkinSuccess', { amount: d.pointsEarned }));
-        if (d.newAchievements?.length) setNewAchievements(d.newAchievements);
-        loadData();
-        setTimeout(() => setCheckInMsg(''), 3000);
-      } else {
-        setCheckInMsg(d.message || t('points.checkinFailed'));
-        setTimeout(() => setCheckInMsg(''), 3000);
-      }
+      const { data } = await api.post('/points/checkin');
+      setCheckInMsg(data.message || t('points.checkinSuccess', { amount: data.pointsEarned }));
+      if (data.newAchievements?.length) setNewAchievements(data.newAchievements);
+      loadData();
+      setTimeout(() => setCheckInMsg(''), 3000);
+    } catch (e: any) {
+      setCheckInMsg(e.response?.data?.message || t('points.checkinFailed'));
+      setTimeout(() => setCheckInMsg(''), 3000);
     } finally { setCheckingIn(false); }
   };
 

@@ -53,12 +53,15 @@ export const tarotApi = {
     
     try {
       const token = localStorage.getItem('token');
+      const csrfToken = localStorage.getItem('csrfToken');
       const response = await fetch('/api/tarot/reading', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
+          ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
         },
+        credentials: 'include',
         body: JSON.stringify({ spreadType, cards, question, save, userId, yesNoResult, readerStyle }),
         signal: controller.signal,
       });
@@ -162,12 +165,15 @@ export const followUpStream = async (
   
   try {
     const token = localStorage.getItem('token');
+    const csrfToken = localStorage.getItem('csrfToken');
     const response = await fetch(`/api/tarot/followup/${readingId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
+        ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
       },
+      credentials: 'include',
       body: JSON.stringify({ question }),
       signal: controller.signal,
     });

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Heart, Briefcase, Coins, Activity, Sparkles, Star, ChevronRight, History, Save } from 'lucide-react';
 import SEO from '../components/SEO';
 import { useAuth } from '../contexts/AuthContext';
+import api from '../api';
 
 interface FortuneData {
   zodiac: string;
@@ -97,29 +98,14 @@ const DailyFortune = () => {
   const fetchFortune = async (bday: string) => {
     setStep('loading');
     setError('');
-    
+
     try {
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-      const token = localStorage.getItem('token');
-      if (token) headers['Authorization'] = `Bearer ${token}`;
-      
-      const res = await fetch('/api/daily-fortune', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ birthday: bday }),
-      });
-      
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error || t('errors.getFortuneFailed'));
-      }
-      
-      const data = await res.json();
+      const { data } = await api.post('/daily-fortune', { birthday: bday });
       setFortune(data);
       setStep('result');
       setTimeout(() => setCardFlipped(true), 800);
     } catch (e: any) {
-      setError(e.message);
+      setError(e.response?.data?.error || e.message || t('errors.getFortuneFailed'));
       setStep('input');
     } finally {
       setAutoLoading(false);
@@ -132,13 +118,8 @@ const DailyFortune = () => {
     // Save birthday
     localStorage.setItem('tarot_birthday', birthday);
     if (isAuthenticated) {
-      const token = localStorage.getItem('token');
       try {
-        await fetch('/api/user/birthday', {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } as any,
-          body: JSON.stringify({ birthday }),
-        });
+        await api.put('/user/birthday', { birthday });
       } catch (e) { /* silent */ }
     }
     
@@ -148,15 +129,9 @@ const DailyFortune = () => {
   const loadHistory = async () => {
     if (!isAuthenticated) return;
     try {
-      const token = localStorage.getItem('token');
-      const res = await fetch('/api/fortune-history', {
-        headers: { 'Authorization': `Bearer ${token}` } as any,
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setHistory(data);
-        setShowHistory(true);
-      }
+      const { data } = await api.get('/fortune-history');
+      setHistory(data);
+      setShowHistory(true);
     } catch (e) { /* silent */ }
   };
 
