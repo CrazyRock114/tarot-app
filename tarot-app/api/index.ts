@@ -1230,18 +1230,6 @@ async function handleFortuneHistory(req: any, res: any) {
 async function handleDailyFortune(req: any, res: any) {
   await connectDB();
   
-  // One-time: drop legacy index if exists
-  try {
-    const collection = mongoose.connection.collection('dailyfortunes');
-    const indexes = await collection.indexes();
-    for (const idx of indexes) {
-      if (idx.name === 'userId_1_date_1') {
-        await collection.dropIndex('userId_1_date_1');
-        console.log('Dropped legacy userId_1_date_1 index');
-      }
-    }
-  } catch (e) { /* ignore if already dropped */ }
-  
   const body = req.body || {};
   const { birthday } = body; // format: "MM-DD" or "YYYY-MM-DD"
   
@@ -1291,12 +1279,8 @@ async function handleDailyFortune(req: any, res: any) {
     }
   } catch (e) { /* not logged in */ }
 
-  // ── 1. 查找今日缓存（一个文档包含所有语言） ──
-  const cacheQuery: any = { date: today, zodiac: zodiac.name };
-  if (fortuneUserId) cacheQuery.userId = fortuneUserId;
-  else cacheQuery.userId = null;
-
-  const existing = await DailyFortune.findOne(cacheQuery);
+  // ── 1. 查找今日缓存（按 date + zodiac 全局共享，unique index 保证唯一） ──
+  const existing = await DailyFortune.findOne({ date: today, zodiac: zodiac.name });
   if (existing) {
     const langKey = lang === 'ja' ? 'Ja' : lang === 'ko' ? 'Ko' : lang === 'zh-TW' ? 'Tw' : lang.startsWith('zh') ? 'Zh' : 'En';
     const fortuneText = (existing as any)[`fortune${langKey}`] || existing.fortuneZh || existing.fortuneEn || existing.fortune;
@@ -1394,8 +1378,11 @@ async function handleDailyFortune(req: any, res: any) {
   "adviceKo": "한국어 오늘의 한 마디 조언 (20자 이내)"
 }`;
 
+  let response;
   try {
-    const response = await fetch('https://api.deepseek.com/chat/completions', {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 25000);
+    response = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
       body: JSON.stringify({
@@ -1407,79 +1394,139 @@ async function handleDailyFortune(req: any, res: any) {
         temperature: 0.8,
         max_tokens: 2000,
       }),
+      signal: controller.signal,
     });
-
-    const data = await response.json() as any;
-    const text = data.choices?.[0]?.message?.content || '';
-
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) return res.status(500).json({ error: t(req, 'fortuneFailed') });
-
-    const fortune = JSON.parse(jsonMatch[0]);
-
-    // Save to DB — 一个文档存所有语言
-    const fortuneDoc = new DailyFortune({
-      date: today,
-      zodiac: zodiac.name,
-      userId: fortuneUserId,
-      lang,
-      cardName: randomCard.name,
-      cardNameEn: randomCard.nameEn,
-      cardNameJa: randomCard.nameJa,
-      cardNameKo: randomCard.nameKo,
-      cardNameTw: randomCard.nameTw,
-      cardImage: randomCard.image,
-      cardOrientation: orientation,
-      fortuneZh: fortune.fortuneZh,
-      fortuneEn: fortune.fortuneEn,
-      fortuneJa: fortune.fortuneJa,
-      fortuneKo: fortune.fortuneKo,
-      fortuneTw: fortune.fortuneTw,
-      overall: fortune.overall,
-      love: fortune.love,
-      career: fortune.career,
-      wealth: fortune.wealth,
-      health: fortune.health,
-      luckyNumber: fortune.luckyNumber,
-      luckyColorZh: fortune.luckyColorZh,
-      luckyColorEn: fortune.luckyColorEn,
-      luckyColorJa: fortune.luckyColorJa,
-      luckyColorKo: fortune.luckyColorKo,
-      luckyColorTw: fortune.luckyColorTw,
-      adviceZh: fortune.adviceZh,
-      adviceEn: fortune.adviceEn,
-      adviceJa: fortune.adviceJa,
-      adviceKo: fortune.adviceKo,
-      adviceTw: fortune.adviceTw,
-    });
-    await fortuneDoc.save();
-
-    const langKey = lang === 'ja' ? 'Ja' : lang === 'ko' ? 'Ko' : lang === 'zh-TW' ? 'Tw' : lang.startsWith('zh') ? 'Zh' : 'En';
-    return res.status(200).json({
-      zodiac: zodiac.name,
-      zodiacEn: zodiac.nameEn,
-      zodiacJa: zodiac.nameJa,
-      zodiacKo: zodiac.nameKo,
-      zodiacTw: zodiac.nameTw,
-      date: today,
-      cardName: randomCard.name,
-      cardNameEn: randomCard.nameEn,
-      cardNameJa: randomCard.nameJa,
-      cardNameKo: randomCard.nameKo,
-      cardNameTw: randomCard.nameTw,
-      cardImage: randomCard.image,
-      cardOrientation: orientation,
-      fortune: fortune[`fortune${langKey}`] || fortune.fortuneZh,
-      scores: { overall: fortune.overall, love: fortune.love, career: fortune.career, wealth: fortune.wealth, health: fortune.health },
-      luckyNumber: fortune.luckyNumber,
-      luckyColor: fortune[`luckyColor${langKey}`] || fortune.luckyColorZh,
-      advice: fortune[`advice${langKey}`] || fortune.adviceZh,
-      cached: false,
-    });
+    clearTimeout(timeout);
   } catch (err: any) {
-    console.error('Daily fortune error:', err);
+    console.error('Daily fortune DeepSeek fetch error:', err);
     return res.status(500).json({ error: t(req, 'fortuneFailedRetry'), detail: err?.message || String(err) });
   }
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => '');
+    console.error('Daily fortune DeepSeek API error:', response.status, errorText);
+    return res.status(500).json({ error: t(req, 'fortuneFailedRetry'), detail: `DeepSeek API ${response.status}` });
+  }
+
+  let data;
+  try {
+    data = await response.json() as any;
+  } catch (err: any) {
+    console.error('Daily fortune DeepSeek JSON parse error:', err);
+    return res.status(500).json({ error: t(req, 'fortuneFailedRetry'), detail: 'Invalid JSON from DeepSeek' });
+  }
+
+  const text = data.choices?.[0]?.message?.content || '';
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) {
+    console.error('Daily fortune no JSON match in response:', text.slice(0, 500));
+    return res.status(500).json({ error: t(req, 'fortuneFailed') });
+  }
+
+  let fortune;
+  try {
+    fortune = JSON.parse(jsonMatch[0]);
+  } catch (err: any) {
+    console.error('Daily fortune JSON parse error:', err, 'matched text:', jsonMatch[0].slice(0, 500));
+    return res.status(500).json({ error: t(req, 'fortuneFailedRetry'), detail: 'Failed to parse fortune JSON' });
+  }
+
+  // Save to DB — 一个文档存所有语言
+  const fortuneDoc = new DailyFortune({
+    date: today,
+    zodiac: zodiac.name,
+    userId: fortuneUserId,
+    lang,
+    cardName: randomCard.name,
+    cardNameEn: randomCard.nameEn,
+    cardNameJa: randomCard.nameJa,
+    cardNameKo: randomCard.nameKo,
+    cardNameTw: randomCard.nameTw,
+    cardImage: randomCard.image,
+    cardOrientation: orientation,
+    fortuneZh: fortune.fortuneZh,
+    fortuneEn: fortune.fortuneEn,
+    fortuneJa: fortune.fortuneJa,
+    fortuneKo: fortune.fortuneKo,
+    fortuneTw: fortune.fortuneTw,
+    overall: fortune.overall,
+    love: fortune.love,
+    career: fortune.career,
+    wealth: fortune.wealth,
+    health: fortune.health,
+    luckyNumber: fortune.luckyNumber,
+    luckyColorZh: fortune.luckyColorZh,
+    luckyColorEn: fortune.luckyColorEn,
+    luckyColorJa: fortune.luckyColorJa,
+    luckyColorKo: fortune.luckyColorKo,
+    luckyColorTw: fortune.luckyColorTw,
+    adviceZh: fortune.adviceZh,
+    adviceEn: fortune.adviceEn,
+    adviceJa: fortune.adviceJa,
+    adviceKo: fortune.adviceKo,
+    adviceTw: fortune.adviceTw,
+  });
+
+  try {
+    await fortuneDoc.save();
+  } catch (saveErr: any) {
+    // Race condition: another serverless instance saved while we were generating
+    if (saveErr.code === 11000) {
+      const raced = await DailyFortune.findOne({ date: today, zodiac: zodiac.name });
+      if (raced) {
+        const langKey = lang === 'ja' ? 'Ja' : lang === 'ko' ? 'Ko' : lang === 'zh-TW' ? 'Tw' : lang.startsWith('zh') ? 'Zh' : 'En';
+        const fortuneText = (raced as any)[`fortune${langKey}`] || raced.fortuneZh || raced.fortuneEn || raced.fortune;
+        const luckyColorText = (raced as any)[`luckyColor${langKey}`] || raced.luckyColorZh || raced.luckyColorEn || raced.luckyColor;
+        const adviceText = (raced as any)[`advice${langKey}`] || raced.adviceZh || raced.adviceEn || raced.advice;
+        return res.status(200).json({
+          zodiac: zodiac.name,
+          zodiacEn: zodiac.nameEn,
+          zodiacJa: zodiac.nameJa,
+          zodiacKo: zodiac.nameKo,
+          zodiacTw: zodiac.nameTw,
+          date: today,
+          cardName: raced.cardName,
+          cardNameEn: raced.cardNameEn,
+          cardNameJa: raced.cardNameJa,
+          cardNameKo: raced.cardNameKo,
+          cardNameTw: raced.cardNameTw,
+          cardImage: raced.cardImage,
+          cardOrientation: raced.cardOrientation,
+          fortune: fortuneText,
+          scores: { overall: raced.overall, love: raced.love, career: raced.career, wealth: raced.wealth, health: raced.health },
+          luckyNumber: raced.luckyNumber,
+          luckyColor: luckyColorText,
+          advice: adviceText,
+          cached: true,
+        });
+      }
+    }
+    console.error('Daily fortune save error:', saveErr);
+    return res.status(500).json({ error: t(req, 'fortuneFailedRetry'), detail: saveErr?.message || String(saveErr) });
+  }
+
+  const langKey = lang === 'ja' ? 'Ja' : lang === 'ko' ? 'Ko' : lang === 'zh-TW' ? 'Tw' : lang.startsWith('zh') ? 'Zh' : 'En';
+  return res.status(200).json({
+    zodiac: zodiac.name,
+    zodiacEn: zodiac.nameEn,
+    zodiacJa: zodiac.nameJa,
+    zodiacKo: zodiac.nameKo,
+    zodiacTw: zodiac.nameTw,
+    date: today,
+    cardName: randomCard.name,
+    cardNameEn: randomCard.nameEn,
+    cardNameJa: randomCard.nameJa,
+    cardNameKo: randomCard.nameKo,
+    cardNameTw: randomCard.nameTw,
+    cardImage: randomCard.image,
+    cardOrientation: orientation,
+    fortune: fortune[`fortune${langKey}`] || fortune.fortuneZh,
+    scores: { overall: fortune.overall, love: fortune.love, career: fortune.career, wealth: fortune.wealth, health: fortune.health },
+    luckyNumber: fortune.luckyNumber,
+    luckyColor: fortune[`luckyColor${langKey}`] || fortune.luckyColorZh,
+    advice: fortune[`advice${langKey}`] || fortune.adviceZh,
+    cached: false,
+  });
 }
 
 

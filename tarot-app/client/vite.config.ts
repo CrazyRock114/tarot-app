@@ -29,6 +29,10 @@ export default defineConfig({
     // Remove console.* and debugger statements in production
     esbuild: {
       drop: ['console', 'debugger'],
+      // Move legal comments (licenses, @preserve) to a separate .LEGAL.txt file
+      // instead of embedding them in every JS chunk. Removes version info from
+      // production bundles while keeping license attribution accessible.
+      legalComments: 'external',
     },
   },
 });
