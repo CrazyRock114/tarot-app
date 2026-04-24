@@ -3,16 +3,29 @@
   <head>
     <script>
       // Force reload if cached version is stale (prevents CSRF issues from old JS)
+      // location.reload(true) does NOT bypass cache in modern browsers.
+      // We navigate to a cache-busting URL to force a fresh load.
       (function() {
-        var buildTime = "20250424";
+        var buildTime = "20250425";
         try {
+          // Prevent infinite redirect loops
+          if (sessionStorage.getItem('__reloaded')) return;
+
           var cached = localStorage.getItem('__build_time');
           if (cached && cached !== buildTime) {
             localStorage.setItem('__build_time', buildTime);
-            location.reload(true);
-          } else {
-            localStorage.setItem('__build_time', buildTime);
+            sessionStorage.setItem('__reloaded', '1');
+            // Navigate to same URL with random param — browser treats it as a new resource
+            var url = location.protocol + '//' + location.host + location.pathname;
+            if (location.search) {
+              url += location.search + '&_r=' + Date.now();
+            } else {
+              url += '?_r=' + Date.now();
+            }
+            location.replace(url);
+            return;
           }
+          localStorage.setItem('__build_time', buildTime);
         } catch(e) {}
       })();
     </script>

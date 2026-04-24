@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/layout/Layout';
 import NotFound from './pages/NotFound';
@@ -37,6 +37,15 @@ const LoadingFallback = () => (
 );
 
 const App: FC = () => {
+  useEffect(() => {
+    // Clean up cache-busting query param after forced reload
+    if (window.location.search.includes('_r=')) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('_r');
+      window.history.replaceState(null, '', url.toString());
+    }
+  }, []);
+
   return (
     <HelmetProvider>
     <AuthProvider>
