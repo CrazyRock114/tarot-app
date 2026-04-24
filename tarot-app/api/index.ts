@@ -16,6 +16,7 @@ import { MsEdgeTTS, OUTPUT_FORMAT } from 'msedge-tts';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 
 // MongoDB 连接
 const MONGODB_URI = process.env.MONGODB_URI || '';
@@ -78,13 +79,9 @@ function getCorsHeaders(req: any) {
   };
 }
 
-// CSRF Token 存储
-const csrfStore = new Map<string, string>();
-
+// CSRF Token — 使用 HMAC 生成（无状态，适配 Vercel Serverless）
 function generateCsrfToken(sessionId: string): string {
-  const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
-  csrfStore.set(sessionId, token);
-  return token;
+  return crypto.createHmac('sha256', JWT_SECRET).update(sessionId).digest('hex');
 }
 
 function validateCsrfToken(req: any): boolean {
@@ -97,8 +94,9 @@ function validateCsrfToken(req: any): boolean {
   const cookieHeader = req.headers.cookie;
   const sessionMatch = cookieHeader?.match(/sessionId=([^;]+)/);
   const sessionId = sessionMatch ? sessionMatch[1] : '';
-  if (!sessionId || !csrfStore.has(sessionId)) return false;
-  return csrfStore.get(sessionId) === csrfHeader;
+  if (!sessionId || !csrfHeader) return false;
+  const expectedToken = generateCsrfToken(sessionId);
+  return expectedToken === csrfHeader;
 }
 
 // 连接 MongoDB
@@ -1792,10 +1790,10 @@ async function handleRegister(req, res) {
   const sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36);
   const csrfToken = generateCsrfToken(sessionId);
   // 设置 HttpOnly Cookie（向后兼容：同时返回 token 字段）
-  const isSecure = BASE_URL.startsWith('https://');
+  const secureFlag = BASE_URL.startsWith('https://') ? '; Secure' : '';
   res.setHeader('Set-Cookie', [
-    `token=${encodeURIComponent(token)}; HttpOnly; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
-    `sessionId=${sessionId}; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
+    `token=${encodeURIComponent(token)}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
+    `sessionId=${sessionId}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
   ]);
   return res.status(201).json({ token, csrfToken, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
 }
@@ -1815,10 +1813,10 @@ async function handleLogin(req, res) {
   const sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36);
   const csrfToken = generateCsrfToken(sessionId);
   // 设置 HttpOnly Cookie（向后兼容：同时返回 token 字段）
-  const isSecure = BASE_URL.startsWith('https://');
+  const secureFlag = BASE_URL.startsWith('https://') ? '; Secure' : '';
   res.setHeader('Set-Cookie', [
-    `token=${encodeURIComponent(token)}; HttpOnly; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
-    `sessionId=${sessionId}; Secure=${isSecure}; SameSite=Strict; Path=/; Max-Age=604800`,
+    `token=${encodeURIComponent(token)}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
+    `sessionId=${sessionId}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
   ]);
   return res.status(200).json({ token, csrfToken, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
 }
