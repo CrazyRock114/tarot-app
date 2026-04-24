@@ -150,7 +150,8 @@
     "generatingHint": "正在为你解读星象...",
     "step1Desc": "輸入你的生日，開啟專屬運勢之旅",
     "step2Desc": "AI結合星座與塔羅，為你生成今日運勢",
-    "step3Desc": "獲取愛情、事業、財運、健康全方位指引"
+    "step3Desc": "獲取愛情、事業、財運、健康全方位指引",
+    "dateFormatHint": "格式：YYYY-MM-DD（如 1990-01-01）"
   },
   "gallery": {
     "title": "塔罗图鉴",

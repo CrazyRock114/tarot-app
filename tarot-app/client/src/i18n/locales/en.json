@@ -150,7 +150,8 @@
     "generatingHint": "Reading the stars for you...",
     "step1Desc": "Enter your birthday to start your personalized fortune journey",
     "step2Desc": "AI combines zodiac and tarot to generate your daily fortune",
-    "step3Desc": "Get guidance on love, career, wealth, and health"
+    "step3Desc": "Get guidance on love, career, wealth, and health",
+    "dateFormatHint": "Format: YYYY-MM-DD (e.g. 1990-01-01)"
   },
   "gallery": {
     "title": "Tarot Gallery",

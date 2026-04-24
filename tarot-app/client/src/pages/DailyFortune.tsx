@@ -173,7 +173,8 @@ const DailyFortune = () => {
                   onChange={(e) => setBirthday(e.target.value)}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-xl text-white text-center text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-6 [color-scheme:dark]"
                 />
-                
+                <p className="text-gray-500 text-xs mb-4">{t('fortune.dateFormatHint')}</p>
+
                 {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
                 
                 <button
