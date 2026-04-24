@@ -33,6 +33,7 @@
     }
   ],
   "routes": [
+    { "src": "/api/admin/(.*)", "dest": "/api/admin" },
     { "src": "/api/debug", "dest": "/api/debug" },
     { "src": "/api/health", "dest": "/api/index" },
     { "src": "/api/tarot/cards", "dest": "/api/index" },
