@@ -16,12 +16,15 @@ import { MsEdgeTTS, OUTPUT_FORMAT } from 'msedge-tts';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import { createHmac } from 'crypto';
+import { createHmac, randomBytes, timingSafeEqual } from 'crypto';
 
 // MongoDB 连接
 const MONGODB_URI = process.env.MONGODB_URI || '';
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
+const JWT_SECRET = process.env.JWT_SECRET || '';
 const BASE_URL = process.env.BASE_URL || 'https://2or.com';
+if ((process.env.NODE_ENV === 'production' || process.env.VERCEL) && JWT_SECRET.length < 32) {
+  throw new Error('JWT_SECRET must be configured with at least 32 characters');
+}
 
 // 限流存储（使用内存，生产环境建议使用 Redis）
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
@@ -81,37 +84,40 @@ function getCorsHeaders(req: any) {
 
 // CSRF Token — 使用 HMAC 生成（无状态，适配 Vercel Serverless）
 function generateCsrfToken(sessionId: string): string {
+  if (!JWT_SECRET) throw new Error('JWT_SECRET is not configured');
   return createHmac('sha256', JWT_SECRET).update(sessionId).digest('hex');
+}
+
+const PUBLIC_AUTH_POSTS = new Set(['/api/auth/register', '/api/auth/login', '/api/auth/forgot-password', '/api/auth/reset-password']);
+const PUBLIC_ANONYMOUS_POSTS = new Set(['/api/tarot/reading', '/api/tarot/interpret', '/api/daily-fortune']);
+function hasTrustedOrigin(req: any): boolean {
+  const origin = req.headers.origin;
+  if (origin) return ALLOWED_ORIGINS.includes(origin);
+  const referer = req.headers.referer;
+  if (!referer) return false;
+  try { return ALLOWED_ORIGINS.includes(new URL(referer).origin); } catch { return false; }
 }
 
 function validateCsrfToken(req: any): boolean {
   // 只验证非 GET/OPTIONS 请求
   if (req.method === 'GET' || req.method === 'OPTIONS') return true;
-  // 跳过 auth 端点的 CSRF 验证（登录前还没有 token）
   const path = req.url?.split('?')[0] || '';
-  if (path.startsWith('/api/auth/')) return true;
+  if (PUBLIC_AUTH_POSTS.has(path)) return hasTrustedOrigin(req);
   const csrfHeader = req.headers['x-csrf-token'];
   const cookieHeader = req.headers.cookie;
   const sessionMatch = cookieHeader?.match(/sessionId=([^;]+)/);
   const sessionId = sessionMatch ? sessionMatch[1] : '';
+  if (!sessionId && PUBLIC_ANONYMOUS_POSTS.has(path) && !getTokenFromRequest(req)) return hasTrustedOrigin(req);
 
   // Backward compat: old clients don't have sessionId cookie (set by new login)
   // Skip CSRF for them until they re-login and get a sessionId cookie.
   // New clients always have sessionId + X-CSRF-Token and are fully protected.
-  if (!sessionId) {
-    console.log('[CSRF] Backward compat: no sessionId cookie, skipping CSRF');
-    return true;
-  }
-
-  if (!csrfHeader) {
-    console.log('[CSRF Fail] missing csrfHeader');
-    return false;
-  }
+  if (!sessionId || typeof csrfHeader !== 'string' || !hasTrustedOrigin(req)) return false;
 
   const expectedToken = generateCsrfToken(sessionId);
-  const valid = expectedToken === csrfHeader;
-  console.log('[CSRF Result]', { valid, expectedPrefix: expectedToken.slice(0, 8), headerPrefix: csrfHeader?.slice(0, 8) });
-  return valid;
+  const expected = Buffer.from(expectedToken);
+  const supplied = Buffer.from(csrfHeader);
+  return expected.length === supplied.length && timingSafeEqual(expected as any, supplied as any);
 }
 
 // 连接 MongoDB
@@ -316,12 +322,7 @@ const adminMiddleware = async (req: any, res: any) => {
 // Auth Middleware - 同时支持 Bearer token (localStorage) 和 HttpOnly Cookie
 type DecodedToken = { userId: string };
 function getTokenFromRequest(req: any): string | null {
-  // 1. 优先从 Authorization header 读取 (向后兼容 localStorage)
-  const authHeader = req.headers.authorization;
-  if (authHeader && authHeader.startsWith('Bearer ')) {
-    return authHeader.split(' ')[1];
-  }
-  // 2. 从 cookie 读取 (新的 HttpOnly Cookie 方式)
+  // 会话只从 HttpOnly Cookie 读取。
   const cookies = req.headers.cookie;
   if (cookies) {
     const tokenMatch = cookies.match(/token=([^;]+)/);
@@ -332,6 +333,7 @@ function getTokenFromRequest(req: any): string | null {
 
 const authMiddleware = async (req: any, res: any, silent = false) => {
   try {
+    if (!JWT_SECRET) throw new Error('JWT_SECRET is not configured');
     const token = getTokenFromRequest(req);
     if (!token) {
       if (!silent) res.status(401).json({ message: t(req, 'authRequired') });
@@ -978,6 +980,7 @@ export default async function handler(req, res) {
     if (path === '/api/auth/register' && method === 'POST') return handleRegister(req, res);
     if (path === '/api/auth/login' && method === 'POST') return handleLogin(req, res);
     if (path === '/api/auth/me' && method === 'GET') return handleGetMe(req, res);
+    if (path === '/api/auth/csrf' && method === 'GET') return handleGetCsrf(req, res);
     if (path === '/api/auth/forgot-password' && method === 'POST') return handleForgotPassword(req, res);
     if (path === '/api/auth/reset-password' && method === 'POST') return handleResetPassword(req, res);
     if (path === '/api/auth/logout' && method === 'POST') return handleLogout(req, res);
@@ -1866,15 +1869,14 @@ async function handleRegister(req, res) {
   }
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  const sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36);
+  const sessionId = randomBytes(32).toString('hex');
   const csrfToken = generateCsrfToken(sessionId);
-  // 设置 HttpOnly Cookie（向后兼容：同时返回 token 字段）
   const secureFlag = BASE_URL.startsWith('https://') ? '; Secure' : '';
   res.setHeader('Set-Cookie', [
     `token=${encodeURIComponent(token)}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
     `sessionId=${sessionId}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
   ]);
-  return res.status(201).json({ token, csrfToken, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
+  return res.status(201).json({ csrfToken, user: { id: user._id, username: user.username, email: user.email, points: user.points, inviteCode: user.inviteCode, role: user.role, membership: user.membership, createdAt: user.createdAt } });
 }
 
 async function handleLogin(req, res) {
@@ -1889,15 +1891,22 @@ async function handleLogin(req, res) {
   if (!isValidPassword) return res.status(401).json({ message: t(req, 'wrongCredentials') });
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
-  const sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36);
+  const sessionId = randomBytes(32).toString('hex');
   const csrfToken = generateCsrfToken(sessionId);
-  // 设置 HttpOnly Cookie（向后兼容：同时返回 token 字段）
   const secureFlag = BASE_URL.startsWith('https://') ? '; Secure' : '';
   res.setHeader('Set-Cookie', [
     `token=${encodeURIComponent(token)}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
     `sessionId=${sessionId}; HttpOnly${secureFlag}; SameSite=Strict; Path=/; Max-Age=604800`,
   ]);
-  return res.status(200).json({ token, csrfToken, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
+  return res.status(200).json({ csrfToken, user: { id: user._id, username: user.username, email: user.email, birthday: user.birthday || '', points: user.points, membership: user.membership, role: user.role, createdAt: user.createdAt } });
+}
+
+async function handleGetCsrf(req, res) {
+  const sessionId = req.headers.cookie?.match(/sessionId=([^;]+)/)?.[1];
+  if (!sessionId) return res.status(401).json({ message: t(req, 'authRequired') });
+  const userId = await authMiddleware(req, res);
+  if (!userId) return;
+  return res.status(200).json({ csrfToken: generateCsrfToken(sessionId) });
 }
 
 async function handleGetMe(req, res) {

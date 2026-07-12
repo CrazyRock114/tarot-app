@@ -12,9 +12,11 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+import { createHmac, timingSafeEqual } from 'crypto';
 
 const MONGODB_URI = process.env.MONGODB_URI || '';
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
+const JWT_SECRET = process.env.JWT_SECRET || '';
+if ((process.env.NODE_ENV === 'production' || process.env.VERCEL) && JWT_SECRET.length < 32) throw new Error('JWT_SECRET must be configured with at least 32 characters');
 
 let isConnected = false;
 const connectDB = async () => {
@@ -103,10 +105,6 @@ const RequestLog = mongoose.models.RequestLog || mongoose.model('RequestLog', Re
 
 // Auth
 function getTokenFromRequest(req: any): string | null {
-  const authHeader = req.headers.authorization;
-  if (authHeader && authHeader.startsWith('Bearer ')) {
-    return authHeader.split(' ')[1];
-  }
   const cookies = req.headers.cookie;
   if (cookies) {
     const tokenMatch = cookies.match(/token=([^;]+)/);
@@ -117,6 +115,7 @@ function getTokenFromRequest(req: any): string | null {
 
 const authMiddleware = async (req: any, res: any, silent = false) => {
   try {
+    if (!JWT_SECRET) throw new Error('JWT_SECRET is not configured');
     const token = getTokenFromRequest(req);
     if (!token) {
       if (!silent) res.status(401).json({ message: 'Authentication required' });
@@ -130,12 +129,12 @@ const authMiddleware = async (req: any, res: any, silent = false) => {
   }
 };
 
-const ADMIN_EMAILS = ['paul89114@126.com'];
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || '').split(',').map(email => email.trim().toLowerCase()).filter(Boolean);
 const adminMiddleware = async (req: any, res: any) => {
   const userId = await authMiddleware(req, res, true);
   if (!userId) return null;
   const user = await User.findById(userId);
-  if (!user || !ADMIN_EMAILS.includes(user.email)) {
+  if (!user || (user.role !== 'admin' && !ADMIN_EMAILS.includes(user.email))) {
     res.status(403).json({ message: 'Admin access required' });
     return null;
   }
@@ -144,6 +143,17 @@ const adminMiddleware = async (req: any, res: any) => {
 
 // CORS
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://2or.com').split(',').map(o => o.trim());
+function validateAdminCsrf(req: any): boolean {
+  if (req.method === 'GET' || req.method === 'OPTIONS') return true;
+  if (!ALLOWED_ORIGINS.includes(req.headers.origin || '')) return false;
+  const sessionId = req.headers.cookie?.match(/sessionId=([^;]+)/)?.[1];
+  const suppliedToken = req.headers['x-csrf-token'];
+  if (!sessionId || typeof suppliedToken !== 'string' || !JWT_SECRET) return false;
+  const expectedToken = createHmac('sha256', JWT_SECRET).update(sessionId).digest('hex');
+  const expected = Buffer.from(expectedToken);
+  const supplied = Buffer.from(suppliedToken);
+  return expected.length === supplied.length && timingSafeEqual(expected as any, supplied as any);
+}
 function getCorsHeaders(req: any) {
   const origin = req.headers.origin;
   const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
@@ -401,6 +411,7 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
+  if (!validateAdminCsrf(req)) return res.status(403).json({ error: 'CSRF token invalid' });
 
   const path = req.url?.split('?')[0] || '';
   const method = req.method;

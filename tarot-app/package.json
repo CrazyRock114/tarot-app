@@ -4,7 +4,11 @@
   "description": "AI 塔罗占卜平台 - Vercel 原生部署版",
   "type": "module",
   "scripts": {
-    "build": "cd client && npm install && npm run build && cp -r dist ../dist",
+    "build": "cd client && npm run build && cp -r dist ../dist",
+    "typecheck": "cd client && npm run typecheck",
+    "lint": "cd client && npm run lint",
+    "test:i18n": "node tests/i18n-test-suite.js",
+    "check": "npm run typecheck && npm run lint && npm run test:i18n && npm run build",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "cd client && npm run dev",
     "dev:server": "tsx api/server.ts",

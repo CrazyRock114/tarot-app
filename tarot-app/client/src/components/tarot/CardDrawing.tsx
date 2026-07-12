@@ -51,10 +51,7 @@ export const CardDrawing: React.FC = () => {
   const [selectedReader, setSelectedReader] = useState('mystic');
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const headers: Record<string, string> = {};
-    if (token) headers['Authorization'] = 'Bearer ' + token;
-    fetch('/api/tarot/reading/check', { headers })
+    fetch('/api/tarot/reading/check', { credentials: 'include' })
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data) setReadingQuota(data); })
       .catch(() => {});
@@ -100,9 +97,8 @@ export const CardDrawing: React.FC = () => {
     if (!drawnCards || !question.trim()) return;
     if (selectedMode === 'random' && !selectedSpread) return;
     // Refresh quota after interpret
-    const token = localStorage.getItem('token');
-    if (token) {
-      fetch('/api/tarot/reading/check', { headers: { 'Authorization': 'Bearer ' + token } })
+    if (readingQuota) {
+      fetch('/api/tarot/reading/check', { credentials: 'include' })
         .then(r => r.ok ? r.json() : null)
         .then(data => { if (data) setReadingQuota(data); })
         .catch(() => {});

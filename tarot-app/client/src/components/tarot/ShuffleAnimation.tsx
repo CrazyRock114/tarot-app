@@ -1,17 +1,23 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 interface ShuffleAnimationProps {
   cardCount: number;
   onComplete: () => void;
 }
 
-const CardBack = ({ onClick, glowing = false }: {
+const PARTICLES = Array.from({ length: 15 }, (_, index) => ({ id: index, left: `${(index * 37) % 97}%`, top: `${(index * 61) % 93}%`, duration: 3 + (index % 5) * 0.35, delay: (index % 7) * 0.4 }));
+
+const CardBack = ({ onClick, glowing = false, label }: {
   onClick?: () => void;
   glowing?: boolean;
+  label?: string;
 }) => (
-  <div
+  <button
+    type="button"
+    aria-label={label}
+    disabled={!onClick}
     className={`relative select-none ${onClick ? 'cursor-pointer' : ''}`}
     style={{ width: 64, height: 100 }}
     onClick={onClick}
@@ -28,7 +34,7 @@ const CardBack = ({ onClick, glowing = false }: {
         />
       )}
     </div>
-  </div>
+  </button>
 );
 
 type Phase = 'gather' | 'shuffle' | 'spread' | 'done';
@@ -39,6 +45,7 @@ function delay(ms: number) {
 
 const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
   const { t } = useTranslation();
+  const reduceMotion = useReducedMotion();
   const [phase, setPhase] = useState<Phase>('gather');
   const [message, setMessage] = useState('');
   const [pickedIndices, setPickedIndices] = useState<number[]>([]);
@@ -48,6 +55,11 @@ const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
   useEffect(() => {
     let cancelled = false;
     const run = async () => {
+      if (reduceMotion) {
+        setPhase('spread');
+        setMessage(t('shuffle.selectHint', { count: cardCount }));
+        return;
+      }
       setMessage(t('shuffle.gatherHint'));
       await delay(2200);
       if (cancelled) return;
@@ -62,7 +74,14 @@ const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
     };
     run();
     return () => { cancelled = true; };
-  }, [cardCount]);
+  }, [cardCount, reduceMotion, t]);
+
+  useEffect(() => {
+    const fallback = window.setTimeout(onComplete, 45_000);
+    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onComplete(); };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => { window.clearTimeout(fallback); window.removeEventListener('keydown', handleKeyDown); };
+  }, [onComplete]);
 
   const handlePick = useCallback((index: number) => {
     if (pickedIndices.includes(index) || phase !== 'spread') return;
@@ -77,7 +96,7 @@ const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
       setPhase('done');
       setTimeout(onComplete, 1500);
     }
-  }, [pickedIndices, cardCount, onComplete, phase]);
+  }, [pickedIndices, cardCount, onComplete, phase, t]);
 
   return (
     <motion.div
@@ -88,22 +107,22 @@ const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
     >
       {/* Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+        {PARTICLES.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
               y: [0, -120],
               opacity: [0, 0.5, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: particle.delay,
             }}
           />
         ))}
@@ -207,6 +226,7 @@ const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
                   <CardBack
                     onClick={phase === 'spread' && !isPicked ? () => handlePick(i) : undefined}
                     glowing={isPicked}
+                    label={t('shuffle.selectHint', { count: cardCount })}
                   />
                 </motion.div>
               );
@@ -237,11 +257,11 @@ const ShuffleAnimation = ({ cardCount, onComplete }: ShuffleAnimationProps) => {
       {phase !== 'done' && (
         <motion.button
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ delay: 4 }}
-          whileHover={{ opacity: 0.8 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          whileHover={{ opacity: 0.9 }}
           onClick={onComplete}
-          className="mt-8 text-gray-600 text-xs hover:text-gray-400 transition-colors z-10"
+          className="mt-8 min-h-11 px-5 py-3 text-gray-300 text-sm underline underline-offset-4 hover:text-white transition-colors z-10"
         >
           {t('shuffle.skip')} →
         </motion.button>

@@ -26,8 +26,8 @@ const Login = () => {
     setError('');
     try {
       const response = await authApi.login(formData);
-      const { token, user, csrfToken } = response.data;
-      login(token, user, csrfToken);
+      const { user, csrfToken } = response.data;
+      login(user, csrfToken);
       navigate('/profile');
     } catch (err: any) {
       setError(err.response?.data?.message || t('common.error'));
