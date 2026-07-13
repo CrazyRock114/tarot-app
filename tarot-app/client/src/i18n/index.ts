@@ -82,7 +82,6 @@ export async function initializeI18n() {
 
 // 语言变化时更新 cookie 和 html lang
 i18n.on('languageChanged', (lng: string) => {
-  localStorage.setItem('i18nLang', lng);
   document.cookie = `i18nLang=${lng}; path=/; max-age=31536000; samesite=lax`;
   document.documentElement.lang = lng;
 });
