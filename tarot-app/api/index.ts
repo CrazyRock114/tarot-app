@@ -33,6 +33,23 @@ const RATE_LIMIT_WINDOW = 60 * 1000; // 1分钟
 const RATE_LIMIT_MAX = 60; // 全局每分钟最多60个请求
 const AUTH_RATE_LIMIT_MAX = 5; // 登录/注册接口每分钟最多5个请求
 
+const COUNTRY_LANGUAGE_MAP: Record<string, string> = {
+  CN: 'zh-CN',
+  HK: 'zh-TW',
+  MO: 'zh-TW',
+  TW: 'zh-TW',
+  JP: 'ja',
+  KR: 'ko',
+};
+
+function getLanguageFromIp(req: any): string {
+  const countryHeader = req.headers['x-vercel-ip-country'] || req.headers['cf-ipcountry'];
+  const country = (Array.isArray(countryHeader) ? countryHeader[0] : countryHeader || '')
+    .trim()
+    .toUpperCase();
+  return COUNTRY_LANGUAGE_MAP[country] || 'en';
+}
+
 // 限流中间件
 function rateLimit(req: any, res: any, isAuthEndpoint = false): boolean {
   const ip = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
@@ -962,6 +979,10 @@ export default async function handler(req, res) {
 
   try {
     if (path === '/api/health' && method === 'GET') return handleHealth(req, res);
+    if (path === '/api/locale' && method === 'GET') {
+      res.setHeader('Cache-Control', 'private, no-store');
+      return res.status(200).json({ language: getLanguageFromIp(req) });
+    }
     if (path === '/api/tarot/cards' && method === 'GET') return handleCards(req, res);
     if (path === '/api/daily-fortune' && method === 'POST') return handleDailyFortune(req, res);
     if (path === '/api/user/birthday' && method === 'PUT') return handleUpdateBirthday(req, res);
