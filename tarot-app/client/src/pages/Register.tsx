@@ -35,8 +35,8 @@ const Register = () => {
         username: formData.username, email: formData.email,
         password: formData.password, inviteCode: formData.inviteCode,
       });
-      const { token, user, csrfToken } = response.data;
-      login(token, user, csrfToken);
+      const { user, csrfToken } = response.data;
+      login(user, csrfToken);
       navigate('/profile');
     } catch (err: any) {
       setError(err.response?.data?.message || t('common.error'));

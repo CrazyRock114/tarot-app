@@ -22,7 +22,8 @@ export default function LanguageSwitcher() {
   const switchLang = (code: string) => {
     i18n.changeLanguage(code);
     // 同步设置 cookie，供后端语言检测使用
-    document.cookie = `i18nLang=${code}; path=/; max-age=31536000`;
+    localStorage.setItem('i18nLang', code);
+    document.cookie = `i18nLang=${code}; path=/; max-age=31536000; samesite=lax`;
     setOpen(false);
     // 添加 ?lang= URL 参数以便分享和 SEO
     const url = new URL(window.location.href);

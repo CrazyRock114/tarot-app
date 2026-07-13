@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, Users, BookOpen, Coins, AlertTriangle, Activity, Shield, Trash2, Edit, Search, Eye, X, Save } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getCsrfToken } from '../api';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -35,7 +36,6 @@ const Admin = () => {
   const [userReadings, setUserReadings] = useState<any[]>([]);
   const [userPoints, setUserPoints] = useState<any[]>([]);
 
-  const token = localStorage.getItem('token');
   const locale = localStorage.getItem('i18nextLng') || 'en';
 
   useEffect(() => { checkAdmin(); }, []);
@@ -51,9 +51,8 @@ const Admin = () => {
   }, [tab, isAdmin, usersPage, readingsPage, pointsPage, errorPage, requestPage]);
 
   const checkAdmin = async () => {
-    if (!token) { setLoading(false); navigate('/login'); return; }
     try {
-      const res = await fetch('/api/admin/dashboard', { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch('/api/admin/dashboard', { credentials: 'include' });
       if (res.ok) { setIsAdmin(true); setDashboard(await res.json()); }
       else if (res.status === 401) { navigate('/login'); }
     } catch (err) { console.error('Admin check failed:', err); }
@@ -61,9 +60,8 @@ const Admin = () => {
   };
 
   const ah = () => {
-    const csrfToken = localStorage.getItem('csrfToken');
+    const csrfToken = getCsrfToken();
     return {
-      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
       ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
     };

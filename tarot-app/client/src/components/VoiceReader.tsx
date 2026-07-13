@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Volume2, Pause, Play, Square, Loader2 } from 'lucide-react';
+import { getCsrfToken } from '../api';
 
 interface VoiceReaderProps {
   text: string;
@@ -42,13 +43,11 @@ const VoiceReader = ({ text, readerStyle = 'mystic', ready = true }: VoiceReader
     // Generate new audio from server
     setLoading(true);
     try {
-      const token = localStorage.getItem('token');
-      const csrfToken = localStorage.getItem('csrfToken');
+      const csrfToken = getCsrfToken();
       const response = await fetch('/api/tts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
           ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
         },
         credentials: 'include',

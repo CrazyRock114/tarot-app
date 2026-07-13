@@ -1,11 +1,13 @@
 import axios, { AxiosInstance } from 'axios';
 import i18next from 'i18next';
+import { getCsrfToken } from './index';
 
 const api: AxiosInstance = axios.create({
   baseURL: '/api',
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
 });
 
 // 塔罗牌类型
@@ -52,13 +54,11 @@ export const tarotApi = {
     const timeoutId = setTimeout(() => controller.abort(), 120000); // 120秒超时（流式不会卡住）
     
     try {
-      const token = localStorage.getItem('token');
-      const csrfToken = localStorage.getItem('csrfToken');
+      const csrfToken = getCsrfToken();
       const response = await fetch('/api/tarot/reading', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
           ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
         },
         credentials: 'include',
@@ -164,13 +164,11 @@ export const followUpStream = async (
   const timeoutId = setTimeout(() => controller.abort(), 60000);
   
   try {
-    const token = localStorage.getItem('token');
-    const csrfToken = localStorage.getItem('csrfToken');
+    const csrfToken = getCsrfToken();
     const response = await fetch(`/api/tarot/followup/${readingId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
         ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}),
       },
       credentials: 'include',
